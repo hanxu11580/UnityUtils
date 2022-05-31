@@ -25,6 +25,24 @@ namespace Utility.Editor {
 
         // TextField逐字Undo
         // 记录操作前，Undo.IncrementCurrentGroup();
+
+        // GUILayout是GUI的拓展 GUI忽略Layout
+        // EditorGUILayout和EditorGUI是上面俩的扩展，但在运行时无法使用
+
+        // GUILayout.FlexibleSpace()可以实现控件1在最左边，控件2在最右边
+
+        // GUIUtility.GetStateObject可以实现将控件状态带入下一个OnGUI中
+
+        // Tools.current记录当前是unity qwer哪种
+
+        // 如果没有控件处于hotControl，则它基本上返回未经过滤的当前事件。
+        // 这使每个控件都有机会使其首先变为hotControl。
+        // 设置hotControl后，“GetTypeForControl”仅在传递的控件ID当前为hotControl或具有键盘焦点时才返回事件。
+        // hotControl主要过滤鼠标事件，而KeyboardControl过滤按键事件
+
+        // 下面可以实现：防止取消选择当前对象
+        //int myID = GUIUtility.GetControlID(FocusType.Passive);
+        //HandleUtility.AddDefaultControl(myID);
         #endregion
 
 
@@ -70,6 +88,17 @@ namespace Utility.Editor {
                     menu.AddSeparator("");
             }
             menu.ShowAsContext();
+        }
+
+        public static void TryOpenCSFile(string path, bool isAssetsPath = true) {
+            if (!isAssetsPath) {
+                path = PathUtils.GetAssetsPath(path);
+            }
+
+            var lScript = (MonoScript)AssetDatabase.LoadAssetAtPath(path, typeof(MonoScript));
+            if (lScript != null) {
+                AssetDatabase.OpenAsset(lScript);
+            }
         }
 
 
