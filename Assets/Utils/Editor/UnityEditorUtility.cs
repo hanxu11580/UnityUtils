@@ -45,8 +45,22 @@ namespace Utility.Editor {
         //HandleUtility.AddDefaultControl(myID);
         #endregion
 
-
         public static GUIStyle Selection = "SelectionRect";
+
+        public readonly static Color DefaultFontColor;
+
+        public readonly static GUIStyle RichTextGUIStyle;
+
+        static UnityEditorUtility() {
+            // 这个颜色是Unity默认字体颜色
+            DefaultFontColor = new Color(0.811f, 0.811f, 0.811f);
+
+            RichTextGUIStyle = new GUIStyle();
+            RichTextGUIStyle.richText = true;
+            RichTextGUIStyle.normal.textColor = DefaultFontColor;
+        }
+
+
         /// <summary>
         /// 画一个盒子
         /// </summary>
@@ -100,6 +114,36 @@ namespace Utility.Editor {
                 AssetDatabase.OpenAsset(lScript);
             }
         }
+
+        /// <summary>
+        /// 触发组合键
+        /// </summary>
+        /// <param name="preKey"></param>
+        /// <param name="postKey"></param>
+        /// <param name="postKeyEvent"></param>
+        /// <returns></returns>
+        public static bool KeyCombinationsTick(EventModifiers preKey, KeyCode postKey, EventType postKeyEvent) {
+            if (preKey != EventModifiers.None) {
+                // 修饰键位和preKey相同则表示按下
+                bool modifiersEventDown = (Event.current.modifiers & preKey) != 0;
+                if (modifiersEventDown // 修饰键按下
+                    && Event.current.rawType == postKeyEvent
+                    && Event.current.keyCode == postKey) {
+                    Event.current.Use();
+                    return true;
+                }
+            }
+            else {
+                // 没有修饰符键位
+                if (Event.current.rawType == postKeyEvent 
+                    && Event.current.keyCode == postKey) {
+                    Event.current.Use();
+                    return true;
+                }
+            }
+            return false;
+        }
+
 
 
         #region 通用画List代码模板
