@@ -190,6 +190,76 @@ namespace Utility.Editor {
         //}
 
         #endregion
+
+        #region List拖拽交换伪代码
+        //var groupRect = GUILayoutUtility.GetLastRect();
+        //var cid = GUIUtility.GetControlID(FocusType.Passive);
+        //var e = Event.current;
+        //if (e.type == EventType.Repaint) {
+        //    if (_groupRects.ContainsKey(i)) {
+        //        _groupRects[i] = groupRect;
+        //    }
+        //    else {
+        //        _groupRects.Add(i, groupRect);
+        //    }
+        //}
+
+        //switch (e.GetTypeForControl(cid)) {
+        //    case EventType.Repaint: {
+        //            if (_groupDragTag && GUIUtility.hotControl == cid) {
+        //                // 层级显示有问题 先没有标识了
+        //                //var tempRect = new Rect();
+        //                //tempRect.position = groupRect.position + _groupDragOffset;
+        //                //tempRect.size = new Vector2(50, 50);
+        //                //GUI.Box(tempRect, EditorGUIUtility.TrIconContent("Assets/Editor Default Resources/Icon/good.png"));
+        //                UnityEditorUtility.DrawRectColor(groupRect, Color.red);
+        //                foreach (var keyValue in _groupRects) {
+        //                    if (keyValue.Key == i) continue;
+        //                    if (keyValue.Value.Contains(e.mousePosition)) {
+        //                        UnityEditorUtility.DrawRectColor(keyValue.Value, Color.green);
+        //                    }
+        //                }
+        //            }
+        //            break;
+        //        }
+        //    case EventType.MouseDown: {
+        //            if (groupRect.Contains(e.mousePosition)) {
+        //                GUIUtility.hotControl = cid;
+        //                e.Use();
+        //            }
+        //            break;
+        //        }
+        //    case EventType.MouseDrag: {
+        //            if (GUIUtility.hotControl == cid) {
+        //                _groupDragOffset = e.mousePosition - groupRect.position;
+        //                _groupDragTag = true;
+        //                e.Use();
+        //            }
+        //            break;
+        //        }
+        //    case EventType.MouseUp: {
+        //            if (GUIUtility.hotControl == cid) {
+        //                GUIUtility.hotControl = 0;
+        //                _groupDragOffset = Vector2.zero;
+        //                _groupDragTag = false;
+
+        //                foreach (var keyValue in _groupRects) {
+        //                    if (keyValue.Key == i) continue;
+        //                    if (keyValue.Value.Contains(e.mousePosition)) {
+        //                        var curGroup = bGroups[i];
+        //                        var swagGroup = bGroups[keyValue.Key];
+        //                        bGroups[keyValue.Key] = curGroup;
+        //                        bGroups[i] = swagGroup;
+        //                    }
+        //                }
+        //                e.Use();
+        //            }
+        //            //
+        //            break;
+        //        }
+        //}
+
+        #endregion
     }
 
 
