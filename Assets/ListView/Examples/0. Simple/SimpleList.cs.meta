@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: eaa5428cda474804c8ccf03d7035eb97
+timeCreated: 1521941989
+licenseType: Pro
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_Prefab: {fileID: 1000013969144226, guid: d1231bce9e0eda44bb19b5ab39ea31eb, type: 2}
+  - m_Skin: {fileID: 11400000, guid: 5ba77d7064f923144be57e426aa75e87, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
