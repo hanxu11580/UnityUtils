@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Utility.Editor {
+namespace EditorUtils {
 
     [Serializable]
     public class DataTableRowData

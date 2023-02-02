@@ -21,10 +21,10 @@ namespace Unity.Labs.ListView
                     pathToBuildProject = string.IsNullOrEmpty(dirName) ? fileName : Path.Combine(dirName, fileName);
 
                     Debug.Log(string.Format("Copying {0} to {1}",
-                        Path.Combine(Application.dataPath, DictionaryResourceStrings.editorDatabasePath),
+                        Path.Combine(UnityEngine.Application.dataPath, DictionaryResourceStrings.editorDatabasePath),
                         Path.Combine(pathToBuildProject, DictionaryResourceStrings.databasePath)));
 
-                    File.Copy(Path.Combine(Application.dataPath, DictionaryResourceStrings.editorDatabasePath),
+                    File.Copy(Path.Combine(UnityEngine.Application.dataPath, DictionaryResourceStrings.editorDatabasePath),
                         Path.Combine(pathToBuildProject, DictionaryResourceStrings.databasePath));
                     break;
 #if UNITY_2017_3_OR_NEWER
@@ -41,10 +41,10 @@ namespace Unity.Labs.ListView
                         string.IsNullOrEmpty(dirName) ? fileName : Path.Combine(dirName, fileName), "Contents");
 
                     Debug.Log(string.Format("Copying {0} to {1}",
-                        Path.Combine(Application.dataPath, DictionaryResourceStrings.editorDatabasePath),
+                        Path.Combine(UnityEngine.Application.dataPath, DictionaryResourceStrings.editorDatabasePath),
                         Path.Combine(pathToBuildProject, DictionaryResourceStrings.databasePath)));
 
-                    File.Copy(Path.Combine(Application.dataPath, DictionaryResourceStrings.editorDatabasePath),
+                    File.Copy(Path.Combine(UnityEngine.Application.dataPath, DictionaryResourceStrings.editorDatabasePath),
                         Path.Combine(pathToBuildProject, DictionaryResourceStrings.databasePath));
                     break;
             }

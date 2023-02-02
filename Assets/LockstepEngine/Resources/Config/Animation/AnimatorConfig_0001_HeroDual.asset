@@ -1,0 +1,5542 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e25e87afff4899be12b852eab4454a, type: 3}
+  m_Name: AnimatorConfig_0001_HeroDual
+  m_EditorClassIdentifier: 
+  anims:
+  - name: AtkNormal01
+    length:
+      _val: 2250
+    offsets:
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 0
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -45
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -86
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -99
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -101
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -94
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -74
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -37
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 41
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 157
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 263
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 315
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 341
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 360
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 366
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 358
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 332
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 256
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -22
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -226
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -308
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -327
+      deg:
+        _val: 0
+    - pos:
+        _x: -2
+        _y: 0
+        _z: -338
+      deg:
+        _val: 0
+    - pos:
+        _x: -3
+        _y: 0
+        _z: -341
+      deg:
+        _val: 0
+    - pos:
+        _x: -4
+        _y: 0
+        _z: -334
+      deg:
+        _val: 0
+    - pos:
+        _x: -3
+        _y: 0
+        _z: -318
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: -292
+      deg:
+        _val: 0
+    - pos:
+        _x: 3
+        _y: 0
+        _z: -258
+      deg:
+        _val: 0
+    - pos:
+        _x: 7
+        _y: 0
+        _z: -216
+      deg:
+        _val: 0
+    - pos:
+        _x: 13
+        _y: 0
+        _z: -167
+      deg:
+        _val: 0
+    - pos:
+        _x: 20
+        _y: 0
+        _z: -109
+      deg:
+        _val: 0
+    - pos:
+        _x: 29
+        _y: 0
+        _z: -42
+      deg:
+        _val: 0
+    - pos:
+        _x: 39
+        _y: 0
+        _z: 34
+      deg:
+        _val: 0
+    - pos:
+        _x: 52
+        _y: 0
+        _z: 122
+      deg:
+        _val: 0
+    - pos:
+        _x: 74
+        _y: 0
+        _z: 249
+      deg:
+        _val: 0
+    - pos:
+        _x: 115
+        _y: 0
+        _z: 466
+      deg:
+        _val: 0
+    - pos:
+        _x: 155
+        _y: 0
+        _z: 684
+      deg:
+        _val: 0
+    - pos:
+        _x: 197
+        _y: 0
+        _z: 912
+      deg:
+        _val: 0
+    - pos:
+        _x: 232
+        _y: 0
+        _z: 1103
+      deg:
+        _val: 0
+    - pos:
+        _x: 243
+        _y: 0
+        _z: 1180
+      deg:
+        _val: 0
+    - pos:
+        _x: 248
+        _y: 0
+        _z: 1229
+      deg:
+        _val: 0
+    - pos:
+        _x: 252
+        _y: 0
+        _z: 1274
+      deg:
+        _val: 0
+    - pos:
+        _x: 254
+        _y: 0
+        _z: 1310
+      deg:
+        _val: 0
+    - pos:
+        _x: 254
+        _y: 0
+        _z: 1336
+      deg:
+        _val: 0
+    - pos:
+        _x: 253
+        _y: 0
+        _z: 1352
+      deg:
+        _val: 0
+    - pos:
+        _x: 249
+        _y: 0
+        _z: 1357
+      deg:
+        _val: 0
+    - pos:
+        _x: 244
+        _y: 0
+        _z: 1349
+      deg:
+        _val: 0
+    - pos:
+        _x: 238
+        _y: 0
+        _z: 1328
+      deg:
+        _val: 0
+    - pos:
+        _x: 227
+        _y: 0
+        _z: 1276
+      deg:
+        _val: 0
+    - pos:
+        _x: 211
+        _y: 0
+        _z: 1186
+      deg:
+        _val: 0
+    - pos:
+        _x: 192
+        _y: 0
+        _z: 1074
+      deg:
+        _val: 0
+    - pos:
+        _x: 171
+        _y: 0
+        _z: 955
+      deg:
+        _val: 0
+    - pos:
+        _x: 151
+        _y: 0
+        _z: 843
+      deg:
+        _val: 0
+    - pos:
+        _x: 130
+        _y: 0
+        _z: 738
+      deg:
+        _val: 0
+    - pos:
+        _x: 108
+        _y: 0
+        _z: 628
+      deg:
+        _val: 0
+    - pos:
+        _x: 85
+        _y: 0
+        _z: 517
+      deg:
+        _val: 0
+    - pos:
+        _x: 62
+        _y: 0
+        _z: 408
+      deg:
+        _val: 0
+    - pos:
+        _x: 41
+        _y: 0
+        _z: 305
+      deg:
+        _val: 0
+    - pos:
+        _x: 22
+        _y: 0
+        _z: 213
+      deg:
+        _val: 0
+    - pos:
+        _x: 7
+        _y: 0
+        _z: 136
+      deg:
+        _val: 0
+    - pos:
+        _x: -3
+        _y: 0
+        _z: 79
+      deg:
+        _val: 0
+    - pos:
+        _x: -9
+        _y: 0
+        _z: 41
+      deg:
+        _val: 0
+    - pos:
+        _x: -11
+        _y: 0
+        _z: 20
+      deg:
+        _val: 0
+    - pos:
+        _x: -10
+        _y: 0
+        _z: 10
+      deg:
+        _val: 0
+    - pos:
+        _x: -7
+        _y: 0
+        _z: 8
+      deg:
+        _val: 0
+    - pos:
+        _x: -4
+        _y: 0
+        _z: 12
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 17
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 20
+      deg:
+        _val: 0
+  - name: AtkNormal02
+    length:
+      _val: 2582
+    offsets:
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 0
+      deg:
+        _val: 0
+    - pos:
+        _x: 5
+        _y: 0
+        _z: 30
+      deg:
+        _val: 0
+    - pos:
+        _x: 12
+        _y: 0
+        _z: 38
+      deg:
+        _val: 0
+    - pos:
+        _x: 18
+        _y: 0
+        _z: 44
+      deg:
+        _val: 0
+    - pos:
+        _x: 24
+        _y: 0
+        _z: 49
+      deg:
+        _val: 0
+    - pos:
+        _x: 31
+        _y: 0
+        _z: 55
+      deg:
+        _val: 0
+    - pos:
+        _x: 37
+        _y: 0
+        _z: 63
+      deg:
+        _val: 0
+    - pos:
+        _x: 43
+        _y: 0
+        _z: 73
+      deg:
+        _val: 0
+    - pos:
+        _x: 48
+        _y: 0
+        _z: 87
+      deg:
+        _val: 0
+    - pos:
+        _x: 53
+        _y: 0
+        _z: 105
+      deg:
+        _val: 0
+    - pos:
+        _x: 58
+        _y: 0
+        _z: 129
+      deg:
+        _val: 0
+    - pos:
+        _x: 60
+        _y: 0
+        _z: 165
+      deg:
+        _val: 0
+    - pos:
+        _x: 59
+        _y: 0
+        _z: 222
+      deg:
+        _val: 0
+    - pos:
+        _x: 58
+        _y: 0
+        _z: 298
+      deg:
+        _val: 0
+    - pos:
+        _x: 58
+        _y: 0
+        _z: 390
+      deg:
+        _val: 0
+    - pos:
+        _x: 61
+        _y: 0
+        _z: 496
+      deg:
+        _val: 0
+    - pos:
+        _x: 66
+        _y: 0
+        _z: 612
+      deg:
+        _val: 0
+    - pos:
+        _x: 73
+        _y: 0
+        _z: 734
+      deg:
+        _val: 0
+    - pos:
+        _x: 79
+        _y: 0
+        _z: 861
+      deg:
+        _val: 0
+    - pos:
+        _x: 85
+        _y: 0
+        _z: 988
+      deg:
+        _val: 0
+    - pos:
+        _x: 90
+        _y: 0
+        _z: 1114
+      deg:
+        _val: 0
+    - pos:
+        _x: 92
+        _y: 0
+        _z: 1236
+      deg:
+        _val: 0
+    - pos:
+        _x: 90
+        _y: 0
+        _z: 1351
+      deg:
+        _val: 0
+    - pos:
+        _x: 83
+        _y: 0
+        _z: 1455
+      deg:
+        _val: 0
+    - pos:
+        _x: 67
+        _y: 0
+        _z: 1547
+      deg:
+        _val: 0
+    - pos:
+        _x: 45
+        _y: 0
+        _z: 1633
+      deg:
+        _val: 0
+    - pos:
+        _x: 24
+        _y: 0
+        _z: 1715
+      deg:
+        _val: 0
+    - pos:
+        _x: 5
+        _y: 0
+        _z: 1799
+      deg:
+        _val: 0
+    - pos:
+        _x: -8
+        _y: 0
+        _z: 1886
+      deg:
+        _val: 0
+    - pos:
+        _x: -20
+        _y: 0
+        _z: 1971
+      deg:
+        _val: 0
+    - pos:
+        _x: -29
+        _y: 0
+        _z: 2056
+      deg:
+        _val: 0
+    - pos:
+        _x: -33
+        _y: 0
+        _z: 2146
+      deg:
+        _val: 0
+    - pos:
+        _x: -27
+        _y: 0
+        _z: 2245
+      deg:
+        _val: 0
+    - pos:
+        _x: -12
+        _y: 0
+        _z: 2350
+      deg:
+        _val: 0
+    - pos:
+        _x: 5
+        _y: 0
+        _z: 2459
+      deg:
+        _val: 0
+    - pos:
+        _x: 20
+        _y: 0
+        _z: 2566
+      deg:
+        _val: 0
+    - pos:
+        _x: 26
+        _y: 0
+        _z: 2674
+      deg:
+        _val: 0
+    - pos:
+        _x: 27
+        _y: 0
+        _z: 2784
+      deg:
+        _val: 0
+    - pos:
+        _x: 25
+        _y: 0
+        _z: 2891
+      deg:
+        _val: 0
+    - pos:
+        _x: 23
+        _y: 0
+        _z: 2981
+      deg:
+        _val: 0
+    - pos:
+        _x: 23
+        _y: 0
+        _z: 3046
+      deg:
+        _val: 0
+    - pos:
+        _x: 23
+        _y: 0
+        _z: 3096
+      deg:
+        _val: 0
+    - pos:
+        _x: 23
+        _y: 0
+        _z: 3138
+      deg:
+        _val: 0
+    - pos:
+        _x: 23
+        _y: 0
+        _z: 3175
+      deg:
+        _val: 0
+    - pos:
+        _x: 23
+        _y: 0
+        _z: 3212
+      deg:
+        _val: 0
+    - pos:
+        _x: 23
+        _y: 0
+        _z: 3252
+      deg:
+        _val: 0
+    - pos:
+        _x: 23
+        _y: 0
+        _z: 3300
+      deg:
+        _val: 0
+    - pos:
+        _x: 23
+        _y: 0
+        _z: 3357
+      deg:
+        _val: 0
+    - pos:
+        _x: 24
+        _y: 0
+        _z: 3416
+      deg:
+        _val: 0
+    - pos:
+        _x: 24
+        _y: 0
+        _z: 3484
+      deg:
+        _val: 0
+    - pos:
+        _x: 25
+        _y: 0
+        _z: 3569
+      deg:
+        _val: 0
+    - pos:
+        _x: 24
+        _y: 0
+        _z: 3680
+      deg:
+        _val: 0
+    - pos:
+        _x: 20
+        _y: 0
+        _z: 3849
+      deg:
+        _val: 0
+    - pos:
+        _x: 12
+        _y: 0
+        _z: 4158
+      deg:
+        _val: 0
+    - pos:
+        _x: 4
+        _y: 0
+        _z: 4438
+      deg:
+        _val: 0
+    - pos:
+        _x: 1
+        _y: 0
+        _z: 4524
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 4555
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 4578
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 4599
+      deg:
+        _val: 0
+    - pos:
+        _x: -2
+        _y: 0
+        _z: 4624
+      deg:
+        _val: 0
+    - pos:
+        _x: -2
+        _y: 0
+        _z: 4658
+      deg:
+        _val: 0
+    - pos:
+        _x: -2
+        _y: 0
+        _z: 4703
+      deg:
+        _val: 0
+    - pos:
+        _x: -2
+        _y: 0
+        _z: 4755
+      deg:
+        _val: 0
+    - pos:
+        _x: -2
+        _y: 0
+        _z: 4812
+      deg:
+        _val: 0
+    - pos:
+        _x: -2
+        _y: 0
+        _z: 4873
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 4936
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 5001
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 5065
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 5127
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 5186
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 5241
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 5289
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 5329
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 5356
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 5373
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 5380
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 5382
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 5380
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 5375
+      deg:
+        _val: 0
+  - name: AtkNormal03
+    length:
+      _val: 2883
+    offsets:
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 0
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 18
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 14
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 9
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 8
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 14
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 43
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 125
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 153
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 167
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 198
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 251
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 295
+      deg:
+        _val: 0
+    - pos:
+        _x: 2
+        _y: 0
+        _z: 322
+      deg:
+        _val: 0
+    - pos:
+        _x: 5
+        _y: 0
+        _z: 346
+      deg:
+        _val: 0
+    - pos:
+        _x: 6
+        _y: 0
+        _z: 380
+      deg:
+        _val: 0
+    - pos:
+        _x: 1
+        _y: 0
+        _z: 440
+      deg:
+        _val: 0
+    - pos:
+        _x: -9
+        _y: 0
+        _z: 537
+      deg:
+        _val: 0
+    - pos:
+        _x: -25
+        _y: 0
+        _z: 665
+      deg:
+        _val: 0
+    - pos:
+        _x: -44
+        _y: 0
+        _z: 808
+      deg:
+        _val: 0
+    - pos:
+        _x: -65
+        _y: 0
+        _z: 945
+      deg:
+        _val: 0
+    - pos:
+        _x: -86
+        _y: 0
+        _z: 1060
+      deg:
+        _val: 0
+    - pos:
+        _x: -110
+        _y: 0
+        _z: 1123
+      deg:
+        _val: 0
+    - pos:
+        _x: -139
+        _y: 0
+        _z: 1127
+      deg:
+        _val: 0
+    - pos:
+        _x: -152
+        _y: 0
+        _z: 1126
+      deg:
+        _val: 0
+    - pos:
+        _x: -153
+        _y: 0
+        _z: 1121
+      deg:
+        _val: 0
+    - pos:
+        _x: -150
+        _y: 0
+        _z: 1106
+      deg:
+        _val: 0
+    - pos:
+        _x: -144
+        _y: 0
+        _z: 1095
+      deg:
+        _val: 0
+    - pos:
+        _x: -136
+        _y: 0
+        _z: 1101
+      deg:
+        _val: 0
+    - pos:
+        _x: -127
+        _y: 0
+        _z: 1137
+      deg:
+        _val: 0
+    - pos:
+        _x: -115
+        _y: 0
+        _z: 1230
+      deg:
+        _val: 0
+    - pos:
+        _x: -101
+        _y: 0
+        _z: 1352
+      deg:
+        _val: 0
+    - pos:
+        _x: -89
+        _y: 0
+        _z: 1449
+      deg:
+        _val: 0
+    - pos:
+        _x: -89
+        _y: 0
+        _z: 1444
+      deg:
+        _val: 0
+    - pos:
+        _x: -89
+        _y: 0
+        _z: 1433
+      deg:
+        _val: 0
+    - pos:
+        _x: -89
+        _y: 0
+        _z: 1420
+      deg:
+        _val: 0
+    - pos:
+        _x: -90
+        _y: 0
+        _z: 1412
+      deg:
+        _val: 0
+    - pos:
+        _x: -90
+        _y: 0
+        _z: 1403
+      deg:
+        _val: 0
+    - pos:
+        _x: -90
+        _y: 0
+        _z: 1385
+      deg:
+        _val: 0
+    - pos:
+        _x: -88
+        _y: 0
+        _z: 1348
+      deg:
+        _val: 0
+    - pos:
+        _x: -85
+        _y: 0
+        _z: 1285
+      deg:
+        _val: 0
+    - pos:
+        _x: -81
+        _y: 0
+        _z: 1208
+      deg:
+        _val: 0
+    - pos:
+        _x: -78
+        _y: 0
+        _z: 1131
+      deg:
+        _val: 0
+    - pos:
+        _x: -75
+        _y: 0
+        _z: 1063
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 0
+        _z: 991
+      deg:
+        _val: 0
+    - pos:
+        _x: -70
+        _y: 0
+        _z: 915
+      deg:
+        _val: 0
+    - pos:
+        _x: -68
+        _y: 0
+        _z: 838
+      deg:
+        _val: 0
+    - pos:
+        _x: -66
+        _y: 0
+        _z: 761
+      deg:
+        _val: 0
+    - pos:
+        _x: -63
+        _y: 0
+        _z: 686
+      deg:
+        _val: 0
+    - pos:
+        _x: -61
+        _y: 0
+        _z: 616
+      deg:
+        _val: 0
+    - pos:
+        _x: -59
+        _y: 0
+        _z: 552
+      deg:
+        _val: 0
+    - pos:
+        _x: -58
+        _y: 0
+        _z: 496
+      deg:
+        _val: 0
+    - pos:
+        _x: -56
+        _y: 0
+        _z: 452
+      deg:
+        _val: 0
+    - pos:
+        _x: -56
+        _y: 0
+        _z: 422
+      deg:
+        _val: 0
+    - pos:
+        _x: -55
+        _y: 0
+        _z: 411
+      deg:
+        _val: 0
+    - pos:
+        _x: -56
+        _y: 0
+        _z: 427
+      deg:
+        _val: 0
+    - pos:
+        _x: -57
+        _y: 0
+        _z: 456
+      deg:
+        _val: 0
+    - pos:
+        _x: -56
+        _y: 0
+        _z: 485
+      deg:
+        _val: 0
+    - pos:
+        _x: -25
+        _y: 0
+        _z: 660
+      deg:
+        _val: 0
+    - pos:
+        _x: 25
+        _y: 0
+        _z: 1395
+      deg:
+        _val: 0
+    - pos:
+        _x: 29
+        _y: 0
+        _z: 1462
+      deg:
+        _val: 0
+    - pos:
+        _x: 29
+        _y: 0
+        _z: 1468
+      deg:
+        _val: 0
+    - pos:
+        _x: 29
+        _y: 0
+        _z: 1460
+      deg:
+        _val: 0
+    - pos:
+        _x: 30
+        _y: 0
+        _z: 1444
+      deg:
+        _val: 0
+    - pos:
+        _x: 30
+        _y: 0
+        _z: 1423
+      deg:
+        _val: 0
+    - pos:
+        _x: 30
+        _y: 0
+        _z: 1399
+      deg:
+        _val: 0
+    - pos:
+        _x: 30
+        _y: 0
+        _z: 1377
+      deg:
+        _val: 0
+    - pos:
+        _x: 30
+        _y: 0
+        _z: 1358
+      deg:
+        _val: 0
+    - pos:
+        _x: 30
+        _y: 0
+        _z: 1341
+      deg:
+        _val: 0
+    - pos:
+        _x: 30
+        _y: 0
+        _z: 1318
+      deg:
+        _val: 0
+    - pos:
+        _x: 29
+        _y: 0
+        _z: 1285
+      deg:
+        _val: 0
+    - pos:
+        _x: 27
+        _y: 0
+        _z: 1238
+      deg:
+        _val: 0
+    - pos:
+        _x: 25
+        _y: 0
+        _z: 1173
+      deg:
+        _val: 0
+    - pos:
+        _x: 22
+        _y: 0
+        _z: 1096
+      deg:
+        _val: 0
+    - pos:
+        _x: 19
+        _y: 0
+        _z: 1012
+      deg:
+        _val: 0
+    - pos:
+        _x: 16
+        _y: 0
+        _z: 927
+      deg:
+        _val: 0
+    - pos:
+        _x: 13
+        _y: 0
+        _z: 846
+      deg:
+        _val: 0
+    - pos:
+        _x: 10
+        _y: 0
+        _z: 775
+      deg:
+        _val: 0
+    - pos:
+        _x: 7
+        _y: 0
+        _z: 719
+      deg:
+        _val: 0
+    - pos:
+        _x: 4
+        _y: 0
+        _z: 680
+      deg:
+        _val: 0
+    - pos:
+        _x: 1
+        _y: 0
+        _z: 653
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 632
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 616
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 606
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 600
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 594
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 591
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 590
+      deg:
+        _val: 0
+  - name: AtkSkill01
+    length:
+      _val: 3550
+    offsets:
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 0
+      deg:
+        _val: 0
+    - pos:
+        _x: -7
+        _y: 0
+        _z: 34
+      deg:
+        _val: 0
+    - pos:
+        _x: -26
+        _y: 0
+        _z: 67
+      deg:
+        _val: 0
+    - pos:
+        _x: -49
+        _y: 0
+        _z: 106
+      deg:
+        _val: 0
+    - pos:
+        _x: -67
+        _y: 0
+        _z: 137
+      deg:
+        _val: 0
+    - pos:
+        _x: -76
+        _y: 0
+        _z: 152
+      deg:
+        _val: 0
+    - pos:
+        _x: -79
+        _y: 0
+        _z: 157
+      deg:
+        _val: 0
+    - pos:
+        _x: -79
+        _y: 0
+        _z: 158
+      deg:
+        _val: 0
+    - pos:
+        _x: -78
+        _y: 0
+        _z: 156
+      deg:
+        _val: 0
+    - pos:
+        _x: -76
+        _y: 0
+        _z: 153
+      deg:
+        _val: 0
+    - pos:
+        _x: -74
+        _y: 0
+        _z: 149
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 0
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 0
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 14
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 174
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 471
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 857
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 1278
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 1684
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2020
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2250
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2393
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2474
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2519
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2544
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2553
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2552
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2547
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2543
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2555
+        _z: 147
+      deg:
+        _val: 0
+    - pos:
+        _x: -74
+        _y: 2595
+        _z: 148
+      deg:
+        _val: 0
+    - pos:
+        _x: -75
+        _y: 2654
+        _z: 150
+      deg:
+        _val: 0
+    - pos:
+        _x: -75
+        _y: 2720
+        _z: 151
+      deg:
+        _val: 0
+    - pos:
+        _x: -76
+        _y: 2764
+        _z: 152
+      deg:
+        _val: 0
+    - pos:
+        _x: -75
+        _y: 2782
+        _z: 151
+      deg:
+        _val: 0
+    - pos:
+        _x: -73
+        _y: 2776
+        _z: 148
+      deg:
+        _val: 0
+    - pos:
+        _x: -70
+        _y: 2752
+        _z: 142
+      deg:
+        _val: 0
+    - pos:
+        _x: -64
+        _y: 2713
+        _z: 132
+      deg:
+        _val: 0
+    - pos:
+        _x: -57
+        _y: 2659
+        _z: 120
+      deg:
+        _val: 0
+    - pos:
+        _x: -50
+        _y: 2589
+        _z: 107
+      deg:
+        _val: 0
+    - pos:
+        _x: -43
+        _y: 2503
+        _z: 95
+      deg:
+        _val: 0
+    - pos:
+        _x: -36
+        _y: 2399
+        _z: 84
+      deg:
+        _val: 0
+    - pos:
+        _x: -28
+        _y: 2268
+        _z: 75
+      deg:
+        _val: 0
+    - pos:
+        _x: -18
+        _y: 2082
+        _z: 65
+      deg:
+        _val: 0
+    - pos:
+        _x: -9
+        _y: 1830
+        _z: 57
+      deg:
+        _val: 0
+    - pos:
+        _x: -4
+        _y: 1522
+        _z: 48
+      deg:
+        _val: 0
+    - pos:
+        _x: -5
+        _y: 1175
+        _z: 39
+      deg:
+        _val: 0
+    - pos:
+        _x: -32
+        _y: 626
+        _z: 31
+      deg:
+        _val: 0
+    - pos:
+        _x: -95
+        _y: -29
+        _z: 23
+      deg:
+        _val: 0
+    - pos:
+        _x: -118
+        _y: 0
+        _z: 20
+      deg:
+        _val: 0
+    - pos:
+        _x: -124
+        _y: 0
+        _z: 20
+      deg:
+        _val: 0
+    - pos:
+        _x: -129
+        _y: 0
+        _z: 20
+      deg:
+        _val: 0
+    - pos:
+        _x: -132
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -131
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -118
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -104
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -89
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -75
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -60
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -45
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -32
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -19
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -9
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 5
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 7
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 7
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 4
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 2
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+  - name: AtkSkill02
+    length:
+      _val: 3333
+    offsets:
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 0
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -5
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 61
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 152
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 252
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 357
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 467
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 578
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 689
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 797
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 901
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 998
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1085
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1157
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1213
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1255
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1285
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1305
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1318
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1324
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1327
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1327
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1319
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1311
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1315
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1343
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1426
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1577
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1750
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1932
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2112
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2226
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2204
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2487
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2580
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2540
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2487
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2446
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2580
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2666
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2632
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2601
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2622
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2745
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2842
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2790
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2717
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2637
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2534
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2400
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2209
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1918
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1616
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1395
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1222
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1060
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 907
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 769
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 646
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 540
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 453
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 396
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 391
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 462
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: -5
+        _z: 645
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 182
+        _z: 959
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 310
+        _z: 1366
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 307
+        _z: 1848
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 307
+        _z: 2390
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 307
+        _z: 2957
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 307
+        _z: 3516
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 307
+        _z: 4027
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 307
+        _z: 4278
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 236
+        _z: 4757
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: -9
+        _z: 6035
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 6561
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 6617
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 6701
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 6787
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 6871
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 6949
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 7019
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 7076
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 7118
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 7140
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 7144
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 7144
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 7141
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 7137
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 7131
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 7124
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 7117
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 7110
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 7103
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 7097
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 7093
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 7091
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 7091
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 7091
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 7092
+      deg:
+        _val: 0
+  - name: AtkSkill03
+    length:
+      _val: 4500
+    offsets:
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 0
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 12
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -5
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -26
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -41
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -56
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -71
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -64
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -16
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 63
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 166
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 284
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 413
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 551
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 696
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 846
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 997
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1145
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1288
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1421
+      deg:
+        _val: 0
+    - pos:
+        _x: 1
+        _y: 0
+        _z: 1531
+      deg:
+        _val: 0
+    - pos:
+        _x: 3
+        _y: 0
+        _z: 1612
+      deg:
+        _val: 0
+    - pos:
+        _x: 4
+        _y: 0
+        _z: 1687
+      deg:
+        _val: 0
+    - pos:
+        _x: 1
+        _y: 0
+        _z: 1784
+      deg:
+        _val: 0
+    - pos:
+        _x: -7
+        _y: 0
+        _z: 1922
+      deg:
+        _val: 0
+    - pos:
+        _x: -22
+        _y: 0
+        _z: 2089
+      deg:
+        _val: 0
+    - pos:
+        _x: -39
+        _y: 0
+        _z: 2267
+      deg:
+        _val: 0
+    - pos:
+        _x: -55
+        _y: 0
+        _z: 2438
+      deg:
+        _val: 0
+    - pos:
+        _x: -70
+        _y: 0
+        _z: 2585
+      deg:
+        _val: 0
+    - pos:
+        _x: -79
+        _y: 0
+        _z: 2689
+      deg:
+        _val: 0
+    - pos:
+        _x: -83
+        _y: 0
+        _z: 2755
+      deg:
+        _val: 0
+    - pos:
+        _x: -83
+        _y: 0
+        _z: 2789
+      deg:
+        _val: 0
+    - pos:
+        _x: -81
+        _y: 0
+        _z: 2792
+      deg:
+        _val: 0
+    - pos:
+        _x: -78
+        _y: 0
+        _z: 2767
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 9
+        _z: 2713
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 234
+        _z: 2603
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 687
+        _z: 2445
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 1201
+        _z: 2272
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 1602
+        _z: 2122
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 1814
+        _z: 2007
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 1942
+        _z: 1906
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 2041
+        _z: 1808
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 2112
+        _z: 1715
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 2166
+        _z: 1631
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 2213
+        _z: 1557
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 2261
+        _z: 1494
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 2324
+        _z: 1449
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 2411
+        _z: 1437
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 2510
+        _z: 1446
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 2609
+        _z: 1462
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 2692
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 2740
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 2750
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 2736
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 2713
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 2693
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 2691
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 2721
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 2782
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 2852
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 2919
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 2975
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 3009
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 3018
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 3018
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 3021
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 3037
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -77
+        _y: 3077
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -78
+        _y: 3149
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -81
+        _y: 3244
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -82
+        _y: 3344
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -74
+        _y: 3430
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -54
+        _y: 3490
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -30
+        _y: 3534
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: -9
+        _y: 3576
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: 1
+        _y: 3617
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: 6
+        _y: 3655
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: 6
+        _y: 3689
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: 5
+        _y: 3719
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: 2
+        _y: 3744
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 3763
+        _z: 1470
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 3776
+        _z: 1469
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 3783
+        _z: 1456
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 3782
+        _z: 1433
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 3775
+        _z: 1412
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 3761
+        _z: 1406
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 3742
+        _z: 1425
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 3716
+        _z: 1482
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 3685
+        _z: 1584
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 3648
+        _z: 1718
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 3605
+        _z: 1872
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 3557
+        _z: 2039
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 3503
+        _z: 2208
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 3444
+        _z: 2370
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 3380
+        _z: 2517
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 3310
+        _z: 2641
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 3235
+        _z: 2753
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 3149
+        _z: 2859
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 2856
+        _z: 2965
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 2410
+        _z: 3077
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3267
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3285
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3280
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3264
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3247
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3235
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3225
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3214
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3203
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3191
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3176
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3159
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3138
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3111
+      deg:
+        _val: 0
+    - pos:
+        _x: 1
+        _y: 0
+        _z: 3071
+      deg:
+        _val: 0
+    - pos:
+        _x: 2
+        _y: 0
+        _z: 3026
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2992
+      deg:
+        _val: 0
+    - pos:
+        _x: -6
+        _y: 0
+        _z: 2976
+      deg:
+        _val: 0
+    - pos:
+        _x: -17
+        _y: 0
+        _z: 2972
+      deg:
+        _val: 0
+    - pos:
+        _x: -27
+        _y: 0
+        _z: 2973
+      deg:
+        _val: 0
+    - pos:
+        _x: -30
+        _y: 0
+        _z: 2975
+      deg:
+        _val: 0
+    - pos:
+        _x: -28
+        _y: 0
+        _z: 2976
+      deg:
+        _val: 0
+    - pos:
+        _x: -26
+        _y: 0
+        _z: 2978
+      deg:
+        _val: 0
+    - pos:
+        _x: -22
+        _y: 0
+        _z: 2980
+      deg:
+        _val: 0
+    - pos:
+        _x: -18
+        _y: 0
+        _z: 2983
+      deg:
+        _val: 0
+    - pos:
+        _x: -13
+        _y: 0
+        _z: 2986
+      deg:
+        _val: 0
+    - pos:
+        _x: -9
+        _y: 0
+        _z: 2989
+      deg:
+        _val: 0
+    - pos:
+        _x: -5
+        _y: 0
+        _z: 2991
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 2993
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2995
+      deg:
+        _val: 0
+    - pos:
+        _x: 1
+        _y: 0
+        _z: 2995
+      deg:
+        _val: 0
+    - pos:
+        _x: 2
+        _y: 0
+        _z: 2996
+      deg:
+        _val: 0
+    - pos:
+        _x: 1
+        _y: 0
+        _z: 2996
+      deg:
+        _val: 0
+    - pos:
+        _x: 1
+        _y: 0
+        _z: 2995
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2995
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2995
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2994
+      deg:
+        _val: 0
+  - name: Block
+    length:
+      _val: 500
+    offsets:
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 0
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -132
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -135
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -131
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -122
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -109
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -95
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -81
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -69
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -57
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -41
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -24
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -8
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 5
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 16
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 20
+      deg:
+        _val: 0
+  - name: Died
+    length:
+      _val: 1116
+    offsets:
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 0
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -127
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -320
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -398
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -465
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -524
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -578
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -629
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -680
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -735
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -795
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -856
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -918
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -979
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -1039
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -1098
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -1155
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -1210
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -1262
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -1310
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -1351
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -1374
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -1383
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -1389
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -1393
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -1397
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -1399
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -1401
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -1401
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -1401
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -1401
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -1401
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -1400
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -1399
+      deg:
+        _val: 0
+  - name: Evade
+    length:
+      _val: 750
+    offsets:
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 0
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 93
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 283
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 543
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 832
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1125
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1471
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 1849
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2196
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2458
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2639
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2764
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2853
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 2929
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3012
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3098
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3181
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3259
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3331
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3394
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3447
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3487
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 3512
+      deg:
+        _val: 0
+  - name: Hit
+    length:
+      _val: 666
+    offsets:
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 0
+      deg:
+        _val: 0
+    - pos:
+        _x: 7
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 26
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 46
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 63
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 74
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 76
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 70
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 60
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 47
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 33
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 20
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 8
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -3
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -5
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -5
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -4
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -2
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+  - name: Idle
+    length:
+      _val: 4000
+    offsets:
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 0
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: -1
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+  - name: Jump
+    length:
+      _val: 1000
+    offsets:
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 0
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+  - name: Run
+    length:
+      _val: 666
+    offsets:
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 0
+      deg:
+        _val: 0
+    - pos:
+        _x: -24
+        _y: 0
+        _z: -44
+      deg:
+        _val: 0
+    - pos:
+        _x: -17
+        _y: 0
+        _z: -22
+      deg:
+        _val: 0
+    - pos:
+        _x: -8
+        _y: 0
+        _z: -4
+      deg:
+        _val: 0
+    - pos:
+        _x: 0
+        _y: 0
+        _z: -1
+      deg:
+        _val: 0
+    - pos:
+        _x: 10
+        _y: 0
+        _z: -6
+      deg:
+        _val: 0
+    - pos:
+        _x: 21
+        _y: 0
+        _z: -15
+      deg:
+        _val: 0
+    - pos:
+        _x: 33
+        _y: 0
+        _z: -26
+      deg:
+        _val: 0
+    - pos:
+        _x: 43
+        _y: 0
+        _z: -37
+      deg:
+        _val: 0
+    - pos:
+        _x: 51
+        _y: 0
+        _z: -45
+      deg:
+        _val: 0
+    - pos:
+        _x: 57
+        _y: 0
+        _z: -50
+      deg:
+        _val: 0
+    - pos:
+        _x: 56
+        _y: 0
+        _z: -44
+      deg:
+        _val: 0
+    - pos:
+        _x: 48
+        _y: 0
+        _z: -29
+      deg:
+        _val: 0
+    - pos:
+        _x: 37
+        _y: 0
+        _z: -15
+      deg:
+        _val: 0
+    - pos:
+        _x: 28
+        _y: 0
+        _z: -12
+      deg:
+        _val: 0
+    - pos:
+        _x: 17
+        _y: 0
+        _z: -17
+      deg:
+        _val: 0
+    - pos:
+        _x: 5
+        _y: 0
+        _z: -25
+      deg:
+        _val: 0
+    - pos:
+        _x: -5
+        _y: 0
+        _z: -34
+      deg:
+        _val: 0
+    - pos:
+        _x: -16
+        _y: 0
+        _z: -43
+      deg:
+        _val: 0
+    - pos:
+        _x: -23
+        _y: 0
+        _z: -50
+      deg:
+        _val: 0
+    - pos:
+        _x: -27
+        _y: 0
+        _z: -54
+      deg:
+        _val: 0
+  - name: RunFast
+    length:
+      _val: 500
+    offsets:
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 0
+      deg:
+        _val: 0
+    - pos:
+        _x: -21
+        _y: 0
+        _z: -41
+      deg:
+        _val: 0
+    - pos:
+        _x: -9
+        _y: 0
+        _z: -7
+      deg:
+        _val: 0
+    - pos:
+        _x: 2
+        _y: 0
+        _z: -2
+      deg:
+        _val: 0
+    - pos:
+        _x: 15
+        _y: 0
+        _z: -12
+      deg:
+        _val: 0
+    - pos:
+        _x: 30
+        _y: 0
+        _z: -28
+      deg:
+        _val: 0
+    - pos:
+        _x: 43
+        _y: 0
+        _z: -45
+      deg:
+        _val: 0
+    - pos:
+        _x: 54
+        _y: 0
+        _z: -57
+      deg:
+        _val: 0
+    - pos:
+        _x: 57
+        _y: 0
+        _z: -56
+      deg:
+        _val: 0
+    - pos:
+        _x: 47
+        _y: 0
+        _z: -31
+      deg:
+        _val: 0
+    - pos:
+        _x: 32
+        _y: 0
+        _z: -12
+      deg:
+        _val: 0
+    - pos:
+        _x: 19
+        _y: 0
+        _z: -16
+      deg:
+        _val: 0
+    - pos:
+        _x: 4
+        _y: 0
+        _z: -28
+      deg:
+        _val: 0
+    - pos:
+        _x: -10
+        _y: 0
+        _z: -43
+      deg:
+        _val: 0
+    - pos:
+        _x: -22
+        _y: 0
+        _z: -56
+      deg:
+        _val: 0
+    - pos:
+        _x: -27
+        _y: 0
+        _z: -62
+      deg:
+        _val: 0
+  - name: Walk
+    length:
+      _val: 1166
+    offsets:
+    - pos:
+        _x: 0
+        _y: 0
+        _z: 0
+      deg:
+        _val: 0
+    - pos:
+        _x: -53
+        _y: 0
+        _z: 11
+      deg:
+        _val: 0
+    - pos:
+        _x: -50
+        _y: 0
+        _z: 13
+      deg:
+        _val: 0
+    - pos:
+        _x: -45
+        _y: 0
+        _z: 16
+      deg:
+        _val: 0
+    - pos:
+        _x: -39
+        _y: 0
+        _z: 19
+      deg:
+        _val: 0
+    - pos:
+        _x: -32
+        _y: 0
+        _z: 23
+      deg:
+        _val: 0
+    - pos:
+        _x: -25
+        _y: 0
+        _z: 25
+      deg:
+        _val: 0
+    - pos:
+        _x: -19
+        _y: 0
+        _z: 27
+      deg:
+        _val: 0
+    - pos:
+        _x: -13
+        _y: 0
+        _z: 27
+      deg:
+        _val: 0
+    - pos:
+        _x: -6
+        _y: 0
+        _z: 26
+      deg:
+        _val: 0
+    - pos:
+        _x: 1
+        _y: 0
+        _z: 25
+      deg:
+        _val: 0
+    - pos:
+        _x: 9
+        _y: 0
+        _z: 23
+      deg:
+        _val: 0
+    - pos:
+        _x: 17
+        _y: 0
+        _z: 20
+      deg:
+        _val: 0
+    - pos:
+        _x: 24
+        _y: 0
+        _z: 18
+      deg:
+        _val: 0
+    - pos:
+        _x: 31
+        _y: 0
+        _z: 15
+      deg:
+        _val: 0
+    - pos:
+        _x: 37
+        _y: 0
+        _z: 13
+      deg:
+        _val: 0
+    - pos:
+        _x: 42
+        _y: 0
+        _z: 11
+      deg:
+        _val: 0
+    - pos:
+        _x: 44
+        _y: 0
+        _z: 10
+      deg:
+        _val: 0
+    - pos:
+        _x: 44
+        _y: 0
+        _z: 10
+      deg:
+        _val: 0
+    - pos:
+        _x: 43
+        _y: 0
+        _z: 12
+      deg:
+        _val: 0
+    - pos:
+        _x: 39
+        _y: 0
+        _z: 14
+      deg:
+        _val: 0
+    - pos:
+        _x: 33
+        _y: 0
+        _z: 18
+      deg:
+        _val: 0
+    - pos:
+        _x: 27
+        _y: 0
+        _z: 21
+      deg:
+        _val: 0
+    - pos:
+        _x: 20
+        _y: 0
+        _z: 25
+      deg:
+        _val: 0
+    - pos:
+        _x: 13
+        _y: 0
+        _z: 28
+      deg:
+        _val: 0
+    - pos:
+        _x: 7
+        _y: 0
+        _z: 29
+      deg:
+        _val: 0
+    - pos:
+        _x: 1
+        _y: 0
+        _z: 29
+      deg:
+        _val: 0
+    - pos:
+        _x: -5
+        _y: 0
+        _z: 27
+      deg:
+        _val: 0
+    - pos:
+        _x: -13
+        _y: 0
+        _z: 25
+      deg:
+        _val: 0
+    - pos:
+        _x: -21
+        _y: 0
+        _z: 23
+      deg:
+        _val: 0
+    - pos:
+        _x: -29
+        _y: 0
+        _z: 20
+      deg:
+        _val: 0
+    - pos:
+        _x: -36
+        _y: 0
+        _z: 18
+      deg:
+        _val: 0
+    - pos:
+        _x: -43
+        _y: 0
+        _z: 15
+      deg:
+        _val: 0
+    - pos:
+        _x: -49
+        _y: 0
+        _z: 13
+      deg:
+        _val: 0
+    - pos:
+        _x: -52
+        _y: 0
+        _z: 11
+      deg:
+        _val: 0
+    - pos:
+        _x: -54
+        _y: 0
+        _z: 10
+      deg:
+        _val: 0
+  events:
+  - name: AtkNormal01
+    isOnce: 0
+    isMoveByAnim: 1
+    eventPoints: []
+  - name: AtkNormal02
+    isOnce: 0
+    isMoveByAnim: 1
+    eventPoints: []
+  - name: AtkNormal03
+    isOnce: 0
+    isMoveByAnim: 1
+    eventPoints: []
+  - name: AtkSkill01
+    isOnce: 0
+    isMoveByAnim: 1
+    eventPoints: []
+  - name: AtkSkill02
+    isOnce: 0
+    isMoveByAnim: 1
+    eventPoints: []
+  - name: AtkSkill03
+    isOnce: 0
+    isMoveByAnim: 1
+    eventPoints: []
+  - name: 
+    isOnce: 0
+    isMoveByAnim: 0
+    eventPoints: []
+  - name: 
+    isOnce: 0
+    isMoveByAnim: 0
+    eventPoints: []
+  - name: 
+    isOnce: 0
+    isMoveByAnim: 0
+    eventPoints: []
+  - name: 
+    isOnce: 0
+    isMoveByAnim: 0
+    eventPoints: []
+  - name: 
+    isOnce: 0
+    isMoveByAnim: 0
+    eventPoints: []
+  - name: 
+    isOnce: 0
+    isMoveByAnim: 0
+    eventPoints: []
+  - name: 
+    isOnce: 0
+    isMoveByAnim: 0
+    eventPoints: []
+  - name: 
+    isOnce: 0
+    isMoveByAnim: 0
+    eventPoints: []
+  - name: 
+    isOnce: 0
+    isMoveByAnim: 0
+    eventPoints: []

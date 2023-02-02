@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace Utility.Editor {
+namespace EditorUtils {
 
     public static class MenuTools {
 

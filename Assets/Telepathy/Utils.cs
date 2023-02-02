@@ -59,20 +59,11 @@ namespace Telepathy
 
         public static CSRelayFrameInputReq GenerateFrameInputReq(object obj) {
             CSRelayFrameInputReq req = null;
-            if (obj is DDCFrameData frameData) {
+            if (obj is DDClientData frameData) {
                 req = new CSRelayFrameInputReq();
                 var frameDataBytes = Utils.Serialize(frameData);
                 req.Frame.Add(new CSRelayFrame() {
-                    ClientType = (int)CSRelayFrameClientType.KCsrelayFrameClientTypeFrame,
                     Data = ByteString.CopyFrom(frameDataBytes)
-                });
-            }
-            else if (obj is DDCEventData eventData) {
-                req = new CSRelayFrameInputReq();
-                var eventDataBytes = Utils.Serialize(eventData);
-                req.Frame.Add(new CSRelayFrame() {
-                    ClientType = (int)CSRelayFrameClientType.KCsrelayFrameClientTypeEvent,
-                    Data = ByteString.CopyFrom(eventDataBytes)
                 });
             }
             return req;

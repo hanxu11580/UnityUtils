@@ -61,7 +61,7 @@ namespace Unity.Labs.ListView
             base.Start();
 
 #if UNITY_EDITOR
-            var conn = string.Format("URI=file:{0}", Path.Combine(Application.dataPath, DictionaryResourceStrings.editorDatabasePath));
+            var conn = string.Format("URI=file:{0}", Path.Combine(UnityEngine.Application.dataPath, DictionaryResourceStrings.editorDatabasePath));
 #else
             var conn = string.Format("URI=file:{0}", Path.Combine(Application.dataPath, DictionaryResourceStrings.databasePath));
 #endif

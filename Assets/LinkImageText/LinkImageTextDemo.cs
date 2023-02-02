@@ -13,6 +13,6 @@ public class LinkImageTextDemo : MonoBehaviour
     }
 
     private void OnHrefClick(string url) {
-        Application.OpenURL(url);
+        UnityEngine.Application.OpenURL(url);
     }
 }

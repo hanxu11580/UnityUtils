@@ -110,7 +110,7 @@ public class RuntimeTestRunner : MonoBehaviour {
     }
 
     private void LogError(object msg) {
-        if (Application.isPlaying) {
+        if (UnityEngine.Application.isPlaying) {
             if (MessageOutput != null) {
                 MessageOutput.text += "<color=red><b>ERROR</b>: " + msg.ToString() + "</color>" + Environment.NewLine;
             }
@@ -119,7 +119,7 @@ public class RuntimeTestRunner : MonoBehaviour {
         Debug.LogError(msg);
     }
     private void Log(object msg) {
-        if (Application.isPlaying) {
+        if (UnityEngine.Application.isPlaying) {
             if (MessageOutput != null) {
                 MessageOutput.text += msg.ToString() + Environment.NewLine;
             }

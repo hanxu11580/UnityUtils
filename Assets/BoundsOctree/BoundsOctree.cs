@@ -208,8 +208,8 @@ public class BoundsOctree<T> {
 	/// Visualises collision checks from IsColliding and GetColliding.
 	/// Collision visualisation code is automatically removed from builds so that collision checks aren't slowed down.
 	/// </summary>
-	#if UNITY_EDITOR
 	public void DrawCollisionChecks() {
+	#if UNITY_EDITOR
 		int count = 0;
 		foreach (Bounds collisionCheck in lastBoundsCollisionChecks) {
 			Gizmos.color = new Color(1.0f, 1.0f - ((float)count / numCollisionsToSave), 1.0f);
@@ -223,8 +223,8 @@ public class BoundsOctree<T> {
 			count++;
 		}
 		Gizmos.color = Color.white;
-	}
 	#endif
+	}
 
 	// #### PRIVATE METHODS ####
 
@@ -233,28 +233,28 @@ public class BoundsOctree<T> {
 	/// Automatically removed from builds so that collision checks aren't slowed down.
 	/// </summary>
 	/// <param name="checkBounds">bounds that were passed in to check for collisions.</param>
-	#if UNITY_EDITOR
 	void AddCollisionCheck(Bounds checkBounds) {
+	#if UNITY_EDITOR
 		lastBoundsCollisionChecks.Enqueue(checkBounds);
 		if (lastBoundsCollisionChecks.Count > numCollisionsToSave) {
 			lastBoundsCollisionChecks.Dequeue();
 		}
-	}
 	#endif
+	}
 
 	/// <summary>
 	/// Used for visualising collision checks with DrawCollisionChecks.
 	/// Automatically removed from builds so that collision checks aren't slowed down.
 	/// </summary>
 	/// <param name="checkRay">ray that was passed in to check for collisions.</param>
-	#if UNITY_EDITOR
 	void AddCollisionCheck(Ray checkRay) {
+	#if UNITY_EDITOR
 		lastRayCollisionChecks.Enqueue(checkRay);
 		if (lastRayCollisionChecks.Count > numCollisionsToSave) {
 			lastRayCollisionChecks.Dequeue();
 		}
-	}
 	#endif
+	}
 
 	/// <summary>
 	/// Grow the octree to fit in all objects.

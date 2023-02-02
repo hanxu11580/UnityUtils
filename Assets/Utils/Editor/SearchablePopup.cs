@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Utility.Editor {
+namespace EditorUtils {
     /// <summary>
     /// A popup window that displays a list of options and may use a search
     /// </summary>

@@ -7,7 +7,7 @@ using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 
-namespace Utility.Editor{
+namespace EditorUtils {
     public class DataTableEditingWindow : EditorWindow
     {
         public Action<string[][]> OnSaveData;
@@ -167,7 +167,7 @@ namespace Utility.Editor{
             GUILayout.EndScrollView();
 
             // control + s
-            if(UnityEditorUtility.KeyCombinationsTick(EventModifiers.Control, KeyCode.S, EventType.KeyDown)) {
+            if(EditorUtils.KeyCombinationsTick(EventModifiers.Control, KeyCode.S, EventType.KeyDown)) {
                 // 没有发生改变 则什么都不做
                 if (!CheckDirty())
                     return;
