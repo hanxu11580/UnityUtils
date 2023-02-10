@@ -192,6 +192,192 @@ namespace Csp {
 
   }
 
+  public sealed class CSActivityStatDataReq : pb::IMessage {
+    private static readonly pb::MessageParser<CSActivityStatDataReq> _parser = new pb::MessageParser<CSActivityStatDataReq>(() => new CSActivityStatDataReq());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CSActivityStatDataReq> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "activity_id" field.</summary>
+    public const int ActivityIdFieldNumber = 1;
+    private int activityId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ActivityId {
+      get { return activityId_; }
+      set {
+        activityId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "stat_module" field.</summary>
+    public const int StatModuleFieldNumber = 2;
+    private global::Datap.StatModel statModule_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Datap.StatModel StatModule {
+      get { return statModule_; }
+      set {
+        statModule_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "stat_list" field.</summary>
+    public const int StatListFieldNumber = 3;
+    private static readonly pb::FieldCodec<int> _repeated_statList_codec
+        = pb::FieldCodec.ForInt32(26);
+    private readonly pbc::RepeatedField<int> statList_ = new pbc::RepeatedField<int>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<int> StatList {
+      get { return statList_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ActivityId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ActivityId);
+      }
+      if (StatModule != 0) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) StatModule);
+      }
+      statList_.WriteTo(output, _repeated_statList_codec);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ActivityId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ActivityId);
+      }
+      if (StatModule != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) StatModule);
+      }
+      size += statList_.CalculateSize(_repeated_statList_codec);
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            ActivityId = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            statModule_ = (global::Datap.StatModel) input.ReadEnum();
+            break;
+          }
+          case 26:
+          case 24: {
+            statList_.AddEntriesFrom(input, _repeated_statList_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed class CSActivityStatDataResp : pb::IMessage {
+    private static readonly pb::MessageParser<CSActivityStatDataResp> _parser = new pb::MessageParser<CSActivityStatDataResp>(() => new CSActivityStatDataResp());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CSActivityStatDataResp> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+        }
+      }
+    }
+
+  }
+
+  public sealed class CSActivityStatDataNotify : pb::IMessage {
+    private static readonly pb::MessageParser<CSActivityStatDataNotify> _parser = new pb::MessageParser<CSActivityStatDataNotify>(() => new CSActivityStatDataNotify());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CSActivityStatDataNotify> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "activity_id" field.</summary>
+    public const int ActivityIdFieldNumber = 1;
+    private int activityId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ActivityId {
+      get { return activityId_; }
+      set {
+        activityId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "stat_data" field.</summary>
+    public const int StatDataFieldNumber = 2;
+    private static readonly pbc::MapField<int, global::Datap.RoleStatOne>.Codec _map_statData_codec
+        = new pbc::MapField<int, global::Datap.RoleStatOne>.Codec(pb::FieldCodec.ForInt32(8), pb::FieldCodec.ForMessage(18, global::Datap.RoleStatOne.Parser), 18);
+    private readonly pbc::MapField<int, global::Datap.RoleStatOne> statData_ = new pbc::MapField<int, global::Datap.RoleStatOne>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::MapField<int, global::Datap.RoleStatOne> StatData {
+      get { return statData_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ActivityId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ActivityId);
+      }
+      statData_.WriteTo(output, _map_statData_codec);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ActivityId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ActivityId);
+      }
+      size += statData_.CalculateSize(_map_statData_codec);
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            ActivityId = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            statData_.AddEntriesFrom(input, _map_statData_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   #endregion
 
 }

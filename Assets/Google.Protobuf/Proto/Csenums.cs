@@ -785,9 +785,13 @@ namespace Csp {
     /// </summary>
     TaskDone = 132,
     /// <summary>
+    /// XXid的活动获得活跃度N点
+    /// </summary>
+    ActivityPointById = 133,
+    /// <summary>
     /// Max
     /// </summary>
-    KCsenmConditionParamterTypeMax = 133,
+    KCsenmConditionParamterTypeMax = 134,
   }
 
   public enum CSEnmEquipPart {
@@ -907,15 +911,19 @@ namespace Csp {
     /// <summary>
     /// 卡牌
     /// </summary>
-    Card = 3,
+    Card = 2,
     /// <summary>
-    /// 宝箱
+    /// 装扮
     /// </summary>
-    Chest = 5,
+    Dress = 3,
     /// <summary>
     /// 装备
     /// </summary>
     Equip = 4,
+    /// <summary>
+    /// 宝箱
+    /// </summary>
+    Chest = 5,
     /// <summary>
     /// Max
     /// </summary>
@@ -1028,9 +1036,25 @@ namespace Csp {
     /// </summary>
     RebornCoin = 25,
     /// <summary>
+    /// 头像
+    /// </summary>
+    Head = 26,
+    /// <summary>
+    /// 头像框
+    /// </summary>
+    Frame = 27,
+    /// <summary>
+    /// 高额机会券
+    /// </summary>
+    ExtraTicket = 28,
+    /// <summary>
+    /// 双倍挑战券
+    /// </summary>
+    DoubleTicket = 29,
+    /// <summary>
     /// Max
     /// </summary>
-    KCsenmPropSubTypeMax = 26,
+    KCsenmPropSubTypeMax = 30,
   }
 
   public enum CSEnmBagTabType {
@@ -1922,9 +1946,37 @@ namespace Csp {
     /// </summary>
     GlobalRankTypeHardCode = 38,
     /// <summary>
+    /// ccc
+    /// </summary>
+    GlobalStageEnergyPropId = 39,
+    /// <summary>
+    /// ccc
+    /// </summary>
+    GlobalDailyEnergyPropId = 40,
+    /// <summary>
+    /// ccc
+    /// </summary>
+    GlobalRenameHardCode = 41,
+    /// <summary>
+    /// ccc
+    /// </summary>
+    GlobalNormalCostBonusCurrencyBuyShopId = 42,
+    /// <summary>
+    /// ccc
+    /// </summary>
+    GlobalNormalCostBonusPropUseShopId = 43,
+    /// <summary>
+    /// ccc
+    /// </summary>
+    GlobalDungeonCostBonusCurrencyBuyShopId = 44,
+    /// <summary>
+    /// ccc
+    /// </summary>
+    GlobalDungeonCostBonusPropUseShopId = 45,
+    /// <summary>
     /// Max
     /// </summary>
-    KCsenmGlobalConfigMax = 39,
+    KCsenmGlobalConfigMax = 46,
   }
 
   public enum CSEnmRankType {
@@ -2114,6 +2166,32 @@ namespace Csp {
     /// Max
     /// </summary>
     KCsenmInGameBoostTypeMax = 16,
+  }
+
+  public enum CSEnmActivityType {
+    /// <summary>
+    /// 活动类型
+    /// </summary>
+    ActivityTypeNone = 0,
+    /// <summary>
+    /// BattlePass
+    /// </summary>
+    ActivityTypeBp = 1,
+    /// <summary>
+    /// Max
+    /// </summary>
+    KCsenmActivityTypeMax = 2,
+  }
+
+  public enum CSEnmActivitySubType {
+    /// <summary>
+    /// 活动子类型
+    /// </summary>
+    ActivitySubTypeNone = 0,
+    /// <summary>
+    /// Max
+    /// </summary>
+    KCsenmActivitySubTypeMax = 1,
   }
 
   #endregion

@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace Utility {
-    public static class FileUtil
+    public static class FileUtils
     {
         /// <summary>
         /// 文件是否存在
@@ -90,7 +92,7 @@ namespace Utility {
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public static byte[] GetAsset(string path)
+        public static byte[] GetBytes(string path)
         {
             if (File.Exists(path))
             {
@@ -109,9 +111,89 @@ namespace Utility {
         /// <param name="path"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static byte[] GetAsset(string path, string name)
+        public static byte[] GetBytes(string path, string name)
         {
-            return GetAsset($"{path}/{name}");
+            return GetBytes($"{path}/{name}");
         }
+
+        public static void CopySingleFile(string sourceFilePath, string destFilePath) {
+            string directoryName = Path.GetDirectoryName(destFilePath);
+            if (!Directory.Exists(directoryName)) {
+                Directory.CreateDirectory(directoryName);
+            }
+            //若不存在，直接复制文件；若存在，覆盖复制
+            if (File.Exists(destFilePath)) {
+                File.Copy(sourceFilePath, destFilePath, true);
+            }
+            else {
+                File.Copy(sourceFilePath, destFilePath);
+            }
+        }
+
+        public static string ReadStringByFile(string path) {
+            StringBuilder line = new StringBuilder();
+            try {
+                if (!File.Exists(path)) {
+                    UnityEngine.Debug.Log("path dont exists ! : " + path);
+                    return "";
+                }
+
+                StreamReader sr = File.OpenText(path);
+                line.Append(sr.ReadToEnd());
+
+                sr.Close();
+                sr.Dispose();
+            }
+            catch (Exception e) {
+                UnityEngine.Debug.Log("Load text fail ! message:" + e.Message);
+            }
+
+            return line.ToString();
+        }
+
+
+        public static void CopyFile(string sourceDirectory, string destDirectory) {
+            //获取所有文件名称
+            string[] fileName = Directory.GetFiles(sourceDirectory);
+            foreach (string filePath in fileName) {
+                //根据每个文件名称生成对应的目标文件名称
+                string filePathTemp = Path.Combine(destDirectory, filePath.Substring(sourceDirectory.Length + 1)); // destDirectory + "\\" + filePath.Substring(sourceDirectory.Length + 1);
+                                                                                                                   //若不存在，直接复制文件；若存在，覆盖复制
+                if (File.Exists(filePathTemp)) {
+                    File.Copy(filePath, filePathTemp, true);
+                }
+                else {
+                    File.Copy(filePath, filePathTemp);
+                }
+            }
+        }
+
+        #region MD5
+        public static string CalculateMD5(byte[] bytes) {
+            string md5Str = null;
+            if (null != bytes) {
+                using (var md5 = System.Security.Cryptography.MD5.Create()) {
+                    var hash = md5.ComputeHash(bytes);
+                    md5Str = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+                }
+            }
+            return md5Str;
+        }
+
+        public static string CalculateMD5(string filename) {
+            using (var md5 = System.Security.Cryptography.MD5.Create()) {
+                try {
+                    using (var stream = File.OpenRead(filename)) {
+                        var hash = md5.ComputeHash(stream);
+                        return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+                    }
+                }
+                catch (Exception ex) {
+                    UnityEngine.Debug.LogError(ex);
+                }
+                return null;
+            }
+        }
+        #endregion
     }
 }

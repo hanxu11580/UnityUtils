@@ -157,6 +157,17 @@ namespace Csp {
       }
     }
 
+    /// <summary>Field number for the "received" field.</summary>
+    public const int ReceivedFieldNumber = 9;
+    private global::Datap.ChatMsgReceiveStatus received_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Datap.ChatMsgReceiveStatus Received {
+      get { return received_; }
+      set {
+        received_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Seq.Length != 0) {
@@ -191,6 +202,10 @@ namespace Csp {
         output.WriteRawTag(66);
         output.WriteBytes(Content);
       }
+      if (Received != 0) {
+        output.WriteRawTag(72);
+        output.WriteEnum((int) Received);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -219,6 +234,9 @@ namespace Csp {
       }
       if (Content.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Content);
+      }
+      if (Received != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Received);
       }
       return size;
     }
@@ -261,6 +279,83 @@ namespace Csp {
           }
           case 66: {
             Content = input.ReadBytes();
+            break;
+          }
+          case 72: {
+            received_ = (global::Datap.ChatMsgReceiveStatus) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed class CSChatMsgReceipt : pb::IMessage {
+    private static readonly pb::MessageParser<CSChatMsgReceipt> _parser = new pb::MessageParser<CSChatMsgReceipt>(() => new CSChatMsgReceipt());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CSChatMsgReceipt> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "seq" field.</summary>
+    public const int SeqFieldNumber = 1;
+    private string seq_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Seq {
+      get { return seq_; }
+      set {
+        seq_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "channel_type" field.</summary>
+    public const int ChannelTypeFieldNumber = 2;
+    private global::Csp.CSChatChannelType channelType_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSChatChannelType ChannelType {
+      get { return channelType_; }
+      set {
+        channelType_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Seq.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Seq);
+      }
+      if (ChannelType != 0) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) ChannelType);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Seq.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Seq);
+      }
+      if (ChannelType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ChannelType);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            Seq = input.ReadString();
+            break;
+          }
+          case 16: {
+            channelType_ = (global::Csp.CSChatChannelType) input.ReadEnum();
             break;
           }
         }
@@ -700,29 +795,23 @@ namespace Csp {
 
     /// <summary>Field number for the "msg" field.</summary>
     public const int MsgFieldNumber = 1;
-    private global::Csp.CSChatMsgItems msg_;
+    private static readonly pb::FieldCodec<global::Csp.CSChatMsgItems> _repeated_msg_codec
+        = pb::FieldCodec.ForMessage(10, global::Csp.CSChatMsgItems.Parser);
+    private readonly pbc::RepeatedField<global::Csp.CSChatMsgItems> msg_ = new pbc::RepeatedField<global::Csp.CSChatMsgItems>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSChatMsgItems Msg {
+    public pbc::RepeatedField<global::Csp.CSChatMsgItems> Msg {
       get { return msg_; }
-      set {
-        msg_ = value;
-      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (msg_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Msg);
-      }
+      msg_.WriteTo(output, _repeated_msg_codec);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (msg_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Msg);
-      }
+      size += msg_.CalculateSize(_repeated_msg_codec);
       return size;
     }
 
@@ -735,10 +824,7 @@ namespace Csp {
             input.SkipLastField();
             break;
           case 10: {
-            if (msg_ == null) {
-              msg_ = new global::Csp.CSChatMsgItems();
-            }
-            input.ReadMessage(msg_);
+            msg_.AddEntriesFrom(input, _repeated_msg_codec);
             break;
           }
         }
@@ -979,6 +1065,96 @@ namespace Csp {
               data_ = new global::Datap.RoleDataBriefForChat();
             }
             input.ReadMessage(data_);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed class CSChatMsgReceiveReq : pb::IMessage {
+    private static readonly pb::MessageParser<CSChatMsgReceiveReq> _parser = new pb::MessageParser<CSChatMsgReceiveReq>(() => new CSChatMsgReceiveReq());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CSChatMsgReceiveReq> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "msg_list" field.</summary>
+    public const int MsgListFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::Csp.CSChatMsgReceipt> _repeated_msgList_codec
+        = pb::FieldCodec.ForMessage(10, global::Csp.CSChatMsgReceipt.Parser);
+    private readonly pbc::RepeatedField<global::Csp.CSChatMsgReceipt> msgList_ = new pbc::RepeatedField<global::Csp.CSChatMsgReceipt>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Csp.CSChatMsgReceipt> MsgList {
+      get { return msgList_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      msgList_.WriteTo(output, _repeated_msgList_codec);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += msgList_.CalculateSize(_repeated_msgList_codec);
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            msgList_.AddEntriesFrom(input, _repeated_msgList_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed class CSChatMsgReceiveResp : pb::IMessage {
+    private static readonly pb::MessageParser<CSChatMsgReceiveResp> _parser = new pb::MessageParser<CSChatMsgReceiveResp>(() => new CSChatMsgReceiveResp());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CSChatMsgReceiveResp> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "msg_list" field.</summary>
+    public const int MsgListFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::Csp.CSChatMsgReceipt> _repeated_msgList_codec
+        = pb::FieldCodec.ForMessage(10, global::Csp.CSChatMsgReceipt.Parser);
+    private readonly pbc::RepeatedField<global::Csp.CSChatMsgReceipt> msgList_ = new pbc::RepeatedField<global::Csp.CSChatMsgReceipt>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Csp.CSChatMsgReceipt> MsgList {
+      get { return msgList_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      msgList_.WriteTo(output, _repeated_msgList_codec);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += msgList_.CalculateSize(_repeated_msgList_codec);
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            msgList_.AddEntriesFrom(input, _repeated_msgList_codec);
             break;
           }
         }

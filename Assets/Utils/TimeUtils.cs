@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Utility {
 
-    public static  class TimeUtil
+    public static  class TimeUtils
     {
         #region 计算时间差
 

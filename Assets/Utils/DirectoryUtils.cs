@@ -2,7 +2,7 @@
 using System.IO;
 
 namespace Utility {
-    public static class DirectoryUtil
+    public static class DirectoryUtils
     {
         /// <summary>
         /// 创建文件夹
@@ -61,6 +61,27 @@ namespace Utility {
                 GetDirectorys(item, directoryInfoList);
             }
             return directoryInfoList.ToArray();
+        }
+
+        public static void CopyDirectory(string sourceDirectory, string destDirectory) {
+            //判断源目录和目标目录是否存在，如果不存在，则创建一个目录
+            if (!Directory.Exists(sourceDirectory)) {
+                Directory.CreateDirectory(sourceDirectory);
+            }
+            if (!Directory.Exists(destDirectory)) {
+                Directory.CreateDirectory(destDirectory);
+            }
+            //拷贝文件
+            FileUtils.CopyFile(sourceDirectory, destDirectory);
+            //拷贝子目录       
+            //获取所有子目录名称
+            string[] directionName = Directory.GetDirectories(sourceDirectory);
+            foreach (string directionPath in directionName) {
+                //根据每个子目录名称生成对应的目标子目录名称
+                string directionPathTemp = Path.Combine(destDirectory, directionPath.Substring(sourceDirectory.Length + 1)); // destDirectory + "\\" + directionPath.Substring(sourceDirectory.Length + 1);
+                                                                                                                             //递归下去
+                CopyDirectory(directionPath, directionPathTemp);
+            }
         }
     }
 }

@@ -39,7 +39,7 @@ namespace Telepathy {
             Log.Error = Debug.LogError;
 
             _room1 = new DDCRoom();
-            _room1.ConnectServer("localhost", 1337, this);
+            _room1.ConnectServer("ws://qjw.xgjoy.org:4050/relaysvr/ws", 4050, this);
 
             //_room2 = new DDCRoom();
             //_room2.ConnectServer("localhost", 1337, this);

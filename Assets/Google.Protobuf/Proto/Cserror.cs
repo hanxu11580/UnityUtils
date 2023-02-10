@@ -80,6 +80,10 @@ namespace Csp {
     /// <summary>
     /// 系统模块
     /// </summary>
+    KCserrorSystemItemExpired = 32,
+    /// <summary>
+    /// 系统模块
+    /// </summary>
     KCserrorSystemRoleNameInvalid = 33,
     /// <summary>
     /// 系统模块
@@ -173,6 +177,14 @@ namespace Csp {
     /// 广告还在CD期内
     /// </summary>
     KCserrorAdInCd = 152,
+    /// <summary>
+    /// 展示幻化列表过长
+    /// </summary>
+    KCserrorDressDragonTooMany = 201,
+    /// <summary>
+    /// 展示幻化ID不存在
+    /// </summary>
+    KCserrorDressDragonInvalid = 202,
     /// <summary>
     /// 商店模块
     /// </summary>

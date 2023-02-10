@@ -518,10 +518,25 @@ namespace Datap {
       get { return waveCountRetry_; }
     }
 
+    /// <summary>Field number for the "max_wave_defeated_num" field.</summary>
+    public const int MaxWaveDefeatedNumFieldNumber = 3;
+    private int maxWaveDefeatedNum_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MaxWaveDefeatedNum {
+      get { return maxWaveDefeatedNum_; }
+      set {
+        maxWaveDefeatedNum_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       waveCount_.WriteTo(output, _map_waveCount_codec);
       waveCountRetry_.WriteTo(output, _map_waveCountRetry_codec);
+      if (MaxWaveDefeatedNum != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(MaxWaveDefeatedNum);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -529,6 +544,9 @@ namespace Datap {
       int size = 0;
       size += waveCount_.CalculateSize(_map_waveCount_codec);
       size += waveCountRetry_.CalculateSize(_map_waveCountRetry_codec);
+      if (MaxWaveDefeatedNum != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxWaveDefeatedNum);
+      }
       return size;
     }
 
@@ -546,6 +564,10 @@ namespace Datap {
           }
           case 18: {
             waveCountRetry_.AddEntriesFrom(input, _map_waveCountRetry_codec);
+            break;
+          }
+          case 24: {
+            MaxWaveDefeatedNum = input.ReadInt32();
             break;
           }
         }

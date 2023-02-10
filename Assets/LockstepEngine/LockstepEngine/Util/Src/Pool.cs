@@ -1,3 +1,4 @@
+using LitJson;
 using System;
 using System.Collections.Generic;
 namespace Lockstep.Util {
@@ -10,7 +11,7 @@ namespace Lockstep.Util {
         public virtual void OnReuse(){ }
         public virtual void OnRecycle(){ }
         public override string ToString(){
-            return JsonUtil.ToJson(this);
+            return JsonMapper.ToJson(this);
         }
     }
 

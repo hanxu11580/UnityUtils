@@ -9,22 +9,11 @@ using UnityEngine;
 
 namespace Utility {
     public static class UniversalUtils {
-
-        public static object Deserialize(byte[] bytes) {
-            object obj = null;
-            try {
-                BinaryFormatter formatter = new BinaryFormatter();
-                using (MemoryStream mStream = new MemoryStream(bytes)) {
-                    obj = formatter.Deserialize(mStream);
-                }
-            }
-            catch (Exception e) {
-                Debug.LogError($"{e.Message}\n{e.StackTrace}");
-            }
-            return obj;
-        }
-
-        public static byte[] Serialize(object obj) {
+        #region Serialize/Deserialize
+        /// <summary>
+        /// 将对象序列化成字节数组
+        /// </summary>
+        public static byte[] SerializeToBinary<T>(T obj) {
             byte[] ret = default;
             try {
                 BinaryFormatter formatter = new BinaryFormatter();
@@ -38,6 +27,45 @@ namespace Utility {
             }
             return ret;
         }
+
+        /// <summary>
+        /// 从字节数组反序列成对象
+        /// </summary>
+        public static T DeserializeFromBinary<T>(byte[] bytes) {
+            T obj = default;
+            try {
+                BinaryFormatter formatter = new BinaryFormatter();
+                using (MemoryStream mStream = new MemoryStream(bytes)) {
+                    obj = (T)formatter.Deserialize(mStream);
+                }
+            }
+            catch (Exception e) {
+                Debug.LogError($"{e.Message}\n{e.StackTrace}");
+            }
+            return (T)obj;
+        }
+
+        /// <summary>
+        /// 序列化到某文件中
+        /// </summary>
+        public static void SerializeToPath<T>(string path, T obj){
+            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write)) {
+                BinaryFormatter bf = new BinaryFormatter();
+                bf.Serialize(fs, obj);
+            }
+        }
+
+        /// <summary>
+        /// 从某文件反序列成对象
+        /// </summary>
+        public static T DeserializeFromPath<T>(string path){
+            using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read)) {
+                BinaryFormatter bf = new BinaryFormatter();
+                return (T)bf.Deserialize(fs);
+            }
+        }
+
+        #endregion
 
         public static T DeepCopyWithBinarySerialize<T>(T obj) {
             object retval;

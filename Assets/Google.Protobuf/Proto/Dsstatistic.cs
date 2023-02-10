@@ -31,9 +31,9 @@ namespace Datap {
     /// </summary>
     KStatGame = 2,
     /// <summary>
-    /// 随机事件
+    /// 随机事件ID
     /// </summary>
-    KStatEvent = 3,
+    KStatEventId = 3,
     /// <summary>
     /// 任务状态
     /// </summary>
@@ -91,7 +91,15 @@ namespace Datap {
     /// </summary>
     KStatAd = 17,
     KStatPushGift = 18,
-    KStatModelMax = 19,
+    /// <summary>
+    /// 随机事件类型
+    /// </summary>
+    KStatEventType = 19,
+    /// <summary>
+    /// 技能buff
+    /// </summary>
+    KStatSkillBuff = 20,
+    KStatModelMax = 22,
   }
 
   public enum StatBattleMisc {
@@ -105,7 +113,7 @@ namespace Datap {
     /// </summary>
     KStatBattleMiscHangupUseProp = 2,
     /// <summary>
-    /// 远征总次数
+    /// 远征胜利次数
     /// </summary>
     KStatBattleMiscExpeditionTimes = 3,
     /// <summary>
@@ -141,7 +149,11 @@ namespace Datap {
     /// 举报次数
     /// </summary>
     SocialInform = 4,
-    Max = 5,
+    /// <summary>
+    /// 改名次数
+    /// </summary>
+    Rename = 5,
+    Max = 6,
   }
 
   public enum kStatSolType {

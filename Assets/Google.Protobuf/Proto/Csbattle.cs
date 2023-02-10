@@ -3222,6 +3222,17 @@ namespace Csp {
       get { return statData_; }
     }
 
+    /// <summary>Field number for the "story_process" field.</summary>
+    public const int StoryProcessFieldNumber = 14;
+    private long storyProcess_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long StoryProcess {
+      get { return storyProcess_; }
+      set {
+        storyProcess_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (battleCommon_ != null) {
@@ -3267,6 +3278,10 @@ namespace Csp {
         output.WriteMessage(BattleWaveCount);
       }
       statData_.WriteTo(output, _map_statData_codec);
+      if (StoryProcess != 0L) {
+        output.WriteRawTag(112);
+        output.WriteInt64(StoryProcess);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3305,6 +3320,9 @@ namespace Csp {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(BattleWaveCount);
       }
       size += statData_.CalculateSize(_map_statData_codec);
+      if (StoryProcess != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(StoryProcess);
+      }
       return size;
     }
 
@@ -3390,6 +3408,10 @@ namespace Csp {
           }
           case 106: {
             statData_.AddEntriesFrom(input, _map_statData_codec);
+            break;
+          }
+          case 112: {
+            StoryProcess = input.ReadInt64();
             break;
           }
         }

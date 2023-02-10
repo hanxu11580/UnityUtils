@@ -93,6 +93,17 @@ namespace Datap {
       }
     }
 
+    /// <summary>Field number for the "expire_at" field.</summary>
+    public const int ExpireAtFieldNumber = 3;
+    private long expireAt_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ExpireAt {
+      get { return expireAt_; }
+      set {
+        expireAt_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Id != 0) {
@@ -102,6 +113,10 @@ namespace Datap {
       if (Num != 0L) {
         output.WriteRawTag(16);
         output.WriteInt64(Num);
+      }
+      if (ExpireAt != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(ExpireAt);
       }
     }
 
@@ -113,6 +128,9 @@ namespace Datap {
       }
       if (Num != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Num);
+      }
+      if (ExpireAt != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ExpireAt);
       }
       return size;
     }
@@ -131,6 +149,10 @@ namespace Datap {
           }
           case 16: {
             Num = input.ReadInt64();
+            break;
+          }
+          case 24: {
+            ExpireAt = input.ReadInt64();
             break;
           }
         }

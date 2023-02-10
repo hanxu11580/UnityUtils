@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Utility {
-    public static class CommandUtil {
+    public static class CommandlineUtils {
         //示例
         //CommandUtil.ExecuteInCmd("ipconfig");
         //CommandUtil.ExecuteOutCmd("-I http://www.baidu.com", @"C:\curl.exe");
@@ -51,6 +49,48 @@ namespace Utility {
                 process.Close();
                 return output;
             }
+        }
+
+        public static void ExecuteCmd(string shellName, string workingDir) {
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
+            process.StartInfo.CreateNoWindow = false;
+            process.StartInfo.ErrorDialog = true;
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.FileName = "/bin/bash";
+            process.StartInfo.Arguments = shellName;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.RedirectStandardInput = true;
+            process.StartInfo.WorkingDirectory = workingDir;
+            process.Start();
+            UnityEngine.Debug.Log($"ExeCmd {process.StartInfo.FileName} {shellName}    ##workingDir={process.StartInfo.WorkingDirectory} ");
+            string output = process.StandardOutput.ReadToEnd();
+            process.WaitForExit();
+            process.Close();
+            UnityEngine.Debug.Log(output);
+        }
+
+    }
+
+    public static class CommandlineArgsReader {
+        static List<string> _arguments;
+        static Dictionary<string, string> _arg2valDic;
+
+        static CommandlineArgsReader() {
+            _arguments = Environment.GetCommandLineArgs().ToList();
+            _arg2valDic = new Dictionary<string, string>();
+        }
+
+        public static string GetArgValue(string key) {
+            if(_arg2valDic.TryGetValue(key, out string value)) {
+                return value;
+            }
+            var _key = $"-{key}";
+            int index = -1;
+            index = _arguments.FindIndex(arg => arg.Equals(_key, StringComparison.OrdinalIgnoreCase));
+            if (index > 0) {
+                _arg2valDic.Add(key, _arguments[index + 1]);
+            }
+            return _arguments[index + 1];
         }
     }
 }

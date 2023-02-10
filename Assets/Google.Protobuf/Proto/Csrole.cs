@@ -1012,6 +1012,210 @@ namespace Csp {
 
   }
 
+  public sealed class CSHeadActiveReq : pb::IMessage {
+    private static readonly pb::MessageParser<CSHeadActiveReq> _parser = new pb::MessageParser<CSHeadActiveReq>(() => new CSHeadActiveReq());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CSHeadActiveReq> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "head_id" field.</summary>
+    public const int HeadIdFieldNumber = 1;
+    private int headId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int HeadId {
+      get { return headId_; }
+      set {
+        headId_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (HeadId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(HeadId);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (HeadId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(HeadId);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            HeadId = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed class CSHeadActiveResp : pb::IMessage {
+    private static readonly pb::MessageParser<CSHeadActiveResp> _parser = new pb::MessageParser<CSHeadActiveResp>(() => new CSHeadActiveResp());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CSHeadActiveResp> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "head_id" field.</summary>
+    public const int HeadIdFieldNumber = 1;
+    private int headId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int HeadId {
+      get { return headId_; }
+      set {
+        headId_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (HeadId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(HeadId);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (HeadId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(HeadId);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            HeadId = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed class CSFrameActiveReq : pb::IMessage {
+    private static readonly pb::MessageParser<CSFrameActiveReq> _parser = new pb::MessageParser<CSFrameActiveReq>(() => new CSFrameActiveReq());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CSFrameActiveReq> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "frame_id" field.</summary>
+    public const int FrameIdFieldNumber = 1;
+    private int frameId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int FrameId {
+      get { return frameId_; }
+      set {
+        frameId_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (FrameId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(FrameId);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (FrameId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(FrameId);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            FrameId = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed class CSFrameActiveResp : pb::IMessage {
+    private static readonly pb::MessageParser<CSFrameActiveResp> _parser = new pb::MessageParser<CSFrameActiveResp>(() => new CSFrameActiveResp());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CSFrameActiveResp> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "frame_id" field.</summary>
+    public const int FrameIdFieldNumber = 1;
+    private int frameId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int FrameId {
+      get { return frameId_; }
+      set {
+        frameId_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (FrameId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(FrameId);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (FrameId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(FrameId);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            FrameId = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   #endregion
 
 }

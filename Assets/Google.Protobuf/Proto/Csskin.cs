@@ -752,10 +752,10 @@ namespace Csp {
 
   }
 
-  public sealed class CSSkinRelicUpgradeReq : pb::IMessage {
-    private static readonly pb::MessageParser<CSSkinRelicUpgradeReq> _parser = new pb::MessageParser<CSSkinRelicUpgradeReq>(() => new CSSkinRelicUpgradeReq());
+  public sealed class CSSkinSlotUpgradeReq : pb::IMessage {
+    private static readonly pb::MessageParser<CSSkinSlotUpgradeReq> _parser = new pb::MessageParser<CSSkinSlotUpgradeReq>(() => new CSSkinSlotUpgradeReq());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CSSkinRelicUpgradeReq> Parser { get { return _parser; } }
+    public static pb::MessageParser<CSSkinSlotUpgradeReq> Parser { get { return _parser; } }
 
     /// <summary>Field number for the "dragon_id" field.</summary>
     public const int DragonIdFieldNumber = 1;
@@ -768,25 +768,25 @@ namespace Csp {
       }
     }
 
-    /// <summary>Field number for the "relic_from" field.</summary>
-    public const int RelicFromFieldNumber = 2;
-    private int relicFrom_;
+    /// <summary>Field number for the "slot_id" field.</summary>
+    public const int SlotIdFieldNumber = 2;
+    private int slotId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int RelicFrom {
-      get { return relicFrom_; }
+    public int SlotId {
+      get { return slotId_; }
       set {
-        relicFrom_ = value;
+        slotId_ = value;
       }
     }
 
-    /// <summary>Field number for the "relic_to" field.</summary>
-    public const int RelicToFieldNumber = 3;
-    private int relicTo_;
+    /// <summary>Field number for the "curr_lv" field.</summary>
+    public const int CurrLvFieldNumber = 3;
+    private int currLv_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int RelicTo {
-      get { return relicTo_; }
+    public int CurrLv {
+      get { return currLv_; }
       set {
-        relicTo_ = value;
+        currLv_ = value;
       }
     }
 
@@ -796,13 +796,13 @@ namespace Csp {
         output.WriteRawTag(8);
         output.WriteInt32(DragonId);
       }
-      if (RelicFrom != 0) {
+      if (SlotId != 0) {
         output.WriteRawTag(16);
-        output.WriteInt32(RelicFrom);
+        output.WriteInt32(SlotId);
       }
-      if (RelicTo != 0) {
+      if (CurrLv != 0) {
         output.WriteRawTag(24);
-        output.WriteInt32(RelicTo);
+        output.WriteInt32(CurrLv);
       }
     }
 
@@ -812,11 +812,11 @@ namespace Csp {
       if (DragonId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(DragonId);
       }
-      if (RelicFrom != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(RelicFrom);
+      if (SlotId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(SlotId);
       }
-      if (RelicTo != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(RelicTo);
+      if (CurrLv != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(CurrLv);
       }
       return size;
     }
@@ -834,11 +834,11 @@ namespace Csp {
             break;
           }
           case 16: {
-            RelicFrom = input.ReadInt32();
+            SlotId = input.ReadInt32();
             break;
           }
           case 24: {
-            RelicTo = input.ReadInt32();
+            CurrLv = input.ReadInt32();
             break;
           }
         }
@@ -847,18 +847,72 @@ namespace Csp {
 
   }
 
-  public sealed class CSSkinRelicUpgradeResp : pb::IMessage {
-    private static readonly pb::MessageParser<CSSkinRelicUpgradeResp> _parser = new pb::MessageParser<CSSkinRelicUpgradeResp>(() => new CSSkinRelicUpgradeResp());
+  public sealed class CSSkinSlotUpgradeResp : pb::IMessage {
+    private static readonly pb::MessageParser<CSSkinSlotUpgradeResp> _parser = new pb::MessageParser<CSSkinSlotUpgradeResp>(() => new CSSkinSlotUpgradeResp());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CSSkinRelicUpgradeResp> Parser { get { return _parser; } }
+    public static pb::MessageParser<CSSkinSlotUpgradeResp> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "dragon_id" field.</summary>
+    public const int DragonIdFieldNumber = 1;
+    private int dragonId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int DragonId {
+      get { return dragonId_; }
+      set {
+        dragonId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "slot_id" field.</summary>
+    public const int SlotIdFieldNumber = 2;
+    private int slotId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int SlotId {
+      get { return slotId_; }
+      set {
+        slotId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "slot_data" field.</summary>
+    public const int SlotDataFieldNumber = 3;
+    private global::Datap.RoleSkinSlotData slotData_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Datap.RoleSkinSlotData SlotData {
+      get { return slotData_; }
+      set {
+        slotData_ = value;
+      }
+    }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+      if (DragonId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(DragonId);
+      }
+      if (SlotId != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(SlotId);
+      }
+      if (slotData_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(SlotData);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (DragonId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(DragonId);
+      }
+      if (SlotId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(SlotId);
+      }
+      if (slotData_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SlotData);
+      }
       return size;
     }
 
@@ -870,6 +924,123 @@ namespace Csp {
           default:
             input.SkipLastField();
             break;
+          case 8: {
+            DragonId = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            SlotId = input.ReadInt32();
+            break;
+          }
+          case 26: {
+            if (slotData_ == null) {
+              slotData_ = new global::Datap.RoleSkinSlotData();
+            }
+            input.ReadMessage(slotData_);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed class CSSkinEffectActiveReq : pb::IMessage {
+    private static readonly pb::MessageParser<CSSkinEffectActiveReq> _parser = new pb::MessageParser<CSSkinEffectActiveReq>(() => new CSSkinEffectActiveReq());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CSSkinEffectActiveReq> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "dragon_id" field.</summary>
+    public const int DragonIdFieldNumber = 1;
+    private int dragonId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int DragonId {
+      get { return dragonId_; }
+      set {
+        dragonId_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (DragonId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(DragonId);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (DragonId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(DragonId);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            DragonId = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed class CSSkinEffectActiveResp : pb::IMessage {
+    private static readonly pb::MessageParser<CSSkinEffectActiveResp> _parser = new pb::MessageParser<CSSkinEffectActiveResp>(() => new CSSkinEffectActiveResp());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CSSkinEffectActiveResp> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "dragon_id" field.</summary>
+    public const int DragonIdFieldNumber = 1;
+    private int dragonId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int DragonId {
+      get { return dragonId_; }
+      set {
+        dragonId_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (DragonId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(DragonId);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (DragonId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(DragonId);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            DragonId = input.ReadInt32();
+            break;
+          }
         }
       }
     }

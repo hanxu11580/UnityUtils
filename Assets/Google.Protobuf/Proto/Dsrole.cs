@@ -35,6 +35,7 @@ namespace Datap {
     /// </summary>
     KMaxRoleTaskModules = 10,
     KMaxRoleOnceMsgNum = 100,
+    KShowDragon = 6,
   }
 
   public enum RoleAttrType32 {
@@ -221,11 +222,56 @@ namespace Datap {
       }
     }
 
+    /// <summary>Field number for the "head" field.</summary>
+    public const int HeadFieldNumber = 2;
+    private global::Datap.Item head_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Datap.Item Head {
+      get { return head_; }
+      set {
+        head_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "frame" field.</summary>
+    public const int FrameFieldNumber = 3;
+    private global::Datap.Item frame_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Datap.Item Frame {
+      get { return frame_; }
+      set {
+        frame_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "server_id" field.</summary>
+    public const int ServerIdFieldNumber = 4;
+    private int serverId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ServerId {
+      get { return serverId_; }
+      set {
+        serverId_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Name.Length != 0) {
         output.WriteRawTag(10);
         output.WriteString(Name);
+      }
+      if (head_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Head);
+      }
+      if (frame_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Frame);
+      }
+      if (ServerId != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(ServerId);
       }
     }
 
@@ -234,6 +280,15 @@ namespace Datap {
       int size = 0;
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (head_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Head);
+      }
+      if (frame_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Frame);
+      }
+      if (ServerId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ServerId);
       }
       return size;
     }
@@ -248,6 +303,24 @@ namespace Datap {
             break;
           case 10: {
             Name = input.ReadString();
+            break;
+          }
+          case 18: {
+            if (head_ == null) {
+              head_ = new global::Datap.Item();
+            }
+            input.ReadMessage(head_);
+            break;
+          }
+          case 26: {
+            if (frame_ == null) {
+              frame_ = new global::Datap.Item();
+            }
+            input.ReadMessage(frame_);
+            break;
+          }
+          case 32: {
+            ServerId = input.ReadInt32();
             break;
           }
         }
@@ -808,6 +881,17 @@ namespace Datap {
       get { return attr32_; }
     }
 
+    /// <summary>Field number for the "ip" field.</summary>
+    public const int IpFieldNumber = 3;
+    private string ip_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Ip {
+      get { return ip_; }
+      set {
+        ip_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Name.Length != 0) {
@@ -815,6 +899,10 @@ namespace Datap {
         output.WriteString(Name);
       }
       attr32_.WriteTo(output, _repeated_attr32_codec);
+      if (Ip.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Ip);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -824,6 +912,9 @@ namespace Datap {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
       size += attr32_.CalculateSize(_repeated_attr32_codec);
+      if (Ip.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Ip);
+      }
       return size;
     }
 
@@ -841,6 +932,10 @@ namespace Datap {
           }
           case 18: {
             attr32_.AddEntriesFrom(input, _repeated_attr32_codec);
+            break;
+          }
+          case 26: {
+            Ip = input.ReadString();
             break;
           }
         }
@@ -1622,6 +1717,251 @@ namespace Datap {
 
   }
 
+  public sealed class RoleDressSkinData : pb::IMessage {
+    private static readonly pb::MessageParser<RoleDressSkinData> _parser = new pb::MessageParser<RoleDressSkinData>(() => new RoleDressSkinData());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<RoleDressSkinData> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "dragon" field.</summary>
+    public const int DragonFieldNumber = 1;
+    private int dragon_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Dragon {
+      get { return dragon_; }
+      set {
+        dragon_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Dragon != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Dragon);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Dragon != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Dragon);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Dragon = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed class ItemProp : pb::IMessage {
+    private static readonly pb::MessageParser<ItemProp> _parser = new pb::MessageParser<ItemProp>(() => new ItemProp());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<ItemProp> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 1;
+    private int id_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Id {
+      get { return id_; }
+      set {
+        id_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "prop_id" field.</summary>
+    public const int PropIdFieldNumber = 2;
+    private int propId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int PropId {
+      get { return propId_; }
+      set {
+        propId_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Id != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Id);
+      }
+      if (PropId != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(PropId);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Id != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Id);
+      }
+      if (PropId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PropId);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Id = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            PropId = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed class RoleDressData : pb::IMessage {
+    private static readonly pb::MessageParser<RoleDressData> _parser = new pb::MessageParser<RoleDressData>(() => new RoleDressData());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<RoleDressData> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "head" field.</summary>
+    public const int HeadFieldNumber = 1;
+    private global::Datap.ItemProp head_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Datap.ItemProp Head {
+      get { return head_; }
+      set {
+        head_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "frame" field.</summary>
+    public const int FrameFieldNumber = 2;
+    private global::Datap.ItemProp frame_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Datap.ItemProp Frame {
+      get { return frame_; }
+      set {
+        frame_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "dragon_show" field.</summary>
+    public const int DragonShowFieldNumber = 3;
+    private static readonly pb::FieldCodec<int> _repeated_dragonShow_codec
+        = pb::FieldCodec.ForInt32(26);
+    private readonly pbc::RepeatedField<int> dragonShow_ = new pbc::RepeatedField<int>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<int> DragonShow {
+      get { return dragonShow_; }
+    }
+
+    /// <summary>Field number for the "skin" field.</summary>
+    public const int SkinFieldNumber = 4;
+    private global::Datap.RoleDressSkinData skin_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Datap.RoleDressSkinData Skin {
+      get { return skin_; }
+      set {
+        skin_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (head_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Head);
+      }
+      if (frame_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Frame);
+      }
+      dragonShow_.WriteTo(output, _repeated_dragonShow_codec);
+      if (skin_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Skin);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (head_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Head);
+      }
+      if (frame_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Frame);
+      }
+      size += dragonShow_.CalculateSize(_repeated_dragonShow_codec);
+      if (skin_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Skin);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            if (head_ == null) {
+              head_ = new global::Datap.ItemProp();
+            }
+            input.ReadMessage(head_);
+            break;
+          }
+          case 18: {
+            if (frame_ == null) {
+              frame_ = new global::Datap.ItemProp();
+            }
+            input.ReadMessage(frame_);
+            break;
+          }
+          case 26:
+          case 24: {
+            dragonShow_.AddEntriesFrom(input, _repeated_dragonShow_codec);
+            break;
+          }
+          case 34: {
+            if (skin_ == null) {
+              skin_ = new global::Datap.RoleDressSkinData();
+            }
+            input.ReadMessage(skin_);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   public sealed class RoleOtherData : pb::IMessage {
     private static readonly pb::MessageParser<RoleOtherData> _parser = new pb::MessageParser<RoleOtherData>(() => new RoleOtherData());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1878,6 +2218,27 @@ namespace Datap {
       }
     }
 
+    /// <summary>Field number for the "dress_data" field.</summary>
+    public const int DressDataFieldNumber = 31;
+    private global::Datap.RoleDressData dressData_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Datap.RoleDressData DressData {
+      get { return dressData_; }
+      set {
+        dressData_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "activity_data" field.</summary>
+    public const int ActivityDataFieldNumber = 32;
+    private static readonly pb::FieldCodec<global::Datap.RoleActivityOne> _repeated_activityData_codec
+        = pb::FieldCodec.ForMessage(258, global::Datap.RoleActivityOne.Parser);
+    private readonly pbc::RepeatedField<global::Datap.RoleActivityOne> activityData_ = new pbc::RepeatedField<global::Datap.RoleActivityOne>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Datap.RoleActivityOne> ActivityData {
+      get { return activityData_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (itemBag_ != null) {
@@ -1966,6 +2327,11 @@ namespace Datap {
         output.WriteRawTag(242, 1);
         output.WriteMessage(PushGift);
       }
+      if (dressData_ != null) {
+        output.WriteRawTag(250, 1);
+        output.WriteMessage(DressData);
+      }
+      activityData_.WriteTo(output, _repeated_activityData_codec);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2036,6 +2402,10 @@ namespace Datap {
       if (pushGift_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(PushGift);
       }
+      if (dressData_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(DressData);
+      }
+      size += activityData_.CalculateSize(_repeated_activityData_codec);
       return size;
     }
 
@@ -2200,6 +2570,17 @@ namespace Datap {
               pushGift_ = new global::Datap.RolePushGift();
             }
             input.ReadMessage(pushGift_);
+            break;
+          }
+          case 250: {
+            if (dressData_ == null) {
+              dressData_ = new global::Datap.RoleDressData();
+            }
+            input.ReadMessage(dressData_);
+            break;
+          }
+          case 258: {
+            activityData_.AddEntriesFrom(input, _repeated_activityData_codec);
             break;
           }
         }

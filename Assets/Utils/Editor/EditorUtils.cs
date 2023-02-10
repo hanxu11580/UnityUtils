@@ -50,17 +50,25 @@ namespace EditorUtils {
 
         public readonly static Color DefaultFontColor;
 
-        public readonly static GUIStyle RichTextGUIStyle;
+        //public readonly static GUIStyle RichTextGUIStyle;
 
         static EditorUtils() {
             // 这个颜色是Unity默认字体颜色
-            DefaultFontColor = new Color(0.811f, 0.811f, 0.811f);
+            //DefaultFontColor = new Color(0.811f, 0.811f, 0.811f);
 
-            RichTextGUIStyle = new GUIStyle();
-            RichTextGUIStyle.richText = true;
-            RichTextGUIStyle.normal.textColor = DefaultFontColor;
+            //RichTextGUIStyle = new GUIStyle();
+            //RichTextGUIStyle.richText = true;
+            //RichTextGUIStyle.normal.textColor = DefaultFontColor;
         }
 
+        static GUIContent tempContent;
+        public static GUIContent TempContent(string text, Texture2D image = null, string tooltip = null) {
+            if (tempContent == null) tempContent = new GUIContent();
+            tempContent.text = text;
+            tempContent.image = image;
+            tempContent.tooltip = tooltip;
+            return tempContent;
+        }
 
         /// <summary>
         /// 画一个盒子

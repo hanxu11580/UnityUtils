@@ -13,6 +13,8 @@ namespace Csp {
     KCsmsgUnkown = 0,
     KCsmsgActivityOn = 1601,
     KCsmsgActivityOnNotify = 1600,
+    KCsmsgActivityStatData = 1602,
+    KCsmsgActivityStatDataNotify = 1603,
     KCsmsgAdData = 151,
     KCsmsgAdDataNotify = 152,
     KCsmsgWatchAd = 150,
@@ -39,6 +41,7 @@ namespace Csp {
     KCsmsgCardStarLevelUp = 206,
     KCsmsgChatBan = 1250,
     KCsmsgChatBanNotify = 1251,
+    KCsmsgChatMsgReceive = 1258,
     KCsmsgChatPull = 1252,
     KCsmsgChatRoleData = 1256,
     KCsmsgChatRoleDataNotify = 1257,
@@ -47,6 +50,13 @@ namespace Csp {
     KCsmsgChatSubList = 1253,
     KCsmsgCounterPeriodResetNotify = 601,
     KCsmsgCounterSingleIdNotify = 600,
+    KCsmsgDragonShow = 1858,
+    KCsmsgFrameShow = 1854,
+    KCsmsgFrameUnShow = 1855,
+    KCsmsgHeadShow = 1851,
+    KCsmsgHeadUnShow = 1852,
+    KCsmsgSkinShow = 1850,
+    KCsmsgSkinUnShow = 1853,
     KCsmsgEquipmentCleanseConfirmProp = 62,
     KCsmsgEquipmentCleanseConfirmPropNotify = 63,
     KCsmsgEquipmentCleanseProp = 60,
@@ -87,6 +97,11 @@ namespace Csp {
     KCsmsgMailUpdateNotify = 853,
     KCsmsgMonthCardGetReward = 1450,
     KCsmsgMonthCardNotify = 1451,
+    KCsmsgPlayerBatchInfo = 1801,
+    KCsmsgPlayerInfo = 1802,
+    KCsmsgPlayerRecommend = 1800,
+    KCsmsgPlayerSearch = 1803,
+    KCsmsgPushGiftDelNotify = 1652,
     KCsmsgPushGiftPull = 1650,
     KCsmsgRankGet = 1550,
     KCsmsgRankGetAward = 1553,
@@ -103,20 +118,23 @@ namespace Csp {
     KCsmsgRegionProficientLv = 352,
     KCsmsgRegionPull = 353,
     KCsmsgRegionShop = 350,
-    KCsmsgRelayCreate = 1750,
-    KCsmsgRelayEnter = 1751,
-    KCsmsgRelayEnterNotify = 1752,
-    KCsmsgRelayPlayerReady = 1753,
-    KCsmsgRelayPlayerReadyNotify = 1754,
-    KCsmsgRelayLeave = 1755,
-    KCsmsgRelayLeaveNotify = 1756,
-    KCsmsgRelayStartNotify = 1757,
+    KCsmsgRelayEnd = 1763,
+    KCsmsgRelayEndNotify = 1764,
     KCsmsgRelayFrameInput = 1758,
     KCsmsgRelayFrameInputNotify = 1759,
+    KCsmsgRelayPlayerConnectNotify = 1750,
+    KCsmsgRelayPlayerReady = 1753,
+    KCsmsgRelayPlayerReadyNotify = 1754,
+    KCsmsgRelayPlayerStatusNotify = 1760,
+    KCsmsgRelayRoom = 1761,
+    KCsmsgRelayRoomNotify = 1762,
+    KCsmsgRelayStartNotify = 1757,
     KCsmsgCdone = 1011,
     KCsmsgCdoneNotify = 1012,
     KCsmsgDailyRefresh = 1010,
+    KCsmsgFrameActive = 1006,
     KCsmsgGetPower = 1013,
+    KCsmsgHeadActive = 1004,
     KCsmsgLevelUp = 1002,
     KCsmsgRename = 1005,
     KCsmsgRoleDataSyncNotify = 1008,
@@ -124,6 +142,15 @@ namespace Csp {
     KCsmsgRoleLoginNotify = 1003,
     KCsmsgRoleLogout = 1001,
     KCsmsgSystemSyncNotify = 1007,
+    KCsmsgRoomCreate = 1901,
+    KCsmsgRoomGetList = 1900,
+    KCsmsgRoomInvite = 1905,
+    KCsmsgRoomJoin = 1902,
+    KCsmsgRoomLeave = 1903,
+    KCsmsgRoomPlayerStatus = 1906,
+    KCsmsgRoomPlayerStatusNotify = 1907,
+    KCsmsgRoomReconnect = 1904,
+    KCsmsgRoomInfoNotify = 1908,
     KCsmsgExchangeShopBuyReq = 1502,
     KCsmsgExchangeShopRefreshReq = 1500,
     KCsmsgExchangeShopRefreshReqNotify = 1501,
@@ -131,8 +158,9 @@ namespace Csp {
     KCsmsgUltimateSkillStarLevelUp = 302,
     KCsmsgUseUltimateSkill = 301,
     KCsmsgActiveSkin = 951,
+    KCsmsgSkinEffectActive = 956,
     KCsmsgSkinLevelUp = 954,
-    KCsmsgSkinRelicUpgrade = 956,
+    KCsmsgSkinSlotUpgrade = 950,
     KCsmsgSkinStarLevelUp = 955,
     KCsmsgUnuseSkin = 953,
     KCsmsgUseSkin = 952,
@@ -142,7 +170,6 @@ namespace Csp {
     KCsmsgSocialApplyList = 1405,
     KCsmsgSocialApplyListNotify = 1406,
     KCsmsgSocialBatchApply = 1403,
-    KCsmsgSocialBatchInfo = 1414,
     KCsmsgSocialBlackList = 1411,
     KCsmsgSocialBlackListNotify = 1412,
     KCsmsgSocialBlockOne = 1413,
@@ -155,9 +182,7 @@ namespace Csp {
     KCsmsgSocialInform = 1417,
     KCsmsgSocialList = 1400,
     KCsmsgSocialListNotify = 1401,
-    KCsmsgSocialRecommend = 1410,
     KCsmsgSocialRemove = 1404,
-    KCsmsgSocialSearch = 1409,
     KCsmsgStatAllData = 1700,
     KCsmsgStatSingleData = 1701,
     KCsmsgStatSingleDataNotify = 1702,
@@ -481,14 +506,25 @@ namespace Csp {
       }
     }
 
-    /// <summary>Field number for the "activity_on_c" field.</summary>
-    public const int ActivityOnCFieldNumber = 1601;
-    private global::Csp.CSActivityOnReq activityOnC_;
+    /// <summary>Field number for the "stat_all_data_c" field.</summary>
+    public const int StatAllDataCFieldNumber = 1700;
+    private global::Csp.CSStatAllDataReq statAllDataC_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSActivityOnReq ActivityOnC {
-      get { return activityOnC_; }
+    public global::Csp.CSStatAllDataReq StatAllDataC {
+      get { return statAllDataC_; }
       set {
-        activityOnC_ = value;
+        statAllDataC_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "stat_single_data_c" field.</summary>
+    public const int StatSingleDataCFieldNumber = 1701;
+    private global::Csp.CSStatSingleDataReq statSingleDataC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSStatSingleDataReq StatSingleDataC {
+      get { return statSingleDataC_; }
+      set {
+        statSingleDataC_ = value;
       }
     }
 
@@ -610,6 +646,28 @@ namespace Csp {
       get { return itemOnRestoreAllC_; }
       set {
         itemOnRestoreAllC_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "activity_on_c" field.</summary>
+    public const int ActivityOnCFieldNumber = 1601;
+    private global::Csp.CSActivityOnReq activityOnC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSActivityOnReq ActivityOnC {
+      get { return activityOnC_; }
+      set {
+        activityOnC_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "activity_stat_data_c" field.</summary>
+    public const int ActivityStatDataCFieldNumber = 1602;
+    private global::Csp.CSActivityStatDataReq activityStatDataC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSActivityStatDataReq ActivityStatDataC {
+      get { return activityStatDataC_; }
+      set {
+        activityStatDataC_ = value;
       }
     }
 
@@ -844,36 +902,25 @@ namespace Csp {
       }
     }
 
-    /// <summary>Field number for the "skin_relic_upgrade_c" field.</summary>
-    public const int SkinRelicUpgradeCFieldNumber = 956;
-    private global::Csp.CSSkinRelicUpgradeReq skinRelicUpgradeC_;
+    /// <summary>Field number for the "skin_slot_upgrade_c" field.</summary>
+    public const int SkinSlotUpgradeCFieldNumber = 950;
+    private global::Csp.CSSkinSlotUpgradeReq skinSlotUpgradeC_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSSkinRelicUpgradeReq SkinRelicUpgradeC {
-      get { return skinRelicUpgradeC_; }
+    public global::Csp.CSSkinSlotUpgradeReq SkinSlotUpgradeC {
+      get { return skinSlotUpgradeC_; }
       set {
-        skinRelicUpgradeC_ = value;
+        skinSlotUpgradeC_ = value;
       }
     }
 
-    /// <summary>Field number for the "stat_all_data_c" field.</summary>
-    public const int StatAllDataCFieldNumber = 1700;
-    private global::Csp.CSStatAllDataReq statAllDataC_;
+    /// <summary>Field number for the "skin_effect_active_c" field.</summary>
+    public const int SkinEffectActiveCFieldNumber = 956;
+    private global::Csp.CSSkinEffectActiveReq skinEffectActiveC_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSStatAllDataReq StatAllDataC {
-      get { return statAllDataC_; }
+    public global::Csp.CSSkinEffectActiveReq SkinEffectActiveC {
+      get { return skinEffectActiveC_; }
       set {
-        statAllDataC_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "stat_single_data_c" field.</summary>
-    public const int StatSingleDataCFieldNumber = 1701;
-    private global::Csp.CSStatSingleDataReq statSingleDataC_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSStatSingleDataReq StatSingleDataC {
-      get { return statSingleDataC_; }
-      set {
-        statSingleDataC_ = value;
+        skinEffectActiveC_ = value;
       }
     }
 
@@ -1284,6 +1331,28 @@ namespace Csp {
       }
     }
 
+    /// <summary>Field number for the "head_active_c" field.</summary>
+    public const int HeadActiveCFieldNumber = 1004;
+    private global::Csp.CSHeadActiveReq headActiveC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSHeadActiveReq HeadActiveC {
+      get { return headActiveC_; }
+      set {
+        headActiveC_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "frame_active_c" field.</summary>
+    public const int FrameActiveCFieldNumber = 1006;
+    private global::Csp.CSFrameActiveReq frameActiveC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSFrameActiveReq FrameActiveC {
+      get { return frameActiveC_; }
+      set {
+        frameActiveC_ = value;
+      }
+    }
+
     /// <summary>Field number for the "chat_send_c" field.</summary>
     public const int ChatSendCFieldNumber = 1254;
     private global::Csp.CSChatSendReq chatSendC_;
@@ -1336,6 +1405,94 @@ namespace Csp {
       get { return chatRoleDataC_; }
       set {
         chatRoleDataC_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "chat_msg_receive_c" field.</summary>
+    public const int ChatMsgReceiveCFieldNumber = 1258;
+    private global::Csp.CSChatMsgReceiveReq chatMsgReceiveC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSChatMsgReceiveReq ChatMsgReceiveC {
+      get { return chatMsgReceiveC_; }
+      set {
+        chatMsgReceiveC_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "head_show_c" field.</summary>
+    public const int HeadShowCFieldNumber = 1851;
+    private global::Csp.CSHeadShowReq headShowC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSHeadShowReq HeadShowC {
+      get { return headShowC_; }
+      set {
+        headShowC_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "head_un_show_c" field.</summary>
+    public const int HeadUnShowCFieldNumber = 1852;
+    private global::Csp.CSHeadUnShowReq headUnShowC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSHeadUnShowReq HeadUnShowC {
+      get { return headUnShowC_; }
+      set {
+        headUnShowC_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "frame_show_c" field.</summary>
+    public const int FrameShowCFieldNumber = 1854;
+    private global::Csp.CSFrameShowReq frameShowC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSFrameShowReq FrameShowC {
+      get { return frameShowC_; }
+      set {
+        frameShowC_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "frame_un_show_c" field.</summary>
+    public const int FrameUnShowCFieldNumber = 1855;
+    private global::Csp.CSFrameUnShowReq frameUnShowC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSFrameUnShowReq FrameUnShowC {
+      get { return frameUnShowC_; }
+      set {
+        frameUnShowC_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "dragon_show_c" field.</summary>
+    public const int DragonShowCFieldNumber = 1858;
+    private global::Csp.CSDragonShowReq dragonShowC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSDragonShowReq DragonShowC {
+      get { return dragonShowC_; }
+      set {
+        dragonShowC_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "skin_show_c" field.</summary>
+    public const int SkinShowCFieldNumber = 1850;
+    private global::Csp.CSSkinShowReq skinShowC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSSkinShowReq SkinShowC {
+      get { return skinShowC_; }
+      set {
+        skinShowC_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "skin_un_show_c" field.</summary>
+    public const int SkinUnShowCFieldNumber = 1853;
+    private global::Csp.CSSkinUnShowReq skinUnShowC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSSkinUnShowReq SkinUnShowC {
+      get { return skinUnShowC_; }
+      set {
+        skinUnShowC_ = value;
       }
     }
 
@@ -1394,25 +1551,47 @@ namespace Csp {
       }
     }
 
-    /// <summary>Field number for the "relay_create_c" field.</summary>
-    public const int RelayCreateCFieldNumber = 1750;
-    private global::Csp.CSRelayCreateReq relayCreateC_;
+    /// <summary>Field number for the "player_recommend_c" field.</summary>
+    public const int PlayerRecommendCFieldNumber = 1800;
+    private global::Csp.CSPlayerRecommendReq playerRecommendC_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSRelayCreateReq RelayCreateC {
-      get { return relayCreateC_; }
+    public global::Csp.CSPlayerRecommendReq PlayerRecommendC {
+      get { return playerRecommendC_; }
       set {
-        relayCreateC_ = value;
+        playerRecommendC_ = value;
       }
     }
 
-    /// <summary>Field number for the "relay_enter_c" field.</summary>
-    public const int RelayEnterCFieldNumber = 1751;
-    private global::Csp.CSRelayEnterReq relayEnterC_;
+    /// <summary>Field number for the "player_batch_info_c" field.</summary>
+    public const int PlayerBatchInfoCFieldNumber = 1801;
+    private global::Csp.CSPlayerBatchInfoReq playerBatchInfoC_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSRelayEnterReq RelayEnterC {
-      get { return relayEnterC_; }
+    public global::Csp.CSPlayerBatchInfoReq PlayerBatchInfoC {
+      get { return playerBatchInfoC_; }
       set {
-        relayEnterC_ = value;
+        playerBatchInfoC_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "player_info_c" field.</summary>
+    public const int PlayerInfoCFieldNumber = 1802;
+    private global::Csp.CSPlayerInfoReq playerInfoC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSPlayerInfoReq PlayerInfoC {
+      get { return playerInfoC_; }
+      set {
+        playerInfoC_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "player_search_c" field.</summary>
+    public const int PlayerSearchCFieldNumber = 1803;
+    private global::Csp.CSPlayerSearchReq playerSearchC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSPlayerSearchReq PlayerSearchC {
+      get { return playerSearchC_; }
+      set {
+        playerSearchC_ = value;
       }
     }
 
@@ -1427,14 +1606,14 @@ namespace Csp {
       }
     }
 
-    /// <summary>Field number for the "relay_leave_c" field.</summary>
-    public const int RelayLeaveCFieldNumber = 1755;
-    private global::Csp.CSRelayLeaveReq relayLeaveC_;
+    /// <summary>Field number for the "relay_room_c" field.</summary>
+    public const int RelayRoomCFieldNumber = 1761;
+    private global::Csp.CSRelayRoomReq relayRoomC_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSRelayLeaveReq RelayLeaveC {
-      get { return relayLeaveC_; }
+    public global::Csp.CSRelayRoomReq RelayRoomC {
+      get { return relayRoomC_; }
       set {
-        relayLeaveC_ = value;
+        relayRoomC_ = value;
       }
     }
 
@@ -1446,6 +1625,94 @@ namespace Csp {
       get { return relayFrameInputC_; }
       set {
         relayFrameInputC_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "relay_end_c" field.</summary>
+    public const int RelayEndCFieldNumber = 1763;
+    private global::Csp.CSRelayEndReq relayEndC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRelayEndReq RelayEndC {
+      get { return relayEndC_; }
+      set {
+        relayEndC_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "room_get_list_c" field.</summary>
+    public const int RoomGetListCFieldNumber = 1900;
+    private global::Csp.CSRoomGetListReq roomGetListC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRoomGetListReq RoomGetListC {
+      get { return roomGetListC_; }
+      set {
+        roomGetListC_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "room_create_c" field.</summary>
+    public const int RoomCreateCFieldNumber = 1901;
+    private global::Csp.CSRoomCreateReq roomCreateC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRoomCreateReq RoomCreateC {
+      get { return roomCreateC_; }
+      set {
+        roomCreateC_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "room_join_c" field.</summary>
+    public const int RoomJoinCFieldNumber = 1902;
+    private global::Csp.CSRoomJoinReq roomJoinC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRoomJoinReq RoomJoinC {
+      get { return roomJoinC_; }
+      set {
+        roomJoinC_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "room_leave_c" field.</summary>
+    public const int RoomLeaveCFieldNumber = 1903;
+    private global::Csp.CSRoomLeaveReq roomLeaveC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRoomLeaveReq RoomLeaveC {
+      get { return roomLeaveC_; }
+      set {
+        roomLeaveC_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "room_player_status_c" field.</summary>
+    public const int RoomPlayerStatusCFieldNumber = 1906;
+    private global::Csp.CSRoomPlayerStatusReq roomPlayerStatusC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRoomPlayerStatusReq RoomPlayerStatusC {
+      get { return roomPlayerStatusC_; }
+      set {
+        roomPlayerStatusC_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "room_reconnect_c" field.</summary>
+    public const int RoomReconnectCFieldNumber = 1904;
+    private global::Csp.CSRoomReconnectReq roomReconnectC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRoomReconnectReq RoomReconnectC {
+      get { return roomReconnectC_; }
+      set {
+        roomReconnectC_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "room_invite_c" field.</summary>
+    public const int RoomInviteCFieldNumber = 1905;
+    private global::Csp.CSRoomInviteReq roomInviteC_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRoomInviteReq RoomInviteC {
+      get { return roomInviteC_; }
+      set {
+        roomInviteC_ = value;
       }
     }
 
@@ -1526,28 +1793,6 @@ namespace Csp {
       }
     }
 
-    /// <summary>Field number for the "social_search_c" field.</summary>
-    public const int SocialSearchCFieldNumber = 1409;
-    private global::Csp.CSSocialSearchReq socialSearchC_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSSocialSearchReq SocialSearchC {
-      get { return socialSearchC_; }
-      set {
-        socialSearchC_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "social_recommend_c" field.</summary>
-    public const int SocialRecommendCFieldNumber = 1410;
-    private global::Csp.CSSocialRecommendReq socialRecommendC_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSSocialRecommendReq SocialRecommendC {
-      get { return socialRecommendC_; }
-      set {
-        socialRecommendC_ = value;
-      }
-    }
-
     /// <summary>Field number for the "social_black_list_c" field.</summary>
     public const int SocialBlackListCFieldNumber = 1411;
     private global::Csp.CSSocialBlackListReq socialBlackListC_;
@@ -1567,17 +1812,6 @@ namespace Csp {
       get { return socialBlockOneC_; }
       set {
         socialBlockOneC_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "social_batch_info_c" field.</summary>
-    public const int SocialBatchInfoCFieldNumber = 1414;
-    private global::Csp.CSSocialBatchInfoReq socialBatchInfoC_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSSocialBatchInfoReq SocialBatchInfoC {
-      get { return socialBatchInfoC_; }
-      set {
-        socialBatchInfoC_ = value;
       }
     }
 
@@ -1874,6 +2108,10 @@ namespace Csp {
         output.WriteRawTag(178, 56);
         output.WriteMessage(TaskAwardC);
       }
+      if (skinSlotUpgradeC_ != null) {
+        output.WriteRawTag(178, 59);
+        output.WriteMessage(SkinSlotUpgradeC);
+      }
       if (activeSkinC_ != null) {
         output.WriteRawTag(186, 59);
         output.WriteMessage(ActiveSkinC);
@@ -1894,9 +2132,9 @@ namespace Csp {
         output.WriteRawTag(218, 59);
         output.WriteMessage(SkinStarLevelUpC);
       }
-      if (skinRelicUpgradeC_ != null) {
+      if (skinEffectActiveC_ != null) {
         output.WriteRawTag(226, 59);
-        output.WriteMessage(SkinRelicUpgradeC);
+        output.WriteMessage(SkinEffectActiveC);
       }
       if (roleLoginC_ != null) {
         output.WriteRawTag(194, 62);
@@ -1910,9 +2148,17 @@ namespace Csp {
         output.WriteRawTag(210, 62);
         output.WriteMessage(LevelUpC);
       }
+      if (headActiveC_ != null) {
+        output.WriteRawTag(226, 62);
+        output.WriteMessage(HeadActiveC);
+      }
       if (renameC_ != null) {
         output.WriteRawTag(234, 62);
         output.WriteMessage(RenameC);
+      }
+      if (frameActiveC_ != null) {
+        output.WriteRawTag(242, 62);
+        output.WriteMessage(FrameActiveC);
       }
       if (dailyRefreshC_ != null) {
         output.WriteRawTag(146, 63);
@@ -1953,6 +2199,10 @@ namespace Csp {
       if (chatRoleDataC_ != null) {
         output.WriteRawTag(194, 78);
         output.WriteMessage(ChatRoleDataC);
+      }
+      if (chatMsgReceiveC_ != null) {
+        output.WriteRawTag(210, 78);
+        output.WriteMessage(ChatMsgReceiveC);
       }
       if (giftcodeReceiveC_ != null) {
         output.WriteRawTag(162, 81);
@@ -2002,14 +2252,6 @@ namespace Csp {
         output.WriteRawTag(130, 88);
         output.WriteMessage(SocialApplyDealAllC);
       }
-      if (socialSearchC_ != null) {
-        output.WriteRawTag(138, 88);
-        output.WriteMessage(SocialSearchC);
-      }
-      if (socialRecommendC_ != null) {
-        output.WriteRawTag(146, 88);
-        output.WriteMessage(SocialRecommendC);
-      }
       if (socialBlackListC_ != null) {
         output.WriteRawTag(154, 88);
         output.WriteMessage(SocialBlackListC);
@@ -2017,10 +2259,6 @@ namespace Csp {
       if (socialBlockOneC_ != null) {
         output.WriteRawTag(170, 88);
         output.WriteMessage(SocialBlockOneC);
-      }
-      if (socialBatchInfoC_ != null) {
-        output.WriteRawTag(178, 88);
-        output.WriteMessage(SocialBatchInfoC);
       }
       if (socialGiftReceiveC_ != null) {
         output.WriteRawTag(186, 88);
@@ -2090,6 +2328,10 @@ namespace Csp {
         output.WriteRawTag(138, 100);
         output.WriteMessage(ActivityOnC);
       }
+      if (activityStatDataC_ != null) {
+        output.WriteRawTag(146, 100);
+        output.WriteMessage(ActivityStatDataC);
+      }
       if (pushGiftPullC_ != null) {
         output.WriteRawTag(146, 103);
         output.WriteMessage(PushGiftPullC);
@@ -2102,25 +2344,93 @@ namespace Csp {
         output.WriteRawTag(170, 106);
         output.WriteMessage(StatSingleDataC);
       }
-      if (relayCreateC_ != null) {
-        output.WriteRawTag(178, 109);
-        output.WriteMessage(RelayCreateC);
-      }
-      if (relayEnterC_ != null) {
-        output.WriteRawTag(186, 109);
-        output.WriteMessage(RelayEnterC);
-      }
       if (relayPlayerReadyC_ != null) {
         output.WriteRawTag(202, 109);
         output.WriteMessage(RelayPlayerReadyC);
       }
-      if (relayLeaveC_ != null) {
-        output.WriteRawTag(218, 109);
-        output.WriteMessage(RelayLeaveC);
-      }
       if (relayFrameInputC_ != null) {
         output.WriteRawTag(242, 109);
         output.WriteMessage(RelayFrameInputC);
+      }
+      if (relayRoomC_ != null) {
+        output.WriteRawTag(138, 110);
+        output.WriteMessage(RelayRoomC);
+      }
+      if (relayEndC_ != null) {
+        output.WriteRawTag(154, 110);
+        output.WriteMessage(RelayEndC);
+      }
+      if (playerRecommendC_ != null) {
+        output.WriteRawTag(194, 112);
+        output.WriteMessage(PlayerRecommendC);
+      }
+      if (playerBatchInfoC_ != null) {
+        output.WriteRawTag(202, 112);
+        output.WriteMessage(PlayerBatchInfoC);
+      }
+      if (playerInfoC_ != null) {
+        output.WriteRawTag(210, 112);
+        output.WriteMessage(PlayerInfoC);
+      }
+      if (playerSearchC_ != null) {
+        output.WriteRawTag(218, 112);
+        output.WriteMessage(PlayerSearchC);
+      }
+      if (skinShowC_ != null) {
+        output.WriteRawTag(210, 115);
+        output.WriteMessage(SkinShowC);
+      }
+      if (headShowC_ != null) {
+        output.WriteRawTag(218, 115);
+        output.WriteMessage(HeadShowC);
+      }
+      if (headUnShowC_ != null) {
+        output.WriteRawTag(226, 115);
+        output.WriteMessage(HeadUnShowC);
+      }
+      if (skinUnShowC_ != null) {
+        output.WriteRawTag(234, 115);
+        output.WriteMessage(SkinUnShowC);
+      }
+      if (frameShowC_ != null) {
+        output.WriteRawTag(242, 115);
+        output.WriteMessage(FrameShowC);
+      }
+      if (frameUnShowC_ != null) {
+        output.WriteRawTag(250, 115);
+        output.WriteMessage(FrameUnShowC);
+      }
+      if (dragonShowC_ != null) {
+        output.WriteRawTag(146, 116);
+        output.WriteMessage(DragonShowC);
+      }
+      if (roomGetListC_ != null) {
+        output.WriteRawTag(226, 118);
+        output.WriteMessage(RoomGetListC);
+      }
+      if (roomCreateC_ != null) {
+        output.WriteRawTag(234, 118);
+        output.WriteMessage(RoomCreateC);
+      }
+      if (roomJoinC_ != null) {
+        output.WriteRawTag(242, 118);
+        output.WriteMessage(RoomJoinC);
+      }
+      if (roomLeaveC_ != null) {
+        output.WriteRawTag(250, 118);
+        output.WriteMessage(RoomLeaveC);
+      }
+      if (roomReconnectC_ != null) {
+        output.WriteRawTag(130, 119);
+        output.WriteMessage(RoomReconnectC);
+      }
+      if (roomInviteC_ != null) {
+        output.WriteRawTag(138, 119);
+        output.WriteMessage(RoomInviteC);
+      }
+      if (roomPlayerStatusC_ != null) {
+        output.WriteRawTag(146, 119);
+        output.WriteMessage(RoomPlayerStatusC);
       }
     }
 
@@ -2130,8 +2440,11 @@ namespace Csp {
       if (head_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Head);
       }
-      if (activityOnC_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(ActivityOnC);
+      if (statAllDataC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(StatAllDataC);
+      }
+      if (statSingleDataC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(StatSingleDataC);
       }
       if (equipmentSlotLevelUpC_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(EquipmentSlotLevelUpC);
@@ -2165,6 +2478,12 @@ namespace Csp {
       }
       if (itemOnRestoreAllC_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(ItemOnRestoreAllC);
+      }
+      if (activityOnC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(ActivityOnC);
+      }
+      if (activityStatDataC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(ActivityStatDataC);
       }
       if (watchAdC_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(WatchAdC);
@@ -2229,14 +2548,11 @@ namespace Csp {
       if (skinStarLevelUpC_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(SkinStarLevelUpC);
       }
-      if (skinRelicUpgradeC_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(SkinRelicUpgradeC);
+      if (skinSlotUpgradeC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(SkinSlotUpgradeC);
       }
-      if (statAllDataC_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(StatAllDataC);
-      }
-      if (statSingleDataC_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(StatSingleDataC);
+      if (skinEffectActiveC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(SkinEffectActiveC);
       }
       if (pveStateC_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(PveStateC);
@@ -2349,6 +2665,12 @@ namespace Csp {
       if (getPowerC_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(GetPowerC);
       }
+      if (headActiveC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(HeadActiveC);
+      }
+      if (frameActiveC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(FrameActiveC);
+      }
       if (chatSendC_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(ChatSendC);
       }
@@ -2363,6 +2685,30 @@ namespace Csp {
       }
       if (chatRoleDataC_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(ChatRoleDataC);
+      }
+      if (chatMsgReceiveC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(ChatMsgReceiveC);
+      }
+      if (headShowC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(HeadShowC);
+      }
+      if (headUnShowC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(HeadUnShowC);
+      }
+      if (frameShowC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(FrameShowC);
+      }
+      if (frameUnShowC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(FrameUnShowC);
+      }
+      if (dragonShowC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(DragonShowC);
+      }
+      if (skinShowC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(SkinShowC);
+      }
+      if (skinUnShowC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(SkinUnShowC);
       }
       if (giftcodeReceiveC_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(GiftcodeReceiveC);
@@ -2379,20 +2725,50 @@ namespace Csp {
       if (storyFinishC_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(StoryFinishC);
       }
-      if (relayCreateC_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RelayCreateC);
+      if (playerRecommendC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(PlayerRecommendC);
       }
-      if (relayEnterC_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RelayEnterC);
+      if (playerBatchInfoC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(PlayerBatchInfoC);
+      }
+      if (playerInfoC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(PlayerInfoC);
+      }
+      if (playerSearchC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(PlayerSearchC);
       }
       if (relayPlayerReadyC_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(RelayPlayerReadyC);
       }
-      if (relayLeaveC_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RelayLeaveC);
+      if (relayRoomC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RelayRoomC);
       }
       if (relayFrameInputC_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(RelayFrameInputC);
+      }
+      if (relayEndC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RelayEndC);
+      }
+      if (roomGetListC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RoomGetListC);
+      }
+      if (roomCreateC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RoomCreateC);
+      }
+      if (roomJoinC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RoomJoinC);
+      }
+      if (roomLeaveC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RoomLeaveC);
+      }
+      if (roomPlayerStatusC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RoomPlayerStatusC);
+      }
+      if (roomReconnectC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RoomReconnectC);
+      }
+      if (roomInviteC_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RoomInviteC);
       }
       if (socialListC_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(SocialListC);
@@ -2415,20 +2791,11 @@ namespace Csp {
       if (socialApplyDealAllC_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(SocialApplyDealAllC);
       }
-      if (socialSearchC_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(SocialSearchC);
-      }
-      if (socialRecommendC_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(SocialRecommendC);
-      }
       if (socialBlackListC_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(SocialBlackListC);
       }
       if (socialBlockOneC_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(SocialBlockOneC);
-      }
-      if (socialBatchInfoC_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(SocialBatchInfoC);
       }
       if (socialGiftReceiveC_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(SocialGiftReceiveC);
@@ -2804,6 +3171,13 @@ namespace Csp {
             input.ReadMessage(taskAwardC_);
             break;
           }
+          case 7602: {
+            if (skinSlotUpgradeC_ == null) {
+              skinSlotUpgradeC_ = new global::Csp.CSSkinSlotUpgradeReq();
+            }
+            input.ReadMessage(skinSlotUpgradeC_);
+            break;
+          }
           case 7610: {
             if (activeSkinC_ == null) {
               activeSkinC_ = new global::Csp.CSActiveSkinReq();
@@ -2840,10 +3214,10 @@ namespace Csp {
             break;
           }
           case 7650: {
-            if (skinRelicUpgradeC_ == null) {
-              skinRelicUpgradeC_ = new global::Csp.CSSkinRelicUpgradeReq();
+            if (skinEffectActiveC_ == null) {
+              skinEffectActiveC_ = new global::Csp.CSSkinEffectActiveReq();
             }
-            input.ReadMessage(skinRelicUpgradeC_);
+            input.ReadMessage(skinEffectActiveC_);
             break;
           }
           case 8002: {
@@ -2867,11 +3241,25 @@ namespace Csp {
             input.ReadMessage(levelUpC_);
             break;
           }
+          case 8034: {
+            if (headActiveC_ == null) {
+              headActiveC_ = new global::Csp.CSHeadActiveReq();
+            }
+            input.ReadMessage(headActiveC_);
+            break;
+          }
           case 8042: {
             if (renameC_ == null) {
               renameC_ = new global::Csp.CSRenameReq();
             }
             input.ReadMessage(renameC_);
+            break;
+          }
+          case 8050: {
+            if (frameActiveC_ == null) {
+              frameActiveC_ = new global::Csp.CSFrameActiveReq();
+            }
+            input.ReadMessage(frameActiveC_);
             break;
           }
           case 8082: {
@@ -2942,6 +3330,13 @@ namespace Csp {
               chatRoleDataC_ = new global::Csp.CSChatRoleDataReq();
             }
             input.ReadMessage(chatRoleDataC_);
+            break;
+          }
+          case 10066: {
+            if (chatMsgReceiveC_ == null) {
+              chatMsgReceiveC_ = new global::Csp.CSChatMsgReceiveReq();
+            }
+            input.ReadMessage(chatMsgReceiveC_);
             break;
           }
           case 10402: {
@@ -3028,20 +3423,6 @@ namespace Csp {
             input.ReadMessage(socialApplyDealAllC_);
             break;
           }
-          case 11274: {
-            if (socialSearchC_ == null) {
-              socialSearchC_ = new global::Csp.CSSocialSearchReq();
-            }
-            input.ReadMessage(socialSearchC_);
-            break;
-          }
-          case 11282: {
-            if (socialRecommendC_ == null) {
-              socialRecommendC_ = new global::Csp.CSSocialRecommendReq();
-            }
-            input.ReadMessage(socialRecommendC_);
-            break;
-          }
           case 11290: {
             if (socialBlackListC_ == null) {
               socialBlackListC_ = new global::Csp.CSSocialBlackListReq();
@@ -3054,13 +3435,6 @@ namespace Csp {
               socialBlockOneC_ = new global::Csp.CSSocialBlockOneReq();
             }
             input.ReadMessage(socialBlockOneC_);
-            break;
-          }
-          case 11314: {
-            if (socialBatchInfoC_ == null) {
-              socialBatchInfoC_ = new global::Csp.CSSocialBatchInfoReq();
-            }
-            input.ReadMessage(socialBatchInfoC_);
             break;
           }
           case 11322: {
@@ -3182,6 +3556,13 @@ namespace Csp {
             input.ReadMessage(activityOnC_);
             break;
           }
+          case 12818: {
+            if (activityStatDataC_ == null) {
+              activityStatDataC_ = new global::Csp.CSActivityStatDataReq();
+            }
+            input.ReadMessage(activityStatDataC_);
+            break;
+          }
           case 13202: {
             if (pushGiftPullC_ == null) {
               pushGiftPullC_ = new global::Csp.CSPushGiftPullReq();
@@ -3203,20 +3584,6 @@ namespace Csp {
             input.ReadMessage(statSingleDataC_);
             break;
           }
-          case 14002: {
-            if (relayCreateC_ == null) {
-              relayCreateC_ = new global::Csp.CSRelayCreateReq();
-            }
-            input.ReadMessage(relayCreateC_);
-            break;
-          }
-          case 14010: {
-            if (relayEnterC_ == null) {
-              relayEnterC_ = new global::Csp.CSRelayEnterReq();
-            }
-            input.ReadMessage(relayEnterC_);
-            break;
-          }
           case 14026: {
             if (relayPlayerReadyC_ == null) {
               relayPlayerReadyC_ = new global::Csp.CSRelayPlayerReadyReq();
@@ -3224,18 +3591,151 @@ namespace Csp {
             input.ReadMessage(relayPlayerReadyC_);
             break;
           }
-          case 14042: {
-            if (relayLeaveC_ == null) {
-              relayLeaveC_ = new global::Csp.CSRelayLeaveReq();
-            }
-            input.ReadMessage(relayLeaveC_);
-            break;
-          }
           case 14066: {
             if (relayFrameInputC_ == null) {
               relayFrameInputC_ = new global::Csp.CSRelayFrameInputReq();
             }
             input.ReadMessage(relayFrameInputC_);
+            break;
+          }
+          case 14090: {
+            if (relayRoomC_ == null) {
+              relayRoomC_ = new global::Csp.CSRelayRoomReq();
+            }
+            input.ReadMessage(relayRoomC_);
+            break;
+          }
+          case 14106: {
+            if (relayEndC_ == null) {
+              relayEndC_ = new global::Csp.CSRelayEndReq();
+            }
+            input.ReadMessage(relayEndC_);
+            break;
+          }
+          case 14402: {
+            if (playerRecommendC_ == null) {
+              playerRecommendC_ = new global::Csp.CSPlayerRecommendReq();
+            }
+            input.ReadMessage(playerRecommendC_);
+            break;
+          }
+          case 14410: {
+            if (playerBatchInfoC_ == null) {
+              playerBatchInfoC_ = new global::Csp.CSPlayerBatchInfoReq();
+            }
+            input.ReadMessage(playerBatchInfoC_);
+            break;
+          }
+          case 14418: {
+            if (playerInfoC_ == null) {
+              playerInfoC_ = new global::Csp.CSPlayerInfoReq();
+            }
+            input.ReadMessage(playerInfoC_);
+            break;
+          }
+          case 14426: {
+            if (playerSearchC_ == null) {
+              playerSearchC_ = new global::Csp.CSPlayerSearchReq();
+            }
+            input.ReadMessage(playerSearchC_);
+            break;
+          }
+          case 14802: {
+            if (skinShowC_ == null) {
+              skinShowC_ = new global::Csp.CSSkinShowReq();
+            }
+            input.ReadMessage(skinShowC_);
+            break;
+          }
+          case 14810: {
+            if (headShowC_ == null) {
+              headShowC_ = new global::Csp.CSHeadShowReq();
+            }
+            input.ReadMessage(headShowC_);
+            break;
+          }
+          case 14818: {
+            if (headUnShowC_ == null) {
+              headUnShowC_ = new global::Csp.CSHeadUnShowReq();
+            }
+            input.ReadMessage(headUnShowC_);
+            break;
+          }
+          case 14826: {
+            if (skinUnShowC_ == null) {
+              skinUnShowC_ = new global::Csp.CSSkinUnShowReq();
+            }
+            input.ReadMessage(skinUnShowC_);
+            break;
+          }
+          case 14834: {
+            if (frameShowC_ == null) {
+              frameShowC_ = new global::Csp.CSFrameShowReq();
+            }
+            input.ReadMessage(frameShowC_);
+            break;
+          }
+          case 14842: {
+            if (frameUnShowC_ == null) {
+              frameUnShowC_ = new global::Csp.CSFrameUnShowReq();
+            }
+            input.ReadMessage(frameUnShowC_);
+            break;
+          }
+          case 14866: {
+            if (dragonShowC_ == null) {
+              dragonShowC_ = new global::Csp.CSDragonShowReq();
+            }
+            input.ReadMessage(dragonShowC_);
+            break;
+          }
+          case 15202: {
+            if (roomGetListC_ == null) {
+              roomGetListC_ = new global::Csp.CSRoomGetListReq();
+            }
+            input.ReadMessage(roomGetListC_);
+            break;
+          }
+          case 15210: {
+            if (roomCreateC_ == null) {
+              roomCreateC_ = new global::Csp.CSRoomCreateReq();
+            }
+            input.ReadMessage(roomCreateC_);
+            break;
+          }
+          case 15218: {
+            if (roomJoinC_ == null) {
+              roomJoinC_ = new global::Csp.CSRoomJoinReq();
+            }
+            input.ReadMessage(roomJoinC_);
+            break;
+          }
+          case 15226: {
+            if (roomLeaveC_ == null) {
+              roomLeaveC_ = new global::Csp.CSRoomLeaveReq();
+            }
+            input.ReadMessage(roomLeaveC_);
+            break;
+          }
+          case 15234: {
+            if (roomReconnectC_ == null) {
+              roomReconnectC_ = new global::Csp.CSRoomReconnectReq();
+            }
+            input.ReadMessage(roomReconnectC_);
+            break;
+          }
+          case 15242: {
+            if (roomInviteC_ == null) {
+              roomInviteC_ = new global::Csp.CSRoomInviteReq();
+            }
+            input.ReadMessage(roomInviteC_);
+            break;
+          }
+          case 15250: {
+            if (roomPlayerStatusC_ == null) {
+              roomPlayerStatusC_ = new global::Csp.CSRoomPlayerStatusReq();
+            }
+            input.ReadMessage(roomPlayerStatusC_);
             break;
           }
         }
@@ -3260,14 +3760,47 @@ namespace Csp {
       }
     }
 
-    /// <summary>Field number for the "activity_on_notify" field.</summary>
-    public const int ActivityOnNotifyFieldNumber = 1600;
-    private global::Csp.CSActivityOnNotify activityOnNotify_;
+    /// <summary>Field number for the "stat_all_data_s" field.</summary>
+    public const int StatAllDataSFieldNumber = 1700;
+    private global::Csp.CSStatAllDataResp statAllDataS_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSActivityOnNotify ActivityOnNotify {
-      get { return activityOnNotify_; }
+    public global::Csp.CSStatAllDataResp StatAllDataS {
+      get { return statAllDataS_; }
       set {
-        activityOnNotify_ = value;
+        statAllDataS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "stat_single_data_s" field.</summary>
+    public const int StatSingleDataSFieldNumber = 1701;
+    private global::Csp.CSStatSingleDataResp statSingleDataS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSStatSingleDataResp StatSingleDataS {
+      get { return statSingleDataS_; }
+      set {
+        statSingleDataS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "stat_single_data_notify" field.</summary>
+    public const int StatSingleDataNotifyFieldNumber = 1702;
+    private global::Csp.CSStatSingleDataNotify statSingleDataNotify_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSStatSingleDataNotify StatSingleDataNotify {
+      get { return statSingleDataNotify_; }
+      set {
+        statSingleDataNotify_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "stat_sync_notify" field.</summary>
+    public const int StatSyncNotifyFieldNumber = 1703;
+    private global::Csp.CSStatSyncNotify statSyncNotify_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSStatSyncNotify StatSyncNotify {
+      get { return statSyncNotify_; }
+      set {
+        statSyncNotify_ = value;
       }
     }
 
@@ -3521,6 +4054,39 @@ namespace Csp {
       get { return itemOnRestoreAllNotify_; }
       set {
         itemOnRestoreAllNotify_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "activity_on_notify" field.</summary>
+    public const int ActivityOnNotifyFieldNumber = 1600;
+    private global::Csp.CSActivityOnNotify activityOnNotify_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSActivityOnNotify ActivityOnNotify {
+      get { return activityOnNotify_; }
+      set {
+        activityOnNotify_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "activity_stat_data_s" field.</summary>
+    public const int ActivityStatDataSFieldNumber = 1602;
+    private global::Csp.CSActivityStatDataResp activityStatDataS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSActivityStatDataResp ActivityStatDataS {
+      get { return activityStatDataS_; }
+      set {
+        activityStatDataS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "activity_stat_data_notify" field.</summary>
+    public const int ActivityStatDataNotifyFieldNumber = 1603;
+    private global::Csp.CSActivityStatDataNotify activityStatDataNotify_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSActivityStatDataNotify ActivityStatDataNotify {
+      get { return activityStatDataNotify_; }
+      set {
+        activityStatDataNotify_ = value;
       }
     }
 
@@ -3810,58 +4376,25 @@ namespace Csp {
       }
     }
 
-    /// <summary>Field number for the "skin_relic_upgrade_s" field.</summary>
-    public const int SkinRelicUpgradeSFieldNumber = 956;
-    private global::Csp.CSSkinRelicUpgradeResp skinRelicUpgradeS_;
+    /// <summary>Field number for the "skin_slot_upgrade_s" field.</summary>
+    public const int SkinSlotUpgradeSFieldNumber = 950;
+    private global::Csp.CSSkinSlotUpgradeResp skinSlotUpgradeS_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSSkinRelicUpgradeResp SkinRelicUpgradeS {
-      get { return skinRelicUpgradeS_; }
+    public global::Csp.CSSkinSlotUpgradeResp SkinSlotUpgradeS {
+      get { return skinSlotUpgradeS_; }
       set {
-        skinRelicUpgradeS_ = value;
+        skinSlotUpgradeS_ = value;
       }
     }
 
-    /// <summary>Field number for the "stat_all_data_s" field.</summary>
-    public const int StatAllDataSFieldNumber = 1700;
-    private global::Csp.CSStatAllDataResp statAllDataS_;
+    /// <summary>Field number for the "skin_effect_active_s" field.</summary>
+    public const int SkinEffectActiveSFieldNumber = 956;
+    private global::Csp.CSSkinEffectActiveResp skinEffectActiveS_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSStatAllDataResp StatAllDataS {
-      get { return statAllDataS_; }
+    public global::Csp.CSSkinEffectActiveResp SkinEffectActiveS {
+      get { return skinEffectActiveS_; }
       set {
-        statAllDataS_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "stat_single_data_s" field.</summary>
-    public const int StatSingleDataSFieldNumber = 1701;
-    private global::Csp.CSStatSingleDataResp statSingleDataS_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSStatSingleDataResp StatSingleDataS {
-      get { return statSingleDataS_; }
-      set {
-        statSingleDataS_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "stat_single_data_notify" field.</summary>
-    public const int StatSingleDataNotifyFieldNumber = 1702;
-    private global::Csp.CSStatSingleDataNotify statSingleDataNotify_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSStatSingleDataNotify StatSingleDataNotify {
-      get { return statSingleDataNotify_; }
-      set {
-        statSingleDataNotify_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "stat_sync_notify" field.</summary>
-    public const int StatSyncNotifyFieldNumber = 1703;
-    private global::Csp.CSStatSyncNotify statSyncNotify_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSStatSyncNotify StatSyncNotify {
-      get { return statSyncNotify_; }
-      set {
-        statSyncNotify_ = value;
+        skinEffectActiveS_ = value;
       }
     }
 
@@ -4305,6 +4838,17 @@ namespace Csp {
       }
     }
 
+    /// <summary>Field number for the "push_gift_del_notify" field.</summary>
+    public const int PushGiftDelNotifyFieldNumber = 1652;
+    private global::Csp.CSPushGiftDelNotify pushGiftDelNotify_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSPushGiftDelNotify PushGiftDelNotify {
+      get { return pushGiftDelNotify_; }
+      set {
+        pushGiftDelNotify_ = value;
+      }
+    }
+
     /// <summary>Field number for the "role_login_s" field.</summary>
     public const int RoleLoginSFieldNumber = 1000;
     private global::Csp.CSRoleLoginResp roleLoginS_;
@@ -4404,6 +4948,28 @@ namespace Csp {
       }
     }
 
+    /// <summary>Field number for the "head_active_s" field.</summary>
+    public const int HeadActiveSFieldNumber = 1004;
+    private global::Csp.CSHeadActiveResp headActiveS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSHeadActiveResp HeadActiveS {
+      get { return headActiveS_; }
+      set {
+        headActiveS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "frame_active_s" field.</summary>
+    public const int FrameActiveSFieldNumber = 1006;
+    private global::Csp.CSFrameActiveResp frameActiveS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSFrameActiveResp FrameActiveS {
+      get { return frameActiveS_; }
+      set {
+        frameActiveS_ = value;
+      }
+    }
+
     /// <summary>Field number for the "chat_send_s" field.</summary>
     public const int ChatSendSFieldNumber = 1254;
     private global::Csp.CSChatSendResp chatSendS_;
@@ -4467,6 +5033,94 @@ namespace Csp {
       get { return chatRoleDataNotify_; }
       set {
         chatRoleDataNotify_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "chat_msg_receive_s" field.</summary>
+    public const int ChatMsgReceiveSFieldNumber = 1258;
+    private global::Csp.CSChatMsgReceiveResp chatMsgReceiveS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSChatMsgReceiveResp ChatMsgReceiveS {
+      get { return chatMsgReceiveS_; }
+      set {
+        chatMsgReceiveS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "head_show_s" field.</summary>
+    public const int HeadShowSFieldNumber = 1851;
+    private global::Csp.CSHeadShowResp headShowS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSHeadShowResp HeadShowS {
+      get { return headShowS_; }
+      set {
+        headShowS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "head_un_show_s" field.</summary>
+    public const int HeadUnShowSFieldNumber = 1852;
+    private global::Csp.CSHeadUnShowResp headUnShowS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSHeadUnShowResp HeadUnShowS {
+      get { return headUnShowS_; }
+      set {
+        headUnShowS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "frame_show_s" field.</summary>
+    public const int FrameShowSFieldNumber = 1854;
+    private global::Csp.CSFrameShowResp frameShowS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSFrameShowResp FrameShowS {
+      get { return frameShowS_; }
+      set {
+        frameShowS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "frame_un_show_s" field.</summary>
+    public const int FrameUnShowSFieldNumber = 1855;
+    private global::Csp.CSFrameUnShowResp frameUnShowS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSFrameUnShowResp FrameUnShowS {
+      get { return frameUnShowS_; }
+      set {
+        frameUnShowS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "dragon_show_s" field.</summary>
+    public const int DragonShowSFieldNumber = 1858;
+    private global::Csp.CSDragonShowResp dragonShowS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSDragonShowResp DragonShowS {
+      get { return dragonShowS_; }
+      set {
+        dragonShowS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "skin_show_s" field.</summary>
+    public const int SkinShowSFieldNumber = 1850;
+    private global::Csp.CSSkinShowResp skinShowS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSSkinShowResp SkinShowS {
+      get { return skinShowS_; }
+      set {
+        skinShowS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "skin_un_show_s" field.</summary>
+    public const int SkinUnShowSFieldNumber = 1853;
+    private global::Csp.CSSkinUnShowResp skinUnShowS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSSkinUnShowResp SkinUnShowS {
+      get { return skinUnShowS_; }
+      set {
+        skinUnShowS_ = value;
       }
     }
 
@@ -4547,36 +5201,58 @@ namespace Csp {
       }
     }
 
-    /// <summary>Field number for the "relay_create_s" field.</summary>
-    public const int RelayCreateSFieldNumber = 1750;
-    private global::Csp.CSRelayCreateResp relayCreateS_;
+    /// <summary>Field number for the "player_recommend_s" field.</summary>
+    public const int PlayerRecommendSFieldNumber = 1800;
+    private global::Csp.CSPlayerRecommendResp playerRecommendS_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSRelayCreateResp RelayCreateS {
-      get { return relayCreateS_; }
+    public global::Csp.CSPlayerRecommendResp PlayerRecommendS {
+      get { return playerRecommendS_; }
       set {
-        relayCreateS_ = value;
+        playerRecommendS_ = value;
       }
     }
 
-    /// <summary>Field number for the "relay_enter_s" field.</summary>
-    public const int RelayEnterSFieldNumber = 1751;
-    private global::Csp.CSRelayEnterResp relayEnterS_;
+    /// <summary>Field number for the "player_batch_info_s" field.</summary>
+    public const int PlayerBatchInfoSFieldNumber = 1801;
+    private global::Csp.CSPlayerBatchInfoResp playerBatchInfoS_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSRelayEnterResp RelayEnterS {
-      get { return relayEnterS_; }
+    public global::Csp.CSPlayerBatchInfoResp PlayerBatchInfoS {
+      get { return playerBatchInfoS_; }
       set {
-        relayEnterS_ = value;
+        playerBatchInfoS_ = value;
       }
     }
 
-    /// <summary>Field number for the "relay_enter_notify" field.</summary>
-    public const int RelayEnterNotifyFieldNumber = 1752;
-    private global::Csp.CSRelayEnterNotify relayEnterNotify_;
+    /// <summary>Field number for the "player_info_s" field.</summary>
+    public const int PlayerInfoSFieldNumber = 1802;
+    private global::Csp.CSPlayerInfoResp playerInfoS_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSRelayEnterNotify RelayEnterNotify {
-      get { return relayEnterNotify_; }
+    public global::Csp.CSPlayerInfoResp PlayerInfoS {
+      get { return playerInfoS_; }
       set {
-        relayEnterNotify_ = value;
+        playerInfoS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "player_search_s" field.</summary>
+    public const int PlayerSearchSFieldNumber = 1803;
+    private global::Csp.CSPlayerSearchResp playerSearchS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSPlayerSearchResp PlayerSearchS {
+      get { return playerSearchS_; }
+      set {
+        playerSearchS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "relay_player_connect_notify" field.</summary>
+    public const int RelayPlayerConnectNotifyFieldNumber = 1750;
+    private global::Csp.CSRelayPlayerConnectNotify relayPlayerConnectNotify_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRelayPlayerConnectNotify RelayPlayerConnectNotify {
+      get { return relayPlayerConnectNotify_; }
+      set {
+        relayPlayerConnectNotify_ = value;
       }
     }
 
@@ -4602,25 +5278,14 @@ namespace Csp {
       }
     }
 
-    /// <summary>Field number for the "relay_leave_s" field.</summary>
-    public const int RelayLeaveSFieldNumber = 1755;
-    private global::Csp.CSRelayLeaveResp relayLeaveS_;
+    /// <summary>Field number for the "relay_player_status_notify" field.</summary>
+    public const int RelayPlayerStatusNotifyFieldNumber = 1760;
+    private global::Csp.CSRelayPlayerStatusNotify relayPlayerStatusNotify_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSRelayLeaveResp RelayLeaveS {
-      get { return relayLeaveS_; }
+    public global::Csp.CSRelayPlayerStatusNotify RelayPlayerStatusNotify {
+      get { return relayPlayerStatusNotify_; }
       set {
-        relayLeaveS_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "relay_leave_notify" field.</summary>
-    public const int RelayLeaveNotifyFieldNumber = 1756;
-    private global::Csp.CSRelayLeaveNotify relayLeaveNotify_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSRelayLeaveNotify RelayLeaveNotify {
-      get { return relayLeaveNotify_; }
-      set {
-        relayLeaveNotify_ = value;
+        relayPlayerStatusNotify_ = value;
       }
     }
 
@@ -4635,6 +5300,28 @@ namespace Csp {
       }
     }
 
+    /// <summary>Field number for the "relay_room_s" field.</summary>
+    public const int RelayRoomSFieldNumber = 1761;
+    private global::Csp.CSRelayRoomResp relayRoomS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRelayRoomResp RelayRoomS {
+      get { return relayRoomS_; }
+      set {
+        relayRoomS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "relay_room_notify" field.</summary>
+    public const int RelayRoomNotifyFieldNumber = 1762;
+    private global::Csp.CSRelayRoomNotify relayRoomNotify_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRelayRoomNotify RelayRoomNotify {
+      get { return relayRoomNotify_; }
+      set {
+        relayRoomNotify_ = value;
+      }
+    }
+
     /// <summary>Field number for the "relay_frame_input_notify" field.</summary>
     public const int RelayFrameInputNotifyFieldNumber = 1759;
     private global::Csp.CSRelayFrameInputNotify relayFrameInputNotify_;
@@ -4643,6 +5330,127 @@ namespace Csp {
       get { return relayFrameInputNotify_; }
       set {
         relayFrameInputNotify_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "relay_end_s" field.</summary>
+    public const int RelayEndSFieldNumber = 1763;
+    private global::Csp.CSRelayEndResp relayEndS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRelayEndResp RelayEndS {
+      get { return relayEndS_; }
+      set {
+        relayEndS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "relay_end_notify" field.</summary>
+    public const int RelayEndNotifyFieldNumber = 1764;
+    private global::Csp.CSRelayEndNotify relayEndNotify_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRelayEndNotify RelayEndNotify {
+      get { return relayEndNotify_; }
+      set {
+        relayEndNotify_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "room_info_notify" field.</summary>
+    public const int RoomInfoNotifyFieldNumber = 1908;
+    private global::Csp.CSRoomInfoNotify roomInfoNotify_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRoomInfoNotify RoomInfoNotify {
+      get { return roomInfoNotify_; }
+      set {
+        roomInfoNotify_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "room_get_list_s" field.</summary>
+    public const int RoomGetListSFieldNumber = 1900;
+    private global::Csp.CSRoomGetListResp roomGetListS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRoomGetListResp RoomGetListS {
+      get { return roomGetListS_; }
+      set {
+        roomGetListS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "room_create_s" field.</summary>
+    public const int RoomCreateSFieldNumber = 1901;
+    private global::Csp.CSRoomCreateResp roomCreateS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRoomCreateResp RoomCreateS {
+      get { return roomCreateS_; }
+      set {
+        roomCreateS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "room_join_s" field.</summary>
+    public const int RoomJoinSFieldNumber = 1902;
+    private global::Csp.CSRoomJoinResp roomJoinS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRoomJoinResp RoomJoinS {
+      get { return roomJoinS_; }
+      set {
+        roomJoinS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "room_leave_s" field.</summary>
+    public const int RoomLeaveSFieldNumber = 1903;
+    private global::Csp.CSRoomLeaveResp roomLeaveS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRoomLeaveResp RoomLeaveS {
+      get { return roomLeaveS_; }
+      set {
+        roomLeaveS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "room_player_status_s" field.</summary>
+    public const int RoomPlayerStatusSFieldNumber = 1906;
+    private global::Csp.CSRoomPlayerStatusResp roomPlayerStatusS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRoomPlayerStatusResp RoomPlayerStatusS {
+      get { return roomPlayerStatusS_; }
+      set {
+        roomPlayerStatusS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "room_player_status_notify" field.</summary>
+    public const int RoomPlayerStatusNotifyFieldNumber = 1907;
+    private global::Csp.CSRoomPlayerStatusNotify roomPlayerStatusNotify_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRoomPlayerStatusNotify RoomPlayerStatusNotify {
+      get { return roomPlayerStatusNotify_; }
+      set {
+        roomPlayerStatusNotify_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "room_reconnect_s" field.</summary>
+    public const int RoomReconnectSFieldNumber = 1904;
+    private global::Csp.CSRoomReconnectResp roomReconnectS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRoomReconnectResp RoomReconnectS {
+      get { return roomReconnectS_; }
+      set {
+        roomReconnectS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "room_invite_s" field.</summary>
+    public const int RoomInviteSFieldNumber = 1905;
+    private global::Csp.CSRoomInviteResp roomInviteS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRoomInviteResp RoomInviteS {
+      get { return roomInviteS_; }
+      set {
+        roomInviteS_ = value;
       }
     }
 
@@ -4712,28 +5520,6 @@ namespace Csp {
       }
     }
 
-    /// <summary>Field number for the "social_search_s" field.</summary>
-    public const int SocialSearchSFieldNumber = 1409;
-    private global::Csp.CSSocialSearchResp socialSearchS_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSSocialSearchResp SocialSearchS {
-      get { return socialSearchS_; }
-      set {
-        socialSearchS_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "social_recommend_s" field.</summary>
-    public const int SocialRecommendSFieldNumber = 1410;
-    private global::Csp.CSSocialRecommendResp socialRecommendS_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSSocialRecommendResp SocialRecommendS {
-      get { return socialRecommendS_; }
-      set {
-        socialRecommendS_ = value;
-      }
-    }
-
     /// <summary>Field number for the "social_black_list_notify" field.</summary>
     public const int SocialBlackListNotifyFieldNumber = 1412;
     private global::Csp.CSSocialBlackListNotify socialBlackListNotify_;
@@ -4742,17 +5528,6 @@ namespace Csp {
       get { return socialBlackListNotify_; }
       set {
         socialBlackListNotify_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "social_batch_info_s" field.</summary>
-    public const int SocialBatchInfoSFieldNumber = 1414;
-    private global::Csp.CSSocialBatchInfoResp socialBatchInfoS_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSSocialBatchInfoResp SocialBatchInfoS {
-      get { return socialBatchInfoS_; }
-      set {
-        socialBatchInfoS_ = value;
       }
     }
 
@@ -5163,6 +5938,10 @@ namespace Csp {
         output.WriteRawTag(178, 56);
         output.WriteMessage(TaskAwardS);
       }
+      if (skinSlotUpgradeS_ != null) {
+        output.WriteRawTag(178, 59);
+        output.WriteMessage(SkinSlotUpgradeS);
+      }
       if (activeSkinS_ != null) {
         output.WriteRawTag(186, 59);
         output.WriteMessage(ActiveSkinS);
@@ -5183,9 +5962,9 @@ namespace Csp {
         output.WriteRawTag(218, 59);
         output.WriteMessage(SkinStarLevelUpS);
       }
-      if (skinRelicUpgradeS_ != null) {
+      if (skinEffectActiveS_ != null) {
         output.WriteRawTag(226, 59);
-        output.WriteMessage(SkinRelicUpgradeS);
+        output.WriteMessage(SkinEffectActiveS);
       }
       if (roleLoginS_ != null) {
         output.WriteRawTag(194, 62);
@@ -5203,9 +5982,17 @@ namespace Csp {
         output.WriteRawTag(218, 62);
         output.WriteMessage(RoleLoginNotify);
       }
+      if (headActiveS_ != null) {
+        output.WriteRawTag(226, 62);
+        output.WriteMessage(HeadActiveS);
+      }
       if (renameS_ != null) {
         output.WriteRawTag(234, 62);
         output.WriteMessage(RenameS);
+      }
+      if (frameActiveS_ != null) {
+        output.WriteRawTag(242, 62);
+        output.WriteMessage(FrameActiveS);
       }
       if (systemSyncNotify_ != null) {
         output.WriteRawTag(250, 62);
@@ -5275,6 +6062,10 @@ namespace Csp {
         output.WriteRawTag(202, 78);
         output.WriteMessage(ChatRoleDataNotify);
       }
+      if (chatMsgReceiveS_ != null) {
+        output.WriteRawTag(210, 78);
+        output.WriteMessage(ChatMsgReceiveS);
+      }
       if (giftcodeReceiveS_ != null) {
         output.WriteRawTag(162, 81);
         output.WriteMessage(GiftcodeReceiveS);
@@ -5319,21 +6110,9 @@ namespace Csp {
         output.WriteRawTag(130, 88);
         output.WriteMessage(SocialApplyDealAllS);
       }
-      if (socialSearchS_ != null) {
-        output.WriteRawTag(138, 88);
-        output.WriteMessage(SocialSearchS);
-      }
-      if (socialRecommendS_ != null) {
-        output.WriteRawTag(146, 88);
-        output.WriteMessage(SocialRecommendS);
-      }
       if (socialBlackListNotify_ != null) {
         output.WriteRawTag(162, 88);
         output.WriteMessage(SocialBlackListNotify);
-      }
-      if (socialBatchInfoS_ != null) {
-        output.WriteRawTag(178, 88);
-        output.WriteMessage(SocialBatchInfoS);
       }
       if (socialGiftReceiveS_ != null) {
         output.WriteRawTag(186, 88);
@@ -5415,9 +6194,21 @@ namespace Csp {
         output.WriteRawTag(130, 100);
         output.WriteMessage(ActivityOnNotify);
       }
+      if (activityStatDataS_ != null) {
+        output.WriteRawTag(146, 100);
+        output.WriteMessage(ActivityStatDataS);
+      }
+      if (activityStatDataNotify_ != null) {
+        output.WriteRawTag(154, 100);
+        output.WriteMessage(ActivityStatDataNotify);
+      }
       if (pushGiftPullS_ != null) {
         output.WriteRawTag(146, 103);
         output.WriteMessage(PushGiftPullS);
+      }
+      if (pushGiftDelNotify_ != null) {
+        output.WriteRawTag(162, 103);
+        output.WriteMessage(PushGiftDelNotify);
       }
       if (statAllDataS_ != null) {
         output.WriteRawTag(162, 106);
@@ -5435,17 +6226,9 @@ namespace Csp {
         output.WriteRawTag(186, 106);
         output.WriteMessage(StatSyncNotify);
       }
-      if (relayCreateS_ != null) {
+      if (relayPlayerConnectNotify_ != null) {
         output.WriteRawTag(178, 109);
-        output.WriteMessage(RelayCreateS);
-      }
-      if (relayEnterS_ != null) {
-        output.WriteRawTag(186, 109);
-        output.WriteMessage(RelayEnterS);
-      }
-      if (relayEnterNotify_ != null) {
-        output.WriteRawTag(194, 109);
-        output.WriteMessage(RelayEnterNotify);
+        output.WriteMessage(RelayPlayerConnectNotify);
       }
       if (relayPlayerReadyS_ != null) {
         output.WriteRawTag(202, 109);
@@ -5455,14 +6238,6 @@ namespace Csp {
         output.WriteRawTag(210, 109);
         output.WriteMessage(RelayPlayerReadyNotify);
       }
-      if (relayLeaveS_ != null) {
-        output.WriteRawTag(218, 109);
-        output.WriteMessage(RelayLeaveS);
-      }
-      if (relayLeaveNotify_ != null) {
-        output.WriteRawTag(226, 109);
-        output.WriteMessage(RelayLeaveNotify);
-      }
       if (relayStartNotify_ != null) {
         output.WriteRawTag(234, 109);
         output.WriteMessage(RelayStartNotify);
@@ -5470,6 +6245,106 @@ namespace Csp {
       if (relayFrameInputNotify_ != null) {
         output.WriteRawTag(250, 109);
         output.WriteMessage(RelayFrameInputNotify);
+      }
+      if (relayPlayerStatusNotify_ != null) {
+        output.WriteRawTag(130, 110);
+        output.WriteMessage(RelayPlayerStatusNotify);
+      }
+      if (relayRoomS_ != null) {
+        output.WriteRawTag(138, 110);
+        output.WriteMessage(RelayRoomS);
+      }
+      if (relayRoomNotify_ != null) {
+        output.WriteRawTag(146, 110);
+        output.WriteMessage(RelayRoomNotify);
+      }
+      if (relayEndS_ != null) {
+        output.WriteRawTag(154, 110);
+        output.WriteMessage(RelayEndS);
+      }
+      if (relayEndNotify_ != null) {
+        output.WriteRawTag(162, 110);
+        output.WriteMessage(RelayEndNotify);
+      }
+      if (playerRecommendS_ != null) {
+        output.WriteRawTag(194, 112);
+        output.WriteMessage(PlayerRecommendS);
+      }
+      if (playerBatchInfoS_ != null) {
+        output.WriteRawTag(202, 112);
+        output.WriteMessage(PlayerBatchInfoS);
+      }
+      if (playerInfoS_ != null) {
+        output.WriteRawTag(210, 112);
+        output.WriteMessage(PlayerInfoS);
+      }
+      if (playerSearchS_ != null) {
+        output.WriteRawTag(218, 112);
+        output.WriteMessage(PlayerSearchS);
+      }
+      if (skinShowS_ != null) {
+        output.WriteRawTag(210, 115);
+        output.WriteMessage(SkinShowS);
+      }
+      if (headShowS_ != null) {
+        output.WriteRawTag(218, 115);
+        output.WriteMessage(HeadShowS);
+      }
+      if (headUnShowS_ != null) {
+        output.WriteRawTag(226, 115);
+        output.WriteMessage(HeadUnShowS);
+      }
+      if (skinUnShowS_ != null) {
+        output.WriteRawTag(234, 115);
+        output.WriteMessage(SkinUnShowS);
+      }
+      if (frameShowS_ != null) {
+        output.WriteRawTag(242, 115);
+        output.WriteMessage(FrameShowS);
+      }
+      if (frameUnShowS_ != null) {
+        output.WriteRawTag(250, 115);
+        output.WriteMessage(FrameUnShowS);
+      }
+      if (dragonShowS_ != null) {
+        output.WriteRawTag(146, 116);
+        output.WriteMessage(DragonShowS);
+      }
+      if (roomGetListS_ != null) {
+        output.WriteRawTag(226, 118);
+        output.WriteMessage(RoomGetListS);
+      }
+      if (roomCreateS_ != null) {
+        output.WriteRawTag(234, 118);
+        output.WriteMessage(RoomCreateS);
+      }
+      if (roomJoinS_ != null) {
+        output.WriteRawTag(242, 118);
+        output.WriteMessage(RoomJoinS);
+      }
+      if (roomLeaveS_ != null) {
+        output.WriteRawTag(250, 118);
+        output.WriteMessage(RoomLeaveS);
+      }
+      if (roomReconnectS_ != null) {
+        output.WriteRawTag(130, 119);
+        output.WriteMessage(RoomReconnectS);
+      }
+      if (roomInviteS_ != null) {
+        output.WriteRawTag(138, 119);
+        output.WriteMessage(RoomInviteS);
+      }
+      if (roomPlayerStatusS_ != null) {
+        output.WriteRawTag(146, 119);
+        output.WriteMessage(RoomPlayerStatusS);
+      }
+      if (roomPlayerStatusNotify_ != null) {
+        output.WriteRawTag(154, 119);
+        output.WriteMessage(RoomPlayerStatusNotify);
+      }
+      if (roomInfoNotify_ != null) {
+        output.WriteRawTag(162, 119);
+        output.WriteMessage(RoomInfoNotify);
       }
     }
 
@@ -5479,8 +6354,17 @@ namespace Csp {
       if (head_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Head);
       }
-      if (activityOnNotify_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(ActivityOnNotify);
+      if (statAllDataS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(StatAllDataS);
+      }
+      if (statSingleDataS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(StatSingleDataS);
+      }
+      if (statSingleDataNotify_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(StatSingleDataNotify);
+      }
+      if (statSyncNotify_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(StatSyncNotify);
       }
       if (equipmentSlotLevelUpS_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(EquipmentSlotLevelUpS);
@@ -5550,6 +6434,15 @@ namespace Csp {
       }
       if (itemOnRestoreAllNotify_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(ItemOnRestoreAllNotify);
+      }
+      if (activityOnNotify_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(ActivityOnNotify);
+      }
+      if (activityStatDataS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(ActivityStatDataS);
+      }
+      if (activityStatDataNotify_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(ActivityStatDataNotify);
       }
       if (watchAdS_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(WatchAdS);
@@ -5629,20 +6522,11 @@ namespace Csp {
       if (skinStarLevelUpS_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(SkinStarLevelUpS);
       }
-      if (skinRelicUpgradeS_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(SkinRelicUpgradeS);
+      if (skinSlotUpgradeS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(SkinSlotUpgradeS);
       }
-      if (statAllDataS_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(StatAllDataS);
-      }
-      if (statSingleDataS_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(StatSingleDataS);
-      }
-      if (statSingleDataNotify_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(StatSingleDataNotify);
-      }
-      if (statSyncNotify_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(StatSyncNotify);
+      if (skinEffectActiveS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(SkinEffectActiveS);
       }
       if (pveStateS_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(PveStateS);
@@ -5764,6 +6648,9 @@ namespace Csp {
       if (pushGiftPullS_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(PushGiftPullS);
       }
+      if (pushGiftDelNotify_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(PushGiftDelNotify);
+      }
       if (roleLoginS_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(RoleLoginS);
       }
@@ -5791,6 +6678,12 @@ namespace Csp {
       if (getPowerS_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(GetPowerS);
       }
+      if (headActiveS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(HeadActiveS);
+      }
+      if (frameActiveS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(FrameActiveS);
+      }
       if (chatSendS_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(ChatSendS);
       }
@@ -5808,6 +6701,30 @@ namespace Csp {
       }
       if (chatRoleDataNotify_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(ChatRoleDataNotify);
+      }
+      if (chatMsgReceiveS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(ChatMsgReceiveS);
+      }
+      if (headShowS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(HeadShowS);
+      }
+      if (headUnShowS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(HeadUnShowS);
+      }
+      if (frameShowS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(FrameShowS);
+      }
+      if (frameUnShowS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(FrameUnShowS);
+      }
+      if (dragonShowS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(DragonShowS);
+      }
+      if (skinShowS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(SkinShowS);
+      }
+      if (skinUnShowS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(SkinUnShowS);
       }
       if (giftcodeReceiveS_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(GiftcodeReceiveS);
@@ -5830,14 +6747,20 @@ namespace Csp {
       if (storyFinishS_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(StoryFinishS);
       }
-      if (relayCreateS_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RelayCreateS);
+      if (playerRecommendS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(PlayerRecommendS);
       }
-      if (relayEnterS_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RelayEnterS);
+      if (playerBatchInfoS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(PlayerBatchInfoS);
       }
-      if (relayEnterNotify_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RelayEnterNotify);
+      if (playerInfoS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(PlayerInfoS);
+      }
+      if (playerSearchS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(PlayerSearchS);
+      }
+      if (relayPlayerConnectNotify_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RelayPlayerConnectNotify);
       }
       if (relayPlayerReadyS_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(RelayPlayerReadyS);
@@ -5845,17 +6768,53 @@ namespace Csp {
       if (relayPlayerReadyNotify_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(RelayPlayerReadyNotify);
       }
-      if (relayLeaveS_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RelayLeaveS);
-      }
-      if (relayLeaveNotify_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RelayLeaveNotify);
+      if (relayPlayerStatusNotify_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RelayPlayerStatusNotify);
       }
       if (relayStartNotify_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(RelayStartNotify);
       }
+      if (relayRoomS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RelayRoomS);
+      }
+      if (relayRoomNotify_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RelayRoomNotify);
+      }
       if (relayFrameInputNotify_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(RelayFrameInputNotify);
+      }
+      if (relayEndS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RelayEndS);
+      }
+      if (relayEndNotify_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RelayEndNotify);
+      }
+      if (roomInfoNotify_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RoomInfoNotify);
+      }
+      if (roomGetListS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RoomGetListS);
+      }
+      if (roomCreateS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RoomCreateS);
+      }
+      if (roomJoinS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RoomJoinS);
+      }
+      if (roomLeaveS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RoomLeaveS);
+      }
+      if (roomPlayerStatusS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RoomPlayerStatusS);
+      }
+      if (roomPlayerStatusNotify_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RoomPlayerStatusNotify);
+      }
+      if (roomReconnectS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RoomReconnectS);
+      }
+      if (roomInviteS_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(RoomInviteS);
       }
       if (socialListNotify_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(SocialListNotify);
@@ -5875,17 +6834,8 @@ namespace Csp {
       if (socialApplyDealAllS_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(SocialApplyDealAllS);
       }
-      if (socialSearchS_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(SocialSearchS);
-      }
-      if (socialRecommendS_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(SocialRecommendS);
-      }
       if (socialBlackListNotify_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(SocialBlackListNotify);
-      }
-      if (socialBatchInfoS_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(SocialBatchInfoS);
       }
       if (socialGiftReceiveS_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(SocialGiftReceiveS);
@@ -6428,6 +7378,13 @@ namespace Csp {
             input.ReadMessage(taskAwardS_);
             break;
           }
+          case 7602: {
+            if (skinSlotUpgradeS_ == null) {
+              skinSlotUpgradeS_ = new global::Csp.CSSkinSlotUpgradeResp();
+            }
+            input.ReadMessage(skinSlotUpgradeS_);
+            break;
+          }
           case 7610: {
             if (activeSkinS_ == null) {
               activeSkinS_ = new global::Csp.CSActiveSkinResp();
@@ -6464,10 +7421,10 @@ namespace Csp {
             break;
           }
           case 7650: {
-            if (skinRelicUpgradeS_ == null) {
-              skinRelicUpgradeS_ = new global::Csp.CSSkinRelicUpgradeResp();
+            if (skinEffectActiveS_ == null) {
+              skinEffectActiveS_ = new global::Csp.CSSkinEffectActiveResp();
             }
-            input.ReadMessage(skinRelicUpgradeS_);
+            input.ReadMessage(skinEffectActiveS_);
             break;
           }
           case 8002: {
@@ -6498,11 +7455,25 @@ namespace Csp {
             input.ReadMessage(roleLoginNotify_);
             break;
           }
+          case 8034: {
+            if (headActiveS_ == null) {
+              headActiveS_ = new global::Csp.CSHeadActiveResp();
+            }
+            input.ReadMessage(headActiveS_);
+            break;
+          }
           case 8042: {
             if (renameS_ == null) {
               renameS_ = new global::Csp.CSRenameResp();
             }
             input.ReadMessage(renameS_);
+            break;
+          }
+          case 8050: {
+            if (frameActiveS_ == null) {
+              frameActiveS_ = new global::Csp.CSFrameActiveResp();
+            }
+            input.ReadMessage(frameActiveS_);
             break;
           }
           case 8058: {
@@ -6624,6 +7595,13 @@ namespace Csp {
             input.ReadMessage(chatRoleDataNotify_);
             break;
           }
+          case 10066: {
+            if (chatMsgReceiveS_ == null) {
+              chatMsgReceiveS_ = new global::Csp.CSChatMsgReceiveResp();
+            }
+            input.ReadMessage(chatMsgReceiveS_);
+            break;
+          }
           case 10402: {
             if (giftcodeReceiveS_ == null) {
               giftcodeReceiveS_ = new global::Csp.CSGiftcodeReceiveResp();
@@ -6701,32 +7679,11 @@ namespace Csp {
             input.ReadMessage(socialApplyDealAllS_);
             break;
           }
-          case 11274: {
-            if (socialSearchS_ == null) {
-              socialSearchS_ = new global::Csp.CSSocialSearchResp();
-            }
-            input.ReadMessage(socialSearchS_);
-            break;
-          }
-          case 11282: {
-            if (socialRecommendS_ == null) {
-              socialRecommendS_ = new global::Csp.CSSocialRecommendResp();
-            }
-            input.ReadMessage(socialRecommendS_);
-            break;
-          }
           case 11298: {
             if (socialBlackListNotify_ == null) {
               socialBlackListNotify_ = new global::Csp.CSSocialBlackListNotify();
             }
             input.ReadMessage(socialBlackListNotify_);
-            break;
-          }
-          case 11314: {
-            if (socialBatchInfoS_ == null) {
-              socialBatchInfoS_ = new global::Csp.CSSocialBatchInfoResp();
-            }
-            input.ReadMessage(socialBatchInfoS_);
             break;
           }
           case 11322: {
@@ -6869,11 +7826,32 @@ namespace Csp {
             input.ReadMessage(activityOnNotify_);
             break;
           }
+          case 12818: {
+            if (activityStatDataS_ == null) {
+              activityStatDataS_ = new global::Csp.CSActivityStatDataResp();
+            }
+            input.ReadMessage(activityStatDataS_);
+            break;
+          }
+          case 12826: {
+            if (activityStatDataNotify_ == null) {
+              activityStatDataNotify_ = new global::Csp.CSActivityStatDataNotify();
+            }
+            input.ReadMessage(activityStatDataNotify_);
+            break;
+          }
           case 13202: {
             if (pushGiftPullS_ == null) {
               pushGiftPullS_ = new global::Csp.CSPushGiftPullResp();
             }
             input.ReadMessage(pushGiftPullS_);
+            break;
+          }
+          case 13218: {
+            if (pushGiftDelNotify_ == null) {
+              pushGiftDelNotify_ = new global::Csp.CSPushGiftDelNotify();
+            }
+            input.ReadMessage(pushGiftDelNotify_);
             break;
           }
           case 13602: {
@@ -6905,24 +7883,10 @@ namespace Csp {
             break;
           }
           case 14002: {
-            if (relayCreateS_ == null) {
-              relayCreateS_ = new global::Csp.CSRelayCreateResp();
+            if (relayPlayerConnectNotify_ == null) {
+              relayPlayerConnectNotify_ = new global::Csp.CSRelayPlayerConnectNotify();
             }
-            input.ReadMessage(relayCreateS_);
-            break;
-          }
-          case 14010: {
-            if (relayEnterS_ == null) {
-              relayEnterS_ = new global::Csp.CSRelayEnterResp();
-            }
-            input.ReadMessage(relayEnterS_);
-            break;
-          }
-          case 14018: {
-            if (relayEnterNotify_ == null) {
-              relayEnterNotify_ = new global::Csp.CSRelayEnterNotify();
-            }
-            input.ReadMessage(relayEnterNotify_);
+            input.ReadMessage(relayPlayerConnectNotify_);
             break;
           }
           case 14026: {
@@ -6939,20 +7903,6 @@ namespace Csp {
             input.ReadMessage(relayPlayerReadyNotify_);
             break;
           }
-          case 14042: {
-            if (relayLeaveS_ == null) {
-              relayLeaveS_ = new global::Csp.CSRelayLeaveResp();
-            }
-            input.ReadMessage(relayLeaveS_);
-            break;
-          }
-          case 14050: {
-            if (relayLeaveNotify_ == null) {
-              relayLeaveNotify_ = new global::Csp.CSRelayLeaveNotify();
-            }
-            input.ReadMessage(relayLeaveNotify_);
-            break;
-          }
           case 14058: {
             if (relayStartNotify_ == null) {
               relayStartNotify_ = new global::Csp.CSRelayStartNotify();
@@ -6965,6 +7915,181 @@ namespace Csp {
               relayFrameInputNotify_ = new global::Csp.CSRelayFrameInputNotify();
             }
             input.ReadMessage(relayFrameInputNotify_);
+            break;
+          }
+          case 14082: {
+            if (relayPlayerStatusNotify_ == null) {
+              relayPlayerStatusNotify_ = new global::Csp.CSRelayPlayerStatusNotify();
+            }
+            input.ReadMessage(relayPlayerStatusNotify_);
+            break;
+          }
+          case 14090: {
+            if (relayRoomS_ == null) {
+              relayRoomS_ = new global::Csp.CSRelayRoomResp();
+            }
+            input.ReadMessage(relayRoomS_);
+            break;
+          }
+          case 14098: {
+            if (relayRoomNotify_ == null) {
+              relayRoomNotify_ = new global::Csp.CSRelayRoomNotify();
+            }
+            input.ReadMessage(relayRoomNotify_);
+            break;
+          }
+          case 14106: {
+            if (relayEndS_ == null) {
+              relayEndS_ = new global::Csp.CSRelayEndResp();
+            }
+            input.ReadMessage(relayEndS_);
+            break;
+          }
+          case 14114: {
+            if (relayEndNotify_ == null) {
+              relayEndNotify_ = new global::Csp.CSRelayEndNotify();
+            }
+            input.ReadMessage(relayEndNotify_);
+            break;
+          }
+          case 14402: {
+            if (playerRecommendS_ == null) {
+              playerRecommendS_ = new global::Csp.CSPlayerRecommendResp();
+            }
+            input.ReadMessage(playerRecommendS_);
+            break;
+          }
+          case 14410: {
+            if (playerBatchInfoS_ == null) {
+              playerBatchInfoS_ = new global::Csp.CSPlayerBatchInfoResp();
+            }
+            input.ReadMessage(playerBatchInfoS_);
+            break;
+          }
+          case 14418: {
+            if (playerInfoS_ == null) {
+              playerInfoS_ = new global::Csp.CSPlayerInfoResp();
+            }
+            input.ReadMessage(playerInfoS_);
+            break;
+          }
+          case 14426: {
+            if (playerSearchS_ == null) {
+              playerSearchS_ = new global::Csp.CSPlayerSearchResp();
+            }
+            input.ReadMessage(playerSearchS_);
+            break;
+          }
+          case 14802: {
+            if (skinShowS_ == null) {
+              skinShowS_ = new global::Csp.CSSkinShowResp();
+            }
+            input.ReadMessage(skinShowS_);
+            break;
+          }
+          case 14810: {
+            if (headShowS_ == null) {
+              headShowS_ = new global::Csp.CSHeadShowResp();
+            }
+            input.ReadMessage(headShowS_);
+            break;
+          }
+          case 14818: {
+            if (headUnShowS_ == null) {
+              headUnShowS_ = new global::Csp.CSHeadUnShowResp();
+            }
+            input.ReadMessage(headUnShowS_);
+            break;
+          }
+          case 14826: {
+            if (skinUnShowS_ == null) {
+              skinUnShowS_ = new global::Csp.CSSkinUnShowResp();
+            }
+            input.ReadMessage(skinUnShowS_);
+            break;
+          }
+          case 14834: {
+            if (frameShowS_ == null) {
+              frameShowS_ = new global::Csp.CSFrameShowResp();
+            }
+            input.ReadMessage(frameShowS_);
+            break;
+          }
+          case 14842: {
+            if (frameUnShowS_ == null) {
+              frameUnShowS_ = new global::Csp.CSFrameUnShowResp();
+            }
+            input.ReadMessage(frameUnShowS_);
+            break;
+          }
+          case 14866: {
+            if (dragonShowS_ == null) {
+              dragonShowS_ = new global::Csp.CSDragonShowResp();
+            }
+            input.ReadMessage(dragonShowS_);
+            break;
+          }
+          case 15202: {
+            if (roomGetListS_ == null) {
+              roomGetListS_ = new global::Csp.CSRoomGetListResp();
+            }
+            input.ReadMessage(roomGetListS_);
+            break;
+          }
+          case 15210: {
+            if (roomCreateS_ == null) {
+              roomCreateS_ = new global::Csp.CSRoomCreateResp();
+            }
+            input.ReadMessage(roomCreateS_);
+            break;
+          }
+          case 15218: {
+            if (roomJoinS_ == null) {
+              roomJoinS_ = new global::Csp.CSRoomJoinResp();
+            }
+            input.ReadMessage(roomJoinS_);
+            break;
+          }
+          case 15226: {
+            if (roomLeaveS_ == null) {
+              roomLeaveS_ = new global::Csp.CSRoomLeaveResp();
+            }
+            input.ReadMessage(roomLeaveS_);
+            break;
+          }
+          case 15234: {
+            if (roomReconnectS_ == null) {
+              roomReconnectS_ = new global::Csp.CSRoomReconnectResp();
+            }
+            input.ReadMessage(roomReconnectS_);
+            break;
+          }
+          case 15242: {
+            if (roomInviteS_ == null) {
+              roomInviteS_ = new global::Csp.CSRoomInviteResp();
+            }
+            input.ReadMessage(roomInviteS_);
+            break;
+          }
+          case 15250: {
+            if (roomPlayerStatusS_ == null) {
+              roomPlayerStatusS_ = new global::Csp.CSRoomPlayerStatusResp();
+            }
+            input.ReadMessage(roomPlayerStatusS_);
+            break;
+          }
+          case 15258: {
+            if (roomPlayerStatusNotify_ == null) {
+              roomPlayerStatusNotify_ = new global::Csp.CSRoomPlayerStatusNotify();
+            }
+            input.ReadMessage(roomPlayerStatusNotify_);
+            break;
+          }
+          case 15266: {
+            if (roomInfoNotify_ == null) {
+              roomInfoNotify_ = new global::Csp.CSRoomInfoNotify();
+            }
+            input.ReadMessage(roomInfoNotify_);
             break;
           }
         }

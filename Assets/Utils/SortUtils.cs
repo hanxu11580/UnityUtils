@@ -5,7 +5,7 @@ namespace Utility {
     /// <summary>
     /// 常用排序
     /// </summary>
-    public static class SortUtil
+    public static class SortUtils
     {
         /// <summary>
         /// 快速排序(递归)QuickSort一层深度执行，将会使s的前面都小于s，s的后面都大于s

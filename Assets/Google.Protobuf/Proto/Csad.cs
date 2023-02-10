@@ -29,82 +29,6 @@ namespace Csp {
 
   #region Messages
   /// <summary>
-  ///========== struct define ==========
-  /// </summary>
-  public sealed class CSWatchAdExtendParams : pb::IMessage {
-    private static readonly pb::MessageParser<CSWatchAdExtendParams> _parser = new pb::MessageParser<CSWatchAdExtendParams>(() => new CSWatchAdExtendParams());
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CSWatchAdExtendParams> Parser { get { return _parser; } }
-
-    /// <summary>Field number for the "i32_param1" field.</summary>
-    public const int I32Param1FieldNumber = 1;
-    private int i32Param1_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int I32Param1 {
-      get { return i32Param1_; }
-      set {
-        i32Param1_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "i32_param2" field.</summary>
-    public const int I32Param2FieldNumber = 2;
-    private int i32Param2_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int I32Param2 {
-      get { return i32Param2_; }
-      set {
-        i32Param2_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (I32Param1 != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(I32Param1);
-      }
-      if (I32Param2 != 0) {
-        output.WriteRawTag(16);
-        output.WriteInt32(I32Param2);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (I32Param1 != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(I32Param1);
-      }
-      if (I32Param2 != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(I32Param2);
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 8: {
-            I32Param1 = input.ReadInt32();
-            break;
-          }
-          case 16: {
-            I32Param2 = input.ReadInt32();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  /// <summary>
   ///========== proto define ==========
   /// </summary>
   public sealed class CSWatchAdReq : pb::IMessage {
@@ -145,14 +69,14 @@ namespace Csp {
       }
     }
 
-    /// <summary>Field number for the "extend" field.</summary>
-    public const int ExtendFieldNumber = 4;
-    private global::Csp.CSWatchAdExtendParams extend_;
+    /// <summary>Field number for the "param" field.</summary>
+    public const int ParamFieldNumber = 4;
+    private string param_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSWatchAdExtendParams Extend {
-      get { return extend_; }
+    public string Param {
+      get { return param_; }
       set {
-        extend_ = value;
+        param_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -170,9 +94,9 @@ namespace Csp {
         output.WriteRawTag(24);
         output.WriteEnum((int) AdType);
       }
-      if (extend_ != null) {
+      if (Param.Length != 0) {
         output.WriteRawTag(34);
-        output.WriteMessage(Extend);
+        output.WriteString(Param);
       }
     }
 
@@ -188,8 +112,8 @@ namespace Csp {
       if (AdType != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) AdType);
       }
-      if (extend_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Extend);
+      if (Param.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Param);
       }
       return size;
     }
@@ -215,10 +139,7 @@ namespace Csp {
             break;
           }
           case 34: {
-            if (extend_ == null) {
-              extend_ = new global::Csp.CSWatchAdExtendParams();
-            }
-            input.ReadMessage(extend_);
+            Param = input.ReadString();
             break;
           }
         }

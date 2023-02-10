@@ -12,6 +12,16 @@ namespace Csp {
   /// <summary>
   ///========== enum define ==========
   /// </summary>
+  public enum CSRelayRoomStatus {
+    KCsrelayRoomStatusNone = 0,
+    KCsrelayRoomStatusStart = 1,
+    KCsrelayRoomStatusEnd = 2,
+    /// <summary>
+    /// Max
+    /// </summary>
+    KCsrelayRoomStatusMax = 3,
+  }
+
   public enum CSRelayFrameServerType {
     KCsrelayFrameServerTypeNone = 0,
     KCsrelayFrameServerTypeNormal = 1,
@@ -27,6 +37,25 @@ namespace Csp {
     KCsrelayFrameClientTypeMax = 4,
   }
 
+  public enum CSRelayEndResult {
+    /// <summary>
+    /// 失败
+    /// </summary>
+    KCsrelayEndResultLose = 0,
+    /// <summary>
+    /// 胜利
+    /// </summary>
+    KCsrelayEndResultWin = 1,
+    /// <summary>
+    /// 中途退出
+    /// </summary>
+    KCsrelayEndResultExit = 2,
+    /// <summary>
+    /// Max
+    /// </summary>
+    KCsrelayEndResultMax = 3,
+  }
+
   #endregion
 
   #region Messages
@@ -40,12 +69,12 @@ namespace Csp {
 
     /// <summary>Field number for the "uid" field.</summary>
     public const int UidFieldNumber = 1;
-    private string uid_ = "";
+    private long uid_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Uid {
+    public long Uid {
       get { return uid_; }
       set {
-        uid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        uid_ = value;
       }
     }
 
@@ -60,44 +89,62 @@ namespace Csp {
       }
     }
 
-    /// <summary>Field number for the "data" field.</summary>
-    public const int DataFieldNumber = 3;
-    private pb::ByteString data_ = pb::ByteString.Empty;
+    /// <summary>Field number for the "active_tick" field.</summary>
+    public const int ActiveTickFieldNumber = 3;
+    private long activeTick_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString Data {
-      get { return data_; }
+    public long ActiveTick {
+      get { return activeTick_; }
       set {
-        data_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        activeTick_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "online" field.</summary>
+    public const int OnlineFieldNumber = 4;
+    private int online_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Online {
+      get { return online_; }
+      set {
+        online_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Uid.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Uid);
+      if (Uid != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Uid);
       }
       if (Ready != 0) {
         output.WriteRawTag(16);
         output.WriteInt32(Ready);
       }
-      if (Data.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteBytes(Data);
+      if (ActiveTick != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(ActiveTick);
+      }
+      if (Online != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Online);
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Uid.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Uid);
+      if (Uid != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Uid);
       }
       if (Ready != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Ready);
       }
-      if (Data.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Data);
+      if (ActiveTick != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ActiveTick);
+      }
+      if (Online != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Online);
       }
       return size;
     }
@@ -110,16 +157,20 @@ namespace Csp {
           default:
             input.SkipLastField();
             break;
-          case 10: {
-            Uid = input.ReadString();
+          case 8: {
+            Uid = input.ReadInt64();
             break;
           }
           case 16: {
             Ready = input.ReadInt32();
             break;
           }
-          case 26: {
-            Data = input.ReadBytes();
+          case 24: {
+            ActiveTick = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            Online = input.ReadInt32();
             break;
           }
         }
@@ -245,298 +296,161 @@ namespace Csp {
 
   }
 
-  /// <summary>
-  ///========== proto define ==========
-  /// </summary>
-  public sealed class CSRelayCreateReq : pb::IMessage {
-    private static readonly pb::MessageParser<CSRelayCreateReq> _parser = new pb::MessageParser<CSRelayCreateReq>(() => new CSRelayCreateReq());
+  public sealed class CSRelayRoom : pb::IMessage {
+    private static readonly pb::MessageParser<CSRelayRoom> _parser = new pb::MessageParser<CSRelayRoom>(() => new CSRelayRoom());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CSRelayCreateReq> Parser { get { return _parser; } }
+    public static pb::MessageParser<CSRelayRoom> Parser { get { return _parser; } }
 
     /// <summary>Field number for the "roomid" field.</summary>
     public const int RoomidFieldNumber = 1;
-    private int roomid_;
+    private long roomid_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Roomid {
+    public long Roomid {
       get { return roomid_; }
       set {
         roomid_ = value;
       }
     }
 
-    /// <summary>Field number for the "player_num" field.</summary>
-    public const int PlayerNumFieldNumber = 2;
-    private int playerNum_;
+    /// <summary>Field number for the "status" field.</summary>
+    public const int StatusFieldNumber = 2;
+    private int status_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int PlayerNum {
-      get { return playerNum_; }
+    public int Status {
+      get { return status_; }
       set {
-        playerNum_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Roomid != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(Roomid);
-      }
-      if (PlayerNum != 0) {
-        output.WriteRawTag(16);
-        output.WriteInt32(PlayerNum);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Roomid != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Roomid);
-      }
-      if (PlayerNum != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PlayerNum);
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 8: {
-            Roomid = input.ReadInt32();
-            break;
-          }
-          case 16: {
-            PlayerNum = input.ReadInt32();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed class CSRelayCreateResp : pb::IMessage {
-    private static readonly pb::MessageParser<CSRelayCreateResp> _parser = new pb::MessageParser<CSRelayCreateResp>(() => new CSRelayCreateResp());
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CSRelayCreateResp> Parser { get { return _parser; } }
-
-    /// <summary>Field number for the "roomid" field.</summary>
-    public const int RoomidFieldNumber = 1;
-    private int roomid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Roomid {
-      get { return roomid_; }
-      set {
-        roomid_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Roomid != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(Roomid);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Roomid != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Roomid);
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 8: {
-            Roomid = input.ReadInt32();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed class CSRelayEnterReq : pb::IMessage {
-    private static readonly pb::MessageParser<CSRelayEnterReq> _parser = new pb::MessageParser<CSRelayEnterReq>(() => new CSRelayEnterReq());
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CSRelayEnterReq> Parser { get { return _parser; } }
-
-    /// <summary>Field number for the "roomid" field.</summary>
-    public const int RoomidFieldNumber = 1;
-    private int roomid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Roomid {
-      get { return roomid_; }
-      set {
-        roomid_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Roomid != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(Roomid);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Roomid != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Roomid);
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 8: {
-            Roomid = input.ReadInt32();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed class CSRelayEnterResp : pb::IMessage {
-    private static readonly pb::MessageParser<CSRelayEnterResp> _parser = new pb::MessageParser<CSRelayEnterResp>(() => new CSRelayEnterResp());
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CSRelayEnterResp> Parser { get { return _parser; } }
-
-    /// <summary>Field number for the "roomid" field.</summary>
-    public const int RoomidFieldNumber = 1;
-    private int roomid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Roomid {
-      get { return roomid_; }
-      set {
-        roomid_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "players" field.</summary>
-    public const int PlayersFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::Csp.CSRelayPlayer> _repeated_players_codec
-        = pb::FieldCodec.ForMessage(18, global::Csp.CSRelayPlayer.Parser);
-    private readonly pbc::RepeatedField<global::Csp.CSRelayPlayer> players_ = new pbc::RepeatedField<global::Csp.CSRelayPlayer>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Csp.CSRelayPlayer> Players {
-      get { return players_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Roomid != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(Roomid);
-      }
-      players_.WriteTo(output, _repeated_players_codec);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Roomid != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Roomid);
-      }
-      size += players_.CalculateSize(_repeated_players_codec);
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 8: {
-            Roomid = input.ReadInt32();
-            break;
-          }
-          case 18: {
-            players_.AddEntriesFrom(input, _repeated_players_codec);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed class CSRelayEnterNotify : pb::IMessage {
-    private static readonly pb::MessageParser<CSRelayEnterNotify> _parser = new pb::MessageParser<CSRelayEnterNotify>(() => new CSRelayEnterNotify());
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CSRelayEnterNotify> Parser { get { return _parser; } }
-
-    /// <summary>Field number for the "roomid" field.</summary>
-    public const int RoomidFieldNumber = 1;
-    private int roomid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Roomid {
-      get { return roomid_; }
-      set {
-        roomid_ = value;
+        status_ = value;
       }
     }
 
     /// <summary>Field number for the "player" field.</summary>
-    public const int PlayerFieldNumber = 2;
-    private global::Csp.CSRelayPlayer player_;
+    public const int PlayerFieldNumber = 3;
+    private static readonly pb::FieldCodec<global::Csp.CSRelayPlayer> _repeated_player_codec
+        = pb::FieldCodec.ForMessage(26, global::Csp.CSRelayPlayer.Parser);
+    private readonly pbc::RepeatedField<global::Csp.CSRelayPlayer> player_ = new pbc::RepeatedField<global::Csp.CSRelayPlayer>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSRelayPlayer Player {
+    public pbc::RepeatedField<global::Csp.CSRelayPlayer> Player {
       get { return player_; }
+    }
+
+    /// <summary>Field number for the "record" field.</summary>
+    public const int RecordFieldNumber = 4;
+    private static readonly pb::FieldCodec<global::Csp.CSRelayFrame> _repeated_record_codec
+        = pb::FieldCodec.ForMessage(34, global::Csp.CSRelayFrame.Parser);
+    private readonly pbc::RepeatedField<global::Csp.CSRelayFrame> record_ = new pbc::RepeatedField<global::Csp.CSRelayFrame>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Csp.CSRelayFrame> Record {
+      get { return record_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Roomid != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Roomid);
+      }
+      if (Status != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Status);
+      }
+      player_.WriteTo(output, _repeated_player_codec);
+      record_.WriteTo(output, _repeated_record_codec);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Roomid != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Roomid);
+      }
+      if (Status != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Status);
+      }
+      size += player_.CalculateSize(_repeated_player_codec);
+      size += record_.CalculateSize(_repeated_record_codec);
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Roomid = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            Status = input.ReadInt32();
+            break;
+          }
+          case 26: {
+            player_.AddEntriesFrom(input, _repeated_player_codec);
+            break;
+          }
+          case 34: {
+            record_.AddEntriesFrom(input, _repeated_record_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///========== proto define ==========
+  /// </summary>
+  public sealed class CSRelayPlayerConnectNotify : pb::IMessage {
+    private static readonly pb::MessageParser<CSRelayPlayerConnectNotify> _parser = new pb::MessageParser<CSRelayPlayerConnectNotify>(() => new CSRelayPlayerConnectNotify());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CSRelayPlayerConnectNotify> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "roomid" field.</summary>
+    public const int RoomidFieldNumber = 1;
+    private long roomid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Roomid {
+      get { return roomid_; }
       set {
-        player_ = value;
+        roomid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "uid" field.</summary>
+    public const int UidFieldNumber = 2;
+    private long uid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Uid {
+      get { return uid_; }
+      set {
+        uid_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Roomid != 0) {
+      if (Roomid != 0L) {
         output.WriteRawTag(8);
-        output.WriteInt32(Roomid);
+        output.WriteInt64(Roomid);
       }
-      if (player_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Player);
+      if (Uid != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(Uid);
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Roomid != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Roomid);
+      if (Roomid != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Roomid);
       }
-      if (player_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Player);
+      if (Uid != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Uid);
       }
       return size;
     }
@@ -550,14 +464,11 @@ namespace Csp {
             input.SkipLastField();
             break;
           case 8: {
-            Roomid = input.ReadInt32();
+            Roomid = input.ReadInt64();
             break;
           }
-          case 18: {
-            if (player_ == null) {
-              player_ = new global::Csp.CSRelayPlayer();
-            }
-            input.ReadMessage(player_);
+          case 16: {
+            Uid = input.ReadInt64();
             break;
           }
         }
@@ -573,64 +484,28 @@ namespace Csp {
 
     /// <summary>Field number for the "roomid" field.</summary>
     public const int RoomidFieldNumber = 1;
-    private int roomid_;
+    private long roomid_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Roomid {
+    public long Roomid {
       get { return roomid_; }
       set {
         roomid_ = value;
       }
     }
 
-    /// <summary>Field number for the "ready" field.</summary>
-    public const int ReadyFieldNumber = 2;
-    private int ready_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Ready {
-      get { return ready_; }
-      set {
-        ready_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "data" field.</summary>
-    public const int DataFieldNumber = 3;
-    private pb::ByteString data_ = pb::ByteString.Empty;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString Data {
-      get { return data_; }
-      set {
-        data_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Roomid != 0) {
+      if (Roomid != 0L) {
         output.WriteRawTag(8);
-        output.WriteInt32(Roomid);
-      }
-      if (Ready != 0) {
-        output.WriteRawTag(16);
-        output.WriteInt32(Ready);
-      }
-      if (Data.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteBytes(Data);
+        output.WriteInt64(Roomid);
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Roomid != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Roomid);
-      }
-      if (Ready != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Ready);
-      }
-      if (Data.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Data);
+      if (Roomid != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Roomid);
       }
       return size;
     }
@@ -644,15 +519,7 @@ namespace Csp {
             input.SkipLastField();
             break;
           case 8: {
-            Roomid = input.ReadInt32();
-            break;
-          }
-          case 16: {
-            Ready = input.ReadInt32();
-            break;
-          }
-          case 26: {
-            Data = input.ReadBytes();
+            Roomid = input.ReadInt64();
             break;
           }
         }
@@ -668,46 +535,28 @@ namespace Csp {
 
     /// <summary>Field number for the "roomid" field.</summary>
     public const int RoomidFieldNumber = 1;
-    private int roomid_;
+    private long roomid_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Roomid {
+    public long Roomid {
       get { return roomid_; }
       set {
         roomid_ = value;
       }
     }
 
-    /// <summary>Field number for the "player" field.</summary>
-    public const int PlayerFieldNumber = 2;
-    private global::Csp.CSRelayPlayer player_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSRelayPlayer Player {
-      get { return player_; }
-      set {
-        player_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Roomid != 0) {
+      if (Roomid != 0L) {
         output.WriteRawTag(8);
-        output.WriteInt32(Roomid);
-      }
-      if (player_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Player);
+        output.WriteInt64(Roomid);
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Roomid != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Roomid);
-      }
-      if (player_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Player);
+      if (Roomid != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Roomid);
       }
       return size;
     }
@@ -721,14 +570,7 @@ namespace Csp {
             input.SkipLastField();
             break;
           case 8: {
-            Roomid = input.ReadInt32();
-            break;
-          }
-          case 18: {
-            if (player_ == null) {
-              player_ = new global::Csp.CSRelayPlayer();
-            }
-            input.ReadMessage(player_);
+            Roomid = input.ReadInt64();
             break;
           }
         }
@@ -744,187 +586,9 @@ namespace Csp {
 
     /// <summary>Field number for the "roomid" field.</summary>
     public const int RoomidFieldNumber = 1;
-    private int roomid_;
+    private long roomid_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Roomid {
-      get { return roomid_; }
-      set {
-        roomid_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "player" field.</summary>
-    public const int PlayerFieldNumber = 2;
-    private global::Csp.CSRelayPlayer player_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Csp.CSRelayPlayer Player {
-      get { return player_; }
-      set {
-        player_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Roomid != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(Roomid);
-      }
-      if (player_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Player);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Roomid != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Roomid);
-      }
-      if (player_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Player);
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 8: {
-            Roomid = input.ReadInt32();
-            break;
-          }
-          case 18: {
-            if (player_ == null) {
-              player_ = new global::Csp.CSRelayPlayer();
-            }
-            input.ReadMessage(player_);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed class CSRelayLeaveReq : pb::IMessage {
-    private static readonly pb::MessageParser<CSRelayLeaveReq> _parser = new pb::MessageParser<CSRelayLeaveReq>(() => new CSRelayLeaveReq());
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CSRelayLeaveReq> Parser { get { return _parser; } }
-
-    /// <summary>Field number for the "roomid" field.</summary>
-    public const int RoomidFieldNumber = 1;
-    private int roomid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Roomid {
-      get { return roomid_; }
-      set {
-        roomid_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Roomid != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(Roomid);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Roomid != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Roomid);
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 8: {
-            Roomid = input.ReadInt32();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed class CSRelayLeaveResp : pb::IMessage {
-    private static readonly pb::MessageParser<CSRelayLeaveResp> _parser = new pb::MessageParser<CSRelayLeaveResp>(() => new CSRelayLeaveResp());
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CSRelayLeaveResp> Parser { get { return _parser; } }
-
-    /// <summary>Field number for the "roomid" field.</summary>
-    public const int RoomidFieldNumber = 1;
-    private int roomid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Roomid {
-      get { return roomid_; }
-      set {
-        roomid_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Roomid != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(Roomid);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Roomid != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Roomid);
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 8: {
-            Roomid = input.ReadInt32();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed class CSRelayLeaveNotify : pb::IMessage {
-    private static readonly pb::MessageParser<CSRelayLeaveNotify> _parser = new pb::MessageParser<CSRelayLeaveNotify>(() => new CSRelayLeaveNotify());
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CSRelayLeaveNotify> Parser { get { return _parser; } }
-
-    /// <summary>Field number for the "roomid" field.</summary>
-    public const int RoomidFieldNumber = 1;
-    private int roomid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Roomid {
+    public long Roomid {
       get { return roomid_; }
       set {
         roomid_ = value;
@@ -933,35 +597,35 @@ namespace Csp {
 
     /// <summary>Field number for the "uid" field.</summary>
     public const int UidFieldNumber = 2;
-    private string uid_ = "";
+    private long uid_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Uid {
+    public long Uid {
       get { return uid_; }
       set {
-        uid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        uid_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Roomid != 0) {
+      if (Roomid != 0L) {
         output.WriteRawTag(8);
-        output.WriteInt32(Roomid);
+        output.WriteInt64(Roomid);
       }
-      if (Uid.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Uid);
+      if (Uid != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(Uid);
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Roomid != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Roomid);
+      if (Roomid != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Roomid);
       }
-      if (Uid.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Uid);
+      if (Uid != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Uid);
       }
       return size;
     }
@@ -975,11 +639,128 @@ namespace Csp {
             input.SkipLastField();
             break;
           case 8: {
-            Roomid = input.ReadInt32();
+            Roomid = input.ReadInt64();
             break;
           }
-          case 18: {
-            Uid = input.ReadString();
+          case 16: {
+            Uid = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed class CSRelayPlayerStatusNotify : pb::IMessage {
+    private static readonly pb::MessageParser<CSRelayPlayerStatusNotify> _parser = new pb::MessageParser<CSRelayPlayerStatusNotify>(() => new CSRelayPlayerStatusNotify());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CSRelayPlayerStatusNotify> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "roomid" field.</summary>
+    public const int RoomidFieldNumber = 1;
+    private long roomid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Roomid {
+      get { return roomid_; }
+      set {
+        roomid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "uid" field.</summary>
+    public const int UidFieldNumber = 2;
+    private long uid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Uid {
+      get { return uid_; }
+      set {
+        uid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "active_tick" field.</summary>
+    public const int ActiveTickFieldNumber = 3;
+    private long activeTick_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ActiveTick {
+      get { return activeTick_; }
+      set {
+        activeTick_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "online" field.</summary>
+    public const int OnlineFieldNumber = 4;
+    private int online_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Online {
+      get { return online_; }
+      set {
+        online_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Roomid != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Roomid);
+      }
+      if (Uid != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(Uid);
+      }
+      if (ActiveTick != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(ActiveTick);
+      }
+      if (Online != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Online);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Roomid != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Roomid);
+      }
+      if (Uid != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Uid);
+      }
+      if (ActiveTick != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ActiveTick);
+      }
+      if (Online != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Online);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Roomid = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            Uid = input.ReadInt64();
+            break;
+          }
+          case 24: {
+            ActiveTick = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            Online = input.ReadInt32();
             break;
           }
         }
@@ -995,41 +776,29 @@ namespace Csp {
 
     /// <summary>Field number for the "roomid" field.</summary>
     public const int RoomidFieldNumber = 1;
-    private int roomid_;
+    private long roomid_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Roomid {
+    public long Roomid {
       get { return roomid_; }
       set {
         roomid_ = value;
       }
     }
 
-    /// <summary>Field number for the "players" field.</summary>
-    public const int PlayersFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::Csp.CSRelayPlayer> _repeated_players_codec
-        = pb::FieldCodec.ForMessage(18, global::Csp.CSRelayPlayer.Parser);
-    private readonly pbc::RepeatedField<global::Csp.CSRelayPlayer> players_ = new pbc::RepeatedField<global::Csp.CSRelayPlayer>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Csp.CSRelayPlayer> Players {
-      get { return players_; }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Roomid != 0) {
+      if (Roomid != 0L) {
         output.WriteRawTag(8);
-        output.WriteInt32(Roomid);
+        output.WriteInt64(Roomid);
       }
-      players_.WriteTo(output, _repeated_players_codec);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Roomid != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Roomid);
+      if (Roomid != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Roomid);
       }
-      size += players_.CalculateSize(_repeated_players_codec);
       return size;
     }
 
@@ -1042,11 +811,166 @@ namespace Csp {
             input.SkipLastField();
             break;
           case 8: {
-            Roomid = input.ReadInt32();
+            Roomid = input.ReadInt64();
             break;
           }
-          case 18: {
-            players_.AddEntriesFrom(input, _repeated_players_codec);
+        }
+      }
+    }
+
+  }
+
+  public sealed class CSRelayRoomReq : pb::IMessage {
+    private static readonly pb::MessageParser<CSRelayRoomReq> _parser = new pb::MessageParser<CSRelayRoomReq>(() => new CSRelayRoomReq());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CSRelayRoomReq> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "roomid" field.</summary>
+    public const int RoomidFieldNumber = 1;
+    private long roomid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Roomid {
+      get { return roomid_; }
+      set {
+        roomid_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Roomid != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Roomid);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Roomid != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Roomid);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Roomid = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed class CSRelayRoomResp : pb::IMessage {
+    private static readonly pb::MessageParser<CSRelayRoomResp> _parser = new pb::MessageParser<CSRelayRoomResp>(() => new CSRelayRoomResp());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CSRelayRoomResp> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "room" field.</summary>
+    public const int RoomFieldNumber = 1;
+    private global::Csp.CSRelayRoom room_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRelayRoom Room {
+      get { return room_; }
+      set {
+        room_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (room_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Room);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (room_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Room);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            if (room_ == null) {
+              room_ = new global::Csp.CSRelayRoom();
+            }
+            input.ReadMessage(room_);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed class CSRelayRoomNotify : pb::IMessage {
+    private static readonly pb::MessageParser<CSRelayRoomNotify> _parser = new pb::MessageParser<CSRelayRoomNotify>(() => new CSRelayRoomNotify());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CSRelayRoomNotify> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "room" field.</summary>
+    public const int RoomFieldNumber = 1;
+    private global::Csp.CSRelayRoom room_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Csp.CSRelayRoom Room {
+      get { return room_; }
+      set {
+        room_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (room_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Room);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (room_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Room);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            if (room_ == null) {
+              room_ = new global::Csp.CSRelayRoom();
+            }
+            input.ReadMessage(room_);
             break;
           }
         }
@@ -1159,6 +1083,269 @@ namespace Csp {
           }
           case 18: {
             frame_.AddEntriesFrom(input, _repeated_frame_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed class CSRelayEndReq : pb::IMessage {
+    private static readonly pb::MessageParser<CSRelayEndReq> _parser = new pb::MessageParser<CSRelayEndReq>(() => new CSRelayEndReq());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CSRelayEndReq> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "roomid" field.</summary>
+    public const int RoomidFieldNumber = 1;
+    private long roomid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Roomid {
+      get { return roomid_; }
+      set {
+        roomid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "result" field.</summary>
+    public const int ResultFieldNumber = 2;
+    private int result_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Result {
+      get { return result_; }
+      set {
+        result_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "data" field.</summary>
+    public const int DataFieldNumber = 3;
+    private pb::ByteString data_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString Data {
+      get { return data_; }
+      set {
+        data_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Roomid != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Roomid);
+      }
+      if (Result != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Result);
+      }
+      if (Data.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Data);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Roomid != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Roomid);
+      }
+      if (Result != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Result);
+      }
+      if (Data.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Data);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Roomid = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            Result = input.ReadInt32();
+            break;
+          }
+          case 26: {
+            Data = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed class CSRelayEndResp : pb::IMessage {
+    private static readonly pb::MessageParser<CSRelayEndResp> _parser = new pb::MessageParser<CSRelayEndResp>(() => new CSRelayEndResp());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CSRelayEndResp> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "roomid" field.</summary>
+    public const int RoomidFieldNumber = 1;
+    private long roomid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Roomid {
+      get { return roomid_; }
+      set {
+        roomid_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Roomid != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Roomid);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Roomid != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Roomid);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Roomid = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed class CSRelayEndNotify : pb::IMessage {
+    private static readonly pb::MessageParser<CSRelayEndNotify> _parser = new pb::MessageParser<CSRelayEndNotify>(() => new CSRelayEndNotify());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CSRelayEndNotify> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "roomid" field.</summary>
+    public const int RoomidFieldNumber = 1;
+    private long roomid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Roomid {
+      get { return roomid_; }
+      set {
+        roomid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "uid" field.</summary>
+    public const int UidFieldNumber = 2;
+    private long uid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Uid {
+      get { return uid_; }
+      set {
+        uid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "result" field.</summary>
+    public const int ResultFieldNumber = 3;
+    private int result_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Result {
+      get { return result_; }
+      set {
+        result_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "data" field.</summary>
+    public const int DataFieldNumber = 4;
+    private pb::ByteString data_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString Data {
+      get { return data_; }
+      set {
+        data_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Roomid != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Roomid);
+      }
+      if (Uid != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(Uid);
+      }
+      if (Result != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Result);
+      }
+      if (Data.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteBytes(Data);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Roomid != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Roomid);
+      }
+      if (Uid != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Uid);
+      }
+      if (Result != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Result);
+      }
+      if (Data.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Data);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Roomid = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            Uid = input.ReadInt64();
+            break;
+          }
+          case 24: {
+            Result = input.ReadInt32();
+            break;
+          }
+          case 34: {
+            Data = input.ReadBytes();
             break;
           }
         }

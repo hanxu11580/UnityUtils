@@ -86,6 +86,60 @@ namespace Csp {
 
   }
 
+  public sealed class CSPushGiftDelNotify : pb::IMessage {
+    private static readonly pb::MessageParser<CSPushGiftDelNotify> _parser = new pb::MessageParser<CSPushGiftDelNotify>(() => new CSPushGiftDelNotify());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CSPushGiftDelNotify> Parser { get { return _parser; } }
+
+    /// <summary>Field number for the "gift" field.</summary>
+    public const int GiftFieldNumber = 1;
+    private global::Datap.PushGiftItem gift_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Datap.PushGiftItem Gift {
+      get { return gift_; }
+      set {
+        gift_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (gift_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Gift);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (gift_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Gift);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            if (gift_ == null) {
+              gift_ = new global::Datap.PushGiftItem();
+            }
+            input.ReadMessage(gift_);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   #endregion
 
 }

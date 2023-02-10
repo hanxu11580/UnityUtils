@@ -77,12 +77,12 @@ namespace Csp {
 
     /// <summary>Field number for the "param" field.</summary>
     public const int ParamFieldNumber = 4;
-    private int param_;
+    private string param_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Param {
+    public string Param {
       get { return param_; }
       set {
-        param_ = value;
+        param_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -100,9 +100,9 @@ namespace Csp {
         output.WriteRawTag(26);
         output.WriteString(ProductId);
       }
-      if (Param != 0) {
-        output.WriteRawTag(32);
-        output.WriteInt32(Param);
+      if (Param.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Param);
       }
     }
 
@@ -118,8 +118,8 @@ namespace Csp {
       if (ProductId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(ProductId);
       }
-      if (Param != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Param);
+      if (Param.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Param);
       }
       return size;
     }
@@ -144,8 +144,8 @@ namespace Csp {
             ProductId = input.ReadString();
             break;
           }
-          case 32: {
-            Param = input.ReadInt32();
+          case 34: {
+            Param = input.ReadString();
             break;
           }
         }
@@ -446,12 +446,12 @@ namespace Csp {
 
     /// <summary>Field number for the "param" field.</summary>
     public const int ParamFieldNumber = 3;
-    private int param_;
+    private string param_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Param {
+    public string Param {
       get { return param_; }
       set {
-        param_ = value;
+        param_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -465,9 +465,9 @@ namespace Csp {
         output.WriteRawTag(16);
         output.WriteEnum((int) UseType);
       }
-      if (Param != 0) {
-        output.WriteRawTag(24);
-        output.WriteInt32(Param);
+      if (Param.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Param);
       }
     }
 
@@ -480,8 +480,8 @@ namespace Csp {
       if (UseType != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) UseType);
       }
-      if (Param != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Param);
+      if (Param.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Param);
       }
       return size;
     }
@@ -502,8 +502,8 @@ namespace Csp {
             useType_ = (global::Csp.CSRechargeUseType) input.ReadEnum();
             break;
           }
-          case 24: {
-            Param = input.ReadInt32();
+          case 26: {
+            Param = input.ReadString();
             break;
           }
         }

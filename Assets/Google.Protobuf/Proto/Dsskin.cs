@@ -23,11 +23,7 @@ namespace Datap {
     /// <summary>
     /// 每条元素龙的三选一槽位数
     /// </summary>
-    KMaxRelicKinds = 6,
-    /// <summary>
-    /// 每个槽位的三选一数量
-    /// </summary>
-    KMaxRelicLength = 6,
+    KMaxSkinSlots = 6,
   }
 
   #endregion
@@ -36,23 +32,13 @@ namespace Datap {
   /// <summary>
   /// ================= message define =================
   /// </summary>
-  public sealed class RoleSkinRelicData : pb::IMessage {
-    private static readonly pb::MessageParser<RoleSkinRelicData> _parser = new pb::MessageParser<RoleSkinRelicData>(() => new RoleSkinRelicData());
+  public sealed class RoleSkinSlotData : pb::IMessage {
+    private static readonly pb::MessageParser<RoleSkinSlotData> _parser = new pb::MessageParser<RoleSkinSlotData>(() => new RoleSkinSlotData());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<RoleSkinRelicData> Parser { get { return _parser; } }
-
-    /// <summary>Field number for the "relic_list" field.</summary>
-    public const int RelicListFieldNumber = 1;
-    private static readonly pb::FieldCodec<int> _repeated_relicList_codec
-        = pb::FieldCodec.ForInt32(10);
-    private readonly pbc::RepeatedField<int> relicList_ = new pbc::RepeatedField<int>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<int> RelicList {
-      get { return relicList_; }
-    }
+    public static pb::MessageParser<RoleSkinSlotData> Parser { get { return _parser; } }
 
     /// <summary>Field number for the "level" field.</summary>
-    public const int LevelFieldNumber = 2;
+    public const int LevelFieldNumber = 1;
     private int level_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Level {
@@ -64,9 +50,8 @@ namespace Datap {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      relicList_.WriteTo(output, _repeated_relicList_codec);
       if (Level != 0) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(8);
         output.WriteInt32(Level);
       }
     }
@@ -74,7 +59,6 @@ namespace Datap {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      size += relicList_.CalculateSize(_repeated_relicList_codec);
       if (Level != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Level);
       }
@@ -89,12 +73,7 @@ namespace Datap {
           default:
             input.SkipLastField();
             break;
-          case 10:
           case 8: {
-            relicList_.AddEntriesFrom(input, _repeated_relicList_codec);
-            break;
-          }
-          case 16: {
             Level = input.ReadInt32();
             break;
           }
@@ -131,14 +110,25 @@ namespace Datap {
       }
     }
 
-    /// <summary>Field number for the "relic_list" field.</summary>
-    public const int RelicListFieldNumber = 3;
-    private static readonly pb::FieldCodec<global::Datap.RoleSkinRelicData> _repeated_relicList_codec
-        = pb::FieldCodec.ForMessage(26, global::Datap.RoleSkinRelicData.Parser);
-    private readonly pbc::RepeatedField<global::Datap.RoleSkinRelicData> relicList_ = new pbc::RepeatedField<global::Datap.RoleSkinRelicData>();
+    /// <summary>Field number for the "slots" field.</summary>
+    public const int SlotsFieldNumber = 3;
+    private static readonly pbc::MapField<int, global::Datap.RoleSkinSlotData>.Codec _map_slots_codec
+        = new pbc::MapField<int, global::Datap.RoleSkinSlotData>.Codec(pb::FieldCodec.ForInt32(8), pb::FieldCodec.ForMessage(18, global::Datap.RoleSkinSlotData.Parser), 26);
+    private readonly pbc::MapField<int, global::Datap.RoleSkinSlotData> slots_ = new pbc::MapField<int, global::Datap.RoleSkinSlotData>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Datap.RoleSkinRelicData> RelicList {
-      get { return relicList_; }
+    public pbc::MapField<int, global::Datap.RoleSkinSlotData> Slots {
+      get { return slots_; }
+    }
+
+    /// <summary>Field number for the "effect_actived" field.</summary>
+    public const int EffectActivedFieldNumber = 5;
+    private int effectActived_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int EffectActived {
+      get { return effectActived_; }
+      set {
+        effectActived_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -151,7 +141,11 @@ namespace Datap {
         output.WriteRawTag(16);
         output.WriteInt32(SkinStarLevel);
       }
-      relicList_.WriteTo(output, _repeated_relicList_codec);
+      slots_.WriteTo(output, _map_slots_codec);
+      if (EffectActived != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(EffectActived);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -163,7 +157,10 @@ namespace Datap {
       if (SkinStarLevel != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(SkinStarLevel);
       }
-      size += relicList_.CalculateSize(_repeated_relicList_codec);
+      size += slots_.CalculateSize(_map_slots_codec);
+      if (EffectActived != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(EffectActived);
+      }
       return size;
     }
 
@@ -184,7 +181,11 @@ namespace Datap {
             break;
           }
           case 26: {
-            relicList_.AddEntriesFrom(input, _repeated_relicList_codec);
+            slots_.AddEntriesFrom(input, _map_slots_codec);
+            break;
+          }
+          case 40: {
+            EffectActived = input.ReadInt32();
             break;
           }
         }

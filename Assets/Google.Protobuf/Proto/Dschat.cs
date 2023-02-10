@@ -19,6 +19,14 @@ namespace Datap {
     /// </summary>
     KChatMiscCdtime = 10,
     /// <summary>
+    /// 世界频道消息发送的CD时间
+    /// </summary>
+    KChatMiscWorldCdtime = 10,
+    /// <summary>
+    /// 私聊消息发送的CD时间
+    /// </summary>
+    KChatMiscP2Pcdtime = 10,
+    /// <summary>
     /// 文本内容字数上限
     /// </summary>
     KChatMiscTextLength = 30,
@@ -34,6 +42,11 @@ namespace Datap {
     /// 本服群聊存储消息条目上限
     /// </summary>
     KChatMiscMsgMaxLengthSvr = 1024,
+  }
+
+  public enum ChatMsgReceiveStatus {
+    KChatMsgReceiveStatusNone = 0,
+    KChatMsgReceiveStatusReceived = 1,
   }
 
   public enum RoleInfoUpdateReason {
@@ -54,6 +67,10 @@ namespace Datap {
     /// 登录
     /// </summary>
     KRoleInfoUpdateReasonLogin = 4,
+    /// <summary>
+    /// 更改着装
+    /// </summary>
+    KRoleInfoUpdateReasonDress = 5,
   }
 
   #endregion
@@ -89,6 +106,28 @@ namespace Datap {
       }
     }
 
+    /// <summary>Field number for the "head" field.</summary>
+    public const int HeadFieldNumber = 3;
+    private global::Datap.Item head_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Datap.Item Head {
+      get { return head_; }
+      set {
+        head_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "frame" field.</summary>
+    public const int FrameFieldNumber = 4;
+    private global::Datap.Item frame_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Datap.Item Frame {
+      get { return frame_; }
+      set {
+        frame_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Name.Length != 0) {
@@ -98,6 +137,14 @@ namespace Datap {
       if (Level != 0) {
         output.WriteRawTag(16);
         output.WriteInt32(Level);
+      }
+      if (head_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Head);
+      }
+      if (frame_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Frame);
       }
     }
 
@@ -109,6 +156,12 @@ namespace Datap {
       }
       if (Level != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Level);
+      }
+      if (head_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Head);
+      }
+      if (frame_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Frame);
       }
       return size;
     }
@@ -127,6 +180,20 @@ namespace Datap {
           }
           case 16: {
             Level = input.ReadInt32();
+            break;
+          }
+          case 26: {
+            if (head_ == null) {
+              head_ = new global::Datap.Item();
+            }
+            input.ReadMessage(head_);
+            break;
+          }
+          case 34: {
+            if (frame_ == null) {
+              frame_ = new global::Datap.Item();
+            }
+            input.ReadMessage(frame_);
             break;
           }
         }
