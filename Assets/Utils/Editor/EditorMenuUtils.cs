@@ -19,24 +19,24 @@ namespace EditorUtils {
         private static void Test() {
             //EditorWindow.GetWindow<ControlDragWnd>().Show();
 
-            var dobjd = Utility.UniversalUtils.DeserializeFromPath<Dictionary<string, string>>(@"C:\Users\A\Desktop\temp.data");
+            //var dobjd = Utility.UniversalUtils.DeserializeFromPath<Dictionary<string, string>>(@"C:\Users\A\Desktop\temp.data");
             //foreach (var kv in dobjd) {
             //    Debug.LogError($"{kv.Key}-{kv.Value}");
             //}
 
-            var dobj = Utility.UniversalUtils.DeserializeFromPath<List<string>>(@"C:\Users\A\Desktop\use.data");
-            foreach (var kv in dobj) {
-                var replace = kv.Replace(".bundle", "");
-                string[] s2 = replace.Split('_');
-                string[] news = new string[s2.Length - 1];
-                Array.Copy(s2, 0, news, 0, s2.Length - 1);
-                var p = string.Join('_', news);
-                p += ".bundle";
-                if (dobjd.ContainsKey(p)) {
-                    Debug.LogError($"{p}-{dobjd[p]}");
-                }
-            }
-
+            //var dobj = Utility.UniversalUtils.DeserializeFromPath<List<string>>(@"C:\Users\A\Desktop\use.data");
+            //foreach (var kv in dobj) {
+            //    var replace = kv.Replace(".bundle", "");
+            //    string[] s2 = replace.Split('_');
+            //    string[] news = new string[s2.Length - 1];
+            //    Array.Copy(s2, 0, news, 0, s2.Length - 1);
+            //    var p = string.Join('_', news);
+            //    p += ".bundle";
+            //    if (dobjd.ContainsKey(p)) {
+            //        Debug.LogError($"{p}-{dobjd[p]}");
+            //    }
+            //}
+            Process();
         }
 
         [MenuItem("EditorUtils/Path/OpenPersistentDataPath")]
@@ -55,13 +55,15 @@ namespace EditorUtils {
             EditorWindow.GetWindowWithRect<EditorStyleViewer>(ScreenCenterRect);
         }
 
-        private static string path = @"‪C:\Users\A\Desktop\2023.02.10 15_40_56 8e0deccf-8f07-4d4c-b3cd-97af66b2a435.csv";
+        private static string path = @"2023.02.10 15_40_56 8e0deccf-8f07-4d4c-b3cd-97af66b2a435.csv";
 
         private static void Process() {
-            IWorkbook book = ExcelUtils.LoadBook(path);
-            ISheet sheet = book.GetSheetAt(0);
+            var dt = CsvUtils.ReadCSV(path);
 
-
+            var r0 = dt.Rows[0];
+            foreach (var item in r0.ItemArray) {
+                Debug.LogError(item);
+            }
         }
     }
 }
