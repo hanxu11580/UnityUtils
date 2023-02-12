@@ -77,6 +77,7 @@ namespace Utility {
 
                 if (isFirst)  //建立表头
                 {
+                    isFirst = false;
                     for (int i = 0; i < dtColumns; i++) {
                         dt.Columns.Add(arrayLine[i]);//每一列名称
                     }

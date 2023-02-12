@@ -6,6 +6,7 @@ using UnityObject = UnityEngine.Object;
 using Utility;
 using NPOI.SS.UserModel;
 using System;
+using System.Data;
 
 namespace EditorUtils {
 
@@ -36,7 +37,6 @@ namespace EditorUtils {
             //        Debug.LogError($"{p}-{dobjd[p]}");
             //    }
             //}
-            Process();
         }
 
         [MenuItem("EditorUtils/Path/OpenPersistentDataPath")]
@@ -53,17 +53,6 @@ namespace EditorUtils {
         private static void OpenEditorStyleViewer() {
             EditorWindow.GetWindow<EditorStyleViewer>().Close();
             EditorWindow.GetWindowWithRect<EditorStyleViewer>(ScreenCenterRect);
-        }
-
-        private static string path = @"2023.02.10 15_40_56 8e0deccf-8f07-4d4c-b3cd-97af66b2a435.csv";
-
-        private static void Process() {
-            var dt = CsvUtils.ReadCSV(path);
-
-            var r0 = dt.Rows[0];
-            foreach (var item in r0.ItemArray) {
-                Debug.LogError(item);
-            }
         }
     }
 }
