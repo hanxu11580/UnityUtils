@@ -9,16 +9,25 @@ using System.Threading.Tasks;
 namespace USDT.Utils {
     public static class ReflectionUtils
     {
-        public static Type[] Types { get; private set; }
+        private static Type[] _types;
 
         public static Type[] GetTypes() {
-            if (Types == null) {
-                Types = AppDomain.CurrentDomain.GetAssemblies()
+            if (_types == null) {
+                _types = AppDomain.CurrentDomain.GetAssemblies()
                     .Where((Assembly assembly) => assembly.FullName.Contains("Assembly"))
                     .SelectMany((Assembly assembly) => assembly.GetTypes()).ToArray();
             }
 
-            return Types;
+            return _types;
+        }
+
+        public static Type FindTypeByFullName(string fullName) {
+            foreach (var t in GetTypes()) {
+                if(t.FullName == fullName) {
+                    return t;
+                }
+            }
+            return null;
         }
 
         public static Type[] GetAttriTypes(Type hasAttribute, bool inherit) {

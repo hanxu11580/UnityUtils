@@ -1,16 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEditor;
 using UnityEngine;
 using USDT.Utils;
 
 namespace USDT.CustomEditor {
-    public class AssetPostprocessorConst {
-        public const string SubPathPluginsiOS = @"Plugins/iOS";
-        public const string SubPathPluginsAndroid = @"Plugins/Android";
-    }
-
     public class CustomAssetPostprocessor : AssetPostprocessor {
+        private static StringBuilder _SB = new StringBuilder();
         //模型导入之前调用
         public void OnPreprocessModel() {
             //LogUtils.Log("Model导入前" + this.assetPath);
@@ -52,13 +49,15 @@ namespace USDT.CustomEditor {
         /// <param name="movedAssets"></param>
         /// <param name="movedFromAssetPaths"></param>
         public static void OnPostprocessAllAssets(string[] importedAsset, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths) {
-            LogUtils.Log($"导入资源数量:{importedAsset.Length}", true);
-            foreach (string path in importedAsset) {
-                SetPlugnImporterByPath(path);
+            if(importedAsset.Length > 0) {
+                _SB.Append($"导入资源数量:{importedAsset.Length}\n\n");
+                foreach (string path in importedAsset) {
+                    _SB.Append(StringUtils.Format(ColorStringConst.GreenFormat, path));
+                    _SB.Append("\n");
+                    SetPlugnImporterByPath(path);
+                }
+                LogUtils.Log(_SB.ToString(), true);
             }
-            //foreach (string path in deletedAssets) {
-
-            //}
         }
 
         /// <summary>
@@ -70,12 +69,12 @@ namespace USDT.CustomEditor {
             if(pluginsImporter == null) {
                 return;
             }
-            if (path.Contains(AssetPostprocessorConst.SubPathPluginsiOS)) {
+            if (path.Contains(CustomAssetPostprocessorConst.SubPathPluginsiOS)) {
                 pluginsImporter.SetCompatibleWithPlatform(BuildTarget.iOS, true);
                 pluginsImporter.SetCompatibleWithPlatform(BuildTarget.Android, false);
                 LogUtils.Log($"设置 {path} only iOS platform");
             }
-            else if (path.Contains(AssetPostprocessorConst.SubPathPluginsAndroid)) {
+            else if (path.Contains(CustomAssetPostprocessorConst.SubPathPluginsAndroid)) {
                 pluginsImporter.SetCompatibleWithPlatform(BuildTarget.iOS, false);
                 pluginsImporter.SetCompatibleWithPlatform(BuildTarget.Android, true);
                 LogUtils.Log($"设置 {path} only Android platform");

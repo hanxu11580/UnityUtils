@@ -27,6 +27,9 @@ namespace USDT.CustomEditor {
         private List<string> _matchImagePaths = new List<string>();
         private Vector2 _matchImageScrollViewPos = new Vector2();
 
+        //搜索模式
+        private ESearchMode _mode;
+
         private void OnEnable() {
             _imageType = ImgtypeStr.Split('|');
         }
@@ -46,15 +49,14 @@ namespace USDT.CustomEditor {
                 _lessThanSize = int.MaxValue;
             }
             EditorGUILayout.LabelField(EditorUtils.TempContent("KB"), GUILayout.Width(50));
+            _mode = (ESearchMode)EditorGUILayout.EnumPopup(_mode);
             EditorGUILayout.EndHorizontal();
             GUILayout.FlexibleSpace();
             // 右框 
-            EditorGUILayout.BeginHorizontal();
             if (GUILayout.Button(EditorUtils.TempContent("  搜索  "), GUILayout.Width(100), GUILayout.Height(35))) {
                 Clear();
-                SearchMatchImage();
+                SearchMatchImage(_mode);
             }
-            EditorGUILayout.EndHorizontal();
             EditorGUILayout.EndHorizontal();
 
             EditorGUILayout.Space(10);
@@ -64,7 +66,7 @@ namespace USDT.CustomEditor {
             EditorGUILayout.EndScrollView();
         }
 
-        private void SearchMatchImage() {
+        private void SearchMatchImage(ESearchMode mode) {
             for (int i = 0; i < _imageType.Length; i++) {
                 //获取Application.dataPath文件夹下所有的图片路径
                 _allImagePaths.AddRange(Directory.GetFiles("Assets/", _imageType[i], SearchOption.AllDirectories));
@@ -72,9 +74,15 @@ namespace USDT.CustomEditor {
 
             for (int i = 0; i < _allImagePaths.Count; i++) {
                 var p = _allImagePaths[i];
-                var size = FileUtils.GetFileSize(p) / 1024;
-                if(size >= _greaterThanSize && size <= _lessThanSize) {
-                    if (!_matchImagePaths.Contains(p)) {
+                if(mode == ESearchMode.大小) {
+                    var size = FileUtils.GetFileSize(p) / 1024;
+                    if (size >= _greaterThanSize && size <= _lessThanSize) {
+                        if (!_matchImagePaths.Contains(p)) {
+                            _matchImagePaths.Add(p);
+                        }
+                    }
+                }else if(mode == ESearchMode.名字含有中文) {
+                    if (RegexUtils.HasChinese(p)) {
                         _matchImagePaths.Add(p);
                     }
                 }

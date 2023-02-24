@@ -2,24 +2,19 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
+using System.Text;
 using UnityEngine;
 
 namespace USDT.Utils {
 
-    public class LogConst {
-        public const string CyanFormat = "<b><color=cyan>{0}</color></b> ";
-        public const string YellowFormat = "<b><color=yellow>{0}</color></b> ";
-        public const string RedFormat = "<b><color=red>{0}</color></b> ";
-    }
-
-
-    public static class LogUtils {
+    public class LogUtils {
+        private static StringBuilder _SB = new StringBuilder();
 
         public static void Log(object msg, bool isLogUpperLayerMethod = false) {
             if (isLogUpperLayerMethod) {
                 var UpperLayerMethod = ReflectionUtils.GetStackTraceUpperLayer();
-                var prefixName = string.Format(LogConst.CyanFormat, $"【{UpperLayerMethod.Name}】");
-                msg = $"{prefixName}：{msg}";
+                var prefixName = StringUtils.Format(ColorStringConst.CyanFormat, $"【{UpperLayerMethod.Name}】");
+                msg = StringUtils.Concat(prefixName, "：", msg.ToString());
             }
 #if UNITY_EDITOR || UNITY_ANDROID || UNITY_IPHONE || UNITY_IOS
             UnityEngine.Debug.Log(msg);
@@ -31,8 +26,8 @@ namespace USDT.Utils {
         public static void LogError(object msg, bool isLogUpperLayerMethod = false) {
             if (isLogUpperLayerMethod) {
                 var UpperLayerMethod = ReflectionUtils.GetStackTraceUpperLayer();
-                var prefixName = string.Format(LogConst.RedFormat, $"【{UpperLayerMethod.Name}】");
-                msg = $"{prefixName}：{msg}";
+                var prefixName = StringUtils.Format(ColorStringConst.RedFormat, $"【{UpperLayerMethod.Name}】");
+                msg = StringUtils.Concat(prefixName, "：", msg.ToString());
             }
 #if UNITY_EDITOR || UNITY_ANDROID || UNITY_IPHONE || UNITY_IOS
             UnityEngine.Debug.LogError(msg);
