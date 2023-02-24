@@ -1,103 +1,231 @@
 fileFormatVersion: 2
 guid: bd3a7a773fe02354da0a4d8dbabd8cbb
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: Planks
-    100004: Planks13
-    100006: Planks14
-    100008: Planks8
-    100010: Planks9
-    100012: transform1
-    100014: transform2
-    100016: transform3
-    100018: transform4
-    100020: FloorBase
-    100022: FloorSides
-    100024: Base
-    100026: Sides
-    400000: //RootNode
-    400002: Planks
-    400004: Planks13
-    400006: Planks14
-    400008: Planks8
-    400010: Planks9
-    400012: transform1
-    400014: transform2
-    400016: transform3
-    400018: transform4
-    400020: FloorBase
-    400022: FloorSides
-    400024: Base
-    400026: Sides
-    2300000: //RootNode
-    2300002: Planks14
-    2300004: FloorBase
-    2300006: FloorSides
-    2300008: Planks
-    2300010: Base
-    2300012: Sides
-    3300000: //RootNode
-    3300002: Planks14
-    3300004: FloorBase
-    3300006: FloorSides
-    3300008: Planks
-    3300010: Base
-    3300012: Sides
-    4300000: Planks
-    4300002: Planks14
-    4300004: FloorBase
-    4300006: FloorSides
-    4300008: Base
-    4300010: Sides
-    9500000: //RootNode
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: Planks
+  - first:
+      1: 100004
+    second: Planks13
+  - first:
+      1: 100006
+    second: Planks14
+  - first:
+      1: 100008
+    second: Planks8
+  - first:
+      1: 100010
+    second: Planks9
+  - first:
+      1: 100012
+    second: transform1
+  - first:
+      1: 100014
+    second: transform2
+  - first:
+      1: 100016
+    second: transform3
+  - first:
+      1: 100018
+    second: transform4
+  - first:
+      1: 100020
+    second: FloorBase
+  - first:
+      1: 100022
+    second: FloorSides
+  - first:
+      1: 100024
+    second: Base
+  - first:
+      1: 100026
+    second: Sides
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: Planks
+  - first:
+      4: 400004
+    second: Planks13
+  - first:
+      4: 400006
+    second: Planks14
+  - first:
+      4: 400008
+    second: Planks8
+  - first:
+      4: 400010
+    second: Planks9
+  - first:
+      4: 400012
+    second: transform1
+  - first:
+      4: 400014
+    second: transform2
+  - first:
+      4: 400016
+    second: transform3
+  - first:
+      4: 400018
+    second: transform4
+  - first:
+      4: 400020
+    second: FloorBase
+  - first:
+      4: 400022
+    second: FloorSides
+  - first:
+      4: 400024
+    second: Base
+  - first:
+      4: 400026
+    second: Sides
+  - first:
+      23: 2300000
+    second: //RootNode
+  - first:
+      23: 2300002
+    second: Planks14
+  - first:
+      23: 2300004
+    second: FloorBase
+  - first:
+      23: 2300006
+    second: FloorSides
+  - first:
+      23: 2300008
+    second: Planks
+  - first:
+      23: 2300010
+    second: Base
+  - first:
+      23: 2300012
+    second: Sides
+  - first:
+      33: 3300000
+    second: //RootNode
+  - first:
+      33: 3300002
+    second: Planks14
+  - first:
+      33: 3300004
+    second: FloorBase
+  - first:
+      33: 3300006
+    second: FloorSides
+  - first:
+      33: 3300008
+    second: Planks
+  - first:
+      33: 3300010
+    second: Base
+  - first:
+      33: 3300012
+    second: Sides
+  - first:
+      43: 4300000
+    second: Planks
+  - first:
+      43: 4300002
+    second: Planks14
+  - first:
+      43: 4300004
+    second: FloorBase
+  - first:
+      43: 4300006
+    second: FloorSides
+  - first:
+      43: 4300008
+    second: Base
+  - first:
+      43: 4300010
+    second: Sides
+  - first:
+      95: 9500000
+    second: //RootNode
+  externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 1
     materialSearch: 2
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
+    resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -107,11 +235,18 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 0.01
     rootMotionBoneName: 
     hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
