@@ -6,11 +6,8 @@ namespace USDT.Core {
 
     public class Timer {
         public static List<TimerEvent> m_timers = new List<TimerEvent>();
-
-        //public static List<TimerEvent> m_removeList = new List<TimerEvent>();
-
         public static void Init() {
-            ApplicationManager.s_OnApplicationUpdate += Update;
+            //ApplicationManager.s_OnApplicationUpdate += Update;
         }
 
         static void Update() {

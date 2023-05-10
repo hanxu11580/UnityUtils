@@ -9,15 +9,14 @@ namespace USDT.Test {
 
 
         private void OnEnable() {
-            
+
         }
 
 
         public override void OnInspectorGUI() {
             base.OnInspectorGUI();
+
+
         }
-
-
-
     }
 }

@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package testProto;
+
+
+message StartTestProto{
+    int32 testInt = 1;
+    bool testBool = 2;
+}

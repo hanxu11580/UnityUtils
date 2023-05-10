@@ -10,12 +10,26 @@ namespace USDT.Utils {
     public class LogUtils {
         private static StringBuilder _SB = new StringBuilder();
 
-        public static void Log(object msg, bool isLogUpperLayerMethod = false) {
-            if (isLogUpperLayerMethod) {
-                var UpperLayerMethod = ReflectionUtils.GetStackTraceUpperLayer();
-                var prefixName = StringUtils.Format(ColorStringConst.CyanFormat, $"【{UpperLayerMethod.Name}】");
-                msg = StringUtils.Concat(prefixName, "：", msg.ToString());
-            }
+        public static void Log(object msg) {
+#if UNITY_EDITOR
+            var UpperLayerMethod = ReflectionUtils.GetStackTraceUpperLayer();
+            var prefixName = StringUtils.Format(ColorStringConst.CyanFormat, $"[{UpperLayerMethod.DeclaringType.Name}.{UpperLayerMethod.Name}]");
+            msg = StringUtils.Concat(prefixName, ":", msg.ToString());
+#endif
+            _Log(msg);
+        }
+
+        public static void LogError(object msg) {
+#if UNITY_EDITOR
+            var UpperLayerMethod = ReflectionUtils.GetStackTraceUpperLayer();
+            var prefixName = StringUtils.Format(ColorStringConst.RedFormat, $"[{UpperLayerMethod.DeclaringType.Name}.{UpperLayerMethod.Name}]");
+            msg = StringUtils.Concat(prefixName, ":", msg.ToString());
+#endif
+
+            _LogError(msg);
+        }
+
+        private static void _Log(object msg) {
 #if UNITY_EDITOR || UNITY_ANDROID || UNITY_IPHONE || UNITY_IOS
             UnityEngine.Debug.Log(msg);
 #else
@@ -23,12 +37,7 @@ namespace USDT.Utils {
 #endif
         }
 
-        public static void LogError(object msg, bool isLogUpperLayerMethod = false) {
-            if (isLogUpperLayerMethod) {
-                var UpperLayerMethod = ReflectionUtils.GetStackTraceUpperLayer();
-                var prefixName = StringUtils.Format(ColorStringConst.RedFormat, $"【{UpperLayerMethod.Name}】");
-                msg = StringUtils.Concat(prefixName, "：", msg.ToString());
-            }
+        private static void _LogError(object msg) {
 #if UNITY_EDITOR || UNITY_ANDROID || UNITY_IPHONE || UNITY_IOS
             UnityEngine.Debug.LogError(msg);
 #else

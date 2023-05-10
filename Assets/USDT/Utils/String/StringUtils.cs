@@ -35,7 +35,6 @@ namespace USDT.Utils {
         
         #endregion
         
-        
         #region 字符串直接采用StringBuilder拼接
         
         /// <summary>
@@ -166,6 +165,39 @@ namespace USDT.Utils {
 
         #endregion
 
+        #endregion
+
+        #region 将字节大小自动转换成 B，GB，MB，KB 等单位输出
+        private static readonly double[] byteUnits =
+{
+            1073741824.0, 1048576.0, 1024.0, 1
+        };
+
+        private static readonly string[] byteUnitsNames =
+        {
+            "GB", "MB", "KB", "B"
+        };
+        /// <summary>
+        ///     将字节大小自动转换成 B，GB，MB，KB 等单位输出
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <returns></returns>
+        public static string FormatBytes(ulong bytes) {
+            var size = "0 B";
+            if (bytes == 0) {
+                return size;
+            }
+
+            for (var index = 0; index < byteUnits.Length; index++) {
+                var unit = byteUnits[index];
+                if (bytes >= unit) {
+                    size = $"{bytes / unit:##.##} {byteUnitsNames[index]}";
+                    break;
+                }
+            }
+
+            return size;
+        }
         #endregion
     }
 }

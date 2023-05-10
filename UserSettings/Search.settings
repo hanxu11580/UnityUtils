@@ -13,6 +13,9 @@ scopes = {
 	"last_search.F8949528" = ""
 	"OpenInspectorPreview.F8949528" = "0"
 	"currentGroup.F8949528" = "all"
+	"last_search.2138236A" = ""
+	"OpenInspectorPreview.2138236A" = "0"
+	"currentGroup.2138236A" = "asset"
 }
 providers = {
 	adb = {
@@ -63,9 +66,8 @@ recentSearches = [
 searchItemFavorites = [
 ]
 savedSearchesSortOrder = 0
-showSavedSearchPanel = false
-expandedQueries = [
-]
+showSavedSearchPanel = true
+expandedQueries = [961552606]
 queryBuilder = false
 ignoredProperties = "id;name;classname;imagecontentshash"
 helperWidgetCurrentArea = "all"

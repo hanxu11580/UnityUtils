@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEditor;
@@ -8,19 +8,19 @@ using USDT.Utils;
 namespace USDT.CustomEditor {
     public class CustomAssetPostprocessor : AssetPostprocessor {
         private static StringBuilder _SB = new StringBuilder();
-        //Ä£ĞÍµ¼ÈëÖ®Ç°µ÷ÓÃ
+        //æ¨¡å‹å¯¼å…¥ä¹‹å‰è°ƒç”¨
         public void OnPreprocessModel() {
-            //LogUtils.Log("Modelµ¼ÈëÇ°" + this.assetPath);
+            //LogUtils.Log("Modelå¯¼å…¥å‰" + this.assetPath);
         }
 
-        //Ä£ĞÍµ¼ÈëÖ®Ç°µ÷ÓÃ
+        //æ¨¡å‹å¯¼å…¥ä¹‹å‰è°ƒç”¨
         public void OnPostprocessModel(GameObject go) {
-            //LogUtils.Log("Modelµ¼Èëºó" + go.name);
+            //LogUtils.Log("Modelå¯¼å…¥å" + go.name);
         }
 
-        //ÎÆÀíµ¼ÈëÖ®Ç°µ÷ÓÃ£¬Õë¶ÔÈëµ½µÄÎÆÀí½øĞĞÉèÖÃ
+        //çº¹ç†å¯¼å…¥ä¹‹å‰è°ƒç”¨ï¼Œé’ˆå¯¹å…¥åˆ°çš„çº¹ç†è¿›è¡Œè®¾ç½®
         public void OnPreprocessTexture() {
-            //Debug.Log("Textureµ¼ÈëÇ°=" + this.assetPath);
+            //Debug.Log("Textureå¯¼å…¥å‰=" + this.assetPath);
             //TextureImporter impor = this.assetImporter as TextureImporter;
             //impor.textureFormat = TextureImporterFormat.ARGB32;
             //impor.maxTextureSize = 512;
@@ -42,7 +42,7 @@ namespace USDT.CustomEditor {
         }
         
         /// <summary>
-        /// µ¼ÈëµÄ¶¼ÊÇAssetsÂ·¾¶
+        /// å¯¼å…¥çš„éƒ½æ˜¯Assetsè·¯å¾„
         /// </summary>
         /// <param name="importedAsset"></param>
         /// <param name="deletedAssets"></param>
@@ -50,18 +50,27 @@ namespace USDT.CustomEditor {
         /// <param name="movedFromAssetPaths"></param>
         public static void OnPostprocessAllAssets(string[] importedAsset, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths) {
             if(importedAsset.Length > 0) {
-                _SB.Append($"µ¼Èë×ÊÔ´ÊıÁ¿:{importedAsset.Length}\n\n");
+                bool showLog = false;
+                _SB.Clear();
                 foreach (string path in importedAsset) {
+                    if (path.EndsWith("cs")) {
+                        continue;
+                    }
+                    showLog = true;
                     _SB.Append(StringUtils.Format(ColorStringConst.GreenFormat, path));
                     _SB.Append("\n");
                     SetPlugnImporterByPath(path);
                 }
-                LogUtils.Log(_SB.ToString(), true);
+
+                if (showLog) {
+                    _SB.Append($"å¯¼å…¥èµ„æºæ•°é‡:{importedAsset.Length}\n\n");
+                    LogUtils.Log(_SB.ToString());
+                }
             }
         }
 
         /// <summary>
-        /// ¸ù¾İÂ·¾¶ÉèÖÃ²å¼şµÄÆ½Ì¨Ñ¡Ïî
+        /// æ ¹æ®è·¯å¾„è®¾ç½®æ’ä»¶çš„å¹³å°é€‰é¡¹
         /// </summary>
         /// <param name="path"></param>
         private static void SetPlugnImporterByPath(string path) {
@@ -72,12 +81,12 @@ namespace USDT.CustomEditor {
             if (path.Contains(CustomAssetPostprocessorConst.SubPathPluginsiOS)) {
                 pluginsImporter.SetCompatibleWithPlatform(BuildTarget.iOS, true);
                 pluginsImporter.SetCompatibleWithPlatform(BuildTarget.Android, false);
-                LogUtils.Log($"ÉèÖÃ {path} only iOS platform");
+                LogUtils.Log($"è®¾ç½® {path} only iOS platform");
             }
             else if (path.Contains(CustomAssetPostprocessorConst.SubPathPluginsAndroid)) {
                 pluginsImporter.SetCompatibleWithPlatform(BuildTarget.iOS, false);
                 pluginsImporter.SetCompatibleWithPlatform(BuildTarget.Android, true);
-                LogUtils.Log($"ÉèÖÃ {path} only Android platform");
+                LogUtils.Log($"è®¾ç½® {path} only Android platform");
             }
         }
     }
