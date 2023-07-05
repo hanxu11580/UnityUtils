@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using LitJson;
 
 namespace USDT.Utils {
     public static class UniversalUtils {
@@ -58,6 +59,29 @@ namespace USDT.Utils {
                 BinaryFormatter bf = new BinaryFormatter();
                 return (T)bf.Deserialize(fs);
             }
+        }
+
+        public static void LitJsonToJson<T>(string path, T obj) {
+            if(obj == null) {
+                LogUtils.LogError($"对象为空");
+                return;
+            }
+            if (File.Exists(path)) {
+                File.Delete(path);
+                LogUtils.Log($"{path}存在，已删除");
+            }
+            var json = JsonMapper.ToJson(obj);
+            File.WriteAllText(path, json);
+        }
+
+        public static T LitJsonToObject<T>(string path) {
+            if (!File.Exists(path)) {
+                LogUtils.Log($"{path}不存在");
+                return default;
+            }
+            var json = File.ReadAllText(path);
+            var obj = JsonMapper.ToObject<T>(json);
+            return obj;
         }
 
         #endregion

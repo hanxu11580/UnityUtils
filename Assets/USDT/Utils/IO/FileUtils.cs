@@ -54,6 +54,8 @@ namespace USDT.Utils {
         {
             using (FileStream fileStream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write))
             {
+                fileStream.Seek(0, SeekOrigin.Begin);
+                fileStream.SetLength(0);
                 fileStream.Write(bytes, 0, bytes.Length);
             }
         }
@@ -87,6 +89,32 @@ namespace USDT.Utils {
         {
             SaveAsset($"{path}/{name}", value);
         }
+
+        /// <summary>
+        /// 获取资源
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public static byte[] GetAsset(string path) {
+            if (File.Exists(path)) {
+                using (FileStream fileStream = new FileStream(path, FileMode.Open, FileAccess.Read)) {
+                    byte[] bytes = new byte[fileStream.Length];
+                    fileStream.Read(bytes, 0, bytes.Length);
+                    return bytes;
+                }
+            }
+            return null;
+        }
+        /// <summary>
+        /// 获取资源
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static byte[] GetAsset(string path, string name) {
+            return GetAsset($"{path}/{name}");
+        }
+
         /// <summary>
         /// 获取资源
         /// </summary>
@@ -145,7 +173,7 @@ namespace USDT.Utils {
                 sr.Dispose();
             }
             catch (Exception e) {
-                LogUtils.Log("Load text fail ! message:" + e.Message);
+                LogUtils.LogError("Load text fail ! message:" + e.Message);
             }
 
             return line.ToString();

@@ -57,7 +57,7 @@ namespace USDT.Utils {
         /// <param name="fileName">文件路径</param>
         public static System.Data.DataTable ReadCSV(string fileName) {
             System.Data.DataTable dt = new System.Data.DataTable();
-            FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Read);
             StreamReader sr = new StreamReader(fs, Encoding.UTF8);
 
             //记录每次读取的一行记录

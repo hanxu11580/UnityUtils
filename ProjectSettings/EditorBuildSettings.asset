@@ -7,8 +7,10 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: 
-    guid: 559148cc65fcda7419c6797851f86247
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/USDT/Test/Test.unity
-    guid: e925a7ba2a8550d4390491e436ec9ee1
-  m_configObjects: {}
+    path: Assets/Bujuexiao/BuJueXiao.unity
+    guid: cfee59da12da49848aada3794bd513c9
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: f2d4a447d5092524a97fbf944489e993,
+      type: 2}

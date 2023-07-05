@@ -1,0 +1,9 @@
+[{"Id" : 1,"name" : "30分钟臻选采耳","shopPrice" : 0,"meituanPrice" : 0,"duration" : 30},
+{"Id" : 2,"name" : "50分钟深度采耳","shopPrice" : 0,"meituanPrice" : 0,"duration" : 50},
+{"Id" : 3,"name" : "30分钟肩颈按摩","shopPrice" : 0,"meituanPrice" : 0,"duration" : 30},
+{"Id" : 4,"name" : "60分钟SPA","shopPrice" : 0,"meituanPrice" : 0,"duration" : 60},
+{"Id" : 5,"name" : "50分钟采耳+头疗/耳浴","shopPrice" : 0,"meituanPrice" : 0,"duration" : 50},
+{"Id" : 6,"name" : "30分钟头疗","shopPrice" : 0,"meituanPrice" : 0,"duration" : 30},
+{"Id" : 7,"name" : "50分钟采耳+肩颈按摩","shopPrice" : 0,"meituanPrice" : 0,"duration" : 50},
+{"Id" : 8,"name" : "45分钟眼部清洁","shopPrice" : 0,"meituanPrice" : 0,"duration" : 45},
+{"Id" : 9,"name" : "20分钟拔罐/刮痧","shopPrice" : 0,"meituanPrice" : 0,"duration" : 20}]

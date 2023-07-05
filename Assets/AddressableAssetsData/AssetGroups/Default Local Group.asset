@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 2a7303076dbeb284eabcb2f5141dcfb7
+  m_SerializeEntries:
+  - m_GUID: e2e36ce35cbe25647964cd1ad87e0d3f
+    m_Address: Assets/Bujuexiao/Bundles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: 217aaa839bdd98749ae4ec4fe2fbb263
+    m_Address: Assets/Excels/Jsons
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 10a00be326969e74889515b16d5fc2c5, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 027caa4adc7969b4caa1bcaa0d86c40b, type: 2}
+    - {fileID: 11400000, guid: afdb4cc1c8f35034f87a86e2d7bdf693, type: 2}

@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace USDT.Core.Table
+{
+    [Config]
+    public partial class (CustomConfig)Category : ConfigTable<(CustomConfig)>
+    {
+        public static (CustomConfig)Category Instance
+        {
+            get; set;
+        }
+
+        public (CustomConfig)Category()
+        {
+            Instance = this;
+        }
+    }
+
+    public partial class (CustomConfig) : IConfig
+    {
+(Propertys)
+    }
+}

@@ -88,9 +88,17 @@ namespace USDT.Utils {
         /// </summary>
         /// <param name="time"></param>
         /// <returns></returns>
-        public static string ToDefaultDateString(this DateTime time)
+        public static string ToDefaultDateString(DateTime time)
         {
             return time.ToString("yyyy/MM/dd HH:mm:ss");
+        }
+
+        public static string ToYYYY_MM_DD(DateTime time) {
+            return time.ToString("yyyy-MM-dd");
+        }
+
+        public static string Toyyyy_MM_dd_HH_mm_ss(DateTime time) {
+            return time.ToString("yy_MM_dd HH:mm:ss");
         }
 
         public static (Int32 h, Int32 m, Int32 s) GetHmsFromSeconds(float seconds)

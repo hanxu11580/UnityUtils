@@ -1,0 +1,25 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.lt.sdk">
+
+    <application android:name="com.leiting.sdk.LeitingApplication">
+        <meta-data
+                    tools:replace="android:value"
+                    android:name="lt_game_main_activity"
+                    android:value="com.leiting.unity.AppActivity" />
+
+        <activity
+            android:name="com.leiting.unity.AppActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            tools:replace="android:configChanges">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="unityplayer.UnityActivity"
+                android:value="true" />
+        </activity>
+    </application>
+</manifest>

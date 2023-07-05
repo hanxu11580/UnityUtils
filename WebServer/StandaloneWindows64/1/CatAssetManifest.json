@@ -1,0 +1,199 @@
+{
+    "ManifestVersion": 1,
+    "Platform": "StandaloneWindows64",
+    "Bundles": [
+        {
+            "Directory": "BundleRes",
+            "BundleName": "Chapter1.bundle",
+            "Group": "Chapter1",
+            "IsRaw": false,
+            "IsScene": false,
+            "Length": 1871,
+            "MD5": "47076a59fe504637ab91a19b1f030f76",
+            "Hash": "87eb330b4163be5c9f0cdb2b4d581602",
+            "IsAppendHash": false,
+            "IsDependencyBuiltInShaderBundle": false,
+            "EncryptOption": 1,
+            "Assets": [
+                {
+                    "Name": "Assets/BundleRes/Chapter1/B1.prefab",
+                    "IsAtlasPackable": false,
+                    "Dependencies": []
+                },
+                {
+                    "Name": "Assets/BundleRes/Chapter1/B2.prefab",
+                    "IsAtlasPackable": false,
+                    "Dependencies": []
+                },
+                {
+                    "Name": "Assets/BundleRes/Chapter1/B3.prefab",
+                    "IsAtlasPackable": false,
+                    "Dependencies": []
+                },
+                {
+                    "Name": "Assets/BundleRes/Chapter1/B4.prefab",
+                    "IsAtlasPackable": false,
+                    "Dependencies": []
+                }
+            ]
+        },
+        {
+            "Directory": "BundleRes",
+            "BundleName": "Chpater2.bundle",
+            "Group": "Chapter2",
+            "IsRaw": false,
+            "IsScene": false,
+            "Length": 1880,
+            "MD5": "7e450c98fb85bf3521dd5c79f8b6941b",
+            "Hash": "8d59a27eb03c0a9bb6c775733c10e3ce",
+            "IsAppendHash": false,
+            "IsDependencyBuiltInShaderBundle": false,
+            "EncryptOption": 1,
+            "Assets": [
+                {
+                    "Name": "Assets/BundleRes/Chpater2/B1.prefab",
+                    "IsAtlasPackable": false,
+                    "Dependencies": []
+                },
+                {
+                    "Name": "Assets/BundleRes/Chpater2/B2.prefab",
+                    "IsAtlasPackable": false,
+                    "Dependencies": []
+                },
+                {
+                    "Name": "Assets/BundleRes/Chpater2/B3.prefab",
+                    "IsAtlasPackable": false,
+                    "Dependencies": []
+                },
+                {
+                    "Name": "Assets/BundleRes/Chpater2/B4.prefab",
+                    "IsAtlasPackable": false,
+                    "Dependencies": []
+                }
+            ]
+        },
+        {
+            "Directory": "BundleRes",
+            "BundleName": "PrefabA.bundle",
+            "Group": "Base",
+            "IsRaw": false,
+            "IsScene": false,
+            "Length": 2727,
+            "MD5": "7a41da3fa555aa19bd83b618bf7a6424",
+            "Hash": "759760836920292f2b1c30eb4aa7b5fc",
+            "IsAppendHash": false,
+            "IsDependencyBuiltInShaderBundle": false,
+            "EncryptOption": 1,
+            "Assets": [
+                {
+                    "Name": "Assets/BundleRes/PrefabA/A1.prefab",
+                    "IsAtlasPackable": false,
+                    "Dependencies": [
+                        "Assets/BundleRes/PrefabA/A2.prefab"
+                    ]
+                },
+                {
+                    "Name": "Assets/BundleRes/PrefabA/A2.prefab",
+                    "IsAtlasPackable": false,
+                    "Dependencies": [
+                        "Assets/BundleRes/PrefabA/A3.prefab"
+                    ]
+                },
+                {
+                    "Name": "Assets/BundleRes/PrefabA/A3.prefab",
+                    "IsAtlasPackable": false,
+                    "Dependencies": [
+                        "Assets/BundleRes/PrefabA/A4.prefab"
+                    ]
+                },
+                {
+                    "Name": "Assets/BundleRes/PrefabA/A4.prefab",
+                    "IsAtlasPackable": false,
+                    "Dependencies": [
+                        "Assets/BundleRes/PrefabB/B1.prefab"
+                    ]
+                }
+            ]
+        },
+        {
+            "Directory": "BundleRes",
+            "BundleName": "PrefabB.bundle",
+            "Group": "Base",
+            "IsRaw": false,
+            "IsScene": false,
+            "Length": 1871,
+            "MD5": "b00fa32761c6ba90a9d7c04d9fc0ee4d",
+            "Hash": "99a54816839ac672f560e1fd4fd655f1",
+            "IsAppendHash": false,
+            "IsDependencyBuiltInShaderBundle": false,
+            "EncryptOption": 1,
+            "Assets": [
+                {
+                    "Name": "Assets/BundleRes/PrefabB/B1.prefab",
+                    "IsAtlasPackable": false,
+                    "Dependencies": []
+                },
+                {
+                    "Name": "Assets/BundleRes/PrefabB/B2.prefab",
+                    "IsAtlasPackable": false,
+                    "Dependencies": []
+                },
+                {
+                    "Name": "Assets/BundleRes/PrefabB/B3.prefab",
+                    "IsAtlasPackable": false,
+                    "Dependencies": []
+                },
+                {
+                    "Name": "Assets/BundleRes/PrefabB/B4.prefab",
+                    "IsAtlasPackable": false,
+                    "Dependencies": []
+                }
+            ]
+        },
+        {
+            "Directory": "BundleRes/RawText",
+            "BundleName": "rawText1.txt",
+            "Group": "Base",
+            "IsRaw": true,
+            "IsScene": false,
+            "Length": 17,
+            "MD5": "ec7a5357c46fdc711e319a8a0c2cde9b",
+            "Hash": "ec7a5357c46fdc711e319a8a0c2cde9b",
+            "IsAppendHash": false,
+            "IsDependencyBuiltInShaderBundle": false,
+            "EncryptOption": 1,
+            "Assets": [
+                {
+                    "Name": "Assets/BundleRes/RawText/rawText1.txt",
+                    "IsAtlasPackable": false,
+                    "Dependencies": []
+                }
+            ]
+        },
+        {
+            "Directory": "BundleRes",
+            "BundleName": "Scene.bundle",
+            "Group": "Base",
+            "IsRaw": false,
+            "IsScene": true,
+            "Length": 6112,
+            "MD5": "85a4af2f31ede77327da17368602f656",
+            "Hash": "fc1f0a6698cb28e4801eb1ec2ea3b396",
+            "IsAppendHash": false,
+            "IsDependencyBuiltInShaderBundle": false,
+            "EncryptOption": 1,
+            "Assets": [
+                {
+                    "Name": "Assets/BundleRes/Scene/New Scene.unity",
+                    "IsAtlasPackable": false,
+                    "Dependencies": []
+                },
+                {
+                    "Name": "Assets/BundleRes/Scene/New Scene2.unity",
+                    "IsAtlasPackable": false,
+                    "Dependencies": []
+                }
+            ]
+        }
+    ]
+}

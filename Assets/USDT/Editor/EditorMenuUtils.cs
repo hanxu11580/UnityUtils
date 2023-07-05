@@ -16,25 +16,8 @@ namespace USDT.CustomEditor {
 
         [MenuItem("EditorUtils/测试")]
         private static void Test() {
-            var prefabs = EditorUtils.GetAllPrefabByAssetDatabase("Assets");
-            foreach (var prefab in prefabs) {
-                if (prefab == null) {
-                    continue;
-                }
-                var path = AssetDatabase.GetAssetPath(prefab.GetInstanceID());
-                var missingScriptCount = GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(prefab);
-                if (missingScriptCount > 0) {
-                    Debug.LogError($"[CheckMaterialsMissing] 预制体:{path},丢失脚本数量:{missingScriptCount}");
-                }
-                var renders = prefab.GetComponentsInChildren<Renderer>();
-                foreach (var renderer in renders) {
-                    foreach (var rMat in renderer.sharedMaterials) {
-                        if (rMat == null) {
-                            Debug.LogError($"[CheckMaterialsMissing] Renderer材质丢失：{path}");
-                        }
-                    }
-                }
-            }
+            // 选择文件目录并返回选择文件夹路径
+            Debug.Log(FolderBrowserUtils.GetPathFromWindowsExplorer());
         }
 
         [MenuItem("EditorUtils/Path/OpenPersistentDataPath")]
@@ -52,5 +35,22 @@ namespace USDT.CustomEditor {
             EditorWindow.GetWindow<EditorStyleViewer>().Close();
             EditorWindow.GetWindowWithRect<EditorStyleViewer>(EditorMenuConst.ScreenCenterRect);
         }
+
+        #region Excel
+
+        [MenuItem("EditorUtils/Excels/导出表类CS、数据Json")]
+        public static void ExportALL() {
+            ExcelExportUtil.ExportScriptALL();
+            ExcelExportUtil.ExportDataALL();
+        }
+        [MenuItem("EditorUtils/Excels/导出表类CS")]
+        public static void ExportScript() {
+            ExcelExportUtil.ExportScriptALL();
+        }
+        [MenuItem("EditorUtils/Excels/导出表数据")]
+        public static void ExportData() {
+            ExcelExportUtil.ExportDataALL();
+        }
+        #endregion
     }
 }
