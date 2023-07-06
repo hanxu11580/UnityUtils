@@ -16,8 +16,7 @@ namespace USDT.CustomEditor {
 
         [MenuItem("EditorUtils/测试")]
         private static void Test() {
-            // 选择文件目录并返回选择文件夹路径
-            Debug.Log(FolderBrowserUtils.GetPathFromWindowsExplorer());
+
         }
 
         [MenuItem("EditorUtils/Path/OpenPersistentDataPath")]

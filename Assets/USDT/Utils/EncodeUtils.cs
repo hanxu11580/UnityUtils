@@ -9,6 +9,8 @@ namespace USDT.Utils {
     /// </summary>
     public static class EncodeUtils
     {
+        #region Hex
+
         public readonly static Dictionary<char, byte> hexmap = new Dictionary<char, byte>()
         {
             { 'a', 0xA },{ 'b', 0xB },{ 'c', 0xC },{ 'd', 0xD },
@@ -62,6 +64,36 @@ namespace USDT.Utils {
             return BitConverter.ToString(bytes, 0).Replace("-", string.Empty).ToLower();
         }
 
+        public static string ToHex(this byte b) {
+            return b.ToString("X2");
+        }
+
+        public static string ToHex(this byte[] bytes) {
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (byte b in bytes) {
+                stringBuilder.Append(b.ToString("X2"));
+            }
+            return stringBuilder.ToString();
+        }
+
+        public static string ToHex(this byte[] bytes, string format) {
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (byte b in bytes) {
+                stringBuilder.Append(b.ToString(format));
+            }
+            return stringBuilder.ToString();
+        }
+
+        public static string ToHex(this byte[] bytes, int offset, int count) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for (int i = offset; i < offset + count; ++i) {
+                stringBuilder.Append(bytes[i].ToString("X2"));
+            }
+            return stringBuilder.ToString();
+        }
+
+        #endregion
+
         public static string BytesToString(byte[] bytes) {
             return Encoding.UTF8.GetString(bytes);
         }
@@ -73,5 +105,7 @@ namespace USDT.Utils {
         public static byte[] GetBytes(this string s) {
             return Encoding.UTF8.GetBytes(s);
         }
+
+
     }
 }

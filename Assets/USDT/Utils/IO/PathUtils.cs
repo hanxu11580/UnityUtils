@@ -45,6 +45,5 @@ namespace USDT.Utils {
             }
             return $"{path}/{subPath}";
         }
-
     }
 }

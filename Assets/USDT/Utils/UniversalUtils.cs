@@ -5,6 +5,7 @@ using LitJson;
 
 namespace USDT.Utils {
     public static class UniversalUtils {
+
         #region Serialize/Deserialize
         /// <summary>
         /// 将对象序列化成字节数组
@@ -86,6 +87,12 @@ namespace USDT.Utils {
 
         #endregion
 
+        /// <summary>
+        /// 深度拷贝
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public static T DeepCopyWithBinarySerialize<T>(T obj) {
             object retval;
             using (MemoryStream ms = new MemoryStream()) {
@@ -99,16 +106,6 @@ namespace USDT.Utils {
             }
 
             return (T)retval;
-        }
-
-        public static string[] GetLowLetter() {
-            var letterArr = new string[26];
-            for (char i = 'a'; i <= 'z'; i++) {
-                var charInt = (int)i;
-                letterArr[charInt - 97] = i.ToString();
-            }
-
-            return letterArr;
         }
     }
 }
