@@ -62,10 +62,15 @@ namespace USDT.CustomEditor {
         /// </summary>
         /// <param name="rect"></param>
         /// <param name="tint"></param>
-        public static void DrawRectColor(Rect rect, Color tint, string text = "") {
+        public static void DrawRectColor(Rect rect, Color tint, string text = "", GUIStyle style = null) {
             Color c = GUI.color;
             GUI.color = tint;
-            GUI.Box(rect, text, Selection);
+            if(style != null) {
+                GUI.Box(rect, text, style);
+            }
+            else {
+                GUI.Box(rect, text);
+            }
             GUI.color = c;
         }
 
@@ -175,6 +180,17 @@ namespace USDT.CustomEditor {
             UnityEditor.EditorUtility.ClearProgressBar();
         }
 
+        public static Texture2D MakeTex(int width, int height, Color col) {
+            Color[] pix = new Color[width * height];
+            for (int i = 0; i < pix.Length; i++)
+                pix[i] = col;
+
+            Texture2D result = new Texture2D(width, height);
+            result.SetPixels(pix);
+            result.Apply();
+
+            return result;
+        }
 
         #region 通用画List代码模板
         //public static IList DrawListProperty(string label, object list, Type contentType, out bool isDirty, string foldoutUniqueFlag = "") {

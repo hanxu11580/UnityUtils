@@ -25,7 +25,8 @@ MonoBehaviour:
   - m_GUID: 217aaa839bdd98749ae4ec4fe2fbb263
     m_Address: Assets/Excels/Jsons
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 10a00be326969e74889515b16d5fc2c5, type: 2}
   m_SchemaSet:

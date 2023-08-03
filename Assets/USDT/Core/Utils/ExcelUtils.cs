@@ -31,6 +31,7 @@ namespace USDT.Utils {
             for (int i = 0; i < headerRow.LastCellNum; i++) {
                 var cell = headerRow.GetCell(i);
                 if (cell == null || cell.CellType == CellType.Blank) break;
+                cell.SetCellType(CellType.String);
                 fieldNames.Add(cell.StringCellValue);
             }
             return fieldNames;
