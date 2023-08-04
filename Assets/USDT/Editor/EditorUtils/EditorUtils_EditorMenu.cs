@@ -11,8 +11,8 @@ using System.Linq;
 using UnityEngine.UI;
 
 namespace USDT.CustomEditor {
-
-    public static class EditorMenuUtils {
+    // Editor Menu
+    public static partial class EditorUtils {
 
         [MenuItem("EditorUtils/测试")]
         private static void Test() {
@@ -38,16 +38,16 @@ namespace USDT.CustomEditor {
         #region Excel
 
         [MenuItem("EditorUtils/Excels/导出表类CS、数据Json")]
-        public static void ExportALL() {
+        private static void ExportALL() {
             ExcelExportUtil.ExportScriptALL();
             ExcelExportUtil.ExportDataALL();
         }
         [MenuItem("EditorUtils/Excels/导出表类CS")]
-        public static void ExportScript() {
+        private static void ExportScript() {
             ExcelExportUtil.ExportScriptALL();
         }
         [MenuItem("EditorUtils/Excels/导出表数据")]
-        public static void ExportData() {
+        private static void ExportData() {
             ExcelExportUtil.ExportDataALL();
         }
         #endregion

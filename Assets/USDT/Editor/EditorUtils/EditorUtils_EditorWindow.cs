@@ -4,15 +4,15 @@ using UnityEditor;
 using UnityEngine;
 
 namespace USDT.CustomEditor {
-
-    public static class EditorWindowExtensions {
+    // Editor Window
+    public static partial class EditorUtils {
 
         /// <summary>
         /// ´°¿Ú»­¼ÓÔØ»­Ãæ
         /// </summary>
         /// <param name="wnd"></param>
         /// <param name="iconSize"></param>
-        public static void DrawLoadingTex(this EditorWindow wnd, int iconSize) {
+        public static void DrawLoadingTex(EditorWindow wnd, int iconSize) {
             var loadingImageBig = EditorUtils.FindBuiltinTexture("EditorSettings Icon");
             var oldColor = GUI.color;
             var oldMatrix = GUI.matrix;

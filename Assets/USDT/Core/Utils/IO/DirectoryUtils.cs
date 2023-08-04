@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace USDT.Utils {
@@ -13,6 +14,28 @@ namespace USDT.Utils {
             if (Directory.Exists(path)) return null;
             return Directory.CreateDirectory(path);
         }
+
+        /// <summary>
+        /// 自定义删除文件夹（含删除内部文件及文件夹）
+        /// 在删除大量的文件时，由于内部句柄没有被清理，产生The directory is not empty.异常
+        /// 使用该方法，减少异常出现的几率，但不能完全避免， 成功率(未测试)几乎100%
+        /// 具体信息参见https://stackoverflow.com/questions/329355/cannot-delete-directory-with-directory-deletepath-true?answertab=votes#tab-top
+        /// </summary>
+        public static void DeleteDirectory(string path) {
+            foreach (string directory in Directory.GetDirectories(path)) {
+                DeleteDirectory(directory);
+            }
+            try {
+                Directory.Delete(path, true);
+            }
+            catch (IOException) {
+                Directory.Delete(path, true);
+            }
+            catch (UnauthorizedAccessException) {
+                Directory.Delete(path, true);
+            }
+        }
+
         /// <summary>
         /// 子文件夹是否存在
         /// </summary>
@@ -126,20 +149,6 @@ namespace USDT.Utils {
                 foreach (string subDir in subDirs) {
                     GetAllFiles(files, subDir, includeSubDir);
                 }
-            }
-        }
-
-        /// <summary>
-        /// 清空某目录
-        /// </summary>
-        /// <param name="dir"></param>
-        public static void CleanDirectory(string dir) {
-            foreach (string subdir in Directory.GetDirectories(dir)) {
-                Directory.Delete(subdir, true);
-            }
-
-            foreach (string subFile in Directory.GetFiles(dir)) {
-                File.Delete(subFile);
             }
         }
     }

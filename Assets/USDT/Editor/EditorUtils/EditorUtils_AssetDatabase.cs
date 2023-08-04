@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine;
 
 namespace USDT.CustomEditor {
+    // Editor AssetDatabase
     public static partial class EditorUtils {
 
         public static List<GameObject> GetAllPrefabByAssetDatabase(params string[] path) {
@@ -30,6 +31,5 @@ namespace USDT.CustomEditor {
             }
             return _prefabList;
         }
-
     }
 }
