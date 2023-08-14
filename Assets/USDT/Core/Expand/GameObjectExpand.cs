@@ -12,13 +12,6 @@ namespace USDT.Expand {
             }
         }
 
-        /// <summary>
-        /// MonoBehavior控制显示
-        /// </summary>
-        public static void Visible(this MonoBehaviour monoBehaviour, bool isShow) {
-            monoBehaviour.gameObject.Visible(isShow);
-        }
-
         public static GameObject GetChildGameObject(this GameObject gameObject, params string[] childs)
         {
             if (gameObject == null) return null;
@@ -44,17 +37,16 @@ namespace USDT.Expand {
             if (childGameObject == null) return null;
             return childGameObject.AddComponent<T>();
         }
-        public static void SafeDestroy(this GameObject gameObject)
+
+        public static void SafeDestroy(this Object obj)
         {
-            if (gameObject == null) return;
-            Object.Destroy(gameObject);
-        }
-        public static void SafeDestroy<T>(this GameObject gameObject) where T : UnityEngine.Component
-        {
-            if (gameObject == null) return;
-            T component = gameObject.GetComponent<T>();
-            if (component == null) return;
-            Object.Destroy(component);
+            if (obj == null) return;
+            if (Application.isPlaying) {
+                Object.Destroy(obj);
+            }
+            else {
+                Object.DestroyImmediate(obj);
+            }
         }
     }
 }

@@ -11,7 +11,8 @@ namespace USDT.Core.Table {
             base.DoAwake();
             foreach (Type item in ReflectionUtils.GetTypes()) {
                 if (item.IsAbstract) continue;
-                ConfigAttribute[] configAttributes = (ConfigAttribute[])item.GetCustomAttributes(typeof(ConfigAttribute), false);
+                //ConfigAttribute[] configAttributes = (ConfigAttribute[])item.GetCustomAttributes(typeof(ConfigAttribute), false);
+                ConfigAttribute[] configAttributes = (ConfigAttribute[])item.GetCustomAttributes(TypeInfo<ConfigAttribute>.Type, false);
                 if (configAttributes.Length > 0) {
                     IConfigTable iConfigTable = (IConfigTable)Activator.CreateInstance(item);
                     //初始化数据表
@@ -26,24 +27,24 @@ namespace USDT.Core.Table {
         }
 
         public T GetConfig<T>(int id) where T : IConfig {
-            Type type = typeof(T);
-            if (configs.ContainsKey(type)) {
-                ConfigTable<T> ConfigTable = (ConfigTable<T>)configs[type];
+            //Type type = typeof(T);
+            if (configs.ContainsKey(TypeInfo<T>.Type)) {
+                ConfigTable<T> ConfigTable = (ConfigTable<T>)configs[TypeInfo<T>.Type];
                 return ConfigTable.GetConfig(id);
             }
             else {
-                LogUtils.Log($"Config不存在{type.Name}");
+                LogUtils.Log($"Config不存在{TypeInfo<T>.TypeName}");
                 return default;
             }
         }
         public Dictionary<int, T> GetConfigs<T>() where T : IConfig {
-            Type type = typeof(T);
-            if (configs.ContainsKey(type)) {
-                ConfigTable<T> ConfigTable = (ConfigTable<T>)configs[type];
+            //Type type = typeof(T);
+            if (configs.ContainsKey(TypeInfo<T>.Type)) {
+                ConfigTable<T> ConfigTable = (ConfigTable<T>)configs[TypeInfo<T>.Type];
                 return ConfigTable.GetConfigs();
             }
             else {
-                LogUtils.LogError($"Config不存在{type.Name}");
+                LogUtils.LogError($"Config不存在{TypeInfo<T>.TypeName}");
                 return default;
             }
         }
