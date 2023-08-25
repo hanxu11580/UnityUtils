@@ -15,6 +15,9 @@ namespace USDT.Utils {
         public static Action<string> LogErrorCallback { get; set; }
 
         public static void Log(object msg, bool isCallback = false) {
+            if(msg == null) {
+                return;
+            }
 #if UNITY_EDITOR
             var UpperLayerMethod = ReflectionUtils.GetStackTraceUpperLayer();
             var prefixName = StringUtils.Format(ColorStringConst.CyanFormat, $"[{UpperLayerMethod.DeclaringType.Name}.{UpperLayerMethod.Name}]");
@@ -27,6 +30,9 @@ namespace USDT.Utils {
         }
 
         public static void LogError(object msg, bool isCallback = false) {
+            if (msg == null) {
+                return;
+            }
 #if UNITY_EDITOR
             var UpperLayerMethod = ReflectionUtils.GetStackTraceUpperLayer();
             var prefixName = StringUtils.Format(ColorStringConst.RedFormat, $"[{UpperLayerMethod.DeclaringType.Name}.{UpperLayerMethod.Name}]");
@@ -42,7 +48,7 @@ namespace USDT.Utils {
 #if UNITY_EDITOR || UNITY_ANDROID || UNITY_IPHONE || UNITY_IOS
             UnityEngine.Debug.Log(msg);
 #else
-        Console.WriteLine(msg);
+            Console.WriteLine(msg);
 #endif
         }
 
@@ -50,7 +56,7 @@ namespace USDT.Utils {
 #if UNITY_EDITOR || UNITY_ANDROID || UNITY_IPHONE || UNITY_IOS
             UnityEngine.Debug.LogError(msg);
 #else
-        Console.WriteLine(msg);
+            Console.WriteLine(msg);
 #endif
         }
     }

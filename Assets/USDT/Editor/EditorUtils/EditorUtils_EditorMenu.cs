@@ -19,7 +19,7 @@ namespace USDT.CustomEditor {
 
         [MenuItem("EditorUtils/测试")]
         private static void Test() {
-
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
 
         [MenuItem("EditorUtils/Path/OpenPersistentDataPath")]

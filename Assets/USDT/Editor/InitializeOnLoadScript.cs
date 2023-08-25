@@ -8,7 +8,8 @@ namespace USDT.CustomEditor {
 	[InitializeOnLoad]
     public class InitializeOnLoadScript {
 		static InitializeOnLoadScript() {
-			ToolbarExtender.LeftToolbarGUI.Add(OnLeftToolbarGUI);
+			//ToolbarExtender.LeftToolbarGUI.Add(OnLeftToolbarGUI);
+			EditorApplication.projectWindowItemOnGUI += ProjectWindowDetails.ProjectWindowDetails.DrawAssetDetails;
 		}
 
 		static void OnLeftToolbarGUI() {
