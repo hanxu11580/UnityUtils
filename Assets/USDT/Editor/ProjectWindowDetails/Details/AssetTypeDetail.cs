@@ -11,6 +11,7 @@ namespace USDT.CustomEditor.ProjectWindowDetails {
 			Name = "Asset Type";
 			ColumnWidth = 100;
 		}
+
 		public override string GetLabel(string guid, string assetPath, Object asset)
 		{
 			return asset.GetType().Name;

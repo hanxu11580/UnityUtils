@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
+using USDT.Utils;
 
 namespace USDT.CustomEditor.ProjectWindowDetails {
 
@@ -25,7 +26,6 @@ namespace USDT.CustomEditor.ProjectWindowDetails {
 				if (type.BaseType == typeof(ProjectWindowDetailBase)) {
 					yield return type;
 				}
-
 			}
 		}
 
@@ -80,11 +80,21 @@ namespace USDT.CustomEditor.ProjectWindowDetails {
 
 				rect.width = detail.ColumnWidth;
 				rect.x -= detail.ColumnWidth + SpaceBetweenColumns;
-				var label = detail.GetLabel(guid, assetPath, asset);
+
+				string label = null;
+				try {
+					label = detail.GetLabel(guid, assetPath, asset);
+				}
+				catch (Exception e) {
+					LogUtils.LogError(e);
+					continue;
+				}
+
 				if (string.IsNullOrEmpty(label)) {
 					continue;
 				}
-				GUI.Label(rect, new GUIContent(detail.GetLabel(guid, assetPath, asset), detail.Name),
+
+				GUI.Label(rect, new GUIContent(label, detail.Name),
 					GetStyle(detail.Alignment));
 			}
 		}
@@ -116,7 +126,11 @@ namespace USDT.CustomEditor.ProjectWindowDetails {
 				menu.AddItem(new GUIContent(detail.Name), detail.Visible, ToggleMenu, detail);
 			}
 			menu.AddSeparator("");
+			menu.AddSeparator("");
 			menu.AddItem(new GUIContent("None"), false, HideAllDetails);
+			menu.AddSeparator("");
+			menu.AddSeparator("");
+			menu.AddItem(new GUIContent("ClearLabelCache"), false, ClearLabelCache);
 			menu.DropDown(new Rect(position, Vector2.zero));
         }
 
@@ -143,6 +157,21 @@ namespace USDT.CustomEditor.ProjectWindowDetails {
 			}
 
 			return true;
+		}
+
+		private static void ClearLabelCache() {
+            foreach (var detail in _details) {
+				if(detail == null) {
+					continue;
+                }
+				detail.ClearLabelCache();
+            }
+        }
+
+		[MenuItem("Assets/ProjectWindowDetails", false)]
+		private static void ShowContextMenu() {
+			ShowContextMenu(Vector2.zero);
+
 		}
 	}
 }

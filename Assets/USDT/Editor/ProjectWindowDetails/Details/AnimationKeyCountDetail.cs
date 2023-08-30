@@ -15,7 +15,7 @@ namespace USDT.CustomEditor.ProjectWindowDetails {
 			Alignment = TextAlignment.Right;
 		}
 
-		public override string GetLabel(string guid, string assetPath, Object asset)
+        public override string GetLabel(string guid, string assetPath, Object asset)
 		{
 			var clip = AssetDatabase.LoadAssetAtPath<AnimationClip>(assetPath);
 			if (clip != null)

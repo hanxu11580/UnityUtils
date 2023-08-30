@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
@@ -8,6 +9,7 @@ namespace USDT.CustomEditor.ProjectWindowDetails {
 	/// </summary>
 	public class FileSizeDetail : ProjectWindowDetailBase
 	{
+		private readonly static Dictionary<string, string> _sizeMap = new Dictionary<string, string>();
 		public FileSizeDetail()
 		{
 			Name = "File Size";
