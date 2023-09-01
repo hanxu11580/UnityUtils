@@ -11,7 +11,6 @@ namespace USDT.Core.Table {
             base.DoAwake();
             foreach (Type item in ReflectionUtils.GetTypes()) {
                 if (item.IsAbstract) continue;
-                //ConfigAttribute[] configAttributes = (ConfigAttribute[])item.GetCustomAttributes(typeof(ConfigAttribute), false);
                 ConfigAttribute[] configAttributes = (ConfigAttribute[])item.GetCustomAttributes(TypeInfo<ConfigAttribute>.Type, false);
                 if (configAttributes.Length > 0) {
                     IConfigTable iConfigTable = (IConfigTable)Activator.CreateInstance(item);

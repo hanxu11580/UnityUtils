@@ -1,15 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using USDT.CustomEditor.CompileSound;
 using USDT.Utils;
 
 namespace USDT.CustomEditor {
-	[InitializeOnLoad]
+    [InitializeOnLoad]
     public class InitializeOnLoadScript {
 		static InitializeOnLoadScript() {
 			//ToolbarExtender.LeftToolbarGUI.Add(OnLeftToolbarGUI);
 			EditorApplication.projectWindowItemOnGUI += ProjectWindowDetails.ProjectWindowDetails.DrawAssetDetails;
+			CompileSoundListener.Init();
 		}
 
 		static void OnLeftToolbarGUI() {

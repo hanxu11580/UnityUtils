@@ -6,18 +6,15 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using UnityEditor;
+using USDT.Utils;
 
-namespace USDT.Utils {
+namespace USDT.CustomEditor.Excel {
     public static class ExcelExportUtil
     {
         public const string ExcelPath = "Assets/Excels";
         public const string TemplatePath = "Assets/USDT/Editor/Excel/ConfigTemplate.txt";
         public const string ModelClassPath = "Excels/Classes";
         public const string JsonPath = "Excels/Jsons";
-
-        //public const string ProtobufPath = "Bundles/Config";
-
-        //public const string Hotfix = "Hotfix";
 
         private static string _content;
         public static string Content
@@ -47,12 +44,10 @@ namespace USDT.Utils {
                 string suffix = Path.GetExtension(item);
                 if (suffix != ".xlsx") return;
                 if (name.StartsWith("~")) return;
-                //EditorUtility.DisplayProgressBar("导表结构", $"正在导出{name}表", index / pathList.Count);
                 XSSFWorkbook sheets = new XSSFWorkbook(File.Open(item, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite));
                 List<Cell> cellList = GetCells(sheets);
                 ExportClass(name, cellList, ConfigType.Model);
             }
-            //EditorUtility.ClearProgressBar();
             AssetDatabase.Refresh();
         }
         public static void ExportDataSelect(List<string> pathList)
@@ -65,12 +60,10 @@ namespace USDT.Utils {
                 string suffix = Path.GetExtension(item);
                 if (suffix != ".xlsx") return;
                 if (name.StartsWith("~")) return;
-                //EditorUtility.DisplayProgressBar("导表结构", $"正在导出{name}表", index / pathList.Count);
                 XSSFWorkbook sheets = new XSSFWorkbook(File.Open(item, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite));
                 List<Cell> cellList = GetCells(sheets);
                 ExportJson(sheets, name, cellList);
             }
-            //EditorUtility.ClearProgressBar();
             AssetDatabase.Refresh();
         }
 

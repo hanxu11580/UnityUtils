@@ -1,16 +1,8 @@
-﻿using System.Collections.Generic;
-using UnityEditor;
+﻿using UnityEditor;
+using UnityEditor.Compilation;
 using UnityEngine;
-using USDT.Utils;
-using USDT.Extensions;
-using LitJson;
-using System.IO;
-using System.Text;
-using System;
-using System.Linq;
-using UnityEngine.UI;
-using System.Runtime.InteropServices;
-using Nino;
+using USDT.CustomEditor.CompileSound;
+using USDT.CustomEditor.Excel;
 
 namespace USDT.CustomEditor {
 
@@ -19,7 +11,7 @@ namespace USDT.CustomEditor {
 
         [MenuItem("EditorUtils/测试")]
         private static void Test() {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            //ReflectionUtils.GetSetFieldPtrValue();
         }
 
         [MenuItem("EditorUtils/Path/OpenPersistentDataPath")]
@@ -52,6 +44,36 @@ namespace USDT.CustomEditor {
         [MenuItem("EditorUtils/Excels/导出表数据")]
         private static void ExportData() {
             ExcelExportUtil.ExportDataALL();
+        }
+        #endregion
+
+        #region 脚本编译
+
+        [MenuItem("EditorUtils/Compilation/强制请求编译脚本")]
+        public static void RequestScriptReload() {
+            CompilationPipeline.RequestScriptCompilation();
+        }
+
+        [MenuItem(EditorMenuConst.CompileSound_MenuItemName_Active)]
+        public static void ToggleWaitMusic() {
+            CompileSoundSettings.UseWaitMusic ^= true;
+            CompileSoundListener.UpdateToggle();
+        }
+        [MenuItem(EditorMenuConst.CompileSound_MenuItemName_Active, true)]
+        public static bool CheckToggleWaitMusic() {
+            Menu.SetChecked(EditorMenuConst.CompileSound_MenuItemName_Active, CompileSoundSettings.UseWaitMusic);
+            return true;
+        }
+
+
+        [MenuItem(EditorMenuConst.CompileSound_MenuItemName_Shuffle)]
+        public static void ChooseShuffle() {
+            CompileSoundSettings.Shuffle ^= true;
+        }
+        [MenuItem(EditorMenuConst.CompileSound_MenuItemName_Shuffle, true)]
+        public static bool CheckChooseShuffle() {
+            Menu.SetChecked(EditorMenuConst.CompileSound_MenuItemName_Shuffle, CompileSoundSettings.Shuffle);
+            return true;
         }
         #endregion
     }

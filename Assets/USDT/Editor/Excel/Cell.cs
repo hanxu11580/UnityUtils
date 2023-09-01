@@ -1,4 +1,4 @@
-﻿namespace USDT.Utils {
+﻿namespace USDT.CustomEditor.Excel {
     public class Cell
     {
         public string attribute;

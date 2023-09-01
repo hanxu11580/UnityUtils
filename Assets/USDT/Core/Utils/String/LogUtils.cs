@@ -9,11 +9,8 @@ using UnityEngine;
 namespace USDT.Utils {
 
     public class LogUtils {
-        private static StringBuilder _SB = new StringBuilder();
-
         public static Action<string> LogCallback { get; set; }
         public static Action<string> LogErrorCallback { get; set; }
-
         public static void Log(object msg, bool isCallback = false) {
             if(msg == null) {
                 return;
