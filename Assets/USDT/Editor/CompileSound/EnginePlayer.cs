@@ -1,19 +1,12 @@
-﻿using UnityEditor;
+﻿using System.Collections;
+using UnityEditor;
 using UnityEngine;
+using USDT.Components;
 
 namespace USDT.CustomEditor.CompileSound {
     public class EnginePlayer : AbstractPlayer, IPlayer
     {
-        private AudioSource _audioSource
-        {
-            get
-            {
-                if (GameObject.Find("tempPlay"))
-                    return GameObject.Find("tempPlay").GetComponent<AudioSource>();
-                else
-                    return new GameObject("tempPlay").AddComponent<AudioSource>();
-            }
-        }
+        private AudioSource _audioSource => InEditModeGameObjectHandler.Instance.GetComp<AudioSource>();
 
         public void Play()
         {
@@ -29,16 +22,6 @@ namespace USDT.CustomEditor.CompileSound {
             _audioSource.Stop();
             AudioClip clip = Resources.Load<AudioClip>(SoundLibrary.ResourcesDing);
             _audioSource.PlayOneShot(clip);
-            EditorApplication.update -= EditorUpdateTick;
-            scheduledTime = (float)EditorApplication.timeSinceStartup + clip.length;
-            EditorApplication.update += EditorUpdateTick;
-        }
-
-        public override void CleanUp()
-        {
-            MonoBehaviour.DestroyImmediate(_audioSource.gameObject);
-            EditorApplication.update -= EditorUpdateTick;
-            scheduledTime = 0f;
         }
     }
 

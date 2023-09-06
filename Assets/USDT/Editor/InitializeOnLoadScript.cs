@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using USDT.Components;
 using USDT.CustomEditor.CompileSound;
 using USDT.Utils;
 
@@ -7,10 +8,12 @@ namespace USDT.CustomEditor {
     [InitializeOnLoad]
     public class InitializeOnLoadScript {
 		static InitializeOnLoadScript() {
+			InEditModeGameObjectHandler.Init();
 			//ToolbarExtender.LeftToolbarGUI.Add(OnLeftToolbarGUI);
 			EditorApplication.projectWindowItemOnGUI += ProjectWindowDetails.ProjectWindowDetails.DrawAssetDetails;
 			CompileSoundListener.Init();
-		}
+			IPhoneXSafeAreaDrawerEditor.IPhoneXSafeAreaDrawer.Init();
+        }
 
 		static void OnLeftToolbarGUI() {
 			GUILayout.FlexibleSpace();

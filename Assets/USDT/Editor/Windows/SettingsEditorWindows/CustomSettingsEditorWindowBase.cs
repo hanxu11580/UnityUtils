@@ -24,26 +24,44 @@ namespace USDT.CustomEditor {
         public static SerializedObject GetSerializedSettings() {
             return new SerializedObject(GetOrCreateSettings());
         }
+
+        #region 配置相关
+        // 绘制iphoneX安全区域
+        public bool drawIPhoneXSafeArea = false;
+
+        #endregion
     }
 
 
     public class CustomSettingsEditorWindowBase : SettingsProvider {
         public CustomSettingsEditorWindowBase(string path, SettingsScope scopes, IEnumerable<string> keywords = null) : base(path, scopes, keywords) { }
 
-        private SerializedObject _serializedObjectRoot;
+        private CustomSettingsBaseSO _so;
+
         public static bool IsSettingsAvailable() {
             return true;
-            //return File.Exists(CustomSettingsBaseSO.AssetPath);
         }
 
         public override void OnActivate(string searchContext, VisualElement rootElement) {
-            _serializedObjectRoot = CustomSettingsBaseSO.GetSerializedSettings();
-            this.label = _serializedObjectRoot.FindProperty("label").stringValue;
+            //_serializedObjectRoot = CustomSettingsBaseSO.GetSerializedSettings();
+            //this.label = _serializedObjectRoot.FindProperty("label").stringValue;
+            _so = CustomSettingsBaseSO.GetOrCreateSettings();
+            this.label = _so.label;
         }
 
         public override void OnGUI(string searchContext) {
-            //EditorGUILayout.PropertyField(_serializedObjectRoot.FindProperty("label"), EditorUtils.TempContent("Title"));
-            //_serializedObjectRoot.ApplyModifiedPropertiesWithoutUndo();
+            EditorGUILayout.Space(25);
+
+            EditorGUI.BeginChangeCheck();
+
+            _so.drawIPhoneXSafeArea = EditorGUILayout.Toggle("drawIPhoneXSafeArea", _so.drawIPhoneXSafeArea);
+
+
+
+            if (EditorGUI.EndChangeCheck()) {
+                EditorUtility.SetDirty(_so);
+                AssetDatabase.Refresh();
+            }
         }
 
         [SettingsProvider]

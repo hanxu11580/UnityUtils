@@ -11,7 +11,7 @@ namespace USDT.CustomEditor {
     {
         readonly float time;
 
-        public WaitForSecondsE(int _time) { time = _time; }
+        public WaitForSecondsE(float _time) { time = _time; }
 
         public bool Result(EditorCoroutine _coroutine)
         {
