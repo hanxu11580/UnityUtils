@@ -30,8 +30,9 @@ namespace USDT.Core {
                             instanceObj = new GameObject(instanceName);
                         m_Instance = instanceObj.AddComponent<T>();
                     }
-
-                    DontDestroyOnLoad(m_Instance.gameObject); //保证实例例不不会被释放
+                    if (Application.isPlaying) {
+                        DontDestroyOnLoad(m_Instance.gameObject); //保证实例例不不会被释放
+                    }
                 }
 
                 return m_Instance;

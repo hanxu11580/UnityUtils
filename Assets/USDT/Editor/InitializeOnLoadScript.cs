@@ -8,7 +8,6 @@ namespace USDT.CustomEditor {
     [InitializeOnLoad]
     public class InitializeOnLoadScript {
 		static InitializeOnLoadScript() {
-			InEditModeGameObjectHandler.Init();
 			//ToolbarExtender.LeftToolbarGUI.Add(OnLeftToolbarGUI);
 			EditorApplication.projectWindowItemOnGUI += ProjectWindowDetails.ProjectWindowDetails.DrawAssetDetails;
 			CompileSoundListener.Init();
