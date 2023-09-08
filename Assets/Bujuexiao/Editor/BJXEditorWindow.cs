@@ -13,12 +13,6 @@ namespace Bujuexiao.Editor {
         private GUIStyle _dragRegionStyle;
         private BJXSaleExcelProcessing _saleExcelProcessing;
 
-        [MenuItem("EditorUtils/Windows/BJXEditorWindow")]
-        private static void OpenEditorStyleViewer() {
-            GetWindow<BJXEditorWindow>().Close();
-            GetWindowWithRect<BJXEditorWindow>(EditorMenuConst.ScreenCenterRect);
-        }
-
         private void OnEnable() {
             _dragRegionStyle = new GUIStyle() {
                 alignment = TextAnchor.MiddleCenter,

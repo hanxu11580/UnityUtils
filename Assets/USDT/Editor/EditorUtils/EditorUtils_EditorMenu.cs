@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using Bujuexiao.Editor;
+using UnityEditor;
 using UnityEditor.Compilation;
 using UnityEngine;
 using USDT.CustomEditor.CompileSound;
@@ -7,7 +8,7 @@ using USDT.CustomEditor.Excel;
 namespace USDT.CustomEditor {
 
     // Editor Menu
-    public static partial class EditorUtils {
+    public static class EditorUtils_EditorMenu {
 
         [MenuItem("EditorUtils/测试")]
         private static void Test() {
@@ -21,13 +22,17 @@ namespace USDT.CustomEditor {
 
         [MenuItem("EditorUtils/Windows/SearchTexture")]
         private static void OpenSearchTextureWindow() {
-            EditorWindow.GetWindow<SearchImageWindow>();
+            EditorWindow.GetWindowWithRect<SearchImageWindow>(GetScreenCenterRect(800, 500)).Show();
         }
 
         [MenuItem("EditorUtils/Windows/EditorStyleViewer")]
         private static void OpenEditorStyleViewer() {
-            EditorWindow.GetWindow<EditorStyleViewer>().Close();
-            EditorWindow.GetWindowWithRect<EditorStyleViewer>(EditorMenuConst.ScreenCenterRect);
+            EditorWindow.GetWindowWithRect<EditorStyleViewer>(GetScreenCenterRect(800, 500)).Show();
+        }
+
+        [MenuItem("EditorUtils/Windows/BJXEditorWindow")]
+        private static void OpenBJXEditorWindow() {
+            EditorWindow.GetWindowWithRect<BJXEditorWindow>(GetScreenCenterRect(800, 500)).Show();
         }
 
         #region Excel
@@ -75,6 +80,23 @@ namespace USDT.CustomEditor {
             Menu.SetChecked(EditorMenuConst.CompileSound_MenuItemName_Shuffle, CompileSoundSettings.Shuffle);
             return true;
         }
+        #endregion
+
+        #region 工具
+
+        private static Rect GetScreenCenterRect(float width, float height) {
+            int w = Screen.currentResolution.width;
+            int h = Screen.currentResolution.height;
+            if (h > w) {
+                // OnEnd Display roation
+                w = Screen.currentResolution.height;
+                h = Screen.currentResolution.width;
+            }
+
+            return new Rect(w / 2 - width * 0.5f, h / 2 - height * 0.5f, width, height);
+        }
+
+
         #endregion
     }
 }
