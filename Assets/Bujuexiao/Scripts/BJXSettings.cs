@@ -179,7 +179,7 @@ namespace Bujuexiao {
         private void OnChangeEmployeeInfo(object sender, GlobalEventArgs e) {
             var data = e as ChangeEmployeeStatusEventArgs;
             if (data == null) {
-                LogUtils.LogError($"改变员工状态 Event数据为空", true);
+                lg.e($"改变员工状态 Event数据为空", true);
                 return;
             }
             foreach (var emp in this.Data.employees) {

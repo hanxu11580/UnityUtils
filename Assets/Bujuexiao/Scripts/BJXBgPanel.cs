@@ -91,7 +91,7 @@ namespace Bujuexiao {
         private void ClickRoom(int index) {
             // 确保设置过工作数据存储路径
             if (string.IsNullOrEmpty(this.Data.appData.selectWorkSaveFolderPath)) {
-                LogUtils.LogError("请先设置工作数据存储路径!", true);
+                lg.e("请先设置工作数据存储路径!", true);
                 return;
             }
 
@@ -107,7 +107,7 @@ namespace Bujuexiao {
         private void OnChangeRoomStatusEvent(object sender, GlobalEventArgs e) {
             var data = e as ChangeRoomStatusEventArgs;
             if (data == null) {
-                LogUtils.LogError($"设置上钟 Event数据为空", true);
+                lg.e($"设置上钟 Event数据为空", true);
                 return;
             }
 

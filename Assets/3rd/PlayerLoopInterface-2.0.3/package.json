@@ -1,0 +1,15 @@
+{
+  "name": "com.baste.playerloopinterface",
+  "version": "2.0.3",
+  "displayName": "Player Loop Interface",
+  "description": "Interface for Unity's PlayerLoop System",
+  "unity" : "2018.4",
+  "author": {
+    "name": "Baste Nesse Buanes",
+    "email": "baste@rain-games.com",
+    "url": "https://github.com/Baste-RainGames/PlayerLoopInterface"
+  },
+  "documentationUrl": "https://github.com/Baste-RainGames/PlayerLoopInterface/blob/master/README.md",
+  "changelogUrl": "https://github.com/Baste-RainGames/PlayerLoopInterface/blob/master/CHANGELOG.md",
+  "licensesUrl": "https://github.com/Baste-RainGames/PlayerLoopInterface/blob/master/LICENSE.md"
+}

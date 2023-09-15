@@ -27,11 +27,11 @@ namespace USDT.Extensions {
 
         public static void Log<T>(this List<T> ls) {
             if(ls == null) {
-                LogUtils.Log($"log list is null");
+                lg.i($"log list is null");
                 return;
             }
             foreach (var item in ls) {
-                LogUtils.Log(item.ToString());
+                lg.i(item.ToString());
             }
         }
     }

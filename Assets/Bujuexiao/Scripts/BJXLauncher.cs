@@ -59,7 +59,7 @@ namespace Bujuexiao {
         private void Init() {
 
             // Log
-            LogUtils.LogErrorCallback += msg => PopupErrorTips(msg);
+            lg.LogErrorCallback += msg => PopupErrorTips(msg);
 
             // 事件
             EventManager = GameEntry.GetManager<EventManager>();
@@ -107,7 +107,7 @@ namespace Bujuexiao {
         private void OnApplicationQuit() {
             if(_bujuexiaoAppData != null) {
                 UniversalUtils.LitJsonToJson(BujuexiaoAppDataSavePath, _bujuexiaoAppData);
-                LogUtils.Log($"App关闭，存储数据");
+                lg.i($"App关闭，存储数据");
             }
         }
 
@@ -125,7 +125,7 @@ namespace Bujuexiao {
         private void OnSaveAppDataEvent(object sender, GlobalEventArgs e) {
             var saveData = e as SaveAppDataEventArgs;
             if(saveData == null) {
-                LogUtils.LogError($"存储appData Event数据为空", true);
+                lg.e($"存储appData Event数据为空", true);
                 return;
             }
             _bujuexiaoAppData.openRoomCount = saveData.openRoomCount;
@@ -137,7 +137,7 @@ namespace Bujuexiao {
         private void OnClearAppDataEvent(object sender, GlobalEventArgs e) {
             var clearData = e as ClearAppDataEventArgs;
             if(clearData == null) {
-                LogUtils.LogError($"清空appData Event数据为空", true);
+                lg.e($"清空appData Event数据为空", true);
                 return;
             }
             PopupErrorTips("清除数据属于高危操作，是否确定清除?", ()=> ClearAppData(clearData.hideUI), null);
@@ -154,19 +154,19 @@ namespace Bujuexiao {
         private void OnDeleteEmployeeEvent(object sender, GlobalEventArgs e) {
             var data = e as DeleteEmployeeEventArgs;
             if(data == null) {
-                LogUtils.LogError($"删除员工 Event数据为空", true);
+                lg.e($"删除员工 Event数据为空", true);
                 return;
             }
             if (data.deleteEmployee == null) {
-                LogUtils.LogError($"删除员工 Employee数据为空", true);
+                lg.e($"删除员工 Employee数据为空", true);
                 return;
             }
             if(_bujuexiaoAppData.employees == null || _bujuexiaoAppData.employees.Count  == 0) {
-                LogUtils.LogError($"本地员工列表employees数据为空", true);
+                lg.e($"本地员工列表employees数据为空", true);
                 return;
             }
             if (!_bujuexiaoAppData.employees.Contains(data.deleteEmployee)) {
-                LogUtils.LogError($"删除员工:{data.deleteEmployee.name}，不在员工列表内", true);
+                lg.e($"删除员工:{data.deleteEmployee.name}，不在员工列表内", true);
                 return;
             }
             _bujuexiaoAppData.employees.Remove(data.deleteEmployee);
@@ -181,7 +181,7 @@ namespace Bujuexiao {
         private void OnAddEmployeeEvent(object sender, GlobalEventArgs e) {
             var data = e as AddEmployeeEventArgs;
             if (data == null) {
-                LogUtils.LogError($"添加员工 Event数据为空", true);
+                lg.e($"添加员工 Event数据为空", true);
                 return;
             }
             if (_bujuexiaoAppData.employees == null) {
@@ -190,7 +190,7 @@ namespace Bujuexiao {
             // 判重
             foreach (var emp in _bujuexiaoAppData.employees) {
                 if(emp.name == data.name) {
-                    LogUtils.LogError($"添加员工{emp.name}已存在", true);
+                    lg.e($"添加员工{emp.name}已存在", true);
                     break;
                 }
             }

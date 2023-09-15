@@ -38,7 +38,7 @@ namespace USDT.CustomEditor.ProjectWindowDetails {
 
 
         public virtual void ClearLabelCache() {
-            LogUtils.Log($"Çå¿ÕProjectWindowDetail.{Name} Label»º´æ");
+            lg.i($"Çå¿ÕProjectWindowDetail.{Name} Label»º´æ");
             _labelMap.Clear();
         }
     }

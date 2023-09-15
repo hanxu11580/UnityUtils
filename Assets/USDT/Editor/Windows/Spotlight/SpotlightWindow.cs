@@ -45,6 +45,7 @@ namespace USDT.CustomEditor {
                 _Win.Init();
             }catch(Exception e) {
                 Debug.LogError(e);
+                _CloseSpotlight();
             }
         }
 
@@ -111,6 +112,8 @@ namespace USDT.CustomEditor {
             }
             catch (Exception e) {
                 Debug.LogError(e);
+                // 可能存在_Win没了，但是窗口实例还在的情况
+                this.Close();
             }
         }
 
@@ -132,8 +135,6 @@ namespace USDT.CustomEditor {
             EditorGUI.FocusTextInControl("SearchPattern");
 
             if (EditorGUI.EndChangeCheck()) {
-
-
                 this.currentSelection = 0;
 
                 this.hits.Clear();
@@ -232,17 +233,7 @@ namespace USDT.CustomEditor {
         }
 
         private void ExecuteItemAtIndex(int i) {
-
-            try {
-                switch (this.hitsIcon[i]) {
-
-                }
-
-                _ActionData[this.hits[i]].action();
-            }
-            catch (Exception e) {
-                Debug.LogError($"{e}");
-            }
+            _ActionData[this.hits[i]].action();
         }
 
 

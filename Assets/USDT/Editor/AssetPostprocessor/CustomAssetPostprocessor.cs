@@ -64,7 +64,7 @@ namespace USDT.CustomEditor {
 
                 if (showLog) {
                     _SB.Append($"导入资源数量:{importedAsset.Length}\n\n");
-                    LogUtils.Log(_SB.ToString());
+                    lg.i(_SB.ToString());
                 }
             }
         }
@@ -81,12 +81,12 @@ namespace USDT.CustomEditor {
             if (path.Contains(CustomAssetPostprocessorConst.SubPathPluginsiOS)) {
                 pluginsImporter.SetCompatibleWithPlatform(BuildTarget.iOS, true);
                 pluginsImporter.SetCompatibleWithPlatform(BuildTarget.Android, false);
-                LogUtils.Log($"设置 {path} only iOS platform");
+                lg.i($"设置 {path} only iOS platform");
             }
             else if (path.Contains(CustomAssetPostprocessorConst.SubPathPluginsAndroid)) {
                 pluginsImporter.SetCompatibleWithPlatform(BuildTarget.iOS, false);
                 pluginsImporter.SetCompatibleWithPlatform(BuildTarget.Android, true);
-                LogUtils.Log($"设置 {path} only Android platform");
+                lg.i($"设置 {path} only Android platform");
             }
         }
     }

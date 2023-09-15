@@ -165,7 +165,7 @@ namespace Bujuexiao {
                 return true;
             }
             else {
-                LogUtils.LogError($"暂无空闲技师!", true);
+                lg.e($"暂无空闲技师!", true);
                 return false;
             }
         }

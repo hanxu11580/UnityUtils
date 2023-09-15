@@ -38,7 +38,7 @@ namespace Bujuexiao.Editor {
             if(book != null) {
                 var sheet = book.GetSheetAt(0);
                 if(sheet != null) {
-                    LogUtils.Log($"销售总数 : {sheet.LastRowNum}");
+                    lg.i($"销售总数 : {sheet.LastRowNum}");
                     for (int i = 1; i <= sheet.LastRowNum; i++) {
                         var rowls = ExcelUtils.GetSheetRow(sheet, i);
                         if (rowls != null) {
@@ -78,7 +78,7 @@ namespace Bujuexiao.Editor {
                 }
 
                 foreach (var kv in _bJXSaleCommissionsLut) {
-                    LogUtils.Log($"{kv.Key} : {kv.Value.commission}");
+                    lg.i($"{kv.Key} : {kv.Value.commission}");
                 }
             }
         }
@@ -90,7 +90,7 @@ namespace Bujuexiao.Editor {
                     calcTotalIncome += item.income;
                 }
 
-                LogUtils.Log($"总收入 : {calcTotalIncome}");
+                lg.i($"总收入 : {calcTotalIncome}");
             }
         }
     }

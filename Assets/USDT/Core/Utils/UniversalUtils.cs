@@ -20,7 +20,7 @@ namespace USDT.Utils {
                 }
             }
             catch (Exception e) {
-                LogUtils.LogError($"{e.Message}\n{e.StackTrace}");
+                lg.e($"{e.Message}\n{e.StackTrace}");
             }
             return ret;
         }
@@ -37,7 +37,7 @@ namespace USDT.Utils {
                 }
             }
             catch (Exception e) {
-                LogUtils.LogError($"{e.Message}\n{e.StackTrace}");
+                lg.e($"{e.Message}\n{e.StackTrace}");
             }
             return (T)obj;
         }
@@ -64,12 +64,12 @@ namespace USDT.Utils {
 
         public static void LitJsonToJson<T>(string path, T obj) {
             if(obj == null) {
-                LogUtils.LogError($"对象为空");
+                lg.e($"对象为空");
                 return;
             }
             if (File.Exists(path)) {
                 File.Delete(path);
-                LogUtils.Log($"{path}存在，已删除");
+                lg.i($"{path}存在，已删除");
             }
             var json = JsonMapper.ToJson(obj);
             File.WriteAllText(path, json);
@@ -77,7 +77,7 @@ namespace USDT.Utils {
 
         public static T LitJsonToObject<T>(string path) {
             if (!File.Exists(path)) {
-                LogUtils.Log($"{path}不存在");
+                lg.i($"{path}不存在");
                 return default;
             }
             var json = File.ReadAllText(path);

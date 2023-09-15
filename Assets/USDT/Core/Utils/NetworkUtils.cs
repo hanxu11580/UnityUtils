@@ -143,7 +143,7 @@ namespace USDT.Utils {
             UnityWebRequest webRequest = UnityWebRequest.Post(url, form);
             yield return webRequest.SendWebRequest();
             if (webRequest.result == UnityWebRequest.Result.ConnectionError || webRequest.result == UnityWebRequest.Result.ProtocolError || webRequest.result == UnityWebRequest.Result.DataProcessingError) {
-                LogUtils.Log(webRequest.error);
+                lg.i(webRequest.error);
                 error?.Invoke(webRequest.error);
             }
             else {
@@ -155,7 +155,7 @@ namespace USDT.Utils {
             UnityWebRequest webRequest = UnityWebRequest.Get(url);
             yield return webRequest.SendWebRequest();
             if (webRequest.result == UnityWebRequest.Result.ConnectionError || webRequest.result == UnityWebRequest.Result.ProtocolError || webRequest.result == UnityWebRequest.Result.DataProcessingError) {
-                LogUtils.Log(webRequest.error);
+                lg.i(webRequest.error);
                 error?.Invoke(webRequest.error);
             }
             else {
@@ -170,7 +170,7 @@ namespace USDT.Utils {
             webRequest.downloadHandler = download;
             yield return webRequest.SendWebRequest();
             if (webRequest.result == UnityWebRequest.Result.ConnectionError || webRequest.result == UnityWebRequest.Result.ProtocolError || webRequest.result == UnityWebRequest.Result.DataProcessingError) {
-                LogUtils.Log(webRequest.error);
+                lg.i(webRequest.error);
                 error?.Invoke(webRequest.error);
             }
             else {
@@ -184,7 +184,7 @@ namespace USDT.Utils {
             webRequest.downloadHandler = download;
             yield return webRequest.SendWebRequest();
             if (webRequest.result == UnityWebRequest.Result.ConnectionError || webRequest.result == UnityWebRequest.Result.ProtocolError || webRequest.result == UnityWebRequest.Result.DataProcessingError) {
-                LogUtils.Log(webRequest.error);
+                lg.i(webRequest.error);
                 error?.Invoke(webRequest.error);
             }
             else {
@@ -198,7 +198,7 @@ namespace USDT.Utils {
             webRequest.downloadHandler = download;
             yield return webRequest.SendWebRequest();
             if (webRequest.result == UnityWebRequest.Result.ConnectionError || webRequest.result == UnityWebRequest.Result.ProtocolError || webRequest.result == UnityWebRequest.Result.DataProcessingError) {
-                LogUtils.Log(webRequest.error);
+                lg.i(webRequest.error);
                 error?.Invoke(webRequest.error);
             }
             else {
@@ -212,7 +212,7 @@ namespace USDT.Utils {
             webRequest.downloadHandler = download;
             yield return webRequest.SendWebRequest();
             if (webRequest.result == UnityWebRequest.Result.ConnectionError || webRequest.result == UnityWebRequest.Result.ProtocolError || webRequest.result == UnityWebRequest.Result.DataProcessingError) {
-                LogUtils.Log(webRequest.error);
+                lg.i(webRequest.error);
                 error?.Invoke(webRequest.error);
             }
             else {
@@ -226,7 +226,7 @@ namespace USDT.Utils {
             webRequest.downloadHandler = download;
             yield return webRequest.SendWebRequest();
             if (webRequest.result == UnityWebRequest.Result.ConnectionError || webRequest.result == UnityWebRequest.Result.ProtocolError || webRequest.result == UnityWebRequest.Result.DataProcessingError) {
-                LogUtils.Log(webRequest.error);
+                lg.i(webRequest.error);
                 error?.Invoke(webRequest.error);
             }
             else {
@@ -240,7 +240,7 @@ namespace USDT.Utils {
             webRequest.downloadHandler = download;
             yield return webRequest.SendWebRequest();
             if (webRequest.result == UnityWebRequest.Result.ConnectionError || webRequest.result == UnityWebRequest.Result.ProtocolError || webRequest.result == UnityWebRequest.Result.DataProcessingError) {
-                LogUtils.Log(webRequest.error);
+                lg.i(webRequest.error);
                 error?.Invoke(webRequest.error);
             }
             else {

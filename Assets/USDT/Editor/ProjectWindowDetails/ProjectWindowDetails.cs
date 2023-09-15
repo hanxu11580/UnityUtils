@@ -86,7 +86,7 @@ namespace USDT.CustomEditor.ProjectWindowDetails {
 					label = detail.GetLabel(guid, assetPath, asset);
 				}
 				catch (Exception e) {
-					LogUtils.LogError(e);
+					lg.e(e);
 					continue;
 				}
 

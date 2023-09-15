@@ -32,7 +32,7 @@ namespace USDT.Core.Table {
                 return ConfigTable.GetConfig(id);
             }
             else {
-                LogUtils.Log($"Config不存在{TypeInfo<T>.TypeName}");
+                lg.i($"Config不存在{TypeInfo<T>.TypeName}");
                 return default;
             }
         }
@@ -43,7 +43,7 @@ namespace USDT.Core.Table {
                 return ConfigTable.GetConfigs();
             }
             else {
-                LogUtils.LogError($"Config不存在{TypeInfo<T>.TypeName}");
+                lg.e($"Config不存在{TypeInfo<T>.TypeName}");
                 return default;
             }
         }

@@ -22,7 +22,7 @@ namespace USDT.Core {
                 }
             }
             else {
-                LogUtils.Log("没有继承ManagerBase的类");
+                lg.i("没有继承ManagerBase的类");
             }
 
             // 根据优先级执行
@@ -80,7 +80,7 @@ namespace USDT.Core {
             ManagerBase manager = Activator.CreateInstance(managerType) as ManagerBase;
             if (manager == null)
             {
-                LogUtils.LogError("模块" + manager.GetType().FullName + "创建失败");
+                lg.e("模块" + manager.GetType().FullName + "创建失败");
             }
 
             //根据优先级放入链表
@@ -102,7 +102,7 @@ namespace USDT.Core {
             {
                 _managers.AddLast(manager);
             }
-            LogUtils.Log($"创建{managerType.FullName}");
+            lg.i($"创建{managerType.FullName}");
             return manager;
         }
     }

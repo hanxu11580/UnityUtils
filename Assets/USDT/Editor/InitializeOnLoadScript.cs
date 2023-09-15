@@ -18,11 +18,11 @@ namespace USDT.CustomEditor {
 			GUILayout.FlexibleSpace();
 
             if (GUILayout.Button(new GUIContent("1", "1 Button"))) {
-				LogUtils.Log("click topbar 1 button");
+				lg.i("click topbar 1 button");
 			}
 
 			if (GUILayout.Button(new GUIContent("2", "2  Button"))) {
-				LogUtils.Log("click topbar 2 button");
+				lg.i("click topbar 2 button");
 			}
 		}
 	}

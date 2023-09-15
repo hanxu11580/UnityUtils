@@ -57,7 +57,7 @@ namespace Bujuexiao {
 
         private void OnClickAdd() {
             if (string.IsNullOrEmpty(_inputName)) {
-                LogUtils.LogError($"未输入员工名称，请输入", true);
+                lg.e($"未输入员工名称，请输入", true);
                 return;
             }
             var args = ReferencePool.Acquire<AddEmployeeEventArgs>();

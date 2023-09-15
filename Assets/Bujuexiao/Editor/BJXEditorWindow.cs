@@ -47,13 +47,13 @@ namespace Bujuexiao.Editor {
                     foreach (var draggedObject in DragAndDrop.objectReferences) {
                         TextAsset textFile = draggedObject as TextAsset;
                         if (textFile != null) {
-                            LogUtils.Log($"拖入:{textFile.name}");
+                            lg.i($"拖入:{textFile.name}");
                         }
                     }
 
                     // 编辑器外部文件，或编辑器无法识别的文件
                     foreach (var path in DragAndDrop.paths) {
-                        LogUtils.Log($"拖入:{path}");
+                        lg.i($"拖入:{path}");
                         _saleExcelProcessing = new BJXSaleExcelProcessing(path);
                         _saleExcelProcessing.Processing();
                         _saleExcelProcessing.CalcTotalIncome();

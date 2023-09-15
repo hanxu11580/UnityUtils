@@ -8,10 +8,10 @@ using UnityEngine;
 
 namespace USDT.Utils {
 
-    public class LogUtils {
+    public class lg {
         public static Action<string> LogCallback { get; set; }
         public static Action<string> LogErrorCallback { get; set; }
-        public static void Log(object msg, bool isCallback = false) {
+        public static void i(object msg, bool isCallback = false) {
             if(msg == null) {
                 return;
             }
@@ -26,7 +26,7 @@ namespace USDT.Utils {
             _Log(msg);
         }
 
-        public static void LogError(object msg, bool isCallback = false) {
+        public static void e(object msg, bool isCallback = false) {
             if (msg == null) {
                 return;
             }

@@ -162,7 +162,7 @@ namespace USDT.Utils {
             StringBuilder line = new StringBuilder();
             try {
                 if (!File.Exists(path)) {
-                    LogUtils.Log("path dont exists ! : " + path);
+                    lg.i("path dont exists ! : " + path);
                     return "";
                 }
 
@@ -173,7 +173,7 @@ namespace USDT.Utils {
                 sr.Dispose();
             }
             catch (Exception e) {
-                LogUtils.LogError("Load text fail ! message:" + e.Message);
+                lg.e("Load text fail ! message:" + e.Message);
             }
 
             return line.ToString();
