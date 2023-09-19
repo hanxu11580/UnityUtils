@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using USDT.Utils;
 
 namespace YooAsset {
     public class TestLogger : ILogger {
