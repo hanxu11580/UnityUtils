@@ -1,0 +1,32 @@
+{
+    "FileVersion": "1.5.2",
+    "EnableAddressable": false,
+    "LocationToLower": false,
+    "IncludeAssetGUID": false,
+    "OutputNameStyle": 4,
+    "PackageName": "MainPackage",
+    "PackageVersion": "2023-09-19-945",
+    "AssetList": [
+        {
+            "Address": "",
+            "AssetPath": "Assets/3rd/Juce-ImplementationSelector-1.0.4/Examples/Scripts/InterfaceImplementation/Example2/FoodSO.asset",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 0,
+            "DependIDs": []
+        }
+    ],
+    "BundleList": [
+        {
+            "BundleName": "assets_3rd_juce-implementationselector-1_0_4_examples_scripts_interfaceimplementation_example2_foodso.bundle",
+            "UnityCRC": 1149048557,
+            "FileHash": "8e450ed1a72114977bce0332f2036261",
+            "FileCRC": "48ace0db",
+            "FileSize": 2439,
+            "IsRawFile": false,
+            "LoadMethod": 0,
+            "Tags": [],
+            "ReferenceIDs": []
+        }
+    ]
+}

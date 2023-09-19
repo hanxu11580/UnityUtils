@@ -1,0 +1,25 @@
+ManifestFileVersion: 0
+CRC: 1149048557
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 807b094f8fa1f6fe0fca54a01281652b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: d7b6ac59e67a3fa65ab22d7e3d06033a
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: e2271c3a69595084a9fdc1ebae271762, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Juce.ImplementationSelector.Examples
+  ClassName: Juce.ImplementationSelector.Example2.AppleFood
+- AssemblyName: Juce.ImplementationSelector.Examples
+  ClassName: Juce.ImplementationSelector.Example2.GrapesFood
+- AssemblyName: Juce.ImplementationSelector.Examples
+  ClassName: Juce.ImplementationSelector.Example2.PizzaFood
+Assets:
+- Assets/3rd/Juce-ImplementationSelector-1.0.4/Examples/Scripts/InterfaceImplementation/Example2/FoodSO.asset
+Dependencies: []

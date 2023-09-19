@@ -1,0 +1,60 @@
+{
+    "Summary": {
+        "YooVersion": "",
+        "UnityVersion": "2020.3.46f1c1",
+        "BuildDate": "2023/9/19 15:49:30",
+        "BuildSeconds": 13,
+        "BuildTarget": 13,
+        "BuildPipeline": 0,
+        "BuildMode": 0,
+        "BuildPackageName": "MainPackage",
+        "BuildPackageVersion": "2023-09-19-945",
+        "EnableAddressable": false,
+        "LocationToLower": false,
+        "IncludeAssetGUID": false,
+        "UniqueBundleName": false,
+        "SharedPackRuleClassName": "YooAsset.Editor.ZeroRedundancySharedPackRule",
+        "EncryptionServicesClassName": "YooAsset.Editor.EncryptionNone",
+        "OutputNameStyle": 4,
+        "CompressOption": 2,
+        "DisableWriteTypeTree": false,
+        "IgnoreTypeTreeChanges": true,
+        "AssetFileTotalCount": 1,
+        "MainAssetTotalCount": 1,
+        "AllBundleTotalCount": 1,
+        "AllBundleTotalSize": 2439,
+        "EncryptedBundleTotalCount": 0,
+        "EncryptedBundleTotalSize": 0,
+        "RawBundleTotalCount": 0,
+        "RawBundleTotalSize": 0
+    },
+    "AssetInfos": [
+        {
+            "Address": "",
+            "AssetPath": "Assets/3rd/Juce-ImplementationSelector-1.0.4/Examples/Scripts/InterfaceImplementation/Example2/FoodSO.asset",
+            "AssetGUID": "b1e3cbb617df355459097378f8cef924",
+            "AssetTags": [],
+            "MainBundleName": "assets_3rd_juce-implementationselector-1_0_4_examples_scripts_interfaceimplementation_example2_foodso.bundle",
+            "MainBundleSize": 2439,
+            "DependBundles": [],
+            "DependAssets": []
+        }
+    ],
+    "BundleInfos": [
+        {
+            "BundleName": "assets_3rd_juce-implementationselector-1_0_4_examples_scripts_interfaceimplementation_example2_foodso.bundle",
+            "FileName": "assets_3rd_juce-implementationselector-1_0_4_examples_scripts_interfaceimplementation_example2_foodso_8e450ed1a72114977bce0332f2036261.bundle",
+            "FileHash": "8e450ed1a72114977bce0332f2036261",
+            "FileCRC": "48ace0db",
+            "FileSize": 2439,
+            "IsRawFile": false,
+            "LoadMethod": 0,
+            "Tags": [],
+            "ReferenceIDs": [],
+            "AllBuiltinAssets": [
+                "Assets/3rd/Juce-ImplementationSelector-1.0.4/Examples/Scripts/InterfaceImplementation/Example2/FoodSO.asset"
+            ]
+        }
+    ],
+    "RedundancyInfos": []
+}
