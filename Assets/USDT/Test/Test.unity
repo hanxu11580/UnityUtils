@@ -453,6 +453,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cb6ab903523da74baccf41cb809dc6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _skill:
+    id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: BuffSkill, ns: USDT.Test, asm: Assembly-CSharp}
+      data:
+        value: 0
+        buffType: 1
+        duration: 0
 --- !u!4 &562299796
 Transform:
   m_ObjectHideFlags: 0
