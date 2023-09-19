@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+
+// https://github.com/Juce-Assets/Juce-ImplementationSelector
+
 namespace Juce.ImplementationSelector.Example1
 {
     /* SerializeReference不知道啥意思，或者忘了
