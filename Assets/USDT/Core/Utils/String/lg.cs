@@ -11,9 +11,12 @@ namespace USDT.Utils {
     public class lg {
         public static Action<string> LogCallback { get; set; }
         public static Action<string> LogErrorCallback { get; set; }
+
+        private const string _NullStr = "Null";
+
         public static void i(object msg, bool isCallback = false) {
             if(msg == null) {
-                return;
+                msg = _NullStr;
             }
 #if UNITY_EDITOR
             var UpperLayerMethod = ReflectionUtils.GetStackTraceUpperLayer();
@@ -28,7 +31,7 @@ namespace USDT.Utils {
 
         public static void e(object msg, bool isCallback = false) {
             if (msg == null) {
-                return;
+                msg = _NullStr;
             }
 #if UNITY_EDITOR
             var UpperLayerMethod = ReflectionUtils.GetStackTraceUpperLayer();
