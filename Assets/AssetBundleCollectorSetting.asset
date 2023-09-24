@@ -35,3 +35,11 @@ MonoBehaviour:
         FilterRuleName: CollectAll
         AssetTags: 
         UserData: 
+      - CollectPath: Assets/3rd/PureMVC/MyTest/Panel.prefab
+        CollectorGUID: f4005ad25a230a345892c3f7d4d309bb
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
