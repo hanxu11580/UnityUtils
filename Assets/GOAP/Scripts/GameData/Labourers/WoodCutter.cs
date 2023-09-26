@@ -1,7 +1,7 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+namespace GOAP {
 public class WoodCutter : Labourer
 {
 	/**
@@ -15,4 +15,4 @@ public class WoodCutter : Labourer
 		return goal;
 	}
 }
-
+}

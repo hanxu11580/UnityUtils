@@ -1,7 +1,6 @@
-
+﻿namespace GOAP {
 using System;
 using UnityEngine;
-
 public class DropOffToolsAction : GoapAction
 {
 	private bool droppedOffTools = false;
@@ -54,7 +53,6 @@ public class DropOffToolsAction : GoapAction
 		}
 		if (closest == null)
 			return false;
-
 		targetSupplyPile = closest;
 		target = targetSupplyPile.gameObject;
 		
@@ -69,4 +67,5 @@ public class DropOffToolsAction : GoapAction
 		
 		return true;
 	}
+}
 }

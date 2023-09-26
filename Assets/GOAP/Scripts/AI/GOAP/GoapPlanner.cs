@@ -1,13 +1,12 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using UnityEngine;
-
+namespace GOAP {
 /**
  * Plans what actions can be completed in order to fulfill a goal state.
  */
 public class GoapPlanner
 {
-
 	/**
 	 * Plan what sequence of actions can fulfill the goal.
 	 * Returns null if a plan could not be found, or a list of the actions
@@ -22,8 +21,7 @@ public class GoapPlanner
 		foreach (GoapAction a in availableActions) {
 			a.doReset ();
 		}
-
-		// É¸Ñ¡³ö¿ÉÓÃµÄAction
+		// ç­›é€‰å‡ºå¯ç”¨çš„Action
 		HashSet<GoapAction> usableActions = new HashSet<GoapAction> ();
 		foreach (GoapAction a in availableActions) {
 			if ( a.checkProceduralPrecondition(agent) )
@@ -31,21 +29,17 @@ public class GoapPlanner
 		}
 		
 		// we now have all actions that can run, stored in usableActions
-
 		// build up the tree and record the leaf nodes that provide a solution to the goal.
 		List<Node> leaves = new List<Node>();
-
 		// build graph
 		Node start = new Node (null, 0, worldState, null);
 		bool success = buildGraph(start, leaves, usableActions, goal);
-
 		if (!success) {
 			// oh no, we didn't get a plan
 			Debug.Log("NO PLAN");
 			return null;
 		}
-
-		// ÕÒµ½×î±ãÒË»¨ÏúµÄNode
+		// æ‰¾åˆ°æœ€ä¾¿å®œèŠ±é”€çš„Node
 		Node cheapest = null;
 		foreach (Node leaf in leaves) {
 			if (cheapest == null)
@@ -55,8 +49,7 @@ public class GoapPlanner
 					cheapest = leaf;
 			}
 		}
-
-		// ´ÓÄ¿±êNode»¹Ô­µ½Íê³ÉµÄÂ·¾¶
+		// ä»ç›®æ ‡Nodeè¿˜åŸåˆ°å®Œæˆçš„è·¯å¾„
 		List<GoapAction> result = new List<GoapAction> ();
 		Node n = cheapest;
 		while (n != null) {
@@ -66,16 +59,13 @@ public class GoapPlanner
 			n = n.parent;
 		}
 		// we now have this action list in correct order
-
 		Queue<GoapAction> queue = new Queue<GoapAction> ();
 		foreach (GoapAction a in result) {
 			queue.Enqueue(a);
 		}
-
 		// hooray we have a plan!
 		return queue;
 	}
-
 	/**
 	 * Returns true if at least one solution was found.
 	 * The possible paths are stored in the leaves list. Each leaf has a
@@ -85,27 +75,23 @@ public class GoapPlanner
 	private bool buildGraph (Node parent, List<Node> leaves, HashSet<GoapAction> usableActions, HashSet<KeyValuePair<string, object>> goal)
 	{
 		bool foundOne = false;
-
 		// go through each action available at this node and see if we can use it here
 		foreach (GoapAction action in usableActions) {
-
-			// ¿ÉÓÃĞĞÎª£¬ÅĞ¶Ïµ±Ç°Ê±¼ä×´Ì¬ÊÇ·ñÂú×ã
+			// å¯ç”¨è¡Œä¸ºï¼Œåˆ¤æ–­å½“å‰æ—¶é—´çŠ¶æ€æ˜¯å¦æ»¡è¶³
 			if ( inState(action.Preconditions, parent.state) ) {
-
-				// Õâ¸öĞĞÎªµÄĞ§¹û»á£¬Ó°Ïìµ½ÊÀ½ç×´Ì¬£¬ÕâÀï¸Ä±äÊÀ½ç×´Ì¬
+				// è¿™ä¸ªè¡Œä¸ºçš„æ•ˆæœä¼šï¼Œå½±å“åˆ°ä¸–ç•ŒçŠ¶æ€ï¼Œè¿™é‡Œæ”¹å˜ä¸–ç•ŒçŠ¶æ€
 				HashSet<KeyValuePair<string,object>> currentState = populateState (parent.state, action.Effects);
                 //Debug.Log(GoapAgent.prettyPrint(currentState));
-				// ´´½¨ĞÂNode£¬ÒÑÉÏ¸öNodeÎª¸¸½Úµã
+				// åˆ›å»ºæ–°Nodeï¼Œå·²ä¸Šä¸ªNodeä¸ºçˆ¶èŠ‚ç‚¹
                 Node node = new Node(parent, parent.runningCost+action.cost, currentState, action);
-
-				// Èç¹û¸Ä±äºóµÄÊÀ½ç£¬Âú×ãÄ¿±ê
-				// ËµÃ÷ÕÒµ½×îÖÕµÄ½â¾ö·½°¸ÁË
+				// å¦‚æœæ”¹å˜åçš„ä¸–ç•Œï¼Œæ»¡è¶³ç›®æ ‡
+				// è¯´æ˜æ‰¾åˆ°æœ€ç»ˆçš„è§£å†³æ–¹æ¡ˆäº†
 				if (inState(goal, currentState)) {
 					// we found a solution!
 					leaves.Add(node);
 					foundOne = true;
 				} else {
-					// °ÑÊ¹ÓÃµÄ½ÚµãÒÆ³ı£¬²¢¼ÌĞø¹¹½¨Í¼ĞÎ
+					// æŠŠä½¿ç”¨çš„èŠ‚ç‚¹ç§»é™¤ï¼Œå¹¶ç»§ç»­æ„å»ºå›¾å½¢
 					HashSet<GoapAction> subset = actionSubset(usableActions, action);
 					bool found = buildGraph(node, leaves, subset, goal);
 					if (found)
@@ -113,10 +99,8 @@ public class GoapPlanner
 				}
 			}
 		}
-
 		return foundOne;
 	}
-
 	/**
 	 * Create a subset of the actions excluding the removeMe one. Creates a new set.
 	 */
@@ -128,17 +112,16 @@ public class GoapPlanner
 		}
 		return subset;
 	}
-
 	/**
 	 * Check that all items in 'test' are in 'state'. If just one does not match or is not there
 	 * then this returns false.
 	 */
 	private bool inState(HashSet<KeyValuePair<string,object>> test, HashSet<KeyValuePair<string,object>> worldState) {
 		bool allMatch = true;
-		// ±éÀúÌõ¼ş
+		// éå†æ¡ä»¶
 		foreach (KeyValuePair<string,object> t in test) {
 			bool match = false;
-			// ÔÚÊÀ½ç×´Ì¬ÀïÃæÕÒ£¬¿´ÊÇ·ñÂú×ãÌõ¼ş
+			// åœ¨ä¸–ç•ŒçŠ¶æ€é‡Œé¢æ‰¾ï¼Œçœ‹æ˜¯å¦æ»¡è¶³æ¡ä»¶
 			foreach (KeyValuePair<string,object> s in worldState) {
 				if (s.Equals(t)) {
 					match = true;
@@ -160,18 +143,15 @@ public class GoapPlanner
 		foreach (KeyValuePair<string,object> s in currentState) {
 			state.Add(new KeyValuePair<string, object>(s.Key,s.Value));
 		}
-
 		foreach (KeyValuePair<string,object> change in stateChange) {
 			// if the key exists in the current state, update the Value
 			bool exists = false;
-
 			foreach (KeyValuePair<string,object> s in state) {
 				if (s.Equals(change)) {
 					exists = true;
 					break;
 				}
 			}
-
 			if (exists) {
 				state.RemoveWhere( (KeyValuePair<string,object> kvp) => { return kvp.Key.Equals (change.Key); } );
 				KeyValuePair<string, object> updated = new KeyValuePair<string, object>(change.Key,change.Value);
@@ -184,7 +164,6 @@ public class GoapPlanner
 		}
 		return state;
 	}
-
 	/**
 	 * Used for building up the graph and holding the running costs of actions.
 	 */
@@ -193,7 +172,6 @@ public class GoapPlanner
 		public float runningCost;
 		public HashSet<KeyValuePair<string,object>> state;
 		public GoapAction action;
-
 		public Node(Node parent, float runningCost, HashSet<KeyValuePair<string,object>> state, GoapAction action) {
 			this.parent = parent;
 			this.runningCost = runningCost;
@@ -201,7 +179,5 @@ public class GoapPlanner
 			this.action = action;
 		}
 	}
-
 }
-
-
+}

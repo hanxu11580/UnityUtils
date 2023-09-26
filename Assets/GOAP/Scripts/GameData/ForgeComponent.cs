@@ -1,9 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
-
+namespace GOAP {
 public class ForgeComponent : MonoBehaviour
 {
-
 		// Use this for initialization
 		void Start ()
 		{
@@ -16,4 +15,4 @@ public class ForgeComponent : MonoBehaviour
 	
 		}
 }
-
+}

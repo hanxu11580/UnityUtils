@@ -1,7 +1,7 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+namespace GOAP {
 public class LoggerGoap : Labourer
 {
 	/**
@@ -14,6 +14,5 @@ public class LoggerGoap : Labourer
 		goal.Add(new KeyValuePair<string, object>("collectLogs", true ));
 		return goal;
 	}
-
 }
-
+}

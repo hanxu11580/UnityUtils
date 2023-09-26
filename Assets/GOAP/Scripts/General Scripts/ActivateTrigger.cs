@@ -1,5 +1,5 @@
-using UnityEngine;
-
+﻿using UnityEngine;
+namespace GOAP {
 public class ActivateTrigger : MonoBehaviour {
 	public enum Mode {
 		Trigger   = 0, // Just broadcast the action on to the target
@@ -9,10 +9,8 @@ public class ActivateTrigger : MonoBehaviour {
 		Animate   = 4, // Start animation on target
 		Deactivate= 5 // Decativate target GameObject
 	}
-
 	/// The action to accomplish
 	public Mode action = Mode.Activate;
-
 	/// The game object to affect. If none, the trigger work on this game object
 	public Object target;
 	public GameObject source;
@@ -21,7 +19,6 @@ public class ActivateTrigger : MonoBehaviour {
 	
 	void DoActivateTrigger () {
 		triggerCount--;
-
 		if (triggerCount == 0 || repeatTrigger) {
 			Object currentTarget = target != null ? target : gameObject;
 			Behaviour targetBehaviour = currentTarget as Behaviour;
@@ -55,8 +52,8 @@ public class ActivateTrigger : MonoBehaviour {
 			}
 		}
 	}
-
 	void OnTriggerEnter (Collider other) {
 		DoActivateTrigger ();
 	}
+}
 }

@@ -1,8 +1,7 @@
-using UnityEngine;
+锘縰sing UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
-
+namespace GOAP {
 /**
  * A general labourer class.
  * You should subclass this for specific Labourer classes and implement
@@ -13,8 +12,6 @@ public abstract class Labourer : MonoBehaviour, IGoap
 {
 	public BackpackComponent backpack;
 	public float moveSpeed = 1;
-
-
 	void Start ()
 	{
 		if (backpack == null)
@@ -26,51 +23,38 @@ public abstract class Labourer : MonoBehaviour, IGoap
 			tool.transform.parent = transform; // attach the tool
 		}
 	}
-
-
 	void Update ()
 	{
-
 	}
-
-
-	// 感觉自身的情况更符合描述
+	// 鎰熻鑷韩鐨勬儏鍐垫洿绗﹀悎鎻忚堪
 	public HashSet<KeyValuePair<string,object>> getWorldState () {
 		HashSet<KeyValuePair<string,object>> worldData = new HashSet<KeyValuePair<string,object>> ();
-
 		worldData.Add(new KeyValuePair<string, object>("hasOre", (backpack.numOre > 0) ));
 		worldData.Add(new KeyValuePair<string, object>("hasLogs", (backpack.numLogs > 0) ));
 		worldData.Add(new KeyValuePair<string, object>("hasFirewood", (backpack.numFirewood > 0) ));
 		worldData.Add(new KeyValuePair<string, object>("hasTool", (backpack.tool != null) ));
-
 		return worldData;
 	}
-
 	/**
 	 * Implement in subclasses
 	 */
 	public abstract HashSet<KeyValuePair<string,object>> createGoalState ();
-
-
 	public void planFailed (HashSet<KeyValuePair<string, object>> failedGoal)
 	{
 		// Not handling this here since we are making sure our goals will always succeed.
 		// But normally you want to make sure the world state has changed before running
 		// the same goal again, or else it will just fail.
 	}
-
 	public void planFound (HashSet<KeyValuePair<string, object>> goal, Queue<GoapAction> actions)
 	{
 		// Yay we found a plan for our goal
 		Debug.Log ("<color=green>Plan found</color> "+GoapAgent.prettyPrint(actions));
 	}
-
 	public void actionsFinished ()
 	{
 		// Everything is done, we completed our actions for this gool. Hooray!
 		Debug.Log ("<color=blue>Actions completed</color>");
 	}
-
 	public void planAborted (GoapAction aborter)
 	{
 		// An action bailed out of the plan. State has been reset to plan again.
@@ -78,7 +62,6 @@ public abstract class Labourer : MonoBehaviour, IGoap
 		// that it can succeed.
 		Debug.Log ("<color=red>Plan Aborted</color> "+GoapAgent.prettyPrint(aborter));
 	}
-
 	public bool moveAgent(GoapAction nextAction) {
 		// move towards the NextAction's target
 		float step = moveSpeed * Time.deltaTime;
@@ -92,4 +75,4 @@ public abstract class Labourer : MonoBehaviour, IGoap
 			return false;
 	}
 }
-
+}

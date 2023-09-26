@@ -11,5 +11,9 @@ namespace USDT.Utils {
 
     public static class RegexConst {
         public static Regex RegexChs = new Regex("[\u4e00-\u9fa5]");
+        /// <summary>
+        /// NamespaceÖĞ¼äÄÚÈİ
+        /// </summary>
+        public static Regex RegexNamespaceMiddleContent = new Regex(@"namespace\s+[\w\.]+\s*\{");
     }
 }

@@ -1,7 +1,6 @@
-
+﻿namespace GOAP {
 using System;
 using UnityEngine;
-
 public class PickUpOreAction : GoapAction
 {
 	private bool hasOre = false;
@@ -55,7 +54,6 @@ public class PickUpOreAction : GoapAction
 		}
 		if (closest == null)
 			return false;
-
 		targetSupplyPile = closest;
 		target = targetSupplyPile.gameObject;
 		
@@ -77,4 +75,5 @@ public class PickUpOreAction : GoapAction
 			return false;
 		}
 	}
+}
 }

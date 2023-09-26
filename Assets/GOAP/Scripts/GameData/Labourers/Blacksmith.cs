@@ -1,7 +1,7 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+namespace GOAP {
 public class Blacksmith : Labourer
 {
 	/**
@@ -15,4 +15,4 @@ public class Blacksmith : Labourer
 		return goal;
 	}
 }
-
+}

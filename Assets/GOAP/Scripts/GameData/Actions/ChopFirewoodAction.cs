@@ -1,7 +1,6 @@
-
+﻿namespace GOAP {
 using System;
 using UnityEngine;
-
 public class ChopFirewoodAction : GoapAction
 {
 	private bool chopped = false;
@@ -58,7 +57,6 @@ public class ChopFirewoodAction : GoapAction
 		}
 		if (closest == null)
 			return false;
-
 		targetChoppingBlock = closest;
 		target = targetChoppingBlock.gameObject;
 		
@@ -86,4 +84,4 @@ public class ChopFirewoodAction : GoapAction
 	}
 	
 }
-
+}

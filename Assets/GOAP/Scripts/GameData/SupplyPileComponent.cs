@@ -1,6 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
-
+namespace GOAP {
 public class SupplyPileComponent : MonoBehaviour
 {
 	public int numTools; // for mining ore and chopping logs
@@ -9,4 +9,4 @@ public class SupplyPileComponent : MonoBehaviour
 	public int numOre; // makes tools
 	
 }
-
+}

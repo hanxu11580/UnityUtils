@@ -1,13 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
-
+namespace GOAP {
 /**
  * Collect the world data for this Agent that will be
  * used for GOAP planning.
  */
 using System.Collections.Generic;
-
-
 /**
  * Any agent that wants to use GOAP must implement
  * this interface. It provides information to the GOAP
@@ -23,36 +21,30 @@ public interface IGoap
 	 * Supply what states are needed for actions to run.
 	 */
 	HashSet<KeyValuePair<string,object>> getWorldState ();
-
 	/**
 	 * Give the planner a new goal so it can figure out 
 	 * the actions needed to fulfill it.
 	 */
 	HashSet<KeyValuePair<string,object>> createGoalState ();
-
 	/**
 	 * No sequence of actions could be found for the supplied goal.
 	 * You will need to try another goal
 	 */
 	void planFailed (HashSet<KeyValuePair<string,object>> failedGoal);
-
 	/**
 	 * A plan was found for the supplied goal.
 	 * These are the actions the Agent will perform, in order.
 	 */
 	void planFound (HashSet<KeyValuePair<string,object>> goal, Queue<GoapAction> actions);
-
 	/**
 	 * All actions are complete and the goal was reached. Hooray!
 	 */
 	void actionsFinished ();
-
 	/**
 	 * One of the actions caused the plan to abort.
 	 * That action is returned.
 	 */
 	void planAborted (GoapAction aborter);
-
 	/**
 	 * Called during Update. Move the agent towards the target in order
 	 * for the next action to be able to perform.
@@ -61,4 +53,4 @@ public interface IGoap
 	 */
 	bool moveAgent(GoapAction nextAction);
 }
-
+}

@@ -1,7 +1,6 @@
-
+﻿namespace GOAP {
 using System;
 using UnityEngine;
-
 public class ForgeToolAction : GoapAction
 {
 	private bool forged = false;
@@ -57,7 +56,6 @@ public class ForgeToolAction : GoapAction
 		}
 		if (closest == null)
 			return false;
-
 		targetForge = closest;
 		target = targetForge.gameObject;
 		
@@ -78,4 +76,5 @@ public class ForgeToolAction : GoapAction
 		return true;
 	}
 	
+}
 }

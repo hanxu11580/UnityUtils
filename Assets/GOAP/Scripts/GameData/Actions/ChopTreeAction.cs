@@ -1,7 +1,6 @@
-
+﻿namespace GOAP {
 using System;
 using UnityEngine;
-
 public class ChopTreeAction : GoapAction
 {
 	private bool chopped = false;
@@ -58,7 +57,6 @@ public class ChopTreeAction : GoapAction
 		}
 		if (closest == null)
 			return false;
-
 		targetTree = closest;
 		target = targetTree.gameObject;
 		
@@ -85,4 +83,5 @@ public class ChopTreeAction : GoapAction
 		return true;
 	}
 	
+}
 }

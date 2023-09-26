@@ -1,5 +1,9 @@
 ﻿using Bujuexiao.Editor;
 using RobotCat;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEditor.Compilation;
 using UnityEngine;
@@ -14,7 +18,7 @@ namespace USDT.CustomEditor {
 
         [MenuItem("EditorUtils/测试")]
         private static void Test() {
-
+            
         }
 
         [MenuItem("EditorUtils/Path/OpenPersistentDataPath")]
@@ -98,6 +102,56 @@ namespace USDT.CustomEditor {
             return new Rect(w / 2 - width * 0.5f, h / 2 - height * 0.5f, width, height);
         }
 
+
+        #endregion
+
+        #region 右键
+        [MenuItem("Assets/GenerateNameSpace", false)]
+        private static void GenerateNameSpace() {
+            if(Selection.assetGUIDs == null || Selection.assetGUIDs.Length != 1) {
+                lg.e("请选择对应的目录");
+                return;
+            }
+
+            var guid = Selection.assetGUIDs[0];
+            var assetPath = AssetDatabase.GUIDToAssetPath(guid);
+            if (!AssetDatabase.IsValidFolder(assetPath)) {
+                lg.e("选择的是非目录");
+                return;
+            }
+
+            var @namespace = new DirectoryInfo(assetPath).Name;
+
+            var files = Directory.GetFiles(assetPath, "*.cs", SearchOption.AllDirectories);
+            foreach (var file in files) {
+                GenerateNamespaceSingleFile(file, @namespace);
+            }
+
+            AssetDatabase.Refresh();
+        }
+
+        private static void GenerateNamespaceSingleFile(string filePath, string @namespace) {
+            string[] lines = File.ReadAllLines(filePath, Encoding.GetEncoding("GB2312"));
+
+            // 分离 using 语句和命名空间内容
+            var usingStatements = lines.TakeWhile(line => line.TrimStart().StartsWith("using")).ToList();
+            var namespaceContent = lines.Skip(usingStatements.Count).ToList();
+
+            // 添加新的命名空间
+            var newContent = new StringBuilder();
+            usingStatements.ForEach(line => newContent.AppendLine(line));
+            newContent.AppendLine("\n");
+            newContent.AppendLine($"namespace {@namespace} {{");
+            namespaceContent.ForEach(line => {
+                if (!string.IsNullOrEmpty(line)) {
+                    newContent.AppendLine(line);
+                }
+            });
+            newContent.AppendLine("}");
+
+            // 写回文件
+            File.WriteAllText(filePath, newContent.ToString(), Encoding.UTF8);
+        }
 
         #endregion
     }

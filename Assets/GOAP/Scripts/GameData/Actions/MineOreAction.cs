@@ -1,19 +1,16 @@
-
+ï»¿namespace GOAP {
 using System;
 using UnityEngine;
-
 public class MineOreAction : GoapAction
 {
 	private bool mined = false;
-	// Ìú¿ó
+	// é“çŸ¿
 	private IronRockComponent targetRock; // where we get the ore from
-
 	private float startTime = 0;
 	public float miningDuration = 2; // seconds
-
 	public MineOreAction () {
-		// Ìõ¼ş ĞèÒªÓĞ¹¤¾ß ÇÒ ÊÖÀïÃ»ÓĞ¿óÊ¯
-		// ½á¹û	ÊÖÀïÓĞ¿óÊ¯ÁË
+		// æ¡ä»¶ éœ€è¦æœ‰å·¥å…· ä¸” æ‰‹é‡Œæ²¡æœ‰çŸ¿çŸ³
+		// ç»“æœ	æ‰‹é‡Œæœ‰çŸ¿çŸ³äº†
 		addPrecondition ("hasTool", true); // we need a tool to do this
 		addPrecondition ("hasOre", false); // if we have ore we don't want more
 		addEffect ("hasOre", true);
@@ -34,18 +31,18 @@ public class MineOreAction : GoapAction
 	
 	public override bool requiresInRange ()
 	{
-		// ĞèÒª¿¿½ü¿óÊ¯
+		// éœ€è¦é è¿‘çŸ¿çŸ³
 		return true;
 	}
 	
 	public override bool checkProceduralPrecondition (GameObject agent)
 	{
-		// ÕÒµ½ËùÓĞµÄÌú¿ó
+		// æ‰¾åˆ°æ‰€æœ‰çš„é“çŸ¿
 		IronRockComponent[] rocks = FindObjectsOfType ( typeof(IronRockComponent) ) as IronRockComponent[];
 		IronRockComponent closest = null;
 		float closestDist = 0;
 		
-		// ÕÒµ½Àë×Ô¼º×î½üµÄÌú¿ó
+		// æ‰¾åˆ°ç¦»è‡ªå·±æœ€è¿‘çš„é“çŸ¿
 		foreach (IronRockComponent rock in rocks) {
 			if (closest == null) {
 				// first one, so choose it for now
@@ -61,8 +58,7 @@ public class MineOreAction : GoapAction
 				}
 			}
 		}
-
-		// ÉèÖÃÄ¿±êÌú¿ó
+		// è®¾ç½®ç›®æ ‡é“çŸ¿
 		targetRock = closest;
 		target = targetRock.gameObject;
 		
@@ -73,17 +69,15 @@ public class MineOreAction : GoapAction
 	{
 		if (startTime == 0)
 			startTime = Time.time;
-
-		// ¿ª²É2Ãë
+		// å¼€é‡‡2ç§’
 		if (Time.time - startTime > miningDuration) {
-			// °Ñ2¸öÌú¿ó·ÅÈë±³°ü
+			// æŠŠ2ä¸ªé“çŸ¿æ”¾å…¥èƒŒåŒ…
 			BackpackComponent backpack = (BackpackComponent)agent.GetComponent(typeof(BackpackComponent));
 			backpack.numOre += 2;
 			mined = true;
-
-			// ¿ª²É¹¤¾ß ±»ËğºÄ50%
-			// ÅĞ¶ÏÊÇ·ñ¸ÃÏú»ÙÁË, Èç¹ûĞèÒª±»Ïú»Ù£¬½«Ïú»Ù
-			// ²¢°Ñ±³°üÀïµÄ¹¤¾ßÉèÖÃÎª¿Õ
+			// å¼€é‡‡å·¥å…· è¢«æŸè€—50%
+			// åˆ¤æ–­æ˜¯å¦è¯¥é”€æ¯äº†, å¦‚æœéœ€è¦è¢«é”€æ¯ï¼Œå°†é”€æ¯
+			// å¹¶æŠŠèƒŒåŒ…é‡Œçš„å·¥å…·è®¾ç½®ä¸ºç©º
 			ToolComponent tool = backpack.tool.GetComponent(typeof(ToolComponent)) as ToolComponent;
 			tool.use(0.5f);
 			if (tool.destroyed()) {
@@ -95,5 +89,4 @@ public class MineOreAction : GoapAction
 	}
 	
 }
-
-
+}

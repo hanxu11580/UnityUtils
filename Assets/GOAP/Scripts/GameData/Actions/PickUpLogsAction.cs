@@ -1,7 +1,6 @@
-
+﻿namespace GOAP {
 using System;
 using UnityEngine;
-
 public class PickUpLogsAction : GoapAction
 {
 	private bool hasLogs = false;
@@ -55,7 +54,6 @@ public class PickUpLogsAction : GoapAction
 		}
 		if (closest == null)
 			return false;
-
 		targetSupplyPile = closest;
 		target = targetSupplyPile.gameObject;
 		
@@ -78,4 +76,4 @@ public class PickUpLogsAction : GoapAction
 		}
 	}
 }
-
+}

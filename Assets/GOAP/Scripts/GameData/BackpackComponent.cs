@@ -1,6 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
-
+namespace GOAP {
 /**
  * Holds resources for the Agent.
  */
@@ -13,4 +13,4 @@ public class BackpackComponent : MonoBehaviour
 	public string toolType = "ToolAxe";
 	
 }
-
+}
