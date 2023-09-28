@@ -18,7 +18,7 @@ namespace USDT.CustomEditor {
 
         [MenuItem("EditorUtils/测试")]
         private static void Test() {
-            
+            ZipUtils.ZipTest_1();
         }
 
         [MenuItem("EditorUtils/Path/OpenPersistentDataPath")]
