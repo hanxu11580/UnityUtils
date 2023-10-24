@@ -38,7 +38,7 @@ namespace PureMVC.MyTest {
         }
     }
 
-    public class AppFacade : Facade {
+    public class AppFacade : PureMVC.Patterns.Facade.Facade {
 
 
         public AppFacade(object obj) {

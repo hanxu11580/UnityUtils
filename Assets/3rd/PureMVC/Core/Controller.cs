@@ -138,7 +138,7 @@ namespace PureMVC.Core
         {
             if (commandMap.TryGetValue(notificationName, out _) == false)
             {
-                view.RegisterObserver(notificationName, new Observer(ExecuteCommand, this));
+                view.RegisterObserver(notificationName, new PureMVC.Patterns.Observer.Observer(ExecuteCommand, this));
             }
             commandMap[notificationName] = factory;
         }

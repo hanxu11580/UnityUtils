@@ -188,7 +188,7 @@ namespace PureMVC.Core
                 if (interests.Length > 0)
                 {
                     // Create Observer referencing this mediator's handleNotification method
-                    IObserver observer = new Observer(mediator.HandleNotification, mediator);
+                    IObserver observer = new PureMVC.Patterns.Observer.Observer(mediator.HandleNotification, mediator);
 
                     // Register Mediator as Observer for its list of Notification interests
                     foreach (var interest in interests)

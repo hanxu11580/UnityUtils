@@ -106,6 +106,22 @@ namespace USDT.Utils {
             return Encoding.UTF8.GetBytes(s);
         }
 
+        /// <summary>
+        /// 将List<long>转为byte[]
+        /// </summary>
+        /// <param name="values"></param>
+        /// <returns></returns>
 
+        public static unsafe byte[] GetBytes(List<long> values) {
+            byte[] bytes = new byte[values.Count * sizeof(long)];
+            fixed (byte* ptr = bytes) {
+                long* longPtr = (long*)ptr;
+                for (int i = 0; i < values.Count; i++) {
+                    *longPtr = values[i];
+                    longPtr++;
+                }
+            }
+            return bytes;
+        }
     }
 }
