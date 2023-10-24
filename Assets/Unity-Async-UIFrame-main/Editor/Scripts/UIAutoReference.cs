@@ -7,7 +7,7 @@ using System;
 using System.Collections;
 using UnityObject = UnityEngine.Object;
 using Feif.Extensions;
-using UnityEditor.Experimental.SceneManagement;
+
 
 namespace Feif.UIFramework.Editor
 {
@@ -16,8 +16,8 @@ namespace Feif.UIFramework.Editor
         [InitializeOnLoadMethod]
         public static void AddListeners()
         {
-            PrefabStage.prefabSaving -= OnPrefabSaving;
-            PrefabStage.prefabSaving += OnPrefabSaving;
+            UnityEditor.SceneManagement.PrefabStage.prefabSaving -= OnPrefabSaving;
+            UnityEditor.SceneManagement.PrefabStage.prefabSaving += OnPrefabSaving;
         }
 
         private static void OnPrefabSaving(GameObject prefab)
