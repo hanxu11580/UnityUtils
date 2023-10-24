@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp-Editor:USDT.CustomEditor:CustomSettingsBaseSO
   label: "\u81EA\u5B9A\u4E49ProjectSetting"
   drawIPhoneXSafeArea: 0
+  drawAssetDetails: 0

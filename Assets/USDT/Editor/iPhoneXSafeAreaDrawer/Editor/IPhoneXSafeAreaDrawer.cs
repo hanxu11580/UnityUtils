@@ -30,14 +30,14 @@ namespace USDT.CustomEditor.IPhoneXSafeAreaDrawerEditor {
 		}
 
 		public static void Init() {
-			_customSettingsBaseSO = CustomSettingsBaseSO.GetOrCreateSettings();
 			InEditModeGameObjectHandler.Instance.OnGUICallback -= OnGUI;
 			InEditModeGameObjectHandler.Instance.OnGUICallback += OnGUI;
+			_customSettingsBaseSO = CustomSettingsBaseSO.GetOrCreateSettings();
 		}
 
         private static void OnGUI() {
-			if (!_customSettingsBaseSO.drawIPhoneXSafeArea) {
-                return;
+            if (!_customSettingsBaseSO.drawIPhoneXSafeArea) {
+				return;
             }
 
             var v2 = Handles.GetMainGameViewSize();

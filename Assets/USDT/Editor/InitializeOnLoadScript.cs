@@ -8,8 +8,10 @@ namespace USDT.CustomEditor {
     [InitializeOnLoad]
     public class InitializeOnLoadScript {
 		static InitializeOnLoadScript() {
+			var customSettingsBaseSO = CustomSettingsBaseSO.GetOrCreateSettings();
+
 			//ToolbarExtender.LeftToolbarGUI.Add(OnLeftToolbarGUI);
-			EditorApplication.projectWindowItemOnGUI += ProjectWindowDetails.ProjectWindowDetails.DrawAssetDetails;
+			ProjectWindowDetails.ProjectWindowDetails.Init();
 			CompileSoundListener.Init();
 			IPhoneXSafeAreaDrawerEditor.IPhoneXSafeAreaDrawer.Init();
         }

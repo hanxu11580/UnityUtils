@@ -29,6 +29,7 @@ namespace USDT.CustomEditor {
         // 绘制iphoneX安全区域
         public bool drawIPhoneXSafeArea = false;
 
+        public bool drawAssetDetails = false;
         #endregion
     }
 
@@ -55,7 +56,7 @@ namespace USDT.CustomEditor {
             EditorGUI.BeginChangeCheck();
 
             _so.drawIPhoneXSafeArea = EditorGUILayout.Toggle("drawIPhoneXSafeArea", _so.drawIPhoneXSafeArea);
-
+            _so.drawAssetDetails = EditorGUILayout.Toggle("drawAssetDetails", _so.drawAssetDetails);
 
 
             if (EditorGUI.EndChangeCheck()) {
