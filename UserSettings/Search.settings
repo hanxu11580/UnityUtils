@@ -20,6 +20,9 @@ scopes = {
 	"last_search.3BE40471" = ""
 	"OpenInspectorPreview.3BE40471" = "0"
 	"currentGroup.3BE40471" = "all"
+	"last_search.053608A6" = ""
+	"OpenInspectorPreview.053608A6" = "0"
+	"currentGroup.053608A6" = "all"
 }
 providers = {
 	adb = {
@@ -65,6 +68,16 @@ providers = {
 	profilermarkers = {
 		active = false
 		priority = 100
+		defaultAction = null
+	}
+	archetype = {
+		active = true
+		priority = 2500
+		defaultAction = null
+	}
+	journal = {
+		active = true
+		priority = 2500
 		defaultAction = null
 	}
 }

@@ -5,8 +5,7 @@ using Unity.Entities;
 using Unity.Mathematics;
 
 
-public struct Spawner:IComponentData
-{
+public struct SpawnerComponentData:IComponentData {
     public Entity prefab;
     public float3 spawnPos;
     public float nextSpawnTime;
