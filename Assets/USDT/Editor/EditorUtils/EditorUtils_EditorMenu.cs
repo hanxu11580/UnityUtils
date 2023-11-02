@@ -165,6 +165,10 @@ namespace USDT.CustomEditor {
         }
 
         private static void GenerateNamespaceSingleFile(string filePath, string @namespace) {
+            var allText = File.ReadAllText(filePath);
+            if (allText.Contains("namespace")) {
+				return;
+            }
             string[] lines = File.ReadAllLines(filePath, Encoding.GetEncoding("GB2312"));
 
             // 分离 using 语句和命名空间内容

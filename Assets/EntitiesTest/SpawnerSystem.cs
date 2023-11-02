@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst;
 using Unity.Entities;
@@ -7,33 +7,60 @@ using Unity.Transforms;
 using UnityEngine;
 using USDT.Utils;
 
+
+namespace EntitiesTest {
 [BurstCompile]
 public partial struct SpawnerSystem : ISystem {
-    Unity.Mathematics.Random _random;
-    public void OnCreate(ref SystemState state) {
-        _random = new Unity.Mathematics.Random();
-        _random.InitState();
-    }
-
+    public void OnCreate(ref SystemState state) { }
     public void OnDestroy(ref SystemState state) { }
-
+    // æ™®é€šä½¿ç”¨
+    //[BurstCompile]
+    //public void OnUpdate(ref SystemState state) {
+    //    foreach (RefRW<SpawnerComponentData> sdata in SystemAPI.Query<RefRW<SpawnerComponentData>>()) {
+    //        if(sdata.ValueRO.nextSpawnTime < SystemAPI.Time.ElapsedTime) {
+    //            // åˆ›å»ºä¸€ä¸ªæ–°çš„å®žä½“
+    //            Entity newE = state.EntityManager.Instantiate(sdata.ValueRO.prefab);
+    //            // æ·»åŠ LocalTransformç»„ä»¶
+    //            var startV = sdata.ValueRO.spawnPos;
+    //            startV.y += _random.NextFloat(1, 11);
+    //            var rq = quaternion.RotateX(_random.NextInt(0, 360));
+    //            var newPos = math.mul(rq, startV);
+    //            state.EntityManager.SetComponentData(newE, LocalTransform.FromPosition(newPos));
+    //            // åˆ¶å®šä¸‹æ¬¡å®žä¾‹æ—¶é—´
+    //            sdata.ValueRW.nextSpawnTime = (float)SystemAPI.Time.ElapsedTime + sdata.ValueRO.spawnRate;
+    //        }
+    //    }
+    //}
+    // Job
     [BurstCompile]
     public void OnUpdate(ref SystemState state) {
-        foreach (RefRW<SpawnerComponentData> sdata in SystemAPI.Query<RefRW<SpawnerComponentData>>()) {
-            if(sdata.ValueRO.nextSpawnTime < SystemAPI.Time.ElapsedTime) {
-                // ´´½¨Ò»¸öÐÂµÄÊµÌå
-                Entity newE = state.EntityManager.Instantiate(sdata.ValueRO.prefab);
-
-                // Ìí¼ÓLocalTransform×é¼þ
-                var startV = sdata.ValueRO.spawnPos;
-                startV.y += _random.NextFloat(1, 11);
-                var rq = quaternion.RotateX(_random.NextInt(0, 360));
+        EntityCommandBuffer.ParallelWriter ecb = GetEntityCommandBuffer(ref state);
+        var job = new ProcessSpawnerJob() {
+            elapsedtime = (float)SystemAPI.Time.ElapsedTime,
+            ecb = ecb,
+        };
+        job.ScheduleParallel();
+    }
+    private EntityCommandBuffer.ParallelWriter GetEntityCommandBuffer(ref SystemState state) {
+        var ecbSingleton = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>();
+        var ecb = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged);
+        return ecb.AsParallelWriter();
+    }
+    [BurstCompile]
+    public partial struct ProcessSpawnerJob : IJobEntity {
+        public EntityCommandBuffer.ParallelWriter ecb;
+        public float elapsedtime;
+        private void Execute([ChunkIndexInQuery] int chunkIndex, ref SpawnerComponentData spawner) {
+            if(spawner.nextSpawnTime < elapsedtime) {
+                Entity newE = ecb.Instantiate(chunkIndex, spawner.prefab);
+                var startV = spawner.spawnPos;
+                startV.y += spawner.random.NextFloat(1, 11);
+                var rq = quaternion.RotateX(spawner.random.NextInt(0, 360));
                 var newPos = math.mul(rq, startV);
-                state.EntityManager.SetComponentData(newE, LocalTransform.FromPosition(newPos));
-
-                // ÖÆ¶¨ÏÂ´ÎÊµÀýÊ±¼ä
-                sdata.ValueRW.nextSpawnTime = (float)SystemAPI.Time.ElapsedTime + sdata.ValueRO.spawnRate;
+                ecb.SetComponent(chunkIndex, newE, LocalTransform.FromPosition(newPos));
+                spawner.nextSpawnTime = elapsedtime + spawner.spawnRate;
             }
         }
     }
+}
 }

@@ -8,8 +8,6 @@ namespace USDT.CustomEditor {
     [InitializeOnLoad]
     public class InitializeOnLoadScript {
 		static InitializeOnLoadScript() {
-			var customSettingsBaseSO = CustomSettingsBaseSO.GetOrCreateSettings();
-
 			//ToolbarExtender.LeftToolbarGUI.Add(OnLeftToolbarGUI);
 			ProjectWindowDetails.ProjectWindowDetails.Init();
 			CompileSoundListener.Init();
