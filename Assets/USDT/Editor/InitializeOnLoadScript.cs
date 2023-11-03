@@ -5,14 +5,7 @@ using USDT.CustomEditor.CompileSound;
 using USDT.Utils;
 
 namespace USDT.CustomEditor {
-    [InitializeOnLoad]
     public class InitializeOnLoadScript {
-		static InitializeOnLoadScript() {
-			//ToolbarExtender.LeftToolbarGUI.Add(OnLeftToolbarGUI);
-			ProjectWindowDetails.ProjectWindowDetails.Init();
-			CompileSoundListener.Init();
-			IPhoneXSafeAreaDrawerEditor.IPhoneXSafeAreaDrawer.Init();
-        }
 
 		static void OnLeftToolbarGUI() {
 			GUILayout.FlexibleSpace();
@@ -24,6 +17,13 @@ namespace USDT.CustomEditor {
 			if (GUILayout.Button(new GUIContent("2", "2  Button"))) {
 				lg.i("click topbar 2 button");
 			}
+		}
+
+		[InitializeOnLoadMethod]
+		private static void OnInitializeOnLoadMethod() {
+			ProjectWindowDetails.ProjectWindowDetails.Init();
+			CompileSoundListener.Init();
+			IPhoneXSafeAreaDrawerEditor.IPhoneXSafeAreaDrawer.Init();
 		}
 	}
 }

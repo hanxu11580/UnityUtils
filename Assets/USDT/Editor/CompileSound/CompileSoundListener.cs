@@ -13,6 +13,7 @@ namespace USDT.CustomEditor.CompileSound {
             //#endif
 
             // 上面那个脚本有编译报错时候，不会执行，音乐会一直执行下去
+            CompilationPipeline.compilationFinished -= DidCompileFinished;
             CompilationPipeline.compilationFinished += DidCompileFinished;
         }
 

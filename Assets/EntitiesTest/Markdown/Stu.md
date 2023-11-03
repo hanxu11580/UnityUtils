@@ -1,4 +1,5 @@
--总文档    https://docs.unity3d.com/Packages/com.unity.entities@1.0/manual/index.html
+-   详细文档    https://docs.unity3d.com/Packages/com.unity.entities@1.0/manual/index.html
+-   快速文档    https://github.com/Unity-Technologies/EntityComponentSystemSamples/blob/master/EntitiesSamples/Assets/README.md#entities-api-overview
 
 ### 概念
 
@@ -104,4 +105,10 @@
         *   https://docs.unity3d.com/Packages/com.unity.entities@1.0/manual/systems-systemapi.html
         
 -   安排数据变更
-    +   
+    +   ECB（实体命令缓冲区）概述
+        *   ECB存储线程安全命令队列，你可以将其添加到队列中并稍后播放。你可以使用ECB来安排作业的结构更改，并且在作业完成后在主线程上执行更改。
+        *   https://docs.unity3d.com/Packages/com.unity.entities@1.0/manual/systems-entity-command-buffers.html
+        *   使用ECB
+            -   UseEntityCommandBuffer.cs
+        *   ECB Playback
+            -   
