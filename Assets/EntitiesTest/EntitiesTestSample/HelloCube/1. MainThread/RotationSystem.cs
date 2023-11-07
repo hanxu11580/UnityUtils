@@ -15,7 +15,7 @@ namespace EntitiesTest.HelloCube.MainThread {
 
         public void OnUpdate(ref SystemState state) {
             float deltaTime = SystemAPI.Time.DeltaTime;
-            foreach (var (localTransform, rotationSpeed) in SystemAPI.Query<RefRW<LocalTransform>, RefRW<RotationSpeed>>()) {
+            foreach (var (localTransform, rotationSpeed) in SystemAPI.Query<RefRW<LocalTransform>, RefRW<RotationSpeedComp>>()) {
                 localTransform.ValueRW = localTransform.ValueRO.RotateZ(rotationSpeed.ValueRO.RadiansPerSecond * deltaTime);
             }
         }

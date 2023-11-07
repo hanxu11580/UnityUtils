@@ -15,7 +15,8 @@ namespace EntitiesTest.HelloCube.IJobEntityTest {
         [BurstCompile]
         public void OnUpdate(ref SystemState state) {
             var job = new RotateAndScaleJob() {
-
+                detalTime = SystemAPI.Time.DeltaTime,
+                elapsedTime = (float)SystemAPI.Time.ElapsedTime
             };
             job.Schedule();
         }
@@ -29,7 +30,7 @@ namespace EntitiesTest.HelloCube.IJobEntityTest {
         public float elapsedTime;
 
         // 查询所有具有LocalTransform\PostTransformMatrix\RotationSpeed的实体
-        private void Execute(ref LocalTransform localTransform, ref PostTransformMatrix postTransformMatrix, in RotationSpeed speed) {
+        private void Execute(ref LocalTransform localTransform, ref PostTransformMatrix postTransformMatrix, in RotationSpeedComp speed) {
             localTransform = localTransform.RotateZ(speed.RadiansPerSecond * detalTime);
             postTransformMatrix.Value = float4x4.Scale(1, 1, math.sin(elapsedTime));
         }

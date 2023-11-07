@@ -11,13 +11,13 @@ public class RotationSpeedAuthoring : MonoBehaviour {
     class Baker : Baker<RotationSpeedAuthoring> {
         public override void Bake(RotationSpeedAuthoring authoring) {
             var entity = GetEntity(TransformUsageFlags.Dynamic | TransformUsageFlags.NonUniformScale);
-            AddComponent(entity, new RotationSpeed {
+            AddComponent(entity, new RotationSpeedComp {
                 RadiansPerSecond = math.radians(authoring.DegreesPerSecond)
             });
         }
     }
 }
-public struct RotationSpeed : IComponentData {
+public struct RotationSpeedComp : IComponentData {
     public float RadiansPerSecond;
 }
 }
