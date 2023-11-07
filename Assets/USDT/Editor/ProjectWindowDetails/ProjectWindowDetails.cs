@@ -13,7 +13,6 @@ namespace USDT.CustomEditor.ProjectWindowDetails {
 		private const int SpaceBetweenColumns = 10;
         private const int MenuIconWidth = 20;
 		private const string MenuIconStyle = "d_ViewToolOrbit On";
-		private static CustomSettingsBaseSO _customSettingsBaseSO;
 		static ProjectWindowDetails() {
 			foreach (var type in GetAllDetailTypes()) {
 				_details.Add((ProjectWindowDetailBase)Activator.CreateInstance(type));
@@ -32,11 +31,10 @@ namespace USDT.CustomEditor.ProjectWindowDetails {
 		public static void Init() {
 			EditorApplication.projectWindowItemOnGUI -= DrawAssetDetails;
 			EditorApplication.projectWindowItemOnGUI += DrawAssetDetails;
-			_customSettingsBaseSO = CustomSettingsBaseSO.GetOrCreateSettings();
 		}
 
 		public static void DrawAssetDetails(string guid, Rect rect) {
-            if (!_customSettingsBaseSO.drawAssetDetails) {
+            if (!CustomSettingsBaseSO.SO.drawAssetDetails) {
 				return;
             }
 

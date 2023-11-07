@@ -55,7 +55,7 @@ public partial struct SpawnerSystem : ISystem {
                 Entity newE = ecb.Instantiate(chunkIndex, spawner.prefab);
                 var startV = spawner.spawnPos;
                 startV.y += spawner.random.NextFloat(1, 11);
-                var rq = quaternion.RotateX(spawner.random.NextInt(0, 360));
+                var rq = quaternion.RotateZ(spawner.random.NextInt(0, 360));
                 var newPos = math.mul(rq, startV);
                 ecb.SetComponent(chunkIndex, newE, LocalTransform.FromPosition(newPos));
                 spawner.nextSpawnTime = elapsedtime + spawner.spawnRate;

@@ -1,22 +1,17 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 
 
-
-
-
+namespace EntitiesTest {
 public struct Position : IComponentData {
     public float3 value;
 }
-
 public struct Velocity : IComponentData {
     public float3 value;
 }
-
-
 [RequireMatchingQueriesForUpdate]
 public partial class MySystemBase : SystemBase {
     protected override void OnUpdate() {
@@ -30,4 +25,5 @@ public partial class MySystemBase : SystemBase {
             })
             .Schedule();
     }
+}
 }

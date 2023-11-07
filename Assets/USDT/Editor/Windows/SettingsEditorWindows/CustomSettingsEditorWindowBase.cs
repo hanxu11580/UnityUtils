@@ -10,6 +10,7 @@ namespace USDT.CustomEditor {
     public class CustomSettingsBaseSO : ScriptableObject {
         public const string AssetPath = "Assets/USDT/Editor/Windows/SettingsEditorWindows/CustomSettingsBase.asset";
         public string label;
+        public static CustomSettingsBaseSO SO => GetOrCreateSettings();
         public static CustomSettingsBaseSO GetOrCreateSettings() {
             var settings = AssetDatabase.LoadAssetAtPath<CustomSettingsBaseSO>(AssetPath);
             if (settings == null) {

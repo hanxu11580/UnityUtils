@@ -1,44 +1,40 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 
-// ÅÚµ¯×é¼þ
+
+namespace EntitiesTest {
+// ç‚®å¼¹ç»„ä»¶
 public struct CannonBall : IComponentData {
     public float3 speed;
 }
-
-
 readonly partial struct CannonBallAspect : IAspect {
     public readonly Entity self;
     readonly RefRW<LocalTransform> transform;
     readonly RefRW<CannonBall> cannonBall;
-
-    // ÕâÁ½¸öÊôÐÔ²»ÊÇ±ØÐëµÄ£¬Ö»ÊÇ·½±ãÈ¡ÓÃ
+    // è¿™ä¸¤ä¸ªå±žæ€§ä¸æ˜¯å¿…é¡»çš„ï¼Œåªæ˜¯æ–¹ä¾¿å–ç”¨
     public float3 Postion
     {
         get => transform.ValueRO.Position;
         set => transform.ValueRW.Position = value;
     }
-
     public float3 Speed
     {
         get => cannonBall.ValueRO.speed;
         set => cannonBall.ValueRW.speed = value;
     }
 }
-
 public partial struct MySystem : ISystem {
     public void OnUpdate(ref SystemState state) {
         foreach (var item in SystemAPI.Query<CannonBallAspect>()) {
-
         }
-
-        // ÔÚÏµÍ³ÖÐ´´½¨Aspect
-        // ÔÚÏµÍ³Íâ²¿´´½¨ Ê¹ÓÃ EntityManager.GetAspect
-        var enetiy = state.EntityManager.CreateEntity();
-        CannonBallAspect cannonBall = SystemAPI.GetAspect<CannonBallAspect>(enetiy);
+        // åœ¨ç³»ç»Ÿä¸­åˆ›å»ºAspect
+        // åœ¨ç³»ç»Ÿå¤–éƒ¨åˆ›å»º ä½¿ç”¨ EntityManager.GetAspect
+        //var enetiy = state.EntityManager.CreateEntity();
+        //CannonBallAspect cannonBall = SystemAPI.GetAspect<CannonBallAspect>(enetiy);
     }
+}
 }

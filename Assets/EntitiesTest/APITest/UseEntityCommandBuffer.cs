@@ -1,13 +1,13 @@
-using Unity.Entities;
+锘縰sing Unity.Entities;
 
 
+namespace EntitiesTest {
 public struct UseEntityCommandBufferSystemData_1 : IComponentData {
     public float value;
 }
 public struct UseEntityCommandBufferSystemData_2 : IComponentData {
     public float value;
 }
-
 public partial class UseEntityCommandBufferSystem : SystemBase {
     protected override void OnUpdate() {
         EntityCommandBuffer ecb = new EntityCommandBuffer(Unity.Collections.Allocator.TempJob);
@@ -18,13 +18,11 @@ public partial class UseEntityCommandBufferSystem : SystemBase {
                 }
             })
             .Schedule();
-
         Dependency.Complete();
-
         ecb.Playback(EntityManager);
         ecb.Dispose();
-
-        // 并行作业
-        EntityCommandBuffer.ParallelWriter parallelWriter = ecb.AsParallelWriter();
+        // 骞惰浣滀笟
+        //EntityCommandBuffer.ParallelWriter parallelWriter = ecb.AsParallelWriter();
     }
+}
 }

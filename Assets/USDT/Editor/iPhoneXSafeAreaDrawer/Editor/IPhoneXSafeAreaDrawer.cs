@@ -10,7 +10,6 @@ namespace USDT.CustomEditor.IPhoneXSafeAreaDrawerEditor {
 	public static class IPhoneXSafeAreaDrawer {
 		private static Texture _portraitImage;
 		private static Texture _landscapeImage;
-		private static CustomSettingsBaseSO _customSettingsBaseSO;
 		private static Texture _PortraitImage {
 			get {
 				if ( _portraitImage == null ) {
@@ -32,11 +31,10 @@ namespace USDT.CustomEditor.IPhoneXSafeAreaDrawerEditor {
 		public static void Init() {
 			InEditModeGameObjectHandler.Instance.OnGUICallback -= OnGUI;
 			InEditModeGameObjectHandler.Instance.OnGUICallback += OnGUI;
-			_customSettingsBaseSO = CustomSettingsBaseSO.GetOrCreateSettings();
 		}
 
         private static void OnGUI() {
-            if (!_customSettingsBaseSO.drawIPhoneXSafeArea) {
+            if (!CustomSettingsBaseSO.SO.drawIPhoneXSafeArea) {
 				return;
             }
 
