@@ -6,7 +6,7 @@ using Unity.Transforms;
 
 
 namespace EntitiesTest.HelloCube.IJobEntityTest {
-    public partial struct RotationSystem : ISystem {
+    public partial struct IJobEntityTestRotationSystem : ISystem {
         [BurstCompile]
         public void OnCreate(ref SystemState state) {
             state.RequireForUpdate<IJobEntityComp>();

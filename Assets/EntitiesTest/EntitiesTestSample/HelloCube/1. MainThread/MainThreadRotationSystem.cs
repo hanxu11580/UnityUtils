@@ -5,7 +5,7 @@ using Unity.Transforms;
 
 
 namespace EntitiesTest.HelloCube.MainThread {
-    public partial struct RotationSystem : ISystem {
+    public partial struct MainThreadRotationSystem : ISystem {
         [BurstCompile]
         public void OnCreate(ref SystemState state) {
             // 只有存在MainThread组件才能运行该系统

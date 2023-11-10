@@ -9,7 +9,7 @@ using UnityEngine;
 
 
 namespace EntitiesTest.HelloCube.AspectsTest {
-    public partial struct RotationSystem : ISystem {
+    public partial struct AspectsTestRotationSystem : ISystem {
         [BurstCompile]
         public void OnCreate(ref SystemState state) {
             state.RequireForUpdate<AspectsComp>();
