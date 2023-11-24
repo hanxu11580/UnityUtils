@@ -108,5 +108,10 @@ namespace USDT.Utils {
             Int32 s = (Int32)Math.Floor(seconds - m * 60f - h * 3600f);
             return (h, m, s);
         }
+
+        public static string CurStamp() {
+            System.TimeSpan span = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            return Convert.ToInt64(span.TotalSeconds).ToString();
+        }
     }
 }

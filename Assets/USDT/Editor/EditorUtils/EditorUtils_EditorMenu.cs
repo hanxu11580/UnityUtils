@@ -26,9 +26,7 @@ namespace USDT.CustomEditor {
 
         [MenuItem("EditorUtils/测试")]
         private static void Test() {
-            var dataPath = @"C:\Users\A\AppData\LocalLow\CatTrick\SpellRaider\2614099970_1716664215999086592_TSPlayerDetailBlock_0.data";
-            var datalist = ReadLutData(dataPath);
-            lg.i(datalist.Count);
+			lg.i(TimeUtils.CurStamp());
         }
 
 
