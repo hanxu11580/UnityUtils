@@ -41,6 +41,7 @@ namespace EntitiesTest.HelloCube.EnableableComponents {
             foreach (var (transform, speed) in SystemAPI.Query<RefRW<LocalTransform>, RefRO<EnableableRotationSpeedComp>>()) {
                 transform.ValueRW = transform.ValueRO.RotateY(speed.ValueRO.RadiansPerSecond * deltaTime);
             }
+
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace USDT.Utils {
@@ -26,6 +27,20 @@ namespace USDT.Utils {
             if (!File.Exists(path)) return -1;
             return new FileInfo(path).Length;
         }
+
+        /// <summary>
+        /// 获取文件夹大小
+        /// </summary>
+        /// <param name="directoryPath"></param>
+        /// <returns></returns>
+        public static long GetDirectorySizeInBytes(string directoryPath) {
+            if (!Directory.Exists(directoryPath)) {
+                throw new DirectoryNotFoundException($"{directoryPath} couldn't find");
+            }
+            var directory = new DirectoryInfo(directoryPath);
+            return directory.EnumerateFiles("*", SearchOption.AllDirectories).Sum(f => f.Length);
+        }
+
         /// <summary>
         /// 获取所有子文件
         /// </summary>
@@ -205,6 +220,69 @@ namespace USDT.Utils {
                 return null;
             }
         }
+        #endregion
+
+        #region 将File路径转成URI
+
+        public static string FilePathToURI(string filePath) {
+            var uriBuilder = new StringBuilder(filePath);
+            for (int i = 0; i < uriBuilder.Length; i++) {
+                char c = uriBuilder[i];
+
+                if (AsciiCharactersAllowedInURIWithoutEscaping.Contains(c)) // This will be the vast majority of characters, so checking this first is best for performance
+                    continue;
+
+                if (c > '\xFF') // Not an ascii character
+                    continue;
+
+                if (c == Path.DirectorySeparatorChar || c == Path.AltDirectorySeparatorChar) {
+                    uriBuilder[i] = '/';
+                    continue;
+                }
+
+
+                int charAsInt = (int)c;
+                string escapedCharacter = charAsInt.ToString("X2");
+
+                uriBuilder[i] = '%';
+                uriBuilder.Insert(i + 1, escapedCharacter);
+
+                i += escapedCharacter.Length - 1;
+            }
+
+
+            if (uriBuilder.Length >= 2 && uriBuilder[0] == '/' && uriBuilder[1] == '/') // UNC path
+                uriBuilder.Insert(0, "file:");
+            else
+                uriBuilder.Insert(0, "file:///");
+
+            return uriBuilder.ToString();
+        }
+
+        static readonly HashSet<char> AsciiCharactersAllowedInURIWithoutEscaping = GetAsciiCharactersAllowedInURI();
+        static HashSet<char> GetAsciiCharactersAllowedInURI() {
+            var set = new HashSet<char>();
+
+            for (int i = 'a'; i <= 'z'; i++)
+                set.Add((char)i);
+
+            for (int i = 'A'; i <= 'Z'; i++)
+                set.Add((char)i);
+
+            for (int i = '0'; i <= '9'; i++)
+                set.Add((char)i);
+
+            set.Add('+');
+            set.Add('/');
+            set.Add(':');
+            set.Add('.');
+            set.Add('-');
+            set.Add('_');
+            set.Add('~');
+
+            return set;
+        }
+
         #endregion
     }
 }

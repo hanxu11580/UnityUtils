@@ -17,7 +17,7 @@ using USDT.Utils;
 using System.Threading;
 using System.Collections.Concurrent;
 using System.Collections;
-
+using System.Net;
 
 namespace USDT.CustomEditor {
 
@@ -26,7 +26,8 @@ namespace USDT.CustomEditor {
 
         [MenuItem("EditorUtils/测试")]
         private static void Test() {
-			lg.i(TimeUtils.CurStamp());
+
+
         }
 
 

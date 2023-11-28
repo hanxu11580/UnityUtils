@@ -58,6 +58,42 @@ namespace USDT.Utils {
             return ToIPEndPoint(host, port);
         }
 
+        public static IPAddress ParseAddress(string ip) {
+            if (ip == "localhost") {
+                switch (LocalHostInterpretation) {
+                    case LocalHostInterpretation.IPv4Loopback:
+                        return IPAddress.Loopback;
+
+                    case LocalHostInterpretation.IPv6Loopback:
+                        return IPAddress.IPv6Loopback;
+
+                    default:
+                        throw new NotSupportedException($"{nameof(LocalHostInterpretation)} had an unexpected value of {LocalHostInterpretation}");
+                }
+            }
+
+            if (IPAddress.TryParse(ip, out var ipAddress))
+                return ipAddress;
+
+            try {
+                var hostEntry = Dns.GetHostEntry(ip); // This will time out after 5 seconds (not configurable)
+                foreach (var address in hostEntry.AddressList) {
+                    if (address.AddressFamily == AddressFamily.InterNetwork || address.AddressFamily == AddressFamily.InterNetworkV6)
+                        return address;
+                }
+            }
+            catch (SocketException) {
+            }
+
+            throw new Exception("Failed to resolve host");
+        }
+
+
+        /// <summary>
+        /// Determines how "localhost" should be used when parsing IP addresses and endpoints
+        /// </summary>
+        public static LocalHostInterpretation LocalHostInterpretation { get; set; } = LocalHostInterpretation.IPv4Loopback;
+
         /// <summary>
         /// 判断是否为有效URL
         /// </summary>
@@ -251,4 +287,36 @@ namespace USDT.Utils {
         #endregion
 
     }
+
+    public enum LocalHostInterpretation {
+        IPv4Loopback,
+        IPv6Loopback,
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
