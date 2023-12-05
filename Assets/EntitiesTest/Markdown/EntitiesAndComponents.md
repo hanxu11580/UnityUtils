@@ -1,6 +1,7 @@
 # Entities And Components
 
 ### 实体与组件
+- 实体中同一种Component只能存在一个
 - IComponentData 定义基本组件
 - IBufferElementData 定义动态缓冲区（可增长数组）组件类型
 - ISharedComponent 定义共享组件类型，由多个实体共享
@@ -8,6 +9,7 @@
 - 还有ICleanupShareComponent、ICleanupBufferElementData
 
 ### 世界和实体管理器
+- 不要通过EntityManager访问Entities和Components
 - EntityManager方法包括
 	+ CreateEntity() 创建一个新实体 √
 	+ Instantiate() 使用现有实体的所有组件的副本创建一个新实体 √
@@ -66,4 +68,4 @@
 
 ### Aspects
 - 对于简化查询和组件相关代码很有用，TransformAspect，将标准变换组件LocalTransform、ParentTransfrom、WorldTransform
-- 
+

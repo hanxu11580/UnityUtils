@@ -1,8 +1,8 @@
 # C#作业系统
 - 分配器
 	+ Allocator.Persistent	最慢的分配器，用于无限期的生命周期分配。当不需要持久分配集合，必须调用Dispose
-	+ Allocator.Temp	最快的分配器，每帧主线程会创建一个临时分配器，这个分配器在帧结束会被全部释放，不用调用Dispose
-	+ Allocator.TempJob
+	+ Allocator.Temp	最快的分配器，每帧主线程会创建一个临时分配器，这个分配器在帧结束会被全部释放，不用调用Dispose，临时分配不能传递到作业中
+	+ Allocator.TempJob 下一个最快的分配器，对于短期分配（4帧生命周期）可以传递到作业中
 	
 
 # C#作业和作业依赖性
@@ -47,3 +47,19 @@
 	}
 
 ```
+
+###
+- unity可以在CPU上创建worker thread来运行程序，job就是在worker thread上运行的程序
+- 只有在main thread中可以创建和schedule job
+- 不要在main thread访问正在job中处理的任何数据
+- 不要在Schedule()和Complete()之间创建另一个job
+- 还可以创建多个依赖 JobHandle.CombineDependencies(handleB,handleC,handleD)
+- 不要创建相互依赖的job，会导致死锁
+
+### IJobParallelFor
+
+### Unity.Collections
+- https://github.com/Unity-Technologies/EntityComponentSystemSamples/blob/master/EntitiesSamples/Docs/cheatsheet/collections.md
+
+### Unity.Mathematics
+- https://github.com/Unity-Technologies/EntityComponentSystemSamples/blob/master/EntitiesSamples/Docs/cheatsheet/mathematics.md
