@@ -1,0 +1,12 @@
+"NSCalendarsUsageDescription" = "La nostra app deve accedere al calendario per visualizzare la data.";
+"NSCameraUsageDescription" = "La nostra app deve accedere alla fotocamera per scattare foto.";
+"NSContactsUsageDescription" = "La nostra app deve accedere ai contatti per aiutarti a connetterti con gli amici nel gioco.";
+"NSLocationAlwaysUsageDescription" = "La nostra app deve accedere alla tua posizione per fornire contenuti localizzati.";
+"NSLocationWhenInUseUsageDescription" = "La nostra app deve accedere alla tua posizione per fornire contenuti localizzati.";
+"NSMicrophoneUsageDescription" = "La nostra app deve accedere al microfono per abilitare la chat vocale.";
+"NSPhotoLibraryAddUsageDescription" = "La nostra app deve accedere alla galleria fotografica per caricare le foto selezionate sul nostro CS.";
+"NSPhotoLibraryUsageDescription" = "La nostra app deve accedere alla galleria fotografica per caricare le foto selezionate sul nostro CS.";
+"NSBluetoothPeripheralUsageDescription" = "La nostra app deve accede al Bluetooth per connettere i dispositivi.";
+"NSSpeechRecognitionUsageDescription" = "La nostra app deve accedere al riconoscimento vocale per convertire la lingua parlata in testo.";
+"NSUserTrackingUsageDescription" = "Puoi autorizzarci a utilizzare il codice di identificazione dell'annuncio per evitare annunci casuali. Questo ti offrirà un'esperienza pubblicitaria personalizzata sul tuo dispositivo.";
+

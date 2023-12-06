@@ -1,0 +1,11 @@
+"NSCalendarsUsageDescription" = "カレンダーへのアクセス権限を許可しますか？";
+"NSCameraUsageDescription" = "カメラへのアクセス権限を許可しますか？";
+"NSContactsUsageDescription" = "電話帳へのアクセス権限を許可しますか？";
+"NSLocationAlwaysUsageDescription" = "カメラへのアクセス権限を許可しますか？";
+"NSLocationWhenInUseUsageDescription" = "位置情報へのアクセス権限を許可しますか？";
+"NSMicrophoneUsageDescription" = "マイクへのアクセス権限を許可しますか？";
+"NSPhotoLibraryAddUsageDescription" = "フォトギャラリーの作成を許可しますか？";
+"NSPhotoLibraryUsageDescription" = "フォトギャラリーへのアクセス権限を許可しますか？";
+"NSBluetoothPeripheralUsageDescription" = "ブルートゥースへのアクセス権限を許可しますか？";
+"NSSpeechRecognitionUsageDescription" = "音声認識機能へのアクセス権限を許可しますか？";
+"NSUserTrackingUsageDescription" = "広告からのストレスを軽減するために、広告識別コードの使用権限をお選びいただけます。これによりデバイスでよりパーソナライズされた広告体験が可能になります。";

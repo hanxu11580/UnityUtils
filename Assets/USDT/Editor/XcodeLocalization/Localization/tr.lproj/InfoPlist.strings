@@ -1,0 +1,12 @@
+"NSCalendarsUsageDescription" = "Tarihi görebilmek için uygulamamızın Takvime erişmesi gerekiyor.";
+"NSCameraUsageDescription" = "Fotoğraf çekmek için uygulamamızın kameraya erişmesi gerekiyor.";
+"NSContactsUsageDescription" = "Oyunda arkadaşlarınla bağlantı kurmana yardımcı olmak için uygulamamızın kişilere erişmesi gerekiyor.";
+"NSLocationAlwaysUsageDescription" = "Yerelleştirilmiş içerik sağlamak için uygulamamızın, konumuna erişmesi gerekiyor.";
+"NSLocationWhenInUseUsageDescription" = "Yerelleştirilmiş içerik sağlamak için uygulamamızın, konumuna erişmesi gerekiyor.";
+"NSMicrophoneUsageDescription" = "Sesli sohbeti etkinleştirmek için uygulamamızın Mikrofona erişmesi gerekiyor.";
+"NSPhotoLibraryAddUsageDescription" = "Seçilen fotoğrafları Müşteri Hizmetlerimize yüklemek için uygulamamızın, Fotoğraf Albümüne erişmesi gerekiyor.";
+"NSPhotoLibraryUsageDescription" = "Seçilen fotoğrafları Müşteri Hizmetlerimize yüklemek için uygulamamızın, Fotoğraf Albümüne erişmesi gerekiyor.";
+"NSBluetoothPeripheralUsageDescription" = "Cihazları bağlamak için uygulamamızın Bluetooth'a erişmesi gerekiyor.";
+"NSSpeechRecognitionUsageDescription" = "Konuşmayı metne dönüştürmek için uygulamamızın Konuşma Tanımaya erişmesi gerekiyor.";
+"NSUserTrackingUsageDescription" = "Rastgele reklamlardan kaçınmak için reklam tanımlama kodunu kullanmamıza izin verebilirsin. Bu, cihazında daha iyi bir kişiselleştirilmiş reklam deneyimi elde etmene yardımcı olur.";
+

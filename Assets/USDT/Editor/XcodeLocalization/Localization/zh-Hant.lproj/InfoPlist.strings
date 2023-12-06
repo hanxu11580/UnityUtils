@@ -1,0 +1,11 @@
+"NSCalendarsUsageDescription" = "請允許遊戲訪問日歷";
+"NSCameraUsageDescription" = "請允許遊戲訪問相機";
+"NSContactsUsageDescription" = "請允許遊戲訪問通訊錄";
+"NSLocationAlwaysUsageDescription" = "請允許遊戲訪問定位功能";
+"NSLocationWhenInUseUsageDescription" = "請允許遊戲訪問位置功能";
+"NSMicrophoneUsageDescription" = "請允許遊戲訪問麥克風";
+"NSPhotoLibraryAddUsageDescription" = "請允許遊戲添加相冊";
+"NSPhotoLibraryUsageDescription" = "請允許遊戲訪問相冊";
+"NSBluetoothPeripheralUsageDescription" = "請允許遊戲訪問藍牙";
+"NSSpeechRecognitionUsageDescription" = "請允許遊戲訪問語音識別功能";
+"NSUserTrackingUsageDescription" = "為了避免您受隨機廣告的打擾，您可以授權我們使用廣告識別碼，這將幫助您在設備上獲得量身打造的廣告體驗";

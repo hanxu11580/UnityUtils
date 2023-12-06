@@ -1,0 +1,12 @@
+"NSCalendarsUsageDescription" = "Our app needs access to Calendar to view date.";
+"NSCameraUsageDescription" = "Our app needs access to camera to take photos.";
+"NSContactsUsageDescription" = "Our app needs access to contacts to help you connect with friends in game.";
+"NSLocationAlwaysUsageDescription" = "Our app needs access to your location to provide localized content.";
+"NSLocationWhenInUseUsageDescription" = "Our app needs access to your location to provide localized content.";
+"NSMicrophoneUsageDescription" = "Our app needs access to Microphone to enable voice chat.";
+"NSPhotoLibraryAddUsageDescription" = "Our app needs access to Photo Album to upload selected photos to our CS.";
+"NSPhotoLibraryUsageDescription" = "Our app needs access to Photo Album to upload selected photos to our CS.";
+"NSBluetoothPeripheralUsageDescription" = "Our app needs access to Bluetooth to connect devices.";
+"NSSpeechRecognitionUsageDescription" = "Our app needs access to Speech Recognition to convert spoken language to text.";
+"NSUserTrackingUsageDescription" = "You may authorize us to use the ad identification code to avoid random ads. This will help you get a better personalized advertising experience on your device.";
+

@@ -1,0 +1,12 @@
+"NSCalendarsUsageDescription" = "Notre application doit accéder au Calendrier pour afficher la date.";
+"NSCameraUsageDescription" = "Notre application doit accéder à l’appareil photo pour prendre des photos.";
+"NSContactsUsageDescription" = "Notre application doit accéder aux contacts pour vous aider à vous connecter à vos amis en jeu.";
+"NSLocationAlwaysUsageDescription" = "Notre application doit accéder à votre emplacement pour fournir du contenu localisé.";
+"NSLocationWhenInUseUsageDescription" = "Notre application doit accéder à votre emplacement pour fournir du contenu localisé.";
+"NSMicrophoneUsageDescription" = "Notre application doit accéder au micro pour activer le chat vocal.";
+"NSPhotoLibraryAddUsageDescription" = "Notre application doit accéder à l’album photos pour transférer les photos sélectionnées sur notre SC.";
+"NSPhotoLibraryUsageDescription" = "Notre application doit accéder à l’album photos pour transférer les photos sélectionnées sur notre SC.";
+"NSBluetoothPeripheralUsageDescription" = "Notre application doit accéder au Bluetooth pour connecter des appareils.";
+"NSSpeechRecognitionUsageDescription" = "Notre application doit accéder à la reconnaissance vocale pour convertir le langage parlé en texte.";
+"NSUserTrackingUsageDescription" = "Vous pouvez nous autoriser à utiliser le code d’identification des publicités pour éviter les publicités aléatoires. Cela vous aidera à recevoir des publicités mieux ciblées sur votre appareil.";
+

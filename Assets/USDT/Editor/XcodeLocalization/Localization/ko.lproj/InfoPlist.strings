@@ -1,0 +1,12 @@
+"NSCalendarsUsageDescription" = "게임 이 달력 에 접근 할 수 있 도록 해 주세요.";
+"NSCameraUsageDescription" = "게임 으로 카메라 에 접근 할 수 있 도록 해 주세요.";
+"NSContactsUsageDescription" = "게임 방문 주소록 을 허락 해 주 십시오.";
+"NSLocationAlwaysUsageDescription" = "게임 이 포 지 셔 닝 기능 에 접근 할 수 있 도록 해 주세요.";
+"NSLocationWhenInUseUsageDescription" = "게임 위치 기능 에 접근 할 수 있 도록 해 주세요.";
+"NSMicrophoneUsageDescription" = "게임 마이크 에 접근 할 수 있 게 해 주세요.";
+"NSPhotoLibraryAddUsageDescription" = "앨범 추가 게임 허용 해 주세요.";
+"NSPhotoLibraryUsageDescription" = "앨범 에 게임 방문 을 허락 해 주 십시오.";
+"NSBluetoothPeripheralUsageDescription" = "게임 블 루 투 스 방문 을 허용 하 세 요";
+"NSSpeechRecognitionUsageDescription" = "게임 으로 음성 인식 기능 에 접근 할 수 있 도록 해 주세요.";
+"NSUserTrackingUsageDescription" = "무작위 광고에 방해받지 않도록 광고 식별 코드 접근을 허용해 주십시오. 기기에서 더 나은 맞춤형 광고를 체험할 수 있습니다.";
+
