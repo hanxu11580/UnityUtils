@@ -8,36 +8,18 @@ namespace USDT.Core {
     /// 事件消息类管理
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class EventPool<T>where T:GlobalEventArgs
-    {
-        /// <summary>
-        /// 事件
-        /// </summary>
-        private class Event
-        {
-            public object Sender { get; private set; }
-            public T EventArgs { get; private set; }
-            public Event(object sender, T eventArgs)
-            {
-                Sender = sender;
-                EventArgs = eventArgs;
-            }
-        }
+    public class EventPool<T>where T : GlobalEventArgs {
 
         private Dictionary<Type, EventHandler<T>> m_EventHandlers;
 
-        public EventPool()
-        {
+        public EventPool() {
             m_EventHandlers = new Dictionary<Type, EventHandler<T>>();
         }
-
-
 
         /// <summary>
         /// 检查订阅事件处理方法是否存在
         /// </summary>
-        public bool Check(Type type, EventHandler<T> handler)
-        {
+        public bool Check(Type type, EventHandler<T> handler) {
             if (handler == null)
             {
                 Debug.LogError("事件处理方法为空");
@@ -63,8 +45,7 @@ namespace USDT.Core {
         /// <summary>
         /// 订阅事件
         /// </summary>
-        public void Subscribe(Type type, EventHandler<T> handler)
-        {
+        public void Subscribe(Type type, EventHandler<T> handler) {
             if (handler == null)
             {
                 Debug.LogError("事件处理方法为空，无法订阅");
@@ -91,8 +72,7 @@ namespace USDT.Core {
         /// <summary>
         /// 取消订阅事件
         /// </summary>
-        public void Unsubscribe(Type type, EventHandler<T> handler)
-        {
+        public void Unsubscribe(Type type, EventHandler<T> handler) {
             if (handler == null)
             {
                 Debug.LogError("事件处理方法为空，无法取消订阅");
@@ -108,8 +88,7 @@ namespace USDT.Core {
         /// <summary>
         /// 抛出事件
         /// </summary>
-        public void Throw(Type type, object sender, T e)
-        {
+        public void Throw(Type type, object sender, T e) {
             //尝试获取事件的处理方法
             if (m_EventHandlers.TryGetValue(type, out EventHandler<T> handlers))
             {
@@ -122,8 +101,7 @@ namespace USDT.Core {
         /// <summary>
         /// 关闭并清理事件池。
         /// </summary>
-        public void Shutdown()
-        {
+        public void Shutdown() {
             m_EventHandlers.Clear();
         }
     }

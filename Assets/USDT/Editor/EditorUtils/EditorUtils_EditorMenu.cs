@@ -142,7 +142,7 @@ namespace USDT.CustomEditor {
         [MenuItem("Assets/GenerateNameSpace", false)]
         private static void GenerateNameSpace() {
             if(Selection.assetGUIDs == null || Selection.assetGUIDs.Length != 1) {
-                lg.e("请选择对应的目录");
+                lg.e("请选择Asset");
                 return;
             }
 
@@ -163,7 +163,19 @@ namespace USDT.CustomEditor {
             AssetDatabase.Refresh();
         }
 
-        private static void GenerateNamespaceSingleFile(string filePath, string @namespace) {
+		[MenuItem("Assets/ShowAssetText", false)]
+		private static void ShowAssetText() {
+			if (Selection.assetGUIDs == null || Selection.assetGUIDs.Length != 1) {
+				lg.e("请选择Asset");
+				return;
+			}
+			var guid = Selection.assetGUIDs[0];
+			var assetPath = AssetDatabase.GUIDToAssetPath(guid);
+			var text = File.ReadAllText(assetPath);
+			AssetTextViewer.Open(text);
+		}
+
+		private static void GenerateNamespaceSingleFile(string filePath, string @namespace) {
             var allText = File.ReadAllText(filePath);
             if (allText.Contains("namespace")) {
 				return;

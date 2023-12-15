@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 using UnityEngine.Experimental.UIElements;
 #endif
 
-namespace USDT.CustomEditor {
+namespace USDT.CustomEditor.Topbar {
 	public static class ToolbarCallback
 	{
 		static Type m_toolbarType = typeof(Editor).Assembly.GetType("UnityEditor.Toolbar");

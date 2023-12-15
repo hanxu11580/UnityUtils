@@ -3,10 +3,20 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace USDT.Utils {
-    public static class FileUtils
-    {
+    public static class FileUtils {
+
+        /// <summary>
+        /// Assets前一层路径
+        /// </summary>
+        /// <returns></returns>
+        public static string UnityProjectPath() {
+            var dirInfo = new DirectoryInfo(Application.dataPath);
+            return dirInfo.Parent.FullName;
+        }
+
         /// <summary>
         /// 文件是否存在
         /// </summary>

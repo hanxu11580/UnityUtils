@@ -4,7 +4,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace USDT.CustomEditor {
+namespace USDT.CustomEditor.Topbar {
 	[InitializeOnLoad]
 	public static class ToolbarExtender
 	{
