@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 namespace USDT.CustomEditor {
 
     public class CustomSettingsBaseSO : ScriptableObject {
-        public const string AssetPath = "Assets/USDT/Editor/Windows/SettingsEditorWindows/CustomSettingsBase.asset";
+        public const string AssetPath = "Assets/USDT/Editor/SettingsEditorWindows/CustomSettingsBase.asset";
         public string label;
         public static CustomSettingsBaseSO SO => GetOrCreateSettings();
         public static CustomSettingsBaseSO GetOrCreateSettings() {

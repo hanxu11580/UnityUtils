@@ -62,7 +62,7 @@ namespace USDT.CustomEditor {
         /// </summary>
         /// <param name="rect"></param>
         /// <param name="tint"></param>
-        public static void DrawRectColor(Rect rect, Color tint, string text = "", GUIStyle style = null) {
+        public static void DrawBoxColor(Rect rect, Color tint, string text = "", GUIStyle style = null) {
             Color c = GUI.color;
             GUI.color = tint;
             if(style != null) {
