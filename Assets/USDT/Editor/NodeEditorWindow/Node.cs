@@ -2,6 +2,7 @@ using UnityEditor;
 using UnityEngine;
 public class Node {
     public Rect rect;
+    public string name = "new node";
     public ConnectionPoint inConnectionPoint;
     public ConnectionPoint outConnectionPoint;
 
@@ -17,7 +18,13 @@ public class Node {
     }
 
     public void Draw() {
-        GUI.Box(rect, "Node", NodeEditorWindow.NodeStyle);
+        GUI.Box(rect, "", NodeEditorWindow.NodeStyle);
+        // 并不是很好看
+        //Rect fRect = new Rect(rect.x + 15, rect.y + 10, NodeEditorWindow.DefaultNodeWidth - 30, 20);
+        //name = EditorGUI.TextField(fRect, name);
+
+
+
         inConnectionPoint.Draw();
         outConnectionPoint.Draw();
     }
