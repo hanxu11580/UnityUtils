@@ -14,10 +14,13 @@ namespace QuadTree {
         private List<QuadTreeNode<GameObject>> _rayNodes;
         private List<QuadTreeLeaf<GameObject>> _rayLeafs;
 
+        private List<QuadTreeLeaf<GameObject>> _updateLeaf;        
+
         private void Start() {
             _quadRoot = new QuadTreeNode<GameObject>(0, 0, 100, 100, 1, -1);
             _rayNodes = new List<QuadTreeNode<GameObject>>();
             _rayLeafs = new List<QuadTreeLeaf<GameObject>>();
+            _updateLeaf = new List<QuadTreeLeaf<GameObject>>();
             // 在quadRoot范围内生成东西
             for (int i = 0; i < _spawnCount; i++) {
                 Vector3 rnd = new Vector3(
@@ -25,7 +28,14 @@ namespace QuadTree {
                     Random.Range(_quadRoot.bounds.yMin, _quadRoot.bounds.yMax), 0);
                 var go = GameObject.Instantiate(_prefab, rnd, Quaternion.identity);
                 go.name = i.ToString();
-                _quadRoot.AddNode(rnd, go);
+                var addLeaf = _quadRoot.Add(rnd, go);
+                _updateLeaf.Add(addLeaf);
+            }
+        }
+
+        private void Update() {
+            foreach (var updateLeaf in _updateLeaf) {
+                _quadRoot.Update(updateLeaf, updateLeaf.LeafObject.transform.position);
             }
         }
 
@@ -34,24 +44,31 @@ namespace QuadTree {
             if (Application.isPlaying) {
                 _quadRoot.DrwaGizmos();
 
-                Gizmos.DrawLine(_rayStart.transform.position, _rayEnd.transform.position);
 
-                // 穿过圆形GameObject的区域才会变成绿色
-                Color originalColor = Gizmos.color;
-                Gizmos.color = Color.green;
+                // 下面两个打开，可以移动End物体穿过小圆点
+                //Gizmos.DrawLine(_rayStart.transform.position, _rayEnd.transform.position);
+                //DrawLineIntersectsLeaf();
 
-                _rayNodes.Clear();
-                _rayLeafs.Clear();
-                var prefabRadius = 1f;
-                var count = _quadRoot.GetLineIntersectsLeaf(_rayStart.transform.position, _rayEnd.transform.position, prefabRadius, ref _rayLeafs);
-                if(count > 0) {
-                    foreach (var leaf in _rayLeafs) {
-                        GizmosUtils.DrawRect(leaf.Node.bounds);
-                    }
-                }
 
-                Gizmos.color = originalColor;
             }
+        }
+
+        private void DrawLineIntersectsLeaf() {
+            // 穿过圆形GameObject的区域才会变成绿色
+            Color originalColor = Gizmos.color;
+            Gizmos.color = Color.green;
+
+            _rayNodes.Clear();
+            _rayLeafs.Clear();
+            var prefabRadius = 1f;
+            var count = _quadRoot.GetLineIntersectsLeaf(_rayStart.transform.position, _rayEnd.transform.position, prefabRadius, ref _rayLeafs);
+            if (count > 0) {
+                foreach (var leaf in _rayLeafs) {
+                    GizmosUtils.DrawRect(leaf.Node.bounds);
+                }
+            }
+
+            Gizmos.color = originalColor;
         }
     }
 }

@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefab: {fileID: 6544795497609765609, guid: 456c42fff33afb0429b7e7143a7117bb, type: 3}
-  _spawnCount: 50
+  _spawnCount: 10
   _rayStart: {fileID: 2145047158}
   _rayEnd: {fileID: 637066283}
 --- !u!1 &637066283

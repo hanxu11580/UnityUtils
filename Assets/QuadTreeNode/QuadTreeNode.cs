@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using USDT.Expand;
 using USDT.Utils;
 
 namespace QuadTree {
     public class QuadTreeNode<T> {
+
+        protected QuadTreeNode<T> parent;
         /// <summary>
         /// 所有的叶子节点
         /// </summary>
@@ -22,17 +25,15 @@ namespace QuadTree {
         /// </summary>
         protected float minSize;
 
-        protected int rank;
-
         public const float TOLERANCE = 0.001f;
 
         public Rect bounds;
 
-        public QuadTreeNode(float x, float y, float width, float height, int maximumItems, float minSize = -1, int rank = 1) {
+        public QuadTreeNode(float x, float y, float width, float height, int maximumItems, float minSize = -1, QuadTreeNode<T> parent = null) {
             bounds = new Rect(x, y, width, height);
             maxItems = maximumItems;
             this.minSize = minSize;
-            this.rank = rank;
+            this.parent = parent;
             items = new List<QuadTreeLeaf<T>>();
         }
 
@@ -61,13 +62,14 @@ namespace QuadTree {
 
             branch = new QuadTreeNode<T>[4];
 
-            branch[0] = new QuadTreeNode<T>(bounds.x, bounds.y, ewHalf, nsHalf, maxItems, minSize, this.rank + 1);
-            branch[1] = new QuadTreeNode<T>(bounds.x + ewHalf, bounds.y, ewHalf, nsHalf, maxItems, minSize, this.rank + 1);
-            branch[2] = new QuadTreeNode<T>(bounds.x, bounds.y + nsHalf, ewHalf, nsHalf, maxItems, minSize, this.rank + 1);
-            branch[3] = new QuadTreeNode<T>(bounds.x + ewHalf, bounds.y + nsHalf, ewHalf, nsHalf, maxItems, minSize, this.rank + 1);
+            branch[0] = new QuadTreeNode<T>(bounds.x, bounds.y, ewHalf, nsHalf, maxItems, minSize, this);
+            branch[1] = new QuadTreeNode<T>(bounds.x + ewHalf, bounds.y, ewHalf, nsHalf, maxItems, minSize, this);
+            branch[2] = new QuadTreeNode<T>(bounds.x, bounds.y + nsHalf, ewHalf, nsHalf, maxItems, minSize, this);
+            branch[3] = new QuadTreeNode<T>(bounds.x + ewHalf, bounds.y + nsHalf, ewHalf, nsHalf, maxItems, minSize, this);
 
+            // 把当前的叶子重新分配到新区域节点中
             foreach (var item in items) {
-                AddNode(item);
+                Add(item);
             }
 
             items.Clear();
@@ -99,11 +101,11 @@ namespace QuadTree {
             return null;
         }
 
-        public bool AddNode(Vector2 pos, T obj) {
-            return AddNode(new QuadTreeLeaf<T>(pos, obj));
+        public QuadTreeLeaf<T> Add(Vector2 pos, T obj) {
+            return Add(new QuadTreeLeaf<T>(pos, obj));
         }
 
-        private bool AddNode(QuadTreeLeaf<T> leaf) {
+        private QuadTreeLeaf<T> Add(QuadTreeLeaf<T> leaf) {
             if(branch == null) {
                 items.Add(leaf);
                 leaf.Node = this;
@@ -111,63 +113,52 @@ namespace QuadTree {
                 if(items.Count > maxItems) {
                     Split();
                 }
-                return true;
+                return leaf;
             }
             else {
                 // 看看这叶子节点在哪个区域
                 QuadTreeNode<T> node = GetChild(leaf.Pos);
                 if (node != null) {
                     // 在某个区域
-                    return node.AddNode(leaf);
+                    return node.Add(leaf);
                 }
             }
-            return false;
+            return null;
         }
 
-        public bool RemoveNode(Vector2 pos, T obj) {
-            if(branch == null) {
-                for (int i = 0; i < items.Count; i++) {
-                    QuadTreeLeaf<T> qtl = items[i];
-                    if (qtl.LeafObject.Equals(obj)) {
-                        items.RemoveAt(i);
-                        return true;
-                    }
-                }
-            }
-            else {
-                QuadTreeNode<T> node = GetChild(pos);
-                if(node != null) {
-                    return node.RemoveNode(pos, obj);
-                }
-            }
-            return false;
-        }
-
+        List<QuadTreeLeaf<T>> _temp = new List<QuadTreeLeaf<T>>();
         /// <summary>
         /// 更新位置？
         /// </summary>
         /// <param name="pos"></param>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public bool UpdateNode(Vector2 pos, T obj) {
-            if (branch == null) {
-                for (int i = 0; i < items.Count; i++) {
-                    QuadTreeLeaf<T> qtl = items[i];
-                    if (qtl.LeafObject.Equals(obj)) {
-                        qtl.Pos = pos;
-                        return true;
-                    }
-                }
+        public void Update(QuadTreeLeaf<T> leaf, Vector2 pos) {
+            if(leaf.Pos == pos) {
+                return;
             }
-            else {
-                QuadTreeNode<T> node = GetChild(pos);
-                if (node != null) {
-                    return node.UpdateNode(pos, obj);
-                }
-            }
-            return false;
-        }
 
+            leaf.Node.items.ExRemove(leaf);
+            var parent = leaf.Node.parent;
+            while (parent != null) {
+                _temp.Clear();
+                var allLeafCount = parent.GetLeaf(parent.bounds, ref _temp);
+
+                if (allLeafCount <= maxItems) {
+                    // 收缩
+                    parent.items.AddRange(_temp);
+                    parent.branch = null;
+
+                    parent = parent.parent;
+                }
+                else {
+                    parent = null;
+                }
+            }
+
+            leaf.Pos = pos;
+            Add(leaf);
+        }
         /// <summary>
         /// 获得rect区域内所有node数据
         /// </summary>
@@ -191,6 +182,25 @@ namespace QuadTree {
                 }
             }
             return nodes.Count;
+        }
+
+        public int GetLeaf(Rect rect, ref List<QuadTreeLeaf<T>> leafs) {
+            if (branch == null) {
+                foreach (var item in items) {
+                    if (rect.Contains(item.Pos)) {
+                        leafs.Add(item);
+                    }
+                }
+            }
+            else {
+                for (int i = 0; i < branch.Length; i++) {
+                    // 区域重叠再去找
+                    if (branch[i].bounds.Overlaps(rect)) {
+                        branch[i].GetLeaf(rect, ref leafs);
+                    }
+                }
+            }
+            return leafs.Count;
         }
 
         /// <summary>
