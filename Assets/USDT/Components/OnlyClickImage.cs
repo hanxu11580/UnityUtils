@@ -8,7 +8,7 @@ namespace USDT.Components {
     {
         protected override void OnPopulateMesh(VertexHelper toFill)
         {
-            toFill.Clear();
+            //toFill.Clear();
         }
     }
 }
