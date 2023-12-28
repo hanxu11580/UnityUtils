@@ -6,9 +6,13 @@ namespace USDT.Components {
     /// </summary>
     public class OnlyClickImage : Image
     {
-        protected override void OnPopulateMesh(VertexHelper toFill)
-        {
-            //toFill.Clear();
+        protected OnlyClickImage() {
+            useLegacyMeshGeneration = false;
+        }
+
+
+        protected override void OnPopulateMesh(VertexHelper toFill) {
+            toFill.Clear();
         }
     }
 }
