@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: testatlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: e35cb7806b8da61469f6d5a398f2d699, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 659d1290163832b4ca30bdd23c2f8f9e: 21300000
+    - 489aa7d1318e6aa4bb231737cfa337d0: 21300000
+    - a3f5b522fcb9edf40a9a79057f31f45b: 21300000
+    - 808f6613ed58c134c999998094975b91: 21300000
+    - b7677363ba2f73c4bb163a57db4644fb: 21300000
+    - 7412f7639bf9d4e4bb7349991c2e6886: 21300000
+    - ccb828730fa87774c881a90e770f2c0f: 21300000
+    - bb8806048d826ea46a082aa61df4fd45: 21300000
+    - 9ef0a034e9516af4386ce72caf0500b2: 21300000
+    - 4b9b78345cf9eb24a8b221d0eba4664d: 21300000
+    - 5a3b7e34f9c711f49b10ed2314ff8706: 21300000
+    - 1d9e46154c1f00949952302fab381f25: 21300000
+    - 38bc90358e1083a478c225da6cc58588: 21300000
+    - eb33a135e21f2ec45a7f247cb4d508bc: 21300000
+    - dcca7745962a91546a942ce9c6b2788e: 21300000
+    - 4434ba558ed1c6e42804511e3aad1a78: 21300000
+    - 45aedb758e795c045b1fd5d79e5c1f4f: 21300000
+    - 8a9ea0b53005a004a838cfde67be00fc: 21300000
+    - bdfc32a695f51e440b89a19d10593140: 21300000
+    - 946472f6bfa56914485ecb9965a36b9d: 21300000
+    - 446afe67cca48d646b3886cf5c1b7148: 21300000
+    - 902d4b979275ba24c833d0dcd7edaee6: 21300000
+    - 26364f690c93b1047a76b8ed88479ace: 21300000
+    - 664e2a7a2c0095b499b983993425a5d9: 21300000
+    - 927ba98a461d22d4db9b80ea6daacb67: 21300000
+    - 08322b9ae1eaa7541ba57a40d6ca414e: 21300000
+    - 7488aebb988f1bf479814c1cca4dee83: 21300000
+    - 328b12fbc9317ef419643e555ee9ba91: 21300000
+    - 827cdc4cec3382e40bb338e236852ddd: 21300000
+    - cb5265fcaa919394babc32aa3b2c4f69: 21300000
+    - 29ae662d0b98ff2478d8424b61589def: 21300000
+    - c8c30e8d09197944a848ca4edc7263d2: 21300000
+    - 833981bda6bf4954a8e99c37eda432fd: 21300000
+    - 877ec9bd4e135c94d89861e59bc3b4eb: 21300000
+    - dc25032e0585dcc42873b7541419b7c7: 21300000
+    - be1669eeeecf7294991a7c82e4863efb: 21300000
+    - 8c69210fe804b2e4f8401361e499f936: 21300000
+    - bfabcc3f9481fbf488981989d17abccb: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 659d1290163832b4ca30bdd23c2f8f9e, type: 3}
+  - {fileID: 21300000, guid: 489aa7d1318e6aa4bb231737cfa337d0, type: 3}
+  - {fileID: 21300000, guid: a3f5b522fcb9edf40a9a79057f31f45b, type: 3}
+  - {fileID: 21300000, guid: 808f6613ed58c134c999998094975b91, type: 3}
+  - {fileID: 21300000, guid: b7677363ba2f73c4bb163a57db4644fb, type: 3}
+  - {fileID: 21300000, guid: 7412f7639bf9d4e4bb7349991c2e6886, type: 3}
+  - {fileID: 21300000, guid: ccb828730fa87774c881a90e770f2c0f, type: 3}
+  - {fileID: 21300000, guid: bb8806048d826ea46a082aa61df4fd45, type: 3}
+  - {fileID: 21300000, guid: 9ef0a034e9516af4386ce72caf0500b2, type: 3}
+  - {fileID: 21300000, guid: 4b9b78345cf9eb24a8b221d0eba4664d, type: 3}
+  - {fileID: 21300000, guid: 5a3b7e34f9c711f49b10ed2314ff8706, type: 3}
+  - {fileID: 21300000, guid: 1d9e46154c1f00949952302fab381f25, type: 3}
+  - {fileID: 21300000, guid: 38bc90358e1083a478c225da6cc58588, type: 3}
+  - {fileID: 21300000, guid: eb33a135e21f2ec45a7f247cb4d508bc, type: 3}
+  - {fileID: 21300000, guid: dcca7745962a91546a942ce9c6b2788e, type: 3}
+  - {fileID: 21300000, guid: 4434ba558ed1c6e42804511e3aad1a78, type: 3}
+  - {fileID: 21300000, guid: 45aedb758e795c045b1fd5d79e5c1f4f, type: 3}
+  - {fileID: 21300000, guid: 8a9ea0b53005a004a838cfde67be00fc, type: 3}
+  - {fileID: 21300000, guid: bdfc32a695f51e440b89a19d10593140, type: 3}
+  - {fileID: 21300000, guid: 946472f6bfa56914485ecb9965a36b9d, type: 3}
+  - {fileID: 21300000, guid: 446afe67cca48d646b3886cf5c1b7148, type: 3}
+  - {fileID: 21300000, guid: 902d4b979275ba24c833d0dcd7edaee6, type: 3}
+  - {fileID: 21300000, guid: 26364f690c93b1047a76b8ed88479ace, type: 3}
+  - {fileID: 21300000, guid: 664e2a7a2c0095b499b983993425a5d9, type: 3}
+  - {fileID: 21300000, guid: 927ba98a461d22d4db9b80ea6daacb67, type: 3}
+  - {fileID: 21300000, guid: 08322b9ae1eaa7541ba57a40d6ca414e, type: 3}
+  - {fileID: 21300000, guid: 7488aebb988f1bf479814c1cca4dee83, type: 3}
+  - {fileID: 21300000, guid: 328b12fbc9317ef419643e555ee9ba91, type: 3}
+  - {fileID: 21300000, guid: 827cdc4cec3382e40bb338e236852ddd, type: 3}
+  - {fileID: 21300000, guid: cb5265fcaa919394babc32aa3b2c4f69, type: 3}
+  - {fileID: 21300000, guid: 29ae662d0b98ff2478d8424b61589def, type: 3}
+  - {fileID: 21300000, guid: c8c30e8d09197944a848ca4edc7263d2, type: 3}
+  - {fileID: 21300000, guid: 833981bda6bf4954a8e99c37eda432fd, type: 3}
+  - {fileID: 21300000, guid: 877ec9bd4e135c94d89861e59bc3b4eb, type: 3}
+  - {fileID: 21300000, guid: dc25032e0585dcc42873b7541419b7c7, type: 3}
+  - {fileID: 21300000, guid: be1669eeeecf7294991a7c82e4863efb, type: 3}
+  - {fileID: 21300000, guid: 8c69210fe804b2e4f8401361e499f936, type: 3}
+  - {fileID: 21300000, guid: bfabcc3f9481fbf488981989d17abccb, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - UI_icon_23
+  - UI_icon_15
+  - UI_icon_136
+  - UI_icon_16
+  - UI_icon_130
+  - UI_icon_133
+  - UI_icon_09
+  - UI_icon_135
+  - UI_icon_28
+  - UI_icon_19
+  - UI_icon_132
+  - UI_icon_10
+  - UI_icon_128
+  - UI_icon_18
+  - UI_icon_129
+  - UI_icon_29
+  - UI_icon_07
+  - UI_icon_125
+  - UI_icon_126
+  - UI_icon_03
+  - UI_icon_12
+  - UI_icon_127
+  - UI_icon_22
+  - UI_icon_02
+  - UI_icon_24
+  - UI_icon_05
+  - UI_icon_06
+  - UI_icon_131
+  - UI_icon_20
+  - UI_icon_01
+  - UI_icon_14
+  - UI_icon_27
+  - UI_icon_11
+  - UI_icon_134
+  - UI_icon_08
+  - UI_icon_17
+  - UI_icon_04
+  - UI_icon_25
+  m_RenderDataMap: {}
+  m_Tag: testatlas
+  m_IsVariant: 0

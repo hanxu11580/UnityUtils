@@ -27,19 +27,19 @@ MonoBehaviour:
       AssetTags: 
       ActiveRuleName: EnableGroup
       Collectors:
-      - CollectPath: Assets/3rd/Juce-ImplementationSelector-1.0.4/Examples/Scripts/InterfaceImplementation/Example2
-        CollectorGUID: 5767d199aea4c9d40a41402a2bd243dd
-        CollectorType: 0
-        AddressRuleName: AddressByFileName
-        PackRuleName: PackSeparately
-        FilterRuleName: CollectAll
-        AssetTags: 
-        UserData: 
-      - CollectPath: Assets/3rd/PureMVC/MyTest/Panel.prefab
-        CollectorGUID: f4005ad25a230a345892c3f7d4d309bb
+      - CollectPath: Assets/UnitySpriteAtlasTest/sourceTex
+        CollectorGUID: 256ecc26d44fc634ea702e4ec8f0a31a
         CollectorType: 0
         AddressRuleName: AddressByFileName
         PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+      - CollectPath: Assets/UnitySpriteAtlasTest/testatlas.spriteatlas
+        CollectorGUID: 412fe23b8eee4ea4184ef8e294557e3d
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackSeparately
         FilterRuleName: CollectAll
         AssetTags: 
         UserData: 
