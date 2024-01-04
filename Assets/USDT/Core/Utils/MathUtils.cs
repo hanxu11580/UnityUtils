@@ -87,6 +87,26 @@ namespace USDT.Utils {
             float distance = areaTimesTwo / lineLength;
             return distance;
         }
+
+
+        /// <summary>
+        /// 判断是否与plane相交
+        /// </summary>
+        /// <param name="bounds"></param>
+        /// <param name="plane"></param>
+        /// <returns></returns>
+        public static bool BoundPlaneIntersect(Bounds bounds, ref Plane plane) {
+            // Compute projection interval radius
+            float r = bounds.extents.x * Mathf.Abs(plane.normal.x) +
+                bounds.extents.y * Mathf.Abs(plane.normal.y) +
+                bounds.extents.z * Mathf.Abs(plane.normal.z);
+
+            // Compute distance of box center from plane
+            float s = Vector3.Dot(plane.normal, bounds.center) - (-plane.distance);
+
+            // Intersection occurs when distance s falls within [-r,+r] interval
+            return Mathf.Abs(s) <= r;
+        }
     }
 
 }
