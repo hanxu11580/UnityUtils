@@ -5,95 +5,102 @@ using UnityEngine.UI;
 using System;
 using System.Reflection;
 using System.Text;
+using System.Linq;
+
 namespace USDT.Components {
     public class UIRebuildLogger : MonoBehaviour {
 
-        /// <summary>
-        /// 是否开启帧模式，
-        /// 帧模式下关心每一帧有哪些UI元素触发了Rebuild，
-        /// 非帧模式下则关心UI元素触发了多少次Rebuild（建议开启Console的Collapse）
-        /// </summary>
-        [Tooltip("是否开启帧模式，\n帧模式下关心每一帧有哪些UI元素触发了Rebuild，\n非帧模式下则关心UI元素触发了多少次Rebuild（建议开启Console的Collapse）")]
-        [SerializeField]
-        bool m_FrameMode;
-
-        IList<ICanvasElement> m_LayoutRebuildQueue;
-        IList<ICanvasElement> m_GraphicRebuildQueue;
-        StringBuilder sb = new StringBuilder();
+        IList<ICanvasElement> _layoutRebuildQueue;
+        IList<ICanvasElement> _graphicRebuildQueue;
+        Dictionary<string, int> _map = new Dictionary<string, int>();
+        StringBuilder _sb = new StringBuilder();
         private void Awake() {
             Type type = typeof(CanvasUpdateRegistry);
             FieldInfo field = type.GetField("m_LayoutRebuildQueue", BindingFlags.NonPublic | BindingFlags.Instance);
-            m_LayoutRebuildQueue = (IList<ICanvasElement>)field.GetValue(CanvasUpdateRegistry.instance);
+            _layoutRebuildQueue = (IList<ICanvasElement>)field.GetValue(CanvasUpdateRegistry.instance);
             field = type.GetField("m_GraphicRebuildQueue", BindingFlags.NonPublic | BindingFlags.Instance);
-            m_GraphicRebuildQueue = (IList<ICanvasElement>)field.GetValue(CanvasUpdateRegistry.instance);
+            _graphicRebuildQueue = (IList<ICanvasElement>)field.GetValue(CanvasUpdateRegistry.instance);
         }
 
         private void Update() {
 
+            try {
+                for (int j = 0; j < _layoutRebuildQueue.Count; j++) {
+                    ICanvasElement element = _layoutRebuildQueue[j];
+                    if (!ObjectValidForUpdata(element)) {
+                        continue;
+                    }
 
-            for (int j = 0; j < m_LayoutRebuildQueue.Count; j++) {
-                ICanvasElement element = m_LayoutRebuildQueue[j];
-                if (!ObjectValidForUpdata(element)) {
-                    continue;
+                    if (element.transform == null) {
+                        continue;
+                    }
+                    Graphic graphic = element.transform.GetComponent<Graphic>();
+                    if (graphic == null) {
+                        continue;
+                    }
+
+                    Canvas canvas = graphic.canvas;
+                    if (canvas == null) {
+                        continue;
+                    }
+
+                    string str = $"<color=#ff0000>{element.transform.name}</color>的LayoutRebuild引起<color=#ff0000>{canvas.name}</color>网格重建";
+
+                    if (_map.ContainsKey(str)) {
+                        _map[str] += 1;
+                    }
+                    else {
+                        _map.Add(str, 1);
+                    }
                 }
 
-                Graphic graphic = element.transform.GetComponent<Graphic>();
-                if (graphic == null) {
-                    continue;
+                for (int j = 0; j < _graphicRebuildQueue.Count; j++) {
+                    ICanvasElement element = _graphicRebuildQueue[j];
+
+                    if (!ObjectValidForUpdata(element)) {
+                        continue;
+                    }
+
+                    Graphic graphic = element.transform.GetComponent<Graphic>();
+                    if (graphic == null) {
+                        continue;
+                    }
+
+                    Canvas canvas = graphic.canvas;
+                    if (canvas == null) {
+                        continue;
+                    }
+
+
+                    string canvansName = canvas.name;
+                    if (canvansName == "DebugFps") {
+                        continue;
+                    }
+
+                    string str = $"<color=#ff0000>{element.transform.name}</color>的LayoutRebuild引起<color=#ff0000>{canvas.name}</color>网格重建";
+
+                    if (_map.ContainsKey(str)) {
+                        _map[str] += 1;
+                    }
+                    else {
+                        _map.Add(str, 1);
+                    }
                 }
 
-                Canvas canvas = graphic.canvas;
-                if (canvas == null) {
-                    continue;
+                if (_map.Count > 0) {
+                    _sb.Append($"当前帧<color=#66ccff>{Time.frameCount}</color> 重建总次数:{_map.Values.Sum()}\n");
+                    foreach (var kv in _map) {
+                        _sb.AppendLine($"{kv.Key} 重建次数:{kv.Value}");
+                    }
+                    Debug.LogError(_sb.ToString());
                 }
-
-                string str = $"<color=#ff0000>{element.transform.name}</color>的LayoutRebuild引起<color=#ff0000>{canvas.name}</color>网格重建";
-
-                if (m_FrameMode) {
-                    sb.AppendLine(str);
-                }
-                else {
-                    Debug.LogError(str);
-                }
-
             }
-
-            for (int j = 0; j < m_GraphicRebuildQueue.Count; j++) {
-                ICanvasElement element = m_GraphicRebuildQueue[j];
-
-                if (!ObjectValidForUpdata(element)) {
-                    continue;
-                }
-
-                Graphic graphic = element.transform.GetComponent<Graphic>();
-                if (graphic == null) {
-                    continue;
-                }
-
-                Canvas canvas = graphic.canvas;
-                if (canvas == null) {
-                    continue;
-                }
-
-
-                string canvansName = canvas.name;
-                if (canvansName == "DebugFps") {
-                    continue;
-                }
-
-                string str = $"<color=#ff0000>{element.transform.name}</color>的LayoutRebuild引起<color=#ff0000>{canvas.name}</color>网格重建";
-
-                if (m_FrameMode) {
-                    sb.AppendLine(str);
-                }
-                else {
-                    Debug.LogError(str);
-                }
+            catch (Exception e) {
+                Debug.LogError(e);
             }
-
-            if (sb.Length != 0) {
-                Debug.LogError($"当前帧<color=#66ccff>{Time.frameCount}</color>:\n{sb.ToString()}");
-                sb.Clear();
+            finally {
+                _map.Clear();
+                _sb.Clear();
             }
         }
 
