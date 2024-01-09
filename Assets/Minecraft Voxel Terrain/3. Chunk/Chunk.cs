@@ -23,9 +23,9 @@ namespace MinecraftVoxelTerrain {
 
         private FastNoiseLite _fastNoiseLite;
         [SerializeField] private GameObject _debugPrefab;
-
+        [SerializeField] private int _seed;
         private void Start() {
-            _fastNoiseLite = new FastNoiseLite();
+            _fastNoiseLite = new FastNoiseLite(_seed);
 
             // 一个体素需要24个顶点和36个顶点索引构成
             _vertices = new Vector3[24 * ChunkResolution * ChunkResolution * ChunkResolution];
@@ -36,6 +36,7 @@ namespace MinecraftVoxelTerrain {
                 for (int y = 0; y < ChunkResolution; y++) {
                     for (int z = 0; z < ChunkResolution; z++) {
                         // 根据随机高度控制，体素是否画出来，达到地形效果
+                        // 先沿着z轴画，然后再提高y轴，最后再增加x轴（向右移动）
                         if (IsSolid(x, y, z)) {
                             MeshVoxel(x, y, z);
                         }
@@ -66,6 +67,11 @@ namespace MinecraftVoxelTerrain {
             Vector3 offsetPos = new Vector3(x, y, z);
             for (int side = 0; side < 6; side++) {
 
+                if(x == 4 && y==8 && z==15 && side == 0) {
+                    Debug.Log("");
+                }
+
+
                 // 如果是实心的跳过
                 if (IsNeighborSolid(x, y, z, side)) {
                     continue;
@@ -76,10 +82,14 @@ namespace MinecraftVoxelTerrain {
                 _vertices[vertexOffset + 2] = Tables.Vertices[Tables.QuadVertices[side, 2]] + offsetPos;
                 _vertices[vertexOffset + 3] = Tables.Vertices[Tables.QuadVertices[side, 3]] + offsetPos;
 
-                //GameObject.Instantiate(_debugPrefab, _vertices[vertexOffset + 0], Quaternion.identity);
-                //GameObject.Instantiate(_debugPrefab, _vertices[vertexOffset + 1], Quaternion.identity);
-                //GameObject.Instantiate(_debugPrefab, _vertices[vertexOffset + 2], Quaternion.identity);
-                //GameObject.Instantiate(_debugPrefab, _vertices[vertexOffset + 3], Quaternion.identity);
+                var g1 = GameObject.Instantiate(_debugPrefab, _vertices[vertexOffset + 0], Quaternion.identity);
+                g1.name = (vertexOffset + 0).ToString();
+                var g2 = GameObject.Instantiate(_debugPrefab, _vertices[vertexOffset + 1], Quaternion.identity);
+                g2.name = (vertexOffset + 1).ToString();
+                var g3 = GameObject.Instantiate(_debugPrefab, _vertices[vertexOffset + 2], Quaternion.identity);
+                g3.name = (vertexOffset + 2).ToString();
+                var g4 = GameObject.Instantiate(_debugPrefab, _vertices[vertexOffset + 3], Quaternion.identity);
+                g4.name = (vertexOffset + 3).ToString();
 
                 _triangles[triangleOffset + 0] = vertexOffset + 0;
                 _triangles[triangleOffset + 1] = vertexOffset + 1;
@@ -115,11 +125,11 @@ namespace MinecraftVoxelTerrain {
         private bool IsSolid(int x, int y, int z) {
             // 超过范围的不会去画体素
             // 对于面来说，邻居超过的话将会将此面画出来
-            if (x < 0 || x >= ChunkResolution
-                || y < 0 || y >= ChunkResolution
-                || z < 0 || z >= ChunkResolution) {
-                return false;
-            }
+            //if (x < 0 || x >= ChunkResolution
+            //    || y < 0 || y >= ChunkResolution
+            //    || z < 0 || z >= ChunkResolution) {
+            //    return false;
+            //}
 
             // 没有地形类型时
             //float terrainHeight = GetNoiseHeight(8, 1, x, z);

@@ -46,8 +46,8 @@ namespace QuadTree {
 
 
                 // 下面两个打开，可以移动End物体穿过小圆点
-                //Gizmos.DrawLine(_rayStart.transform.position, _rayEnd.transform.position);
-                //DrawLineIntersectsLeaf();
+                Gizmos.DrawLine(_rayStart.transform.position, _rayEnd.transform.position);
+                DrawLineIntersectsLeaf();
 
 
             }

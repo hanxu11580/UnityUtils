@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0f153b7087d3c4eb5c28ccc9ee7d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _terrainGenerator: {fileID: 1846901477}
+  _terrainGenerator: {fileID: 524222640}
 --- !u!1 &1112130016
 GameObject:
   m_ObjectHideFlags: 0
