@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Mathematics;
 
 namespace MinecraftVoxelTerrain {
 
@@ -33,6 +34,17 @@ namespace MinecraftVoxelTerrain {
 
             {5, 6, 4, 7}, // front quad
             {0, 3, 1, 2}, // back quad
+        };
+
+        // ÌåËØµÄÁÚ¾Ó
+        // offset to neighboring voxel position
+        public static readonly int3[] NeighborOffsets = new int3[6] {
+            new int3( 1,  0,  0), // right
+            new int3(-1,  0,  0), // left
+            new int3( 0,  1,  0), // up
+            new int3( 0, -1,  0), // down
+            new int3( 0,  0,  1), // front
+            new int3( 0,  0, -1), // back
         };
     }
 }
