@@ -46,5 +46,14 @@ namespace MinecraftVoxelTerrain {
             new int3( 0,  0,  1), // front
             new int3( 0,  0, -1), // back
         };
+
+        public static readonly Vector3[] Normals = new Vector3[6] {
+                new Vector3(1f, 0f, 0f),
+                new Vector3(-1f, 0f, 0f),
+                new Vector3(0f, 1f, 0f),
+                new Vector3(0f, -1f, 0f),
+                new Vector3(0f, 0f, 1f),
+                new Vector3(0f, 0f, -1f),
+        };
     }
 }

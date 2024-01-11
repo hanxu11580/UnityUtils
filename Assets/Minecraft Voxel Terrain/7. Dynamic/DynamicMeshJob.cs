@@ -9,12 +9,12 @@ namespace MinecraftVoxelTerrain {
     /// <summary>
     /// 这个类就是向vertices和triangles填充数据
     /// </summary>
-    public struct MeshJob : IJob {
+    public struct DynamicMeshJob : IJob {
         public Vector3 chunkPosition;
         public int chunkResolution;
 
         [ReadOnly]
-        public NativeArray<JobWorldVoxelType> voxelTypes;
+        public NativeArray<JobDynamicWorldVoxelType> voxelTypes;
         [WriteOnly]
         public NativeArray<Vector3> vertices;
         [WriteOnly]
@@ -48,7 +48,7 @@ namespace MinecraftVoxelTerrain {
             return VoxelAt(fastNoiseLite, new Vector3Int(x, y, z)).isSolid;
         }
 
-        private JobWorldVoxelType VoxelAt(FastNoiseLite noise, Vector3Int voxel) {
+        private JobDynamicWorldVoxelType VoxelAt(FastNoiseLite noise, Vector3Int voxel) {
             float height = GetNoiseHeight(noise, voxel.x, voxel.z);
 
             // if below ground
