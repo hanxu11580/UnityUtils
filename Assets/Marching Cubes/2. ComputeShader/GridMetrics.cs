@@ -9,10 +9,12 @@ namespace MarchingCubes_ComputeShader {
 			24,
 			32,
 			40,
-			48,
-			56,
-			64
-		};
+            48,
+            56,
+            64
+        };
+
+		public static int LastLod = LODs.Length - 1;
 
 		public static int PointsPerChunk(int lod) {
 			return LODs[lod];

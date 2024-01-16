@@ -9,6 +9,8 @@
 RWStructuredBuffer<float> _Weights;
 
 float _IsoLevel;
+int _LODSize;
+float _LodScaleFactor;
 
 struct Triangle {
     float3 a, b, c;
@@ -25,20 +27,25 @@ float3 interp(float3 edgeVertex1, float valueAtVertex1, float3 edgeVertex2, floa
 [numthreads(numThreads, numThreads, numThreads)]
 void March(uint3 id : SV_DispatchThreadID)
 {
-    if (id.x >= _ChunkSize - 1 || id.y >= _ChunkSize - 1 || id.z >= _ChunkSize - 1)
+    // 现在_LODSize - 1是真实的有几个立方体，ChunkSize - 1是最大有几个立方体
+    if (id.x >= _LODSize - 1 || id.y >= _LODSize - 1 || id.z >= _LODSize - 1)
     {
         return;
     }
 
+    float3 samplePos = id * _LodScaleFactor;
+    // 原本是+1，这个也需要缩放
+    float unit = 1 * _LodScaleFactor;
+
     float cubeValues[8] = {
-       _Weights[indexFromCoord(id.x, id.y, id.z + 1)],
-       _Weights[indexFromCoord(id.x + 1, id.y, id.z + 1)],
-       _Weights[indexFromCoord(id.x + 1, id.y, id.z)],
-       _Weights[indexFromCoord(id.x, id.y, id.z)],
-       _Weights[indexFromCoord(id.x, id.y + 1, id.z + 1)],
-       _Weights[indexFromCoord(id.x + 1, id.y + 1, id.z + 1)],
-       _Weights[indexFromCoord(id.x + 1, id.y + 1, id.z)],
-       _Weights[indexFromCoord(id.x, id.y + 1, id.z)]
+       _Weights[indexFromCoord(samplePos.x, samplePos.y, samplePos.z + unit)],
+       _Weights[indexFromCoord(samplePos.x + unit, samplePos.y, samplePos.z + unit)],
+       _Weights[indexFromCoord(samplePos.x + unit, samplePos.y, samplePos.z)],
+       _Weights[indexFromCoord(samplePos.x, samplePos.y, samplePos.z)],
+       _Weights[indexFromCoord(samplePos.x, samplePos.y + unit, samplePos.z + unit)],
+       _Weights[indexFromCoord(samplePos.x + unit, samplePos.y + unit, samplePos.z + unit)],
+       _Weights[indexFromCoord(samplePos.x + unit, samplePos.y + unit, samplePos.z)],
+       _Weights[indexFromCoord(samplePos.x, samplePos.y + unit, samplePos.z)]
     };
 
     int cubeIndex = 0;
@@ -73,9 +80,10 @@ void March(uint3 id : SV_DispatchThreadID)
         // 但是此时噪音还没有进行拆分
         // scaledPoint = unscaledPoint / (ChunkSize - 1) * Scale
         // 将未缩放的，缩放至[0, 1] 然后再乘 缩放
-        tri.a = (interp(cornerOffsets[e00], cubeValues[e00], cornerOffsets[e01], cubeValues[e01]) + id) / (_ChunkSize - 1) * _Scale;
-        tri.b = (interp(cornerOffsets[e10], cubeValues[e10], cornerOffsets[e11], cubeValues[e11]) + id) / (_ChunkSize - 1) * _Scale;
-        tri.c = (interp(cornerOffsets[e20], cubeValues[e20], cornerOffsets[e21], cubeValues[e21]) + id) / (_ChunkSize - 1) * _Scale;
+        // 现在_LODSize - 1是真实的有几个立方体，ChunkSize - 1是最大有几个立方体
+        tri.a = (interp(cornerOffsets[e00], cubeValues[e00], cornerOffsets[e01], cubeValues[e01]) + id) / (_LODSize - 1) * _Scale;
+        tri.b = (interp(cornerOffsets[e10], cubeValues[e10], cornerOffsets[e11], cubeValues[e11]) + id) / (_LODSize - 1) * _Scale;
+        tri.c = (interp(cornerOffsets[e20], cubeValues[e20], cornerOffsets[e21], cubeValues[e21]) + id) / (_LODSize - 1) * _Scale;
         _Triangles.Append(tri);
     }
 

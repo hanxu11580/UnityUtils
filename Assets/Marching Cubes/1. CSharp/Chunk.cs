@@ -14,7 +14,6 @@ namespace MarchingCubes_CSharp {
     }
 
     public class Chunk : MonoBehaviour {
-        public bool drawGizmos;
         public NoiseGenerator noiseGenerator;
         public float isoLevel = 0.5f;
         public Material material;
@@ -39,35 +38,6 @@ namespace MarchingCubes_CSharp {
             _mRenderer.material = material;
 
             UpdateMesh();
-        }
-
-        private void OnDrawGizmos() {
-            if (!drawGizmos) {
-                return;
-            }
-
-            if (_weights == null || _weights.Length == 0) {
-                return;
-            }
-            for (int x = 0; x < GridMetrics.PointsPerChunk; x++) {
-                for (int y = 0; y < GridMetrics.PointsPerChunk; y++) {
-                    for (int z = 0; z < GridMetrics.PointsPerChunk; z++) {
-                        // 立方体
-                        // 下面这个index公式是因为在ComputeShader中下面这样计算的，反过来可以可以获得权重值索引
-                        // _Weights[indexFromCoord(id.x, id.y, id.z)] = n;
-                        int index = x + GridMetrics.PointsPerChunk * (y + GridMetrics.PointsPerChunk * z);
-
-                        float noiseValue = _weights[index];
-                        // 权重越高越白，反之越低越黑
-                        Gizmos.color = Color.Lerp(Color.black, Color.white, noiseValue);
-                        Gizmos.DrawCube(new Vector3(x, y, z), Vector3.one * .2f);
-                    }
-                }
-            }
-        }
-
-        public void EditWeights(Vector3 hitposition, float brushSize, bool add) {
-
         }
 
         private Mesh ConstructMesh() {
