@@ -1,0 +1,33 @@
+#pragma kernel CubesCompute
+
+RWStructuredBuffer<float> _Positions;
+
+int _CubesPerAxis;
+int _Repetitions;
+float _Time;
+int _RandomStrength;
+
+// -1 ~ 1
+float rand(in float2 uv) {
+	return (frac(sin(dot(uv, float2(12.9898, 78.233) * 2.0)) * 43758.5453)) * 2 - 1;
+}
+
+int indexFromId(uint3 id) {
+	return id.x + _CubesPerAxis * (id.y + _CubesPerAxis * id.z);
+}
+
+// 8x8x1 工作组在每个维度含有多少线程
+// id指示当前正在运行哪个线程
+// 如果正在运行第1个线程 id = (0,0,0)
+// 如果正在运行第2个线程 id = (1,0,0)
+[numthreads(8,8,1)]
+void CubesCompute(uint3 id : SV_DispatchThreadID) {
+	if (id.x > _CubesPerAxis - 1 || id.y > _CubesPerAxis - 1) {
+		return;
+	}
+
+	for (int i = 0; i < _Repetitions; i++)
+	{
+		_Positions[indexFromId(id)] = rand(float2(id.x * _Time, id.y * _Time)) * _RandomStrength;
+	}
+}
