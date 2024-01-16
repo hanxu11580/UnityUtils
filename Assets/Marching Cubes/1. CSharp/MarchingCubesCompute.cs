@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using USDT.Utils;
 
-namespace MarchingCubes {
+namespace MarchingCubes_CSharp {
     /// <summary>
     /// 行进立方体计算类
     /// ComputeShader替代类

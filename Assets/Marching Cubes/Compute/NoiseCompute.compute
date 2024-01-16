@@ -1,22 +1,16 @@
 ﻿#pragma kernel GenerateNoise
 
 #include "Includes\FastNoiseLite.compute"
-
-static const uint numThreads = 8;
+#include "Includes\MetricsCompute.compute"
 
 RWStructuredBuffer<float> _Weights;
 
-int _ChunkSize;
 float _NoiseScale;
 float _Amplitude;
 float _Frequency;
 int _Octaves;
 float _GroundPercent;
-
-int indexFromCoord(int x, int y, int z)
-{
-    return x + _ChunkSize * (y + _ChunkSize * z);
-}
+int _GroundLevel;
 
 [numthreads(numThreads, numThreads, numThreads)]
 void GenerateNoise(uint3 id : SV_DispatchThreadID)
@@ -27,8 +21,16 @@ void GenerateNoise(uint3 id : SV_DispatchThreadID)
     noise.frequency = _Frequency;
     noise.octaves = _Octaves;
 
-    float3 pos = id * _NoiseScale;
-    float ground = -pos.y + (_GroundPercent * _ChunkSize);
+    // 噪音进行固定物理大小缩放
+    // 公式和MarchingCubesCompute一样
+    float3 pos = (id * _NoiseScale) / (_ChunkSize - 1) * _Scale;
+
+    // 当LOD增大，_ChunkSize增大，高度会变高
+    // 假设我们的 GroundPercent 为 0.5。这意味着我们在 LOD 0 (ChunkSize = 8) 处的地面高度等于 4。当我们使用 LOD 4 (ChunkSize = 40) 时，地面高度等于 20
+    //float ground = -pos.y + (_GroundPercent * _ChunkSize);
+    // 为了修复上面问题 此时之跟scale有关
+    float ground = -pos.y + (_GroundPercent * _GroundLevel);
+
     float n = ground + fnlGetNoise3D(noise, pos.x, pos.y, pos.z) * _Amplitude;
     _Weights[indexFromCoord(id.x, id.y, id.z)] = n;
 }

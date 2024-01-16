@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MarchingCubes {
+namespace MarchingCubes_CSharp {
     /// <summary>
     /// 负责将GPU ComputeShader生成的噪音值返回给C#
     /// </summary>

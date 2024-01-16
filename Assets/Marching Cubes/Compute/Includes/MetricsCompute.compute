@@ -1,0 +1,11 @@
+﻿static const uint numThreads = 8;
+
+int _ChunkSize;
+// 给MarchingCubesCompute、NoiseCompute使用的
+// 所以上面的2个脚本不应存在_Scale字段
+int _Scale;
+
+int indexFromCoord(int x, int y, int z)
+{
+    return x + _ChunkSize * (y + _ChunkSize * z);
+}

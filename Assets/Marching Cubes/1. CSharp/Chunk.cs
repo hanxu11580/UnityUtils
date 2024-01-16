@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MarchingCubes {
+namespace MarchingCubes_CSharp {
 
     public struct Triangle {
         public Vector3 v1;
@@ -23,22 +23,22 @@ namespace MarchingCubes {
 
         private MeshFilter _mFilter;
         private MeshRenderer _mRenderer;
+        private MeshCollider _mCollider;
 
-        float[] _weights;
+        private float[] _weights;
+        private Mesh _mesh;
 
         private void Start() {
             _mFilter = GetComponent<MeshFilter>();
+            _mCollider = GetComponent<MeshCollider>();
             _mRenderer = GetComponent<MeshRenderer>();
 
+            _mesh = new Mesh();
             _weights = noiseGenerator.GetNoise();
             marchingCubesCompute = new MarchingCubesCompute();
-            marchingCubesCompute.Weights = _weights;
-            marchingCubesCompute.IsoLevel = isoLevel;
-            marchingCubesCompute.March();
-
-            Triangle[] triangles = marchingCubesCompute.GetTriangles();
-            _mFilter.sharedMesh = CreateMeshFromTriangles(triangles);
             _mRenderer.material = material;
+
+            UpdateMesh();
         }
 
         private void OnDrawGizmos() {
@@ -66,6 +66,19 @@ namespace MarchingCubes {
             }
         }
 
+        public void EditWeights(Vector3 hitposition, float brushSize, bool add) {
+
+        }
+
+        private Mesh ConstructMesh() {
+            marchingCubesCompute.Weights = _weights;
+            marchingCubesCompute.IsoLevel = isoLevel;
+            marchingCubesCompute.March();
+
+            Triangle[] triangles = marchingCubesCompute.GetTriangles();
+            return CreateMeshFromTriangles(triangles);
+        }
+
         private Mesh CreateMeshFromTriangles(Triangle[] triangles) {
             // ¶¥µã
             Vector3[] verts = new Vector3[triangles.Length * 3];
@@ -85,22 +98,17 @@ namespace MarchingCubes {
                 tris[startIndex + 2] = startIndex + 2;
             }
 
-            Mesh mesh = new Mesh();
-            mesh.vertices = verts;
-            mesh.triangles = tris;
-            mesh.RecalculateNormals();
-            return mesh;
+            _mesh.Clear();
+            _mesh.vertices = verts;
+            _mesh.triangles = tris;
+            _mesh.RecalculateNormals();
+            return _mesh;
         }
 
-        [Button("Rebuild")]
-        private void Reuild() {
-            _weights = noiseGenerator.GetNoise();
-            marchingCubesCompute.Weights = _weights;
-            marchingCubesCompute.IsoLevel = isoLevel;
-            marchingCubesCompute.March();
-
-            Triangle[] triangles = marchingCubesCompute.GetTriangles();
-            _mFilter.sharedMesh = CreateMeshFromTriangles(triangles);
+        private void UpdateMesh() {
+            Mesh mesh = ConstructMesh();
+            _mFilter.sharedMesh = mesh;
+            _mCollider.sharedMesh = mesh;
         }
     }
 }
