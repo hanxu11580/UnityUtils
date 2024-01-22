@@ -11,7 +11,7 @@ namespace MarchingCubes_ComputeShader {
 			40,
             48,
             56,
-            64
+            64,
         };
 
 		public static int LastLod = LODs.Length - 1;

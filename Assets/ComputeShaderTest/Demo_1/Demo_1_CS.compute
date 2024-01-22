@@ -1,0 +1,86 @@
+#pragma kernel CSMain
+
+RWTexture2D<float4> Result;
+int _Size;
+float _Time;
+float2 _MousePos;
+int _MouseMode;
+int4 _WallColor;
+int4 _ParticleColor;
+float _BrushSize;
+
+float4 GetResultPixel(int2 pID_new)
+{
+	float4 result = Result[pID_new];
+	return result;
+}
+
+void MakeNewPixelObstacle(int2 id)
+{
+	float4 p = Result[id];
+	if (_MouseMode == 0 && p.x == 0 && p.y == 0 && p.z == 0) {
+		// 画粒子
+		Result[id] = _ParticleColor;
+	}
+	else if (_MouseMode == 1) {
+		// 画障碍
+		Result[id] = _WallColor;
+	}
+	else if (_MouseMode == 2 && (p.x == _WallColor.x && p.y == _WallColor.y && p.z == _WallColor.z)) {
+		// 移除障碍
+		Result[id] = float4(0, 0, 0, 1);
+	}
+}
+
+float random(float2 st)
+{
+	return frac(sin(dot(st.xy, float2(12.9898f, 78.233f))) * 43758.5453123f);
+}
+
+[numthreads(8, 8, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+	int2 newPixelID = _MousePos * _Size;
+	if (_MouseMode != 0)
+	{
+		// 和点击的像素位置圆形范围半径_BrushSize,都会画障碍或者清除障碍
+		float dist = distance(float2(id.xy), float2(newPixelID));
+		if (dist < _BrushSize) MakeNewPixelObstacle(id.xy);
+	}
+	else
+	{
+		// 画粒子
+		//MakeNewPixelObstacle(newPixelID);
+		float dist = distance(float2(id.xy), float2(newPixelID));
+		if (dist < _BrushSize) MakeNewPixelObstacle(id.xy);
+	}
+
+	int2 pID = id.xy;
+	float4 p = Result[pID];
+
+	// 如果这个像素是粒子像素
+	if (p.x == _ParticleColor.x && p.y == _ParticleColor.y && p.z == _ParticleColor.z)
+	{
+		int2 direction = int2(0, -1); // 方向
+		int2 pID_new = pID + direction;// 原有位置向下一个像素
+		float4 p_new = GetResultPixel(pID_new); // 获得下方像素的位置
+
+		// 如果下方是粒子 或者 是障碍
+		if ((p_new.x == _ParticleColor.x && p_new.y == _ParticleColor.y && p_new.z == _ParticleColor.z)
+			|| (p_new.x == _WallColor.x && p_new.y == _WallColor.y && p_new.z == _WallColor.z))
+		{
+			// 获得个新的像素点和像素点的值
+			direction = int2(sign(random(float2(pID)+_Time) - 0.5f), -1);
+			pID_new = pID + direction;
+			p_new = GetResultPixel(pID_new);
+		}
+
+		// 如果是空2种情况
+		// 1. 粒子像素下方 是粒子或障碍 然后重新随机了下z轴，然后在下去1个像素的位置
+		// 2. 粒子像素下方本来就是空的
+		if (p_new.x == 0 && p_new.y == 0 && p_new.z == 0) {
+			Result[pID_new] = p; //设置成粒子
+			Result[pID] = float4(0, 0, 0, 1); // 原本的位置设置成空
+		}
+	}
+}

@@ -37,7 +37,7 @@ namespace MarchingCubes_ComputeShader {
             }
         }
 
-        private void Create() {
+        public void Create() {
             CreateBuffers();
             // 确保噪音只生成一次
             if(_weights == null) {
